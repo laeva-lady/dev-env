@@ -1,10 +1,18 @@
 #! /usr/bin/bash
 
 sudo pacman -Syu --needed --noconfirm \
+    discord \
+    firefox \
+    go \
+    hyprland \
+    hyprpaper \
     kitty \
-    waybar rofi-wayland hyprland hyprpaper \
-    discord firefox \
-    nvim go lua tmux
+    lua \
+    nvim \
+    rofi-wayland \
+    tmux \
+    waybar
 
-yay -S brave-bin \
-    --needed --noconfirm
+yay -S --needed --noconfirm \
+    brave-bin \
+    spotify \
