@@ -1,0 +1,9 @@
+#! /usr/bin/bash
+
+sudo pacman -Syu
+sudo pacman -S --noconfirm kitty
+sudo pacman -S --noconfirm discord rofi-wayland go nvim firefox waybar tmux 
+sudo pacman -S --noconfirm hyprland hyprpaper
+
+
+yay -S brave-bin

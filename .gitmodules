@@ -1,0 +1,3 @@
+[submodule "env/.config/nvim"]
+	path = env/.config/nvim
+	url = https://github.com/laeva-lady/init.lua
