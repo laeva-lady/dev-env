@@ -6,12 +6,14 @@ sudo pacman -Syu --needed --noconfirm \
     go \
     hyprland \
     hyprpaper \
+    jre-openjdk \
     kitty \
     lua \
     nvim \
     rofi-wayland \
     tmux \
-    waybar
+    waybar \
+    wl-clipboard
 
 yay -S --needed --noconfirm \
     brave-bin \
