@@ -3,6 +3,7 @@
 sudo pacman -Syu --needed --noconfirm \
     bat \
     brightnessctl \
+    ghostty \
     btop \
     discord \
     dotnet-runtime \
@@ -52,6 +53,7 @@ yay -S --needed --noconfirm \
     ckb-next-git \
     keyd \
     unityhub \
+    wshowkeys-mao-git \
     minecraft-launcher \
     proton-ge-custom-bin \
     rider \

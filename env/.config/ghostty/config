@@ -1,0 +1,8 @@
+theme = rose-pine
+background = 000000
+foreground = ffffff
+
+background-opacity = 0.9
+background-blur = 20
+
+font-family = "Fira Code Retina"

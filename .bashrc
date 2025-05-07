@@ -50,15 +50,6 @@ if ! shopt -oq posix; then
     fi
 fi
 
-. "$HOME/.cargo/env"
-
-# fnm
-FNM_PATH="/home/alice/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-    export PATH="$FNM_PATH:$PATH"
-    eval "$(fnm env)"
-fi
-
 # PS1='$? \033[31m| \w \033[35m:|> \033[0m'
 set_prompt() {
     # local EXIT="$?"
@@ -87,7 +78,7 @@ set_prompt() {
     # str=$(printf '%*s' "$columns" '' | tr ' ' '=')
     #
 
-    PS1="[ \w ]\n ; "
+    PS1="[ \u @ \w ]\n ; "
 }
 
 PROMPT_COMMAND=set_prompt
