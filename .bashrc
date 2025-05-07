@@ -110,6 +110,8 @@ alias lea="clear"
 alias v="nvim"
 alias t="tmux"
 
+alias ghostkeys="ghostty +list-keybinds --default"
+
 alias tt="tmux new-session -c"
 
 alias denv="cd ~/personal/dev-env"
@@ -126,6 +128,7 @@ alias faf="~/personal/dev-env/scripts/fzf-custom.sh ."
  alias fm="~/personal/dev-env/scripts/fzf-make.sh"
 
 alias chat="v ~/chatprompt.md"
+alias out="v ~/out"
 alias note="cd ~/personal/notes/notes_"
 alias lst="ls --color=always | awk {print '\t' $0}"
 
@@ -210,4 +213,5 @@ alias vc="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 # alias power="powershell.exe"
 alias ..="cd .."
 alias ?="echo $?"
+
 
