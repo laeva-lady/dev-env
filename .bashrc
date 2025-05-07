@@ -208,7 +208,7 @@ alias lsd="find . -maxdepth 1 -mindepth 1 -type d"
 alias r="ranger"
 
 # opeinign stuff
-alias vc="code"
+alias vc="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 # alias wic="cmd.exe /c code "
 # alias sln="cmd.exe /c *.sln"
 # alias kate="cmd.exe /c kate"

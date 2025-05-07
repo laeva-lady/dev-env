@@ -2,6 +2,8 @@
 
 sudo pacman -Syu --needed --noconfirm \
     bat \
+    brightnessctl \
+    btop \
     discord \
     dotnet-runtime \
     dotnet-sdk \
@@ -38,6 +40,7 @@ sudo pacman -Syu --needed --noconfirm \
     tmux \
     torbrowser-launcher \
     ttf-fira-code \
+    typst \
     waybar \
     wev \
     wl-clipboard \
@@ -46,10 +49,9 @@ sudo pacman -Syu --needed --noconfirm \
 
 yay -S --needed --noconfirm \
     brave-bin \
+    ckb-next-git \
     keyd \
-    ckb-next \
-    vencord \
-    visual-studio-code-bin \
+    unityhub \
     minecraft-launcher \
     proton-ge-custom-bin \
-    swhkd-bin \
+    rider \
