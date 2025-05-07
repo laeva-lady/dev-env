@@ -127,6 +127,8 @@ alias t="tmux"
 
 alias tt="tmux new-session -c"
 
+alias denv="cd ~/personal/dev-env"
+
 alias wmake="~/scripts/make-loop.sh"
 alias wmaker="~/scripts/make-loop-r.sh"
 alias wmakeb="~/scripts/make-loop-b.sh"

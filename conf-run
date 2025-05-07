@@ -1,5 +1,4 @@
 #! /usr/bin/bash
-
 dry_run="0"
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
@@ -65,3 +64,5 @@ update_files $DEV_ENV/env/.config $XDG_CONFIG_HOME
 
 rm $HOME/.bashrc
 cp $DEV_ENV/.bashrc $HOME/.bashrc
+
+

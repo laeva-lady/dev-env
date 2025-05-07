@@ -2,24 +2,32 @@
 
 sudo pacman -Syu --needed --noconfirm \
     discord \
+    fastfetch \
     firefox \
     go \
+    htop \
     hyprland \
     hyprpaper \
     jre-openjdk \
     kitty \
+    lib32-nvidia-utils \
     lua \
     npm \
+    nvidia-utils \
     nvim \
+    nvtop \
     rofi-wayland \
     steam \
     steam-native-runtime \
     thunderbird \
     tmux \
+    torbrowser-launcher \
     waybar \
-    wl-clipboard
+    spotify-launcher \
+    libva-nvidia-driver \
+    wl-clipboard \
 
 yay -S --needed --noconfirm \
     brave-bin \
     proton-ge-custom-bin \
-    spotify \
+    keyd \
