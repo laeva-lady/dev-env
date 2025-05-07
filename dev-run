@@ -9,12 +9,17 @@ sudo pacman -Syu --needed --noconfirm \
     jre-openjdk \
     kitty \
     lua \
+    npm \
     nvim \
     rofi-wayland \
+    steam \
+    steam-native-runtime \
+    thunderbird \
     tmux \
     waybar \
     wl-clipboard
 
 yay -S --needed --noconfirm \
     brave-bin \
+    proton-ge-custom-bin \
     spotify \

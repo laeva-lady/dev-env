@@ -62,3 +62,6 @@ copy() {
 }
 
 update_files $DEV_ENV/env/.config $XDG_CONFIG_HOME
+
+rm $HOME/.bashrc
+cp $DEV_ENV/.bashrc $HOME/.bashrc

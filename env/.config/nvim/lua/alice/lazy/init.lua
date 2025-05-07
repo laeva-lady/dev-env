@@ -1,9 +1,9 @@
 return {
 
-    -- [[ {
-        "nvim-lua/plenary.nvim",
-        name = "plenary"
-    -- ]]},
+    -- {
+    --     "nvim-lua/plenary.nvim",
+    --     name = "plenary"
+    -- },
 
     {
         "jose-elias-alvarez/null-ls.nvim",
