@@ -1,7 +1,11 @@
 #! /usr/bin/bash
 
 sudo pacman -Syu --needed --noconfirm \
+    bat \
+    wtype \
     discord \
+    dotnet-runtime \
+    dotnet-sdk \
     fastfetch \
     firefox \
     go \
@@ -11,23 +15,35 @@ sudo pacman -Syu --needed --noconfirm \
     jre-openjdk \
     kitty \
     lib32-nvidia-utils \
+    libva-nvidia-driver \
+    love \
     lua \
     npm \
     nvidia-utils \
     nvim \
     nvtop \
+    python-pillow \
+    ranger \
+    ripgrep \
     rofi-wayland \
+    rustup \
+    spotify-launcher \
     steam \
     steam-native-runtime \
     thunderbird \
     tmux \
     torbrowser-launcher \
+    ttf-fira-code \
     waybar \
-    spotify-launcher \
-    libva-nvidia-driver \
+    wev \
     wl-clipboard \
+
 
 yay -S --needed --noconfirm \
     brave-bin \
-    proton-ge-custom-bin \
     keyd \
+    ckb-next \
+    visual-studio-code-bin \
+    minecraft-launcher \
+    proton-ge-custom-bin \
+    swhkd-bin \
