@@ -102,16 +102,10 @@ PROMPT_COMMAND=set_prompt
 # . "$HOME/.asdf/completions/asdf.bash"
 
 
-export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
-export PATH=$PATH:/opt/nvim-linux64/bin
-. "$HOME/.cargo/env"
-
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-
-
-. <(asdf completion bash)
-
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 
 

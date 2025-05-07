@@ -2,12 +2,15 @@
 
 sudo pacman -Syu --needed --noconfirm \
     bat \
-    gimp \
     discord \
     dotnet-runtime \
     dotnet-sdk \
     fastfetch \
+    fcitx5-configtool \
+    fcitx5-gtk \
+    fcitx5-mozc \
     firefox \
+    gimp \
     go \
     htop \
     hyprland \
@@ -45,6 +48,7 @@ yay -S --needed --noconfirm \
     brave-bin \
     keyd \
     ckb-next \
+    vencord \
     visual-studio-code-bin \
     minecraft-launcher \
     proton-ge-custom-bin \
