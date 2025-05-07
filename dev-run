@@ -2,7 +2,7 @@
 
 sudo pacman -Syu --needed --noconfirm \
     bat \
-    wtype \
+    gimp \
     discord \
     dotnet-runtime \
     dotnet-sdk \
@@ -23,6 +23,7 @@ sudo pacman -Syu --needed --noconfirm \
     nvim \
     nvtop \
     python-pillow \
+    qbittorrent \
     ranger \
     ripgrep \
     rofi-wayland \
@@ -37,6 +38,7 @@ sudo pacman -Syu --needed --noconfirm \
     waybar \
     wev \
     wl-clipboard \
+    wtype \
 
 
 yay -S --needed --noconfirm \
