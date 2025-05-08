@@ -110,11 +110,18 @@ alias lea="clear"
 alias v="nvim"
 alias t="tmux"
 
+vz() {
+    local file
+    file=$(fzf) || return 1
+    [ -n "$file" ] && nvim "$file"
+}
+
 alias ghostkeys="ghostty +list-keybinds --default"
 
 alias tt="tmux new-session -c"
 
 alias denv="cd ~/personal/dev-env"
+alias denver="cd ~/personal/dev-env"
 # need to figure how to do that
 # alias dconf="DEV_ENV=$HOME/personal/dev-env/ $HOME/personal/dev-env/conf-run"
 

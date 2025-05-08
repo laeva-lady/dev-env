@@ -3,7 +3,6 @@
 sudo pacman -Syu --needed --noconfirm \
     bat \
     brightnessctl \
-    ghostty \
     btop \
     discord \
     dotnet-runtime \
@@ -13,11 +12,13 @@ sudo pacman -Syu --needed --noconfirm \
     fcitx5-gtk \
     fcitx5-mozc \
     firefox \
+    ghostty \
     gimp \
     go \
     htop \
     hyprland \
     hyprpaper \
+    hyprsunset \
     jre-openjdk \
     kitty \
     lib32-nvidia-utils \
@@ -40,6 +41,7 @@ sudo pacman -Syu --needed --noconfirm \
     thunderbird \
     tmux \
     torbrowser-launcher \
+    tree \
     ttf-fira-code \
     typst \
     waybar \
@@ -50,10 +52,12 @@ sudo pacman -Syu --needed --noconfirm \
 
 yay -S --needed --noconfirm \
     brave-bin \
+    chatterino2-git \
     ckb-next-git \
     keyd \
-    unityhub \
-    wshowkeys-mao-git \
     minecraft-launcher \
     proton-ge-custom-bin \
     rider \
+    unityhub \
+    wshowkeys-mao-git \
+    zen-browser-bin \

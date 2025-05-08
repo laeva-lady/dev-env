@@ -1,9 +1,13 @@
 {
   "layer": "top",
   "position": "top",
+
   "modules-left": ["hyprland/workspaces"],
+
   "modules-center": ["clock"],
+
   "modules-right": [
+    "custom/music",
     "pulseaudio",
     // "backlight",
     "battery",
@@ -38,15 +42,15 @@
     "format": "{:%Y-%m-%d - %H:%M:%S}"
   },
   "network": {
-    "format-wifi": "󰤢 ",
-    "format-ethernet": "󰈀 ",
-    "format-disconnected": "󰤠 ",
+    "format-wifi": "WIFI",
+    "format-ethernet": "ETH",
+    "format-disconnected": "NaN",
     "interval": 5,
-    "tooltip": false
+    "tooltip": true
   },
   "cpu": {
     "interval": 1,
-    "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+    "format": "CPU  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
   },
   "memory": {

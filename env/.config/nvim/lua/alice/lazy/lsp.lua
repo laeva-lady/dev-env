@@ -63,8 +63,13 @@ return {
                                 },
                                 diagnostics = {
                                     globals = {
-                                        "bit", "vim", "it", "describe", "before_each", "after_each", "love",
-                                        "lovr"
+                                        "bit",
+                                        "vim",
+                                        "it",
+                                        "describe",
+                                        "before_each",
+                                        "after_each",
+                                        "love"
                                     }
                                 },
                             }
