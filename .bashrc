@@ -110,7 +110,7 @@ alias lea="clear"
 alias v="nvim"
 alias t="tmux"
 
-vz() {
+zv() {
     local file
     file=$(fzf) || return 1
     [ -n "$file" ] && nvim "$file"
@@ -222,6 +222,7 @@ alias vc="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias ..="cd .."
 alias ?="echo $?"
 
+alias dis="discord --disable-gpu"
 
-# export STARSHIP_CONFIG=~/.config/starship/starship.toml
-# eval "$(starship init bash)"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init bash)"

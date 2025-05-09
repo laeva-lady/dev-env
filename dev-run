@@ -3,8 +3,6 @@
 sudo pacman -Syu --needed --noconfirm \
     bat \
     brightnessctl \
-    hyprlock \
-    starship \
     btop \
     discord \
     dotnet-runtime \
@@ -18,7 +16,9 @@ sudo pacman -Syu --needed --noconfirm \
     gimp \
     go \
     htop \
+    hypridle \
     hyprland \
+    hyprlock \
     hyprpaper \
     hyprsunset \
     jre-openjdk \
@@ -28,6 +28,7 @@ sudo pacman -Syu --needed --noconfirm \
     libva-nvidia-driver \
     love \
     lua \
+    lutris \
     npm \
     nvidia-utils \
     nvim \
@@ -39,6 +40,7 @@ sudo pacman -Syu --needed --noconfirm \
     rofi-wayland \
     rustup \
     spotify-launcher \
+    starship \
     steam \
     steam-native-runtime \
     thunderbird \
@@ -49,6 +51,7 @@ sudo pacman -Syu --needed --noconfirm \
     typst \
     waybar \
     wev \
+    wine \
     wl-clipboard \
 
 
