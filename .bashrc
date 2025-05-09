@@ -135,6 +135,7 @@ alias faf="~/personal/dev-env/scripts/fzf-custom.sh ."
  alias fm="~/personal/dev-env/scripts/fzf-make.sh"
 
 alias chat="v ~/chatprompt.md"
+alias zxcv="v ~/zxcv.md"
 alias out="v ~/out"
 alias note="cd ~/personal/notes/notes_"
 alias lst="ls --color=always | awk {print '\t' $0}"
@@ -221,4 +222,4 @@ alias vc="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias ..="cd .."
 alias ?="echo $?"
 
-
+eval "$(starship init bash)"

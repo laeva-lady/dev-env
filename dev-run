@@ -3,6 +3,7 @@
 sudo pacman -Syu --needed --noconfirm \
     bat \
     brightnessctl \
+    starship \
     btop \
     discord \
     dotnet-runtime \
@@ -20,6 +21,7 @@ sudo pacman -Syu --needed --noconfirm \
     hyprpaper \
     hyprsunset \
     jre-openjdk \
+    keyd \
     kitty \
     lib32-nvidia-utils \
     libva-nvidia-driver \
@@ -47,7 +49,6 @@ sudo pacman -Syu --needed --noconfirm \
     waybar \
     wev \
     wl-clipboard \
-    wtype \
 
 
 yay -S --needed --noconfirm \
@@ -57,6 +58,7 @@ yay -S --needed --noconfirm \
     keyd \
     minecraft-launcher \
     proton-ge-custom-bin \
+    hyprshot \
     rider \
     unityhub \
     wshowkeys-mao-git \
