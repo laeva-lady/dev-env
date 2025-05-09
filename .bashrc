@@ -223,5 +223,5 @@ alias ..="cd .."
 alias ?="echo $?"
 
 
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init bash)"
+# export STARSHIP_CONFIG=~/.config/starship/starship.toml
+# eval "$(starship init bash)"
