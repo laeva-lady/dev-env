@@ -3,6 +3,7 @@
 sudo pacman -Syu --needed --noconfirm \
     bat \
     brightnessctl \
+    gnome-keyring \
     btop \
     discord \
     dotnet-runtime \
@@ -51,8 +52,9 @@ sudo pacman -Syu --needed --noconfirm \
     typst \
     waybar \
     wev \
-    wine \
     wl-clipboard \
+    virtualbox \
+    virtualbox-host-modules-arch
 
 
 yay -S --needed --noconfirm \
