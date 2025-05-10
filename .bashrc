@@ -95,9 +95,10 @@ PROMPT_COMMAND=set_prompt
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-
+export SDL_IM_MODULE=fcitx
 
 
 
@@ -110,7 +111,7 @@ alias lea="clear"
 alias v="nvim"
 alias t="tmux"
 
-zv() {
+vfz() {
     local file
     file=$(fzf) || return 1
     [ -n "$file" ] && nvim "$file"
