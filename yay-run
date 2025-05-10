@@ -1,0 +1,15 @@
+#! /usr/bin/bash
+
+yay -S --needed --noconfirm \
+    brave-bin \
+    visual-studio-code-bin \
+    chatterino2-git \
+    ckb-next-git \
+    keyd \
+    minecraft-launcher \
+    proton-ge-custom-bin \
+    hyprshot \
+    rider \
+    unityhub \
+    wshowkeys-mao-git \
+    zen-browser-bin \
