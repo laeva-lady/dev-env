@@ -35,6 +35,7 @@ sudo pacman -Syu --needed --noconfirm \
     nvidia-utils \
     nvim \
     nvtop \
+    obs-studio \
     python-pillow \
     qbittorrent \
     ranger \

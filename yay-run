@@ -3,6 +3,7 @@
 yay -S --needed --noconfirm \
     brave-bin \
     visual-studio-code-bin \
+    wlrobs-hg \
     chatterino2-git \
     ckb-next-git \
     keyd \
