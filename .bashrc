@@ -113,7 +113,7 @@ alias t="tmux"
 
 vfz() {
     local file
-    file=$(fzf) || return 1
+    file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
     [ -n "$file" ] && nvim "$file"
 }
 
@@ -123,8 +123,6 @@ alias tt="tmux new-session -c"
 
 alias denv="cd ~/personal/dev-env"
 alias denver="cd ~/personal/dev-env"
-# need to figure how to do that
-# alias dconf="DEV_ENV=$HOME/personal/dev-env/ $HOME/personal/dev-env/conf-run"
 
 alias wmake="~/personal/dev-env/scripts/make-loop.sh"
 alias wmaker="~/personal/dev-env/scripts/make-loop-r.sh"
@@ -132,14 +130,12 @@ alias wmakeb="~/personal/dev-env/scripts/make-loop-b.sh"
 
  alias fa="~/personal/dev-env/scripts/fzf-custom.sh"
 alias fal="~/personal/dev-env/scripts/fzf-custom-nonrecursive.sh"
-alias faf="~/personal/dev-env/scripts/fzf-custom.sh ."
  alias fm="~/personal/dev-env/scripts/fzf-make.sh"
 
 alias chat="v ~/chatprompt.md"
 alias zxcv="v ~/zxcv.md"
 alias out="v ~/out"
 alias note="cd ~/personal/notes/notes_"
-alias lst="ls --color=always | awk {print '\t' $0}"
 
 alias mk="make"
 alias mkr="make r"
@@ -153,7 +149,7 @@ alias l="ls -CF"
 alias ls="ls -a1 --color=auto"
 alias ni="touch"
 
-# "exit" is too long to type
+# lazy ass bum
 alias q="exit"
 alias x="exit"
 alias e="exit"
@@ -174,7 +170,6 @@ alias ew="exit"
    alias oc="cd ~/personal/dev/code/ovaml/"
 alias hasky="cd ~/personal/dev/code/haskell/"
    alias fs="cd ~/personal/dev/code/FSHARP/"
- alias pyte="v  ~/personal/dev/code/pyt/pythonProject/scratch.py"
 
 # compiler shorthands
 alias er="cargo run"
@@ -210,20 +205,11 @@ alias lsc="while :; do ls | wc -l ; done"
 alias lsd="find . -maxdepth 1 -mindepth 1 -type d"
 alias r="ranger"
 
-# opeinign stuff
-# alias wic="cmd.exe /c code "
-# alias sln="cmd.exe /c *.sln"
-# alias kate="cmd.exe /c kate"
-# alias rr="ranger /"
-# alias obs="/mnt/c/Users/valky/AppData/Local/Obsidian/Obsidian.exe"
-# alias yr="~/.local/bin/yt-dlp"
-# alias mpv="mpv.exe"
-# alias power="powershell.exe"
 alias ..="cd .."
 alias ?="echo $?"
 
-alias dis="discord --disable-gpu"
+alias dis="$HOME/personal/dev-env/scripts/discord"
 alias code="code --disable-gpu"
 
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init bash)"
+# export STARSHIP_CONFIG=~/.config/starship/starship.toml
+# eval "$(starship init bash)"

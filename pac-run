@@ -3,11 +3,9 @@
 sudo pacman -Syu --needed --noconfirm \
     bat \
     brightnessctl \
-    gnome-keyring \
     btop \
     discord \
     dotnet-runtime \
-    w3m \
     dotnet-sdk \
     fastfetch \
     fcitx5-configtool \
@@ -16,6 +14,7 @@ sudo pacman -Syu --needed --noconfirm \
     firefox \
     ghostty \
     gimp \
+    gnome-keyring \
     go \
     htop \
     hypridle \
@@ -32,6 +31,7 @@ sudo pacman -Syu --needed --noconfirm \
     lua \
     lutris \
     npm \
+    nvidia-open \
     nvidia-utils \
     nvim \
     nvtop \
@@ -52,8 +52,9 @@ sudo pacman -Syu --needed --noconfirm \
     tree \
     ttf-fira-code \
     typst \
+    virtualbox \
+    virtualbox-host-modules-arch
+    w3m \
     waybar \
     wev \
     wl-clipboard \
-    virtualbox \
-    virtualbox-host-modules-arch

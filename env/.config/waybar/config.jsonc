@@ -23,7 +23,7 @@
     "format": "{name}: {icon}",
     "format-icons": {
       "active": "O",
-      "default": "X"
+      "default": "_"
     }
   },
   "tray": {
