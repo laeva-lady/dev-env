@@ -2,15 +2,15 @@
 
 yay -S --needed --noconfirm \
     brave-bin \
-    visual-studio-code-bin \
-    wlrobs-hg \
     chatterino2-git \
     ckb-next-git \
+    hyprshot \
     keyd \
     minecraft-launcher \
     proton-ge-custom-bin \
-    hyprshot \
     rider \
     unityhub \
+    visual-studio-code-bin \
+    wlrobs-hg \
     wshowkeys-mao-git \
     zen-browser-bin \
