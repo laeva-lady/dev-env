@@ -51,7 +51,8 @@
   ],
 
   "modules-right": [
-    "mpris",                // media info
+    "tray",
+    // "mpris",                // media info
 
     "custom/left6",
     "pulseaudio",           // output device
@@ -83,11 +84,11 @@
     "on-scroll-up": "hyprctl dispatch workspace -1",
     "on-scroll-down": "hyprctl dispatch workspace +1",
     "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": []
+      // "1": [],
+      // "2": [],
+      // "3": [],
+      // "4": [],
+      // "5": []
     }
   },
 
@@ -106,7 +107,8 @@
       // ───────────────────────────────────────────────────────── terminal ───
 
       "~": "  Terminal",
-      "zsh": "  Terminal",
+      "bash": "  Terminal",
+      "ghostty": "  Terminal",
       "kitty": "  Terminal",
 
       "tmux(.*)":

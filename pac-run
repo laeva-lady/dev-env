@@ -3,6 +3,7 @@
 sudo pacman -Syu --needed --noconfirm \
     bat \
     brightnessctl \
+    fish \
     btop \
     discord \
     dotnet-runtime \
