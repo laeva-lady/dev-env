@@ -111,12 +111,6 @@ alias lea="clear"
 alias v="nvim"
 alias t="tmux"
 
-vfz() {
-    local file
-    file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
-    [ -n "$file" ] && nvim "$file"
-}
-
 alias ghostkeys="ghostty +list-keybinds --default"
 
 alias tt="tmux new-session -c"
@@ -210,6 +204,21 @@ alias ?="echo $?"
 
 alias dis="$HOME/personal/dev-env/scripts/discord"
 alias code="code --disable-gpu"
+
+
+fzd() {
+    local selected
+    selected=$(find ~/ ~/personal ~/personal/dev/ -mindepth 1 -maxdepth 5 \( -path '*/.*' -prune \) -o -type d -print | fzf)
+    [[ -z $selected ]] && return
+    cd "$selected"
+}
+vfz() {
+    local file
+    file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
+    [ -n "$file" ] && nvim "$file"
+}
+alias ts="$HOME/personal/dev-env/tmux-sessionizer"
+
 
 # export STARSHIP_CONFIG=~/.config/starship/starship.toml
 # eval "$(starship init bash)"
