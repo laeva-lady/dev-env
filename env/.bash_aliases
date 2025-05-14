@@ -96,7 +96,7 @@ alias lsd="find . -maxdepth 1 -mindepth 1 -type d"
 alias r="ranger"
 
 alias ..="cd .."
-alias ?="echo $?"
+# alias ?="echo $?"
 
 alias dis="$HOME/personal/dev-env/scripts/discord"
 alias code="code --disable-gpu"

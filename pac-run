@@ -2,6 +2,9 @@
 
 sudo pacman -Syu --needed --noconfirm \
     bat \
+    cliphist \
+    zsh \
+    dmenu \
     brightnessctl \
     fish \
     btop \
