@@ -16,6 +16,7 @@ sudo pacman -Syu --needed --noconfirm \
     gimp \
     gnome-keyring \
     go \
+    gopls \
     htop \
     hypridle \
     hyprland \
@@ -51,10 +52,10 @@ sudo pacman -Syu --needed --noconfirm \
     torbrowser-launcher \
     tree \
     ttf-fira-code \
+    ttf-nerd-fonts-symbols-mono \
     typst \
     virtualbox \
-    virtualbox-host-modules-arch
-    w3m \
+    virtualbox-host-modules-arch \
     waybar \
     wev \
     wl-clipboard \

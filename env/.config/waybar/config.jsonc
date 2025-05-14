@@ -1,22 +1,22 @@
 {
   "layer": "top",
+  "exclusive": true,
   "position": "top",
 
   "modules-left": [
-    "battery",
-    "network",
-    "cpu",
-    "memory",
-    "custom/music",
+    "hyprland/workspaces"
+    // "network",
+    // "cpu",
+    // "memory",
   ],
 
-  "modules-center": [
-    "hyprland/workspaces",
-  ],
+  // "modules-center": [
+  // ],
 
   "modules-right": [
     "pulseaudio",
     "tray",
+    "battery",
     "clock"
   ],
   "hyprland/workspaces": {
