@@ -208,7 +208,7 @@ alias code="code --disable-gpu"
 
 fzd() {
     local selected
-    selected=$(find ~/ ~/personal ~/personal/dev/ -mindepth 1 -maxdepth 5 \( -path '*/.*' -prune \) -o -type d -print | fzf)
+    selected=$(find . ~/ ~/personal ~/personal/dev/ -mindepth 1 -maxdepth 5 -type d -print | fzf)
     [[ -z $selected ]] && return
     cd "$selected"
 }
