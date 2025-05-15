@@ -25,6 +25,7 @@ sudo pacman -Syu --needed --noconfirm \
     hyprland \
     hyprlock \
     hyprpaper \
+    hyprpicker \
     hyprsunset \
     jre-openjdk \
     keyd \
