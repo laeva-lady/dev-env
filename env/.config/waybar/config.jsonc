@@ -51,13 +51,14 @@
   ],
 
   "modules-right": [
+    "custom/weather",
+    "custom/left6",
     "tray",
     // "mpris",                // media info
 
-    "custom/left6",
+    "custom/left7",
     "pulseaudio",           // output device
 
-    // "custom/left7",
     // "backlight",            // brightness
 
     "custom/left8",
@@ -66,6 +67,13 @@
     "custom/leftin2",
     "custom/power"          // power button
   ],
+
+  // --------------------------------------------------------| weather |-------
+  "custom/weather": {
+    "exec": "~/.config/waybar/scripts/city-temp.sh",
+    "return-type": "json",
+    "interval": 900
+  },
 
   // ────────────────────────────────────────────────────────┤ window icon ├───
 
