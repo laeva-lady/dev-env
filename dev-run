@@ -2,6 +2,6 @@
 
 
 echo "Starting pac-run"
-./pac-run
+./cmds/pac-run
 echo "Starting yay-run"
-./yay-run
+./cmds/yay-run

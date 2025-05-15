@@ -1,0 +1,5 @@
+#! /usr/bin/bash
+
+sudo pacman -S --needed --noconfirm python-pipx
+pipx install spotdl
+
