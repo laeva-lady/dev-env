@@ -2,6 +2,7 @@
 
 yay -S --needed --noconfirm \
     brave-bin \
+    swhkd \
     chatterino2-git \
     ckb-next-git \
     hyprshot \

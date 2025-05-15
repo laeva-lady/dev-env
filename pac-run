@@ -3,6 +3,7 @@
 sudo pacman -Syu --needed --noconfirm \
     bat \
     brightnessctl \
+    ydotool \
     libreoffice-still \
     btop \
     cliphist \
