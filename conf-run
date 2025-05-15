@@ -65,6 +65,7 @@ update_files $DEV_ENV/env/.config $XDG_CONFIG_HOME
 cp $DEV_ENV/env/.bash_aliases $HOME/.bash_aliases
 cp $DEV_ENV/env/.bashrc $HOME/.bashrc
 cp $DEV_ENV/env/.zshrc $HOME/.zshrc
+cp $DEV_ENV/env/.tmux.conf $HOME/.tmux.conf
 cp $DEV_ENV/env/config.fish $HOME/.config/fish/config.fish
 
 hyprctl reload
