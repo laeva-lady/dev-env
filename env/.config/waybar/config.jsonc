@@ -141,6 +141,11 @@
       "(.*)Visual Studio Code":
         "<span foreground='#89b4fa'>󰨞 </span> Visual Studio Code",
 
+      "v":
+        "<span foreground='#a6e3a1'> </span> Neovim",
+      "v (.*)":
+        "<span foreground='#a6e3a1'> </span> $1",
+
       "nvim":
         "<span foreground='#a6e3a1'> </span> Neovim",
       "nvim (.*)":

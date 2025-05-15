@@ -113,4 +113,9 @@ vfz() {
     file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
     [ -n "$file" ] && nvim "$file"
 }
+runf() {
+    local file
+    file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
+    [ -n "$file" ] && . "$file"
+}
 alias ts="$HOME/personal/dev-env/tmux-sessionizer"

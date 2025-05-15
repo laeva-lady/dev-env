@@ -2,14 +2,10 @@
 
 sudo pacman -Syu --needed --noconfirm \
     bat \
-    obsidian \
     brightnessctl \
-    ydotool \
-    libreoffice-still \
     btop \
     cliphist \
     discord \
-    dmenu \
     dotnet-runtime \
     dotnet-sdk \
     fastfetch \
@@ -30,18 +26,19 @@ sudo pacman -Syu --needed --noconfirm \
     hyprpicker \
     hyprsunset \
     jre-openjdk \
-    keyd \
     kitty \
     lib32-nvidia-utils \
+    libreoffice-still \
     libva-nvidia-driver \
     love \
     lua \
     lutris \
     npm \
-    nvidia-open \
+    nvidia \
     nvidia-utils \
     nvim \
     nvtop \
+    obsidian \
     obs-studio \
     python-pillow \
     qbittorrent \
@@ -50,7 +47,6 @@ sudo pacman -Syu --needed --noconfirm \
     rofi-wayland \
     rustup \
     spotify-launcher \
-    starship \
     steam \
     steam-native-runtime \
     thunderbird \
