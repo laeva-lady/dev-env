@@ -15,4 +15,4 @@
 # yay -S --needed --noconfirm   wlrobs-hg
 # yay -S --needed --noconfirm   wshowkeys-mao-git
 # yay -S --needed --noconfirm   zen-browser-bin
-yay -S --needed --noconfirm   wttrbar
+# yay -S --needed --noconfirm   wttrbar

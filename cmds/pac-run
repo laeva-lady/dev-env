@@ -69,3 +69,4 @@ sudo pacman -Syu --needed --noconfirm \
     wlsunset \
     wtype \
     zsh \
+    wpaperd \

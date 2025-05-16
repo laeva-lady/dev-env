@@ -1,0 +1,5 @@
+[any]
+path = "/home/alice/personal/dev-env/env/wallpapers/"
+duration = "5m"
+
+[any.transition.hexagonalize]
