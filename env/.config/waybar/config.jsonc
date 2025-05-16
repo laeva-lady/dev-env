@@ -10,9 +10,6 @@
   // ──────────────────────────────────────────────────────────┤ positions ├───
 
   "modules-left": [
-    // "custom/sunset",            // window icon
-    // "custom/left1",
-
     "hyprland/workspaces",  // workspaces
     "custom/right1",
 
@@ -73,13 +70,6 @@
     "exec": "~/.config/waybar/scripts/city-temp.sh",
     "return-type": "json",
     "interval": 900
-  },
-  "custom/sunset": {
-    "format": " {}",
-    "interval": 60,
-    "exec": "~/.config/waybar/scripts/sunset.py",
-    "return-type": "json",
-    "tooltip": false
   },
 
   // ────────────────────────────────────────────────────────┤ window icon ├───

@@ -2,8 +2,9 @@
 
 sudo pacman -Syu --needed --noconfirm \
     bat \
-    wtype \
-    rofi-emoji \
+    bluetui \
+    bluez \
+    bluez-utils \
     brightnessctl \
     btop \
     cliphist \
@@ -47,6 +48,7 @@ sudo pacman -Syu --needed --noconfirm \
     qbittorrent \
     ranger \
     ripgrep \
+    rofi-emoji \
     rofi-wayland \
     rustup \
     spotify-launcher \
@@ -64,4 +66,6 @@ sudo pacman -Syu --needed --noconfirm \
     waybar \
     wev \
     wl-clipboard \
+    wlsunset \
+    wtype \
     zsh \

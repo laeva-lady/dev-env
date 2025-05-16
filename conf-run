@@ -60,12 +60,15 @@ copy() {
     fi
 }
 
+echo "Copying .config files"
 update_files $DEV_ENV/env/.config $XDG_CONFIG_HOME
 
+echo "Copying envs files"
 cp $DEV_ENV/env/.bash_aliases $HOME/.bash_aliases
 cp $DEV_ENV/env/.bashrc $HOME/.bashrc
 cp $DEV_ENV/env/.zshrc $HOME/.zshrc
 cp $DEV_ENV/env/.tmux.conf $HOME/.tmux.conf
 cp $DEV_ENV/env/config.fish $HOME/.config/fish/config.fish
 
+echo "Reloading Hyprland"
 hyprctl reload
