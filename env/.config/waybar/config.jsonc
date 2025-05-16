@@ -67,9 +67,11 @@
 
   // --------------------------------------------------------| weather |-------
   "custom/weather": {
-    "exec": "~/.config/waybar/scripts/city-temp.sh",
-    "return-type": "json",
-    "interval": 900
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar --location \"Sainte-Thérèse\" --lang fr",
+    "return-type": "json"
   },
 
   // ────────────────────────────────────────────────────────┤ window icon ├───
