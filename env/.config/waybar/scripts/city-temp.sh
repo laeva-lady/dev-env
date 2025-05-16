@@ -4,7 +4,7 @@
 CITY=$(curl -s ipinfo.io | jq -r .city)  # Auto-detect based on IP
 # CITY="Berlin"  # Uncomment this to set a fixed city
 
-weather=$(curl -s "wttr.in/${CITY}?format=%t+%C")
+weather=$(curl -s "wttr.in/${CITY}?format=%t+%f+%c+%C")
 
 if [[ -z "$weather" ]]; then
     echo '{"text": "🌐 error", "tooltip": "Could not fetch weather."}'

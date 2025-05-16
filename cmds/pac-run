@@ -2,6 +2,8 @@
 
 sudo pacman -Syu --needed --noconfirm \
     bat \
+    wtype \
+    rofi-emoji \
     brightnessctl \
     btop \
     cliphist \
@@ -34,7 +36,7 @@ sudo pacman -Syu --needed --noconfirm \
     lua \
     lutris \
     npm \
-    nvidia \
+    nvidia-open \
     nvidia-utils \
     nvim \
     nvtop \
