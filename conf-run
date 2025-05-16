@@ -68,4 +68,4 @@ cp $DEV_ENV/env/.zshrc $HOME/.zshrc
 cp $DEV_ENV/env/.tmux.conf $HOME/.tmux.conf
 cp $DEV_ENV/env/config.fish $HOME/.config/fish/config.fish
 
-# hyprctl reload
+hyprctl reload
