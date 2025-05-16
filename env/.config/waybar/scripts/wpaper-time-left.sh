@@ -9,6 +9,6 @@ first_line=$(echo "$str" | head -n 1)
 # gives this part:
 #   HDMI-A-1: running (4m left)
 
-if [[ $first_line =~ ([0-9]+m|s) ]]; then
+if [[ $first_line =~ ([0-9]+[ms]) ]]; then
   echo "${BASH_REMATCH[1]}"
 fi
