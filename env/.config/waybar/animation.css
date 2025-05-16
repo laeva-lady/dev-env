@@ -7,7 +7,7 @@
 #custom-ws {
   color: transparent;
   text-shadow: none;
-  animation: module_in 0.25s ease-in 0.5s forwards;
+  animation: module_in 0.1s ease-in 0.1s forwards;
 }
 
 #custom-distro {
