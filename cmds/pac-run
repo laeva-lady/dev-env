@@ -10,6 +10,7 @@ sudo pacman -Syu --needed --noconfirm \
     discord \
     dotnet-runtime \
     dotnet-sdk \
+    dunst \
     fastfetch \
     fcitx5-configtool \
     fcitx5-gtk \
