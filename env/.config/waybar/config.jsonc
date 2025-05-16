@@ -10,8 +10,8 @@
   // ──────────────────────────────────────────────────────────┤ positions ├───
 
   "modules-left": [
-    "custom/sunset",            // window icon
-    "custom/left1",
+    // "custom/sunset",            // window icon
+    // "custom/left1",
 
     "hyprland/workspaces",  // workspaces
     "custom/right1",
