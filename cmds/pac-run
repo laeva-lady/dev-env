@@ -12,6 +12,7 @@ sudo pacman -Syu --needed --noconfirm \
     dotnet-runtime \
     dotnet-sdk \
     dunst \
+    eza \
     fastfetch \
     fcitx5-configtool \
     fcitx5-gtk \
@@ -67,6 +68,6 @@ sudo pacman -Syu --needed --noconfirm \
     wev \
     wl-clipboard \
     wlsunset \
+    wpaperd \
     wtype \
     zsh \
-    wpaperd \

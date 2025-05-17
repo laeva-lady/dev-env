@@ -19,10 +19,7 @@ alias mk="make"
 alias mkr="make r"
 
 # listing
-alias ll="ls -alF"
-alias la="ls -A"
-alias l="ls -CF"
-alias ls="ls -a1 --color=auto"
+alias ls="eza -a1 -s type"
 
 
 # lazy ass bum
@@ -38,11 +35,7 @@ alias conrun="$HOME/personal/dev-env/run"
 # quick dir access
  alias note="cd ~/personal/notes/notes_"
  alias mark="cd ~/personal/notes/notes_/mark"
-  alias dev="cd ~/personal/dev/code"
-
-# compiler shorthands
-alias er="cargo run"
- alias p="python3"
+  alias dev="cd ~/personal/dev"
 
 # git stuff
 alias g="git"
@@ -54,10 +47,9 @@ alias gacm="git commit -am"
 alias gpush="git push"
 alias gpull="git pull"
 
-
 dfz() {
     local selected
-    selected=$(find . ~/ ~/personal ~/personal/dev/ -mindepth 1 -maxdepth 5 -type d -print | fzf)
+    selected=$(find . ~/personal ~/personal/dev/ -mindepth 1 -maxdepth 5 -type d -print | fzf)
     [[ -z $selected ]] && return
     cd "$selected"
 }

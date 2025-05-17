@@ -1,6 +1,6 @@
 [default]
 path = "/home/alice/personal/dev-env/env/wallpapers/"
-duration = "5m"
+duration = "30m"
 group = 1
 
 [default.transition.window-blinds]
