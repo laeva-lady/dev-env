@@ -2,6 +2,7 @@
   // ─────────────────────────────────────────────────────────────┤ header ├───
 
   "layer": "top",
+  "output": "eDP-1",
   "position": "top",
   "mode": "dock",
   "reload_style_on_change": true,
@@ -10,8 +11,8 @@
   // ──────────────────────────────────────────────────────────┤ positions ├───
 
   "modules-left": [
-    "hyprland/workspaces",  // workspaces
-    "custom/right1",
+    // "hyprland/workspaces",  // workspaces
+    // "custom/right1",
 
     "custom/paddw",
     "hyprland/window"       // window title

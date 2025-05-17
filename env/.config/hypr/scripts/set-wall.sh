@@ -2,24 +2,27 @@
 
 set_wallpaper() {
     directory="$HOME/personal/wallpapers"
-
-    # Create a temporary file to hold mappings
     tmpfile=$(mktemp)
 
-    # Populate the list and mapping file
-    find "$directory" -type f | while read -r full_path; do
+    # Generate the list of wallpapers and save mappings to tmpfile
+    mapfile -t files < <(find "$directory" -maxdepth 1 -type f | sort)
+
+    options=()
+    for full_path in "${files[@]}"; do
         filename=$(basename "$full_path")
-        echo "$filename"    # print to rofi
-        echo "$filename|$full_path" >> "$tmpfile"  # store mapping
-    done | rofi -dmenu -p "Set wallpaper: " -theme ~/.config/rofi/walls.rasi | while read -r selected; do
-        if [ -n "$selected" ]; then
-            # Look up full path from mapping file
-            full_path=$(grep "^$selected|" "$tmpfile" | cut -d'|' -f2-)
-            if [ -n "$full_path" ]; then
-                swww img "$full_path" --transition-type=wipe --transition-angle=30
-            fi
-        fi
+        options+=("$filename")
+        echo "$filename|$full_path" >> "$tmpfile"
     done
+
+    # Use rofi to prompt for selection
+    selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -p "Set wallpaper: " -theme ~/.config/rofi/walls.rasi)
+
+    if [ -n "$selected" ]; then
+        full_path=$(grep "^$selected|" "$tmpfile" | cut -d'|' -f2-)
+        if [ -n "$full_path" ]; then
+            swww img "$full_path" --transition-type=wipe --transition-angle=30
+        fi
+    fi
 
     rm -f "$tmpfile"
 }
