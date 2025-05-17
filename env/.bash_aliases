@@ -102,7 +102,9 @@ alias dis="$HOME/personal/dev-env/scripts/discord"
 alias code="code --disable-gpu"
 
 
-fzd() {
+alias conrun="$HOME/personal/dev-env/run"
+
+dfz() {
     local selected
     selected=$(find . ~/ ~/personal ~/personal/dev/ -mindepth 1 -maxdepth 5 -type d -print | fzf)
     [[ -z $selected ]] && return
@@ -110,8 +112,14 @@ fzd() {
 }
 vfz() {
     local file
-    file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
-    [ -n "$file" ] && nvim "$file"
+    if [ -z $1 ]
+    then
+        file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
+        [ -n "$file" ] && nvim "$file"
+    else
+        file=$(find . -type f | grep -i "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
+        [ -n "$file" ] && nvim "$file"
+    fi
 }
 runf() {
     local file

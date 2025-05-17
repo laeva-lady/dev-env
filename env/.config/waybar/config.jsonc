@@ -10,7 +10,6 @@
   // ──────────────────────────────────────────────────────────┤ positions ├───
 
   "modules-left": [
-    "custom/walltimeleft",
     "hyprland/workspaces",  // workspaces
     "custom/right1",
 
@@ -49,7 +48,7 @@
   ],
 
   "modules-right": [
-    "custom/weather",
+    "custom/walltimeleft",
     "custom/left6",
     "tray",
     // "mpris",                // media info
@@ -67,16 +66,17 @@
   ],
 
   // --------------------------------------------------------| weather |-------
-  "custom/weather": {
-    "format": "{}°",
-    "tooltip": true,
-    "interval": 1200,
-    "exec": "wttrbar --location \"Sainte-Thérèse\" --lang fr",
-    "return-type": "json"
-  },
+    // doesn't update for some reason?
+  // "custom/weather": {
+  //   "format": "{}°",
+  //   "tooltip": true,
+  //   "interval": 1200,
+  //   "exec": "wttrbar --location \"Sainte-Thérèse\" --lang fr",
+  //   "return-type": "json"
+  // },
 
   "custom/walltimeleft": {
-    "format": "{}",
+    "format": "WTime left: {}",
     "exec": "~/.config/waybar/scripts/wpaper-time-left.sh",
     "interval": 1,
   },
