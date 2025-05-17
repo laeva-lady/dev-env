@@ -121,6 +121,8 @@ xkb_symbols "fr-colemak" {
     key <SPCE>	{[     space,      space,  nobreakspace ]};
     key <CAPS> { [     	 Escape,       Escape,          Escape,           Escape ] };
 
+    key <RCTL> { [      Super_L,      Super_L,         Super_L,          Super_L ] };
+
 
     include "level3(ralt_switch)"
 };

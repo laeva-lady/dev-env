@@ -78,7 +78,7 @@
   "custom/walltimeleft": {
     "format": "WTime left: {}",
     "exec": "~/.config/waybar/scripts/wpaper-time-left.sh",
-    "interval": 1,
+    "interval": 30,
   },
 
   // ────────────────────────────────────────────────────────┤ window icon ├───
