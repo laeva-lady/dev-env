@@ -2,6 +2,7 @@
 
 sudo pacman -Syu --needed --noconfirm \
     bat \
+    swww \
     bluetui \
     bluez \
     bluez-utils \
