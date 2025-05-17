@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 set_wallpaper() {
-    directory="$HOME/personal/dev-env/env/wallpapers"
+    directory="$HOME/personal/wallpapers"
 
     # Create a temporary file to hold mappings
     tmpfile=$(mktemp)

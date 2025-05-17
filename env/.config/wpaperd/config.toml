@@ -1,5 +1,5 @@
 [default]
-path = "/home/alice/personal/dev-env/env/wallpapers/"
+path = "/home/alice/personal/wallpapers/"
 duration = "30m"
 group = 1
 
