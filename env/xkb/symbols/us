@@ -854,6 +854,7 @@ xkb_symbols "colemak" {
     key <SPCE> { [        space,        space,           space,     nobreakspace ] };
 
     key <RCTL> { [      Super_L,      Super_L,         Super_L,          Super_L ] };
+    key <RALT> { [    Control_L,    Control_L,       Control_L,        Control_L ] };
 
     include "level3(ralt_switch)"
 };

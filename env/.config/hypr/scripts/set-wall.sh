@@ -5,7 +5,7 @@ set_wallpaper() {
     tmpfile=$(mktemp)
 
     # Generate the list of wallpapers and save mappings to tmpfile
-    mapfile -t files < <(find "$directory" -path "$directory/.git" -prune -o -print -type f | sort)
+    mapfile -t files < <(find "$directory" -path "$directory/.git" -prune -o -type f -print | sort)
 
     options=()
     for full_path in "${files[@]}"; do

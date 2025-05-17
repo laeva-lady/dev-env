@@ -122,6 +122,7 @@ xkb_symbols "fr-colemak" {
     key <CAPS> { [     	 Escape,       Escape,          Escape,           Escape ] };
 
     key <RCTL> { [      Super_L,      Super_L,         Super_L,          Super_L ] };
+    key <RALT> { [    Control_L,    Control_L,       Control_L,        Control_L ] };
 
 
     include "level3(ralt_switch)"
