@@ -2,7 +2,7 @@
   // ─────────────────────────────────────────────────────────────┤ header ├───
 
   "layer": "top",
-  "output": "eDP-1",
+  // "output": "eDP-1",
   "position": "top",
   "mode": "dock",
   "reload_style_on_change": true,
@@ -11,8 +11,8 @@
   // ──────────────────────────────────────────────────────────┤ positions ├───
 
   "modules-left": [
-    // "hyprland/workspaces",  // workspaces
-    // "custom/right1",
+    "hyprland/workspaces",  // workspaces
+    "custom/right1",
 
     "custom/paddw",
     "hyprland/window"       // window title
@@ -49,10 +49,10 @@
   ],
 
   "modules-right": [
-    "custom/walltimeleft",
+    // "custom/changewall",
+    "mpris",                // media info
     "custom/left6",
     "tray",
-    // "mpris",                // media info
 
     "custom/left7",
     "pulseaudio",           // output device
@@ -76,11 +76,12 @@
   //   "return-type": "json"
   // },
 
-  "custom/walltimeleft": {
-    "format": "WTime left: {}",
-    "exec": "~/.config/waybar/scripts/wpaper-time-left.sh",
-    "interval": 30,
-  },
+  // "custom/changewall": {
+  //   "format": "",
+  //   "exec": "~/.config/waybar/scripts/changewall.sh",
+  //   "interval": 1200,
+  //   "max-length": 10,
+  // },
 
   // ────────────────────────────────────────────────────────┤ window icon ├───
 
@@ -282,7 +283,8 @@
     "tooltip": false,
     // "tooltip-format": "Standard Time: {:%I:%M %p}",
     "min-length": 9,
-    "max-length": 9
+    "max-length": 9,
+    "interval": 1,
   },
 
   // ───────────────────────────────────────────────────────────────┤ date ├───
@@ -384,7 +386,7 @@
     "tooltip-format": "Playing: {title} - {artist}",
     "tooltip-format-paused": "Paused: {title} - {artist}",
     "min-length": 5,
-    "max-length": 35
+    "max-length": 20
   },
 
   // ──────────────────────────────────────────────────────┤ output device ├───
