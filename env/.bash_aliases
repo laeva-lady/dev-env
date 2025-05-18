@@ -2,6 +2,8 @@ alias v="nvim"
 alias t="tmux"
 alias tt="tmux new-session -c"
 
+alias neofetch="fastfetch"
+
 alias denv="cd ~/personal/dev-env"
 
 alias wmake="~/personal/dev-env/scripts/make-loop.sh"
