@@ -108,5 +108,9 @@ source $ZSH/oh-my-zsh.sh
 #
 #
 
-export EDITOR='nvim'
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
+
+export EDITOR='nvim'
+export VISUAL="$EDITOR"
+
+eval "$(zoxide init zsh)"

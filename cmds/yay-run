@@ -1,19 +1,20 @@
 #! /usr/bin/bash
 
-# yay -S --needed --noconfirm   brave-bin
-# yay -S --needed --noconfirm   chatterino2-git
-# yay -S --needed --noconfirm   ckb-next-git
-# yay -S --needed --noconfirm   hyprshot
-# yay -S --needed --noconfirm   keyd
-# yay -S --needed --noconfirm   minecraft-launcher
-# yay -S --needed --noconfirm   proton-ge-custom-bin
-# yay -S --needed --noconfirm   rider
-# yay -S --needed --noconfirm   spotdl
-# yay -S --needed --noconfirm   swhkd
-# yay -S --needed --noconfirm   unityhub
-# yay -S --needed --noconfirm   visual-studio-code-bin
-# yay -S --needed --noconfirm   wlrobs-hg
-# yay -S --needed --noconfirm   wshowkeys-mao-git
-# yay -S --needed --noconfirm   zen-browser-bin
+yay -S --needed --noconfirm   brave-bin
+yay -S --needed --noconfirm   chatterino2-git
+yay -S --needed --noconfirm   ckb-next-git
+yay -S --needed --noconfirm   hyprshot
+yay -S --needed --noconfirm   keyd
+yay -S --needed --noconfirm   minecraft-launcher
+yay -S --needed --noconfirm   proton-ge-custom-bin
+yay -S --needed --noconfirm   rider
+yay -S --needed --noconfirm   spotdl
+yay -S --needed --noconfirm   swhkd
+yay -S --needed --noconfirm   unityhub
+yay -S --needed --noconfirm   visual-studio-code-bin
+yay -S --needed --noconfirm   wlrobs-hg
+yay -S --needed --noconfirm   wshowkeys-mao-git
+yay -S --needed --noconfirm   zen-browser-bin
+yay -S --needed --noconfirm   timg
+
 # yay -S --needed --noconfirm   wttrbar
-# yay -S --needed --noconfirm   timg

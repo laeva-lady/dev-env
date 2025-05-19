@@ -26,7 +26,7 @@ alias ls="eza -a1 -s type"
 
 # lazy ass bum
 alias e="exit"
-alias d="cd"
+alias s="cd"
 alias r="ranger"
 alias ..="cd .."
 alias ni="touch" # ni from New-Item's alias on PowerShell (don't ask why)
@@ -69,5 +69,5 @@ vfz() {
 runf() {
     local file
     file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
-    [ -n "$file" ] && . "$file"
+    [ -n "$file" ] && sh "$file"
 }

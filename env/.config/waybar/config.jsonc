@@ -49,8 +49,8 @@
   ],
 
   "modules-right": [
-    // "custom/changewall",
-    "mpris",                // media info
+    "custom/changewall",
+    // "mpris",                // media info
     "custom/left6",
     "tray",
 
@@ -76,12 +76,12 @@
   //   "return-type": "json"
   // },
 
-  // "custom/changewall": {
-  //   "format": "",
-  //   "exec": "~/.config/waybar/scripts/changewall.sh",
-  //   "interval": 1200,
-  //   "max-length": 10,
-  // },
+  "custom/changewall": {
+    "format": "W: {}",
+    "exec": "~/.config/waybar/scripts/changewall.sh",
+    "interval": 360,
+    "max-length": 10,
+  },
 
   // ────────────────────────────────────────────────────────┤ window icon ├───
 
