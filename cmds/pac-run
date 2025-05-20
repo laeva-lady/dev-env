@@ -2,6 +2,9 @@
 
 sudo pacman -Syu --needed --noconfirm \
     bat \
+    evince \
+    glfw \
+    prismlauncher \
     swww \
     zoxide \
     bluetui \

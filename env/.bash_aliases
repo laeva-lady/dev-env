@@ -66,8 +66,3 @@ vfz() {
         [ -n "$file" ] && nvim "$file"
     fi
 }
-runf() {
-    local file
-    file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
-    [ -n "$file" ] && sh "$file"
-}

@@ -80,7 +80,7 @@
     "format": "W: {}",
     "exec": "~/.config/waybar/scripts/changewall.sh",
     "interval": 360,
-    "max-length": 10,
+    "max-length": 30,
   },
 
   // ────────────────────────────────────────────────────────┤ window icon ├───
