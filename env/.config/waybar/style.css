@@ -15,20 +15,22 @@ window#waybar {
 }
 
 .modules-left {
-    border-radius: 5px;
-    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0px 0px 10px 0px;
 }
+
 .modules-center {
-    /* background: #201D27; */
-    padding: 0 15px;
     border-radius: 0px 0px 10px 10px;
-    background: rgba(0, 0, 0, 0.3);
 }
+
 .modules-right {
-    /* background: #201D27; */
-    padding-left: 5px;
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 0px 10px;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
     background: rgba(0, 0, 0, 0.3);
+    border: 2px solid #58133e;
 }
 
 #battery,
@@ -103,4 +105,3 @@ window#waybar {
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
-

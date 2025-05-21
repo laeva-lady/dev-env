@@ -2,11 +2,6 @@
 
 sudo pacman -Syu --needed --noconfirm \
     bat \
-    evince \
-    glfw \
-    prismlauncher \
-    swww \
-    zoxide \
     bluetui \
     bluez \
     bluez-utils \
@@ -17,6 +12,7 @@ sudo pacman -Syu --needed --noconfirm \
     dotnet-runtime \
     dotnet-sdk \
     dunst \
+    evince \
     eza \
     fastfetch \
     fcitx5-configtool \
@@ -25,6 +21,7 @@ sudo pacman -Syu --needed --noconfirm \
     firefox \
     fish \
     gimp \
+    glfw \
     gnome-keyring \
     go \
     gopls \
@@ -35,6 +32,7 @@ sudo pacman -Syu --needed --noconfirm \
     hyprpaper \
     hyprpicker \
     hyprsunset \
+    intellij-idea-community-edition \
     jre-openjdk \
     kitty \
     lib32-nvidia-utils \
@@ -42,14 +40,12 @@ sudo pacman -Syu --needed --noconfirm \
     libva-nvidia-driver \
     love \
     lua \
-    lutris \
     npm \
     nvidia-open \
     nvidia-utils \
     nvim \
     nvtop \
     obsidian \
-    obs-studio \
     python-pillow \
     qbittorrent \
     ranger \
@@ -60,6 +56,7 @@ sudo pacman -Syu --needed --noconfirm \
     spotify-launcher \
     steam \
     steam-native-runtime \
+    swww \
     thunderbird \
     tmux \
     torbrowser-launcher \
@@ -67,7 +64,6 @@ sudo pacman -Syu --needed --noconfirm \
     ttf-fira-code \
     ttf-nerd-fonts-symbols-mono \
     typst \
-    virtualbox \
     virtualbox-host-modules-arch \
     waybar \
     wev \
@@ -75,4 +71,5 @@ sudo pacman -Syu --needed --noconfirm \
     wlsunset \
     wpaperd \
     wtype \
+    zoxide \
     zsh \
