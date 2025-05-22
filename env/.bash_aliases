@@ -2,13 +2,10 @@ alias v="nvim"
 alias t="tmux"
 alias tt="tmux new-session -c"
 
-alias neofetch="fastfetch"
+alias ff="fastfetch"
 
 alias denv="cd ~/personal/dev-env"
 
-alias wmake="~/personal/dev-env/scripts/make-loop.sh"
-alias wmaker="~/personal/dev-env/scripts/make-loop-r.sh"
-alias wmakeb="~/personal/dev-env/scripts/make-loop-b.sh"
 
  alias fa="~/personal/dev-env/scripts/fzf-custom.sh"
 alias fal="~/personal/dev-env/scripts/fzf-custom-nonrecursive.sh"
@@ -52,7 +49,7 @@ alias gpull="git pull"
 
 dfz() {
     local selected
-    selected=$(find . ~/personal ~/personal/dev/ -mindepth 1 -maxdepth 5 -type d -print | fzf)
+    selected=$(find ~/personal -mindepth 1 -maxdepth 5 -type d -print | fzf)
     [[ -z $selected ]] && return
     cd "$selected"
 }
@@ -60,10 +57,24 @@ vfz() {
     local file
     if [ -z $1 ]
     then
-        file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
-        [ -n "$file" ] && nvim "$file"
+        while true; do
+            file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
+            [ -n "$file" ] && nvim "$file"
+        done
     else
-        file=$(find . -type f | grep -i "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
-        [ -n "$file" ] && nvim "$file"
+        while true; do
+            file=$(find . -type f | grep -i "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
+            [ -n "$file" ] && nvim "$file"
+        done
     fi
+}
+wmake() {
+    while true; do
+        make $1
+        echo
+        echo
+        echo
+        echo
+        read -p "Waiting on input..."
+    done
 }

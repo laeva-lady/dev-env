@@ -7,7 +7,7 @@ yay -S --needed --noconfirm   ckb-next-git
 yay -S --needed --noconfirm   hyprshot
 yay -S --needed --noconfirm   minecraft-launcher
 yay -S --needed --noconfirm   proton-ge-custom-bin
-yay -S --needed --noconfirm   rider
+# yay -S --needed --noconfirm   rider
 yay -S --needed --noconfirm   spotdl
 yay -S --needed --noconfirm   swhkd
 yay -S --needed --noconfirm   timg

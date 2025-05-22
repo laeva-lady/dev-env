@@ -28,6 +28,8 @@ set("n", "<C-f>", ":bdelete<CR>")
 
 set("n", "<C-o>", "<nop>")
 
+set("n", "<leader>\\", ":ToggleTerm<CR>")
+
 -- commands related to functions
 --
 local function removeRN()
