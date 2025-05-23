@@ -1,4 +1,5 @@
 alias v="nvim"
+alias vim="nvim"
 alias t="tmux"
 alias tt="tmux new-session -c"
 
