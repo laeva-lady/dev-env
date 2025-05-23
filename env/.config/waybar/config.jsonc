@@ -15,9 +15,9 @@
   ],
 
     // pas vraiment besoin de ça
-  // "modules-center": [
-  //   "hyprland/window"
-  // ],
+  "modules-center": [
+    "hyprland/window"
+  ],
 
   "modules-right": [
     "custom/changewall",
@@ -41,15 +41,19 @@
   // ─────────────────────────────────────────────────────────┤ workspaces ├───
 
   "hyprland/workspaces": {
-    // "on-scroll-up": "hyprctl dispatch workspace -1",
-    // "on-scroll-down": "hyprctl dispatch workspace +1",
-    "persistent-workspaces": {
-      // "1": [],
-      // "2": [],
-      // "3": [],
-      // "4": [],
-      // "5": []
-    }
+    "format": "{icon}",  // only shows the custom label/icon
+      "format-icons": {
+        "1": "🌐",
+        "2": ">_",
+        "3": "📝",
+        "4": "",
+        "5": "",
+        "6": "📺",
+        "7": "🎮",
+        "8": "🎵📧",
+        "9": "💻",
+        "10": "🔧"
+      }
   },
 
   // ─────────────────────────────────────────────────────────────┤ window ├───
@@ -58,6 +62,7 @@
     "format": "{}",
     "tooltip": false,
     "min-length": 5,
+    "max-length": 50,
 
     "rewrite": {
       // ────────────────────────────────────────────────────────── desktop ───
