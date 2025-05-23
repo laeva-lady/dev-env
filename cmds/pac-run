@@ -8,6 +8,7 @@ sudo pacman -Syu --needed --noconfirm \
     brightnessctl \
     btop \
     cliphist \
+    zathura \
     discord \
     dotnet-runtime \
     dotnet-sdk \

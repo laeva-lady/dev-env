@@ -3,6 +3,7 @@ alias t="tmux"
 alias tt="tmux new-session -c"
 
 alias ff="fastfetch"
+alias maple="~/personal/maple2024/bin/xmaple"
 
 alias denv="cd ~/personal/dev-env"
 
@@ -28,9 +29,11 @@ alias s="cd"
 alias r="ranger"
 alias ..="cd .."
 alias ni="touch" # ni from New-Item's alias on PowerShell (don't ask why)
+alias clock="tty-clock"
 alias dis="discord"
 alias code="code --disable-gpu"
 alias conrun="$HOME/personal/dev-env/run"
+
 
 # quick dir access
  alias note="cd ~/personal/notes/notes_"
@@ -78,3 +81,7 @@ wmake() {
         read -p "Waiting on input..."
     done
 }
+battery() {
+    upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage:/ { print $2 }'
+}
+

@@ -14,23 +14,24 @@
     "hyprland/workspaces",
   ],
 
-  "modules-center": [
-    "hyprland/window"
-  ],
+    // pas vraiment besoin de ça
+  // "modules-center": [
+  //   "hyprland/window"
+  // ],
 
   "modules-right": [
     "custom/changewall",
     // "mpris",                // media info
     "tray",
+    // "hyprland/language",
     "pulseaudio",           // output device
-    "battery",              // battery
-    "clock#time",
-    "clock#date",
+    // "battery",              // battery
+    "clock#time"
+    // "clock#date",
   ],
 
   "custom/changewall": {
-    "format": "W: {}   ",
-    "exec": "~/.config/waybar/scripts/changewall.sh",
+    "format": " W ",
     "on-click": "~/.config/hypr/scripts/set-wall.sh",
     "interval": 360,
     "max-length": 33,
@@ -40,8 +41,8 @@
   // ─────────────────────────────────────────────────────────┤ workspaces ├───
 
   "hyprland/workspaces": {
-    "on-scroll-up": "hyprctl dispatch workspace -1",
-    "on-scroll-down": "hyprctl dispatch workspace +1",
+    // "on-scroll-up": "hyprctl dispatch workspace -1",
+    // "on-scroll-down": "hyprctl dispatch workspace +1",
     "persistent-workspaces": {
       // "1": [],
       // "2": [],
@@ -162,18 +163,18 @@
   // ───────────────────────────────────────────────────────────────┤ time ├───
 
   "clock#time": {
-    "format": "{:%H:%M:%S}",
+    "format": "{:%H:%M}",
     "tooltip": false,
     // "tooltip-format": "Standard Time: {:%I:%M %p}",
-    "min-length": 9,
-    "max-length": 9,
-    "interval": 1,
+    "min-length": 5,
+    "max-length": 5,
+    "interval": 10,
   },
 
   // ───────────────────────────────────────────────────────────────┤ date ├───
 
   "clock#date": {
-    "format": "󰨳 {:%m-%d}",
+    "format": "󰨳 {:%d}",
     "tooltip-format": "<tt>{calendar}</tt>",
 
     "calendar": {
@@ -196,8 +197,8 @@
       "on-click-right": "mode"
     },
 
-    "min-length": 8,
-    "max-length": 8
+    "min-length": 4,
+    "max-length": 4
   },
 
   // ─────────────────────────────────────────────────────────┤ media info ├───
