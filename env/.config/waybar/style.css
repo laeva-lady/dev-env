@@ -76,17 +76,19 @@ window#waybar {
     box-shadow: inherit;
     text-shadow: inherit;
     color: #1e1e2e;
-    background-color: #cdd6f4;
+    background-color: #41444f;
 }
 
 #workspaces button.active {
     color: #1e1e2e;
-    background-color: #C26CAA;
+    background-color: #737373;
 }
 
+/*
 #workspaces button.urgent {
     background-color: #f38ba8;
 }
+*/
 
 
 #battery.charging {
