@@ -6,6 +6,7 @@ sudo pacman -Syu --needed --noconfirm \
     bluez \
     bluez-utils \
     brightnessctl \
+    geogebra \
     btop \
     cliphist \
     zathura \

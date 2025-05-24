@@ -20,9 +20,9 @@
   ],
 
   "modules-right": [
-    "custom/changewall",
+    // "custom/changewall",
     // "mpris",                // media info
-    "tray",
+     "tray",
     // "hyprland/language",
     "pulseaudio",           // output device
     // "battery",              // battery
@@ -45,7 +45,7 @@
       "format-icons": {
         "1": "🌐",
         "2": ">_",
-        "3": "📝",
+        "3": "",
         "4": "",
         "5": "",
         "6": "📺",
@@ -62,7 +62,7 @@
     "format": "{}",
     "tooltip": false,
     "min-length": 5,
-    "max-length": 50,
+    // "max-length": 50,
 
     "rewrite": {
       // ────────────────────────────────────────────────────────── desktop ───

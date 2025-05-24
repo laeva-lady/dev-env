@@ -20,5 +20,6 @@
         "shell",
         "wm",
         "terminal",
+        "gpu"
     ]
 }

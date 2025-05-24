@@ -62,19 +62,19 @@ vfz() {
     if [ -z $1 ]
     then
         while true; do
-            file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
+            file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
             [ -n "$file" ] && nvim "$file"
         done
     else
         while true; do
-            file=$(find . -type f | grep -i "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 1
+            file=$(find . -type f | grep -i "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
             [ -n "$file" ] && nvim "$file"
         done
     fi
 }
 wmake() {
     while true; do
-        make $1
+        make
         echo
         echo
         echo
