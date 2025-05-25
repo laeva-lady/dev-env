@@ -73,3 +73,4 @@ copy $DEV_ENV/env/config.fish $HOME/.config/fish/config.fish
 echo "Reloading Hyprland"
 hyprctl reload
 pkill waybar; waybar & disown
+pkill hyprland-autoname-workspaces; hyprland-autoname-workspaces & disown

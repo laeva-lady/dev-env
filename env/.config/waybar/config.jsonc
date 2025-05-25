@@ -4,7 +4,8 @@
   "layer": "top",
   // "output": "eDP-1",
   "position": "top",
-  "mode": "dock",
+  // "mode": "hide",
+  "exclusive": true,
   "reload_style_on_change": true,
   "gtk-layer-shell": true,
 
@@ -14,10 +15,9 @@
     "hyprland/workspaces",
   ],
 
-    // pas vraiment besoin de ça
-  "modules-center": [
-    "hyprland/window"
-  ],
+  // "modules-center": [
+  //   "wlr/taskbar",
+  // ],
 
   "modules-right": [
     // "custom/changewall",
@@ -36,24 +36,34 @@
     "interval": 360,
     "max-length": 33,
   },
-
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "spacing": 4,
+    "sort-by-app-id": true,
+    "markup": true,
+    "on-click-middle": "close",
+    "tooltip-format": "{title}",
+    "ignore-list": [],
+    "on-click": "minimize-raise"
+  },
 
   // ─────────────────────────────────────────────────────────┤ workspaces ├───
 
   "hyprland/workspaces": {
-    "format": "{name}:{icon}",
-      "format-icons": {
-        "1": "🌐",
-        "2": ">_",
-        "3": "",
-        "4": "",
-        "5": "",
-        "6": "📺",
-        "7": "🎮",
-        "8": "🎵📧",
-        "9": "💻",
-        "10": "🔧"
-      }
+    "format": "{name}",
+      // "format-icons": {
+      //   "1": "🌐",
+      //   "2": ">_",
+      //   "3": "",
+      //   "4": "",
+      //   "5": "",
+      //   "6": "📺",
+      //   "7": "🎮",
+      //   "8": "🎵📧",
+      //   "9": "💻",
+      //   "10": "🔧"
+      // }
   },
 
   // ─────────────────────────────────────────────────────────────┤ window ├───

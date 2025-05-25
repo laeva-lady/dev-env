@@ -45,8 +45,8 @@ xkb_symbols "fr" {
     key <BKSL>	{[      less,    greater,    braceright ]};
 
     key <LSGT>	{[guillemotleft, guillemotright,  degree]};
-    key <AB01>	{[         z,          Z ]};
-    key <AB02>	{[         x,          X ]};
+    key <AB01>	{[         z,          Z, guillemotleft ]};
+    key <AB02>	{[         x,          X, guillemotright ]};
     key <AB03>	{[         c,          C ]};
     key <AB04>	{[         v,          V ]};
     key <AB05>	{[         b,          B ]};
@@ -56,8 +56,11 @@ xkb_symbols "fr" {
     key <AB09>	{[    period,     period,        hyphen ]};
     key <AB10>	{[    eacute,     Eacute,    dead_acute ]};
 
-    key <SPCE>	{[     space,      space,  nobreakspace ]};
+    key <CAPS> { [    Escape,     Escape ] };
+    key <SPCE> { [     space,      space ] };
 
+    key <RCTL> { [   Super_L,    Super_L ] };
+    key <RALT> { [ Control_L,  Control_L ] };
     include "level3(ralt_switch)"
 };
 
@@ -106,8 +109,8 @@ xkb_symbols "fr-colemak" {
     key <BKSL>	{[      less,    greater,    braceright ]};
 
     key <LSGT>	{[guillemotleft, guillemotright,  degree]};
-    key <AB01> { [            z,            Z,              ae,               AE ] };
-    key <AB02> { [            x,            X, dead_circumflex,       asciitilde ] };
+    key <AB01> { [            z,            Z,   guillemotleft,           degree ] };
+    key <AB02> { [            x,            X,  guillemotright,       asciitilde ] };
     key <AB03> { [            c,            C,        ccedilla,         Ccedilla ] };
     key <AB04> { [            v,            V,              oe,               OE ] };
     key <AB05> { [            b,            B,      dead_breve,       asciitilde ] };

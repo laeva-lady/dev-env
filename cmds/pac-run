@@ -66,7 +66,6 @@ sudo pacman -Syu --needed --noconfirm \
     ttf-fira-code \
     ttf-nerd-fonts-symbols-mono \
     typst \
-    virtualbox-host-modules-arch \
     waybar \
     wev \
     wl-clipboard \

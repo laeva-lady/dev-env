@@ -55,6 +55,12 @@ xkb_symbols "basic" {
     key <AB08>	{[   comma,	 less		]};
     key <AB09>	{[  period,	 greater	]};
     key <AB10>	{[   slash,	 question	]};
+
+    key <CAPS> { [     	 Escape,       Escape ] };
+    key <SPCE> { [        space,        space ] };
+
+    key <RCTL> { [      Super_L,      Super_L ] };
+    key <RALT> { [    Control_L,    Control_L ] };
 };
 
 partial alphanumeric_keys
