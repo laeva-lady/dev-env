@@ -33,9 +33,9 @@ window#waybar {
     /* margin: 10px 0px 0px 10px; */
 }
 
-/* .modules-center { */
-/*     border-radius: 10px; */
-/* } */
+.modules-center {
+    border-radius: 10px;
+}
 
 .modules-right {
     border-radius: 10px;
@@ -43,7 +43,7 @@ window#waybar {
 }
 
 .modules-left,
-/* .modules-center, */
+.modules-center,
 .modules-right {
     background: rgba(0, 0, 0, 0.5);
     border: 2px solid #58133e;

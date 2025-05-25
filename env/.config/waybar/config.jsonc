@@ -15,9 +15,9 @@
     "hyprland/workspaces",
   ],
 
-  // "modules-center": [
-  //   "wlr/taskbar",
-  // ],
+  "modules-center": [
+    "hyprland/window",
+  ],
 
   "modules-right": [
     // "custom/changewall",
