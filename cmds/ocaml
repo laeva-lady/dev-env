@@ -1,0 +1,6 @@
+#!/usr/bin/zsh
+
+
+sudo pacman -S --needed opam
+opam init
+opam install ocaml-lsp-server odoc ocamlformat utop dune

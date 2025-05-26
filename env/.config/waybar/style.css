@@ -10,42 +10,8 @@ window {
 }
 
 window#waybar {
-    background: transparent;
-    margin: 0px;
-}
-
-#taskbar button.active {
-  background-color: #44475a;  /* or any color you prefer */
-  color: #ffffff;
-  border-radius: 4px;
-  padding: 2px 6px;
-}
-
-/* Optional: style inactive windows */
-#taskbar button {
-  background: transparent;
-  color: #bbbbbb;
-}
-
-.modules-left {
-    border-radius: 10px;
-    /* top right bottom left */
-    /* margin: 10px 0px 0px 10px; */
-}
-
-.modules-center {
-    border-radius: 10px;
-}
-
-.modules-right {
-    border-radius: 10px;
-}
-
-.modules-left,
-.modules-center,
-.modules-right {
     background: rgba(0, 0, 0, 0.5);
-    border: 2px solid #58133e;
+    margin: 0px;
 }
 
 #battery,
@@ -57,18 +23,9 @@ window#waybar {
     padding: 0 5px;
 }
 
-#pulseaudio {
-    padding-top: 3px;
-}
-
-#temperature.critical,
 #pulseaudio.muted {
     color: #FF0000;
     padding-top: 0;
-}
-
-#tray {
-    font-size: 16px;
 }
 
 #workspaces {
@@ -83,7 +40,7 @@ window#waybar {
     min-height: 0;
     margin: 4px 4px;
     border-radius: 8px;
-    background-color: #181825;
+    background-color: rgba(0, 0, 0, 0.5);
     color: #cdd6f4;
 }
 
@@ -96,7 +53,7 @@ window#waybar {
 
 #workspaces button.active {
     color: #1e1e2e;
-    background-color: #333333;
+    background-color: #36364a;
 }
 
 /*
@@ -104,24 +61,3 @@ window#waybar {
     background-color: #f38ba8;
 }
 */
-
-
-#battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-
-#battery.warning:not(.charging) {
-    background-color: #ffbe61;
-    color: black;
-}
-
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}

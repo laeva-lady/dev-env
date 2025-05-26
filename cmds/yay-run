@@ -7,7 +7,6 @@ yay -S --needed --noconfirm   ckb-next-git
 yay -S --needed --noconfirm   eww
 yay -S --needed --noconfirm   hyprland-autoname-workspaces-git
 yay -S --needed --noconfirm   hyprshot
-yay -S --needed --noconfirm   manga-cli-git
 yay -S --needed --noconfirm   minecraft-launcher
 yay -S --needed --noconfirm   proton-ge-custom-bin
 yay -S --needed --noconfirm   sherlock-launcher-bin
@@ -20,5 +19,6 @@ yay -S --needed --noconfirm   vencord-bin
 yay -S --needed --noconfirm   visual-studio-code-bin
 yay -S --needed --noconfirm   wlrobs-hg
 yay -S --needed --noconfirm   wshowkeys-mao-git
-
+yay -S --needed --noconfirm   waytrogen
+yay -S --needed --noconfirm   mpvpaper
 # yay -S --needed --noconfirm   wttrbar
