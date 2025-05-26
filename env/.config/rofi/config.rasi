@@ -1,5 +1,5 @@
 * {
-    bg-col:  #1e1e2e;
+    bg-col:  rgba(0, 0, 0, 0.25);
     bg-col-light: #1e1e2e;
     border-col: #1e1e2e;
     selected-col: #1e1e2e;
@@ -20,7 +20,7 @@ window {
     height: 600px;
     border: 3px;
     border-radius: 10px;
-    border-color: @border-col;
+    border-color: #a12271;
     background-color: @bg-col;
 }
 
