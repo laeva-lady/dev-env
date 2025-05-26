@@ -1,15 +1,13 @@
 #! /usr/bin/bash
 
-sudo pacman -Syu --needed --noconfirm \
+sudo pacman -Syu --needed \
     bat \
     bluetui \
     bluez \
     bluez-utils \
     brightnessctl \
-    geogebra \
     btop \
     cliphist \
-    zathura \
     discord \
     dotnet-runtime \
     dotnet-sdk \
@@ -22,6 +20,7 @@ sudo pacman -Syu --needed --noconfirm \
     fcitx5-mozc \
     firefox \
     fish \
+    geogebra \
     gimp \
     glfw \
     gnome-keyring \
@@ -72,5 +71,6 @@ sudo pacman -Syu --needed --noconfirm \
     wlsunset \
     wpaperd \
     wtype \
+    zathura \
     zoxide \
     zsh \

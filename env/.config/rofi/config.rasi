@@ -19,6 +19,7 @@ element-text, element-icon , mode-switcher {
 window {
     height: 600px;
     border: 3px;
+    border-radius: 10px;
     border-color: @border-col;
     background-color: @bg-col;
 }
