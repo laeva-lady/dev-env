@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+sudo cp ~/personal/dev-env/env/etc/keyd/default.conf /etc/keyd/default.conf
