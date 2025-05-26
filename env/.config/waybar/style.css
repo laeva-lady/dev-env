@@ -14,6 +14,10 @@ window#waybar {
     margin: 0px;
 }
 
+#mpris {
+    padding-right: 10px;
+}
+
 #battery,
 #pulseaudio,
 #tray,
@@ -40,6 +44,7 @@ window#waybar {
     min-height: 0;
     margin: 4px 4px;
     border-radius: 8px;
+    border: 2px solid transparent;
     background-color: rgba(0, 0, 0, 0.5);
     color: #cdd6f4;
 }
@@ -52,8 +57,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-    color: #1e1e2e;
-    background-color: #36364a;
+    border: 2px solid white;
 }
 
 /*

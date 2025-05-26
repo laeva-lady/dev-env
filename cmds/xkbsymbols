@@ -1,0 +1,2 @@
+cp ~/personal/dev-env/env/xkb/symbols/us /usr/share/X11/xkb/symbols/us
+cp ~/personal/dev-env/env/xkb/symbols/ca /usr/share/X11/xkb/symbols/ca

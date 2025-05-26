@@ -21,7 +21,7 @@
 
   "modules-right": [
     // "custom/changewall",
-    // "mpris",                // media info
+    "mpris",                // media info
      "tray",
     // "hyprland/language",
     "pulseaudio",           // output device
@@ -51,19 +51,19 @@
   // ─────────────────────────────────────────────────────────┤ workspaces ├───
 
   "hyprland/workspaces": {
-    "format": "{name}",
-      // "format-icons": {
-      //   "1": "🌐",
-      //   "2": ">_",
-      //   "3": "",
-      //   "4": "",
-      //   "5": "",
-      //   "6": "📺",
-      //   "7": "🎮",
-      //   "8": "🎵📧",
-      //   "9": "💻",
-      //   "10": "🔧"
-      // }
+    "format": "{name} {icon}",
+      "format-icons": {
+        "1": "🌐",
+        "2": ">_",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "📺",
+        "7": "🎮",
+        "8": "🎵📧",
+        "9": "💻",
+        "10": "🔧"
+      }
   },
 
   // ─────────────────────────────────────────────────────────────┤ window ├───
@@ -238,13 +238,11 @@
   // ─────────────────────────────────────────────────────────┤ media info ├───
 
   "mpris": {
-    "format": "{player_icon} {title} - {artist}",
+    "format": "{player_icon} {title} - {artist} {player_icon}",
     "format-paused": "{status_icon} {title} - {artist}",
 
     "player-icons": {
       "default": "󰝚 ",
-      "spotify": "<span foreground='#a6e3a1'>󰓇 </span>",
-      "firefox": "<span foreground='#f38ba8'>󰗃 </span>"
     },
     "status-icons": {
       "paused": "<span color='#b4befe'>\u200A\u200A󰏤\u2009\u2009</span>"
@@ -253,7 +251,7 @@
     "tooltip-format": "Playing: {title} - {artist}",
     "tooltip-format-paused": "Paused: {title} - {artist}",
     "min-length": 5,
-    "max-length": 20
+    "max-length": 50
   },
 
   // ──────────────────────────────────────────────────────┤ output device ├───
