@@ -71,6 +71,6 @@ sudo pacman -Syu --needed \
     wlsunset \
     wpaperd \
     wtype \
+    yazi \
     zathura \
-    zoxide \
     zsh \
