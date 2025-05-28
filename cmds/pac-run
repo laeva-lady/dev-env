@@ -58,6 +58,7 @@ sudo pacman -Syu --needed \
     steam \
     steam-native-runtime \
     swww \
+    tesseract \
     thunderbird \
     tmux \
     torbrowser-launcher \

@@ -17,28 +17,26 @@ alias zxcv="nvim ~/zxcv.md"
 alias fair="nvim ~/fair.md"
  alias out="nvim ~/out"
 
-alias mk="make"
-alias mkr="make r"
-
 # listing
 alias ls="eza -a1 -s type"
-
 
 # lazy ass bum
 alias e="exit"
 alias s="cd"
 alias r="ranger"
 alias ..="cd .."
+alias mk="make"
+alias mkr="make r"
 alias ni="touch" # ni from New-Item's alias on PowerShell (don't ask why)
 alias clock="tty-clock"
-alias dis="discord"
 alias code="code --disable-gpu"
 alias conrun="$HOME/personal/dev-env/run"
 
 
+
 # quick dir access
- alias note="cd ~/personal/notes/notes_"
- alias mark="cd ~/personal/notes/notes_/mark"
+ alias note="cd ~/personal/notes/"
+ alias mark="cd ~/personal/notes/mark"
   alias dev="cd ~/personal/dev"
 
 # git stuff
@@ -51,9 +49,16 @@ alias gacm="git commit -am"
 alias gpush="git push"
 alias gpull="git pull"
 
+# scripts
+alias wmake="$HOME/personal/dev-env/env/scripts/wmake.sh"
 dfz() {
     local selected
-    selected=$(find ~/personal -mindepth 1 -maxdepth 5 -type d -print | fzf)
+    if [ -z $1 ]
+    then
+        selected=$(find ~/personal -mindepth 1 -maxdepth 5 -type d -print | fzf)
+    else
+        selected=$(find ~/personal -mindepth 1 -maxdepth 5 -type d -print | grep -i "$1"| fzf)
+    fi
     [[ -z $selected ]] && return
     cd "$selected"
 }
@@ -72,20 +77,9 @@ vfz() {
         done
     fi
 }
-wmake() {
-    while true; do
-        make
-        echo
-        echo
-        echo
-        echo
-        read -p "Waiting on input..."
-    done
-}
 battery() {
     upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage:/ { print $2 }'
 }
-
 y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
     yazi "$@" --cwd-file="$tmp"
