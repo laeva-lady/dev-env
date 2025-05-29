@@ -55,12 +55,23 @@ dfz() {
     local selected
     if [ -z $1 ]
     then
-        selected=$(find ~/personal -mindepth 1 -maxdepth 5 -type d -print | fzf)
+        selected=$(find . -mindepth 1 -maxdepth 5 -type d -print | fzf)
     else
-        selected=$(find ~/personal -mindepth 1 -maxdepth 5 -type d -print | grep -i "$1"| fzf)
+        selected=$(find . -mindepth 1 -maxdepth 5 -type d -print | grep -i "$1"| fzf)
     fi
     [[ -z $selected ]] && return
     cd "$selected"
+}
+tfz() {
+    local selected
+    if [ -z $1 ]
+    then
+        selected=$(find . -mindepth 1 -maxdepth 5 -type d -print | fzf)
+    else
+        selected=$(find . -mindepth 1 -maxdepth 5 -type d -print | grep -i "$1"| fzf)
+    fi
+    [[ -z $selected ]] && return
+    tmux new-session -c "$selected"
 }
 vfz() {
     local file
