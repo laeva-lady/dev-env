@@ -1,24 +1,26 @@
 #! /usr/bin/bash
 
-yay -S --needed --noconfirm   ani-cli
-yay -S --needed --noconfirm   brave-bin
-yay -S --needed --noconfirm   chatterino2-git
-yay -S --needed --noconfirm   ckb-next-git
-yay -S --needed --noconfirm   eww
-yay -S --needed --noconfirm   hyprland-autoname-workspaces-git
-yay -S --needed --noconfirm   hyprshot
-yay -S --needed --noconfirm   minecraft-launcher
-yay -S --needed --noconfirm   proton-ge-custom-bin
-yay -S --needed --noconfirm   sherlock-launcher-bin
-yay -S --needed --noconfirm   sleek-bin
-yay -S --needed --noconfirm   spotdl
-yay -S --needed --noconfirm   swhkd
-yay -S --needed --noconfirm   timg
-yay -S --needed --noconfirm   unityhub
-yay -S --needed --noconfirm   vencord-bin
-yay -S --needed --noconfirm   visual-studio-code-bin
-yay -S --needed --noconfirm   wlrobs-hg
-yay -S --needed --noconfirm   wshowkeys-mao-git
-yay -S --needed --noconfirm   waytrogen
-yay -S --needed --noconfirm   mpvpaper
+yay -S --needed \
+    ani-cli \
+    brave-bin \
+    chatterino2-git \
+    ckb-next-git \
+    eww \
+    hyprland-autoname-workspaces-git \
+    hyprshot \
+    minecraft-launcher \
+    proton-ge-custom-bin \
+    sherlock-launcher-bin \
+    sleek-bin \
+    spotdl \
+    swhkd \
+    timg \
+    unityhub \
+    vencord-bin \
+    visual-studio-code-bin \
+    wlrobs-hg \
+    wshowkeys-mao-git \
+    waytrogen \
+    mpvpaper \
+
 # yay -S --needed --noconfirm   wttrbar
