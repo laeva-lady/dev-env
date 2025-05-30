@@ -14,7 +14,7 @@ alias fal="~/personal/dev-env/scripts/fzf-custom-nonrecursive.sh"
 
 alias chat="nvim ~/chatprompt.md"
 alias zxcv="nvim ~/zxcv.md"
-alias fair="nvim ~/fair.md"
+alias fair="nvim ~/personal/todo.txt"
  alias out="nvim ~/out"
 
 # listing

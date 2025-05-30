@@ -10,3 +10,6 @@ I specify my own monitors in my config files, don't forget to change them if you
 # To fix
 - hyprsunset causing crashes? (wlsunset works fine for now)
 - hypridle not waking up ?
+
+# to do
+- remove the dunst package

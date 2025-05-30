@@ -23,6 +23,7 @@
     // "custom/changewall",
     "mpris",                // media info
      "tray",
+        // "custom/notif",
     // "hyprland/language",
     "pulseaudio",           // output device
     // "battery",              // battery
@@ -30,6 +31,10 @@
     // "clock#date",
   ],
 
+    // "custom/notif": {
+    //     "format": "N",
+    //     "on-click": "swaync-client -t"
+    // },
   "custom/changewall": {
     "format": " W ",
     "on-click": "~/.config/hypr/scripts/set-wall.sh",

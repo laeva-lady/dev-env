@@ -12,6 +12,9 @@ window {
 window#waybar {
     background: rgba(0, 0, 0, 0.5);
     margin: 0px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: white;
 }
 
 #mpris {
