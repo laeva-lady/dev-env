@@ -20,7 +20,7 @@
   ],
 
   "modules-right": [
-    // "custom/changewall",
+    "custom/changewall",
     "mpris",                // media info
      "tray",
         // "custom/notif",
@@ -37,7 +37,7 @@
     // },
   "custom/changewall": {
     "format": " W ",
-    "on-click": "~/.config/hypr/scripts/set-wall.sh",
+    "on-click": "~/.config/hypr/scripts/set-wall.sh 'random'",
     "interval": 360,
     "max-length": 33,
   },
