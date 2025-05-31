@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+# script that compiles glfw with wayland support
+
 sudo pacman -S mesa libglvnd glfw
 
 git clone https://github.com/glfw/glfw.git

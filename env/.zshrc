@@ -13,10 +13,6 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
 export VISUAL="$EDITOR"
 
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-export SDL_IM_MODULE=fcitx
-
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
