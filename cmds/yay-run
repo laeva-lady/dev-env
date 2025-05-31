@@ -9,7 +9,9 @@ yay -S --needed \
     hyprland-autoname-workspaces-git \
     hyprshot \
     minecraft-launcher \
+    mpvpaper \
     proton-ge-custom-bin \
+    seer-gdb \
     sherlock-launcher-bin \
     sleek-bin \
     spotdl \
@@ -18,9 +20,8 @@ yay -S --needed \
     unityhub \
     vencord-bin \
     visual-studio-code-bin \
+    waytrogen \
     wlrobs-hg \
     wshowkeys-mao-git \
-    waytrogen \
-    mpvpaper \
 
 # yay -S --needed --noconfirm   wttrbar
