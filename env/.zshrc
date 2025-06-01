@@ -31,3 +31,6 @@ RPROMPT='%F{8} %*%f'
 # This section can be safely removed at any time if needed.
 [[ ! -r '/home/alice/.opam/opam-init/init.zsh' ]] || source '/home/alice/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
+
+# expot cabal/ghcup
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"

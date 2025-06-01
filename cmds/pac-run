@@ -56,7 +56,6 @@ sudo pacman -Syu --needed \
     spotify-launcher \
     steam \
     steam-native-runtime \
-    swaync \
     swww \
     tesseract \
     thunderbird \
