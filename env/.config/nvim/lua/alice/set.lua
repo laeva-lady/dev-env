@@ -32,7 +32,7 @@ vim.opt.foldlevelstart = 99
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 
 
 vim.opt.list = true

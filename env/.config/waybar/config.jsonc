@@ -20,7 +20,7 @@
   ],
 
   "modules-right": [
-    "custom/changewall",
+    // "custom/changewall",
     "mpris",                // media info
      "tray",
         // "custom/notif",
