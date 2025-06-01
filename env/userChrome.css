@@ -1,0 +1,18 @@
+#TabsToolbar {
+	visibility: collapse !important;
+}
+
+#nav-bar:not(:-moz-lwtheme) {
+	height: 30px !important;
+	margin-top: -35px !important;
+}
+
+#sidebar {
+	min-width: 0px !important;
+	max-width: none !important;
+}
+
+#sidebar-box {
+	max-width: none !important;
+	min-width: 0px !important;
+}

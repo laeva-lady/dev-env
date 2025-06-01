@@ -38,7 +38,7 @@ autocmd({"BufWritePre"}, {
 autocmd('BufEnter', {
     group = AliceGroup,
     callback = function()
-        vim.cmd.colorscheme("gruvbox")
+        vim.cmd.colorscheme("kanagawa")
     end
 })
 
