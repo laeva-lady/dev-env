@@ -43,10 +43,10 @@ window#waybar {
 	all: initial;
 	min-width: 0;
 	box-shadow: inset 0 -3px transparent;
-	padding: 2px 10px;
+	padding: 2px 4px;
 	min-height: 0;
-	margin: 4px 4px;
-	border-radius: 8px;
+	/* margin: 4px 4px; */
+	border-radius: 0px;
 	border: 2px solid transparent;
 	background-color: rgba(0, 0, 0, 0.5);
 	color: #cdd6f4;
