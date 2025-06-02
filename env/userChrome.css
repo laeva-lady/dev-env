@@ -16,3 +16,9 @@
 	max-width: none !important;
 	min-width: 0px !important;
 }
+
+.titlebar-buttonbox-container {
+	display: none
+}
+
+.titlebar-spacer[type="post-tabs"]{ display:none }
