@@ -3,7 +3,7 @@ alias vim="nvim"
 alias t="tmux"
 alias tt="tmux new-session -c"
 
-alias ff="fastfetch"
+alias ff="hyfetch"
 alias maple="~/personal/maple2024/bin/xmaple"
 
 alias denv="cd ~/personal/dev-env"

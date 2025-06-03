@@ -2,6 +2,7 @@
 
 sudo pacman -Syu --needed \
 	bat \
+	hyfetch \
 	bluetui \
 	bluez \
 	bluez-utils \
