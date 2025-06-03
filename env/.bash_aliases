@@ -62,6 +62,18 @@ dfz() {
     [[ -z $selected ]] && return
     cd "$selected"
 }
+# COdE Find -> COFE
+cofe() {
+    local selected
+    if [ -z $1 ]
+    then
+        selected=$(find . -mindepth 1 -maxdepth 5 -type d -print | fzf)
+    else
+        selected=$(find . -mindepth 1 -maxdepth 5 -type d -print | grep -i "$1"| fzf)
+    fi
+    [[ -z $selected ]] && return
+    code "$selected"
+}
 tfz() {
     local selected
     if [ -z $1 ]

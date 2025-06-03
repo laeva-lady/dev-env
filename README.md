@@ -13,3 +13,6 @@ I specify my own monitors in my config files, don't forget to change them if you
 
 # to do
 - remove the dunst package
+
+# Zen theme
+https://github.com/rose-pine/zen-browser.git

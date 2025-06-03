@@ -1,27 +1,24 @@
 #! /usr/bin/bash
 
 yay -S --needed \
-    ani-cli \
-    brave-bin \
-    chatterino2-git \
-    ckb-next-git \
-    eww \
-    hyprland-autoname-workspaces-git \
-    hyprshot \
-    minecraft-launcher \
-    mpvpaper \
-    proton-ge-custom-bin \
-    seer-gdb \
-    sherlock-launcher-bin \
-    sleek-bin \
-    spotdl \
-    swhkd \
-    timg \
-    unityhub \
-    vencord-bin \
-    visual-studio-code-bin \
-    waytrogen \
-    wlrobs-hg \
-    wshowkeys-mao-git \
+		ani-cli \
+		brave-bin \
+		chatterino2-git \
+		ckb-next-git \
+		hyprshot \
+		minecraft-launcher \
+		mpvpaper \
+		seer-gdb \
+		sherlock-launcher-bin \
+		sleek-bin \
+		spotdl \
+		timg \
+		unityhub \
+		vencord-bin \
+		visual-studio-code-bin \
+		waytrogen \
+		wlrobs-hg \
+		wshowkeys-mao-git \
+		zen-browser-bin \
 
 # yay -S --needed --noconfirm   wttrbar
