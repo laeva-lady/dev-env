@@ -96,9 +96,13 @@ PROMPT_COMMAND=set_prompt
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-export SDL_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx5
+export XMODIFIERS=@im=fcitx5
+export SDL_IM_MODULE=fcitx5
+
+export XKB_DEFAULT_LAYOUT="us,ca"
+export XKB_DEFAULT_VARIANT=",fr-colemak"
+export XKB_DEFAULT_OPTIONS="grp:win_space_toggle,caps:escape"
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
