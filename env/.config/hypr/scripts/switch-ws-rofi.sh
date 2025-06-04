@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # Get list of workspaces
-workspaces=$(hyprctl workspaces -j | jq -r '.[].name' | sort)
+workspaces=$(hyprctl workspaces -j | jq -r '.[].name')
 
 # Show the list in rofi and get user choice
 selected=$(echo "$workspaces" | rofi -dmenu -p "Switch to workspace:")

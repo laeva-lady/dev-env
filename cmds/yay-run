@@ -11,6 +11,7 @@ yay -S --needed \
 		seer-gdb \
 		sherlock-launcher-bin \
 		sleek-bin \
+		spicetify-cli \
 		spotdl \
 		timg \
 		unityhub \

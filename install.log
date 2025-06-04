@@ -1,9 +1,9 @@
-[19:11:34 2025-05-19] FETCHING Version 2.40.9
-[19:11:34 2025-05-19] CREATING /home/alice/.spicetify
-[19:11:34 2025-05-19] DOWNLOADING https://github.com/spicetify/cli/releases/download/v2.40.9/spicetify-2.40.9-linux-amd64.tar.gz
-[19:11:41 2025-05-19] EXTRACTING /home/alice/.spicetify/spicetify.tar.gz
-[19:11:41 2025-05-19] SETTING EXECUTABLE PERMISSIONS TO /home/alice/.spicetify/spicetify
-[19:11:41 2025-05-19] REMOVING /home/alice/.spicetify/spicetify.tar.gz
-[19:11:41 2025-05-19] APPENDING /home/alice/.spicetify to PATH in /home/alice/.zshrc
-[19:11:41 2025-05-19] spicetify v2.40.9 was installed successfully to /home/alice/.spicetify
-[19:11:41 2025-05-19] Run 'spicetify --help' to get started
+[19:36:35 2025-06-03] FETCHING Version 2.40.10
+[19:36:35 2025-06-03] CREATING /home/shinano/.spicetify
+[19:36:35 2025-06-03] DOWNLOADING https://github.com/spicetify/cli/releases/download/v2.40.10/spicetify-2.40.10-linux-amd64.tar.gz
+[19:36:36 2025-06-03] EXTRACTING /home/shinano/.spicetify/spicetify.tar.gz
+[19:36:36 2025-06-03] SETTING EXECUTABLE PERMISSIONS TO /home/shinano/.spicetify/spicetify
+[19:36:36 2025-06-03] REMOVING /home/shinano/.spicetify/spicetify.tar.gz
+[19:36:36 2025-06-03] APPENDING /home/shinano/.spicetify to PATH in /home/shinano/.zshrc
+[19:36:36 2025-06-03] spicetify v2.40.10 was installed successfully to /home/shinano/.spicetify
+[19:36:36 2025-06-03] Run 'spicetify --help' to get started

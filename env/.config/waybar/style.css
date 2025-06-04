@@ -25,7 +25,6 @@ window#waybar {
 #pulseaudio,
 #tray,
 #window,
-#workspaces,
 #clock {
 	padding: 0 5px;
 }
@@ -36,6 +35,8 @@ window#waybar {
 }
 
 #workspaces {
+	/* margin-right: 5px; */
+	/* border-radius: 5px; */
 	background-color: transparent;
 }
 
@@ -45,7 +46,6 @@ window#waybar {
 	box-shadow: inset 0 -3px transparent;
 	padding: 2px 4px;
 	min-height: 0;
-	/* margin: 4px 4px; */
 	border-radius: 0px;
 	border: 2px solid transparent;
 	background-color: rgba(0, 0, 0, 0.5);
