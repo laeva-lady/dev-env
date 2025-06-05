@@ -43,7 +43,7 @@ selected() {
     tmpfile=$(mktemp)
 
     # Gather files, ignoring .git
-    mapfile -t files < <(find "$directory" -path "$directory/.git" -prune -o -type f -print | sort)
+    mapfile -t files < <(find "$directory" -path "$directory/.git" -prune -o -type f -print)
 
     options=()
     for full_path in "${files[@]}"; do
