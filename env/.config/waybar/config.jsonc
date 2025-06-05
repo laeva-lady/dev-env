@@ -25,6 +25,7 @@
      "tray",
         // "custom/notif",
     // "hyprland/language",
+		"bluetooth",
     "pulseaudio",           // output device
     // "battery",              // battery
     "clock#time"
@@ -52,6 +53,13 @@
     "ignore-list": [],
     "on-click": "minimize-raise"
   },
+
+	"bluetooth": {
+    "format": " 󰂯 ",
+    "tooltip": true,
+	  "tooltip-format": "Bluetooth Settings",
+    "on-click": "blueman",
+   },
 
   // ─────────────────────────────────────────────────────────┤ workspaces ├───
 

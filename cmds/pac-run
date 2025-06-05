@@ -2,10 +2,6 @@
 
 sudo pacman -Syu --needed \
 	bat \
-	hyfetch \
-	bluetui \
-	bluez \
-	bluez-utils \
 	brightnessctl \
 	btop \
 	cliphist \
@@ -29,6 +25,7 @@ sudo pacman -Syu --needed \
 	go \
 	gopls \
 	htop \
+	hyfetch \
 	hypridle \
 	hyprland \
 	hyprlock \
@@ -39,6 +36,7 @@ sudo pacman -Syu --needed \
 	jre-openjdk \
 	keyd \
 	kitty \
+	awesome \
 	libreoffice-still \
 	love \
 	lua \
@@ -46,6 +44,7 @@ sudo pacman -Syu --needed \
 	nvim \
 	nvtop \
 	obsidian \
+	pavucontrol \
 	python-pillow \
 	qbittorrent \
 	ranger \

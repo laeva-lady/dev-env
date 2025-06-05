@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+~/personal/dev-env/cmds/pac-run
+~/personal/dev-env/cmds/yay-run
+~/personal/dev-env/cmds/bluetooth
+~/personal/dev-env/cmds/ocaml
+~/personal/dev-env/cmds/opengl
+~/personal/dev-env/cmds/spicetify

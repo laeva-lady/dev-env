@@ -1,6 +1,8 @@
 #! /usr/bin/bash
 
 # utility to download spotify songs/playlists
+#
+# available in the AUR normally, don't really need this script
 
 sudo pacman -S --needed --noconfirm python-pipx
 pipx install spotdl

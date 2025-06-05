@@ -6,15 +6,15 @@ directory="$HOME/personal/wallpapers"
 set_wall() {
     full_path="$1"
     pkill mpvpaper
-    pkill swww
+    # pkill swww
 
     extension="${full_path##*.}"
     case "$extension" in
         jpg|jpeg|png|bmp|webp)
             # Use swww
             swww-daemon & disown
-            sleep 1
-            swww img "$full_path" --transition-step 100 --transition-fps 144
+            sleep 2
+            swww img "$full_path"
             notify-send "Wallpaper" "Switching to $full_path"
             ;;
         mp4|webm|mkv|mov)
