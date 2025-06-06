@@ -43,7 +43,7 @@ selected() {
     tmpfile=$(mktemp)
 
     # Gather files, ignoring .git
-    mapfile -t files < <(find "$directory" -path "$directory/.git" -prune -o -type f -print)
+    mapfile -t files < <(find "$directory" -path "$directory/.git" -prune -o -type f -print | sort)
 
     options=()
     for full_path in "${files[@]}"; do
@@ -53,7 +53,7 @@ selected() {
     done
 
     # Prompt user to select
-    selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p "Current : $current_wall" -matching glob -theme ~/.config/rofi/walls.rasi)
+    selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p "Current : $current_wall" -matching glob -theme ~/.config/rofi/copy.rasi)
 
     if [ -n "$selected" ]; then
         full_path=$(grep "^$selected|" "$tmpfile" | cut -d'|' -f2-)

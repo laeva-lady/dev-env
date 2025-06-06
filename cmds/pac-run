@@ -9,7 +9,7 @@ sudo pacman -Syu --needed \
 	dotnet-runtime \
 	dotnet-sdk \
 	dunst \
-	evince \
+	okular \
 	eza \
 	fastfetch \
 	fcitx5-configtool \

@@ -68,9 +68,9 @@ copy $DEV_ENV/env/.bash_aliases $HOME/.bash_aliases
 copy $DEV_ENV/env/.bashrc $HOME/.bashrc
 copy $DEV_ENV/env/.zshrc $HOME/.zshrc
 copy $DEV_ENV/env/.tmux.conf $HOME/.tmux.conf
-copy $DEV_ENV/env/config.fish $HOME/.config/fish/config.fish
 
 echo "Reloading Hyprland"
 hyprctl reload
+sleep 1;
 pkill waybar; waybar & disown
 pkill swww; swww-daemon & disown
