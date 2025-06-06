@@ -2,6 +2,7 @@
 
 sudo pacman -Syu --needed \
 	bat \
+	i3-wm \
 	brightnessctl \
 	btop \
 	cliphist \

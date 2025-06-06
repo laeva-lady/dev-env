@@ -16,15 +16,9 @@ return {
 
     config = function()
         require("alice.configs.gopls")
-        require("alice.configs.sharp")
-        require("alice.configs.html")
-        require("alice.configs.pyright")
         require("conform").setup({
             formatters_by_ft = {}
         })
-        require("lspconfig").qmlls.setup {
-            cmd = { "qmlls6", "-E" }
-        }
         local cmp = require('cmp')
         local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(),
@@ -37,7 +31,6 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "tinymist",
-                "pyright",
                 "ts_ls",
                 "bashls",
             },
