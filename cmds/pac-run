@@ -1,6 +1,7 @@
 #! /usr/bin/bash
 
 sudo pacman -Syu --needed \
+	awesome \
 	bat \
 	i3-wm \
 	brightnessctl \

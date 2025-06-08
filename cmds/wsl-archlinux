@@ -1,0 +1,30 @@
+#! /usr/bin/bash
+
+sudo pacman -Syu --needed \
+	bat \
+	btop \
+	dotnet-runtime \
+	dotnet-sdk \
+	eza \
+	fastfetch \
+	fzf \
+	go \
+	gopls \
+	hyfetch \
+	jre-openjdk \
+	love \
+	lua \
+	npm \
+	nvim \
+	nvtop \
+	ranger \
+	ripgrep \
+	rustup \
+	tmux \
+	tree \
+	typst \
+	yazi \
+	zsh \
+
+
+# dunst
