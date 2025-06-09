@@ -46,6 +46,4 @@ set("n", "<leader>spq", "vapgq")
 set("n", "<leader>mk", ":make<CR>")
 
 
-vim.api.nvim_create_user_command("Seratchbuffer", ":e ~/scratch.md", { desc = "open scratch file" })
-vim.api.nvim_create_user_command("Chatgptprompt", ":e ~/chatprompt.md", { desc = "open chatgpt file" })
-vim.api.nvim_create_user_command("Todoprompt", ":e ~/todoAndNotes.md", { desc = "open todo file" })
+vim.api.nvim_create_user_command("Chat", ":e ~/chatprompt.md", { desc = "open chatgpt file" })
