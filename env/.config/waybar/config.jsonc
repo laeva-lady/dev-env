@@ -1,11 +1,11 @@
 {
   // ─────────────────────────────────────────────────────────────┤ header ├───
 
-  "layer": "bottom",
+  "layer": "top",
   // "output": "eDP-1",
   "position": "top",
   // "mode": "hide",
-  "exclusive": false,
+  "exclusive": true,
   "reload_style_on_change": true,
   "gtk-layer-shell": true,
 

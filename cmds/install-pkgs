@@ -2,11 +2,12 @@
 
 packages=(
 	ani-cli
+	noto-fonts-cjk
+	yarn
 	bat
 	brave-bin
 	brightnessctl
 	btop
-	chatterino2-git
 	ckb-next-git
 	cliphist
 	discord
@@ -60,6 +61,7 @@ packages=(
 	steam-native-runtime
 	swww
 	tesseract
+	tesseract-data-eng
 	thunderbird
 	timg
 	tmux
