@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+pkgs=(
+	texlive-basic
+	texlive-latex
+	texlive-latexrecommended
+	texlive-latexextra
+	texlive-fontsrecommended
+	texlive-xetex
+	texlive-luatex
+	texlive-mathscience
+	texlive-lang
+	texlive-plaingeneric
+	texlive-bibtexextra
+)
+
+sudo pacman -Syu "${pkgs[@]}"
