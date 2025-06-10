@@ -35,13 +35,9 @@ alias conrun="$HOME/personal/dev-env/run"
 
 
 # quick dir access
- # alias note="cd ~/personal/notes/"
- # alias mark="cd ~/personal/notes/mark"
- #  alias dev="cd ~/personal/dev"
-# for WSL
- alias note="cd /mnt/c/Users/alice/personal/personal/notes/"
- alias mark="cd /mnt/c/Users/alice/personal/personal/notes/mark"
-  alias dev="cd /mnt/c/Users/alice/personal/personal/dev"
+ alias note="cd ~/personal/notes/"
+ alias mark="cd ~/personal/notes/mark"
+  alias dev="cd ~/personal/dev"
 
 # git stuff
 alias g="git"

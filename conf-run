@@ -70,8 +70,8 @@ copy $DEV_ENV/env/.zshrc $HOME/.zshrc
 copy $DEV_ENV/env/.tmux.conf $HOME/.tmux.conf
 
 # add a check to see if this is running ?
-# echo "Reloading Hyprland"
-# hyprctl reload
-# sleep 1;
-# pkill waybar; waybar & disown
-# pkill swww; swww-daemon & disown
+echo "Reloading Hyprland"
+hyprctl reload
+sleep 1;
+pkill waybar; waybar & disown
+pkill swww; swww-daemon & disown

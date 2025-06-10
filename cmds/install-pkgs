@@ -55,7 +55,6 @@ packages=(
 	rofi-emoji
 	rofi-wayland
 	rustup
-	spicetify-cli
 	spotify-launcher
 	steam
 	steam-native-runtime
