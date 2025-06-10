@@ -2,16 +2,17 @@
 
 pkgs=(
 	texlive-basic
-	texlive-latex
-	texlive-latexrecommended
-	texlive-latexextra
+	texlive-bibtexextra
+	texlive-binextra
 	texlive-fontsrecommended
-	texlive-xetex
+	texlive-lang
+	texlive-latex
+	texlive-latexextra
+	texlive-latexrecommended
 	texlive-luatex
 	texlive-mathscience
-	texlive-lang
 	texlive-plaingeneric
-	texlive-bibtexextra
+	texlive-xetex
 )
 
-sudo pacman -Syu "${pkgs[@]}"
+sudo pacman -Syu --needed "${pkgs[@]}"
