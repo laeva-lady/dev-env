@@ -1,12 +1,25 @@
 #! /usr/bin/bash
 
-packages=(
+aur=(
 	ani-cli
-	bat
 	brave-bin
+	ckb-next-git
+	kickoff
+	minecraft-launcher
+	mpvpaper
+	timg
+	unityhub
+	vencord-bin
+	vesktop
+	visual-studio-code-bin
+	wlrobs-hg
+	zen-browser-bin
+)
+
+packages=(
+	bat
 	brightnessctl
 	btop
-	ckb-next-git
 	cliphist
 	discord
 	dotnet-runtime
@@ -41,8 +54,6 @@ packages=(
 	libreoffice-still
 	love
 	lua
-	minecraft-launcher
-	mpvpaper
 	noto-fonts-cjk
 	npm
 	nvim
@@ -62,26 +73,26 @@ packages=(
 	tesseract
 	tesseract-data-eng
 	thunderbird
-	timg
 	tmux
 	torbrowser-launcher
 	tree
 	ttf-fira-code
 	ttf-nerd-fonts-symbols-mono
 	typst
-	unityhub
-	vencord-bin
-	visual-studio-code-bin
 	waybar
 	wev
 	wl-clipboard
-	wlrobs-hg
 	wlsunset
 	wtype
 	yarn
 	yazi
-	zen-browser-bin
 	zsh
 )
 
-paru -Syu --needed "${packages[@]}"
+sudo pacman -Syu --needed "${packages[@]}"
+
+if [ -n "$1" ]
+then
+	echo "Checking AUR..."
+	yay -S --needed "${aur[@]}"
+fi
