@@ -2,8 +2,6 @@
 
 packages=(
 	ani-cli
-	noto-fonts-cjk
-	yarn
 	bat
 	brave-bin
 	brightnessctl
@@ -24,6 +22,7 @@ packages=(
 	fzf
 	geogebra
 	gimp
+	github-cli
 	glfw
 	gnome-keyring
 	go
@@ -44,6 +43,7 @@ packages=(
 	lua
 	minecraft-launcher
 	mpvpaper
+	noto-fonts-cjk
 	npm
 	nvim
 	nvtop
@@ -78,6 +78,7 @@ packages=(
 	wlrobs-hg
 	wlsunset
 	wtype
+	yarn
 	yazi
 	zen-browser-bin
 	zsh
