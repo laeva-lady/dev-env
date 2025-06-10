@@ -1,5 +1,4 @@
-require'lspconfig'.gopls.setup{
-    cmd = { "gopls" },
-    filetypes = { "go", "gomod" },
+require 'lspconfig'.gopls.setup {
+	-- cmd = { "gopls" },
+	filetypes = { "go", "gomod" },
 }
-
