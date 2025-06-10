@@ -1,7 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-# set path
-export PATH="/home/alice/.local/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 
 ZSH_THEME="robbyrussell"

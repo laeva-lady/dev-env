@@ -4,7 +4,6 @@ aur=(
 	ani-cli
 	brave-bin
 	ckb-next-git
-	kickoff
 	minecraft-launcher
 	mpvpaper
 	timg
@@ -88,11 +87,20 @@ packages=(
 	yazi
 	zsh
 )
+cargo_pkgs=(
+	kickoff
+)
 
 sudo pacman -Syu --needed "${packages[@]}"
 
-if [ -n "$1" ]
+if [[ " $* " == *" yay "* ]]
 then
 	echo "Checking AUR..."
 	yay -S --needed "${aur[@]}"
+fi
+
+if [[ " $* " == *" cargo "* ]]
+then
+	echo "Checking Cargo"
+	cargo install "${cargo_pkgs[@]}"
 fi

@@ -13,10 +13,10 @@
 
   "modules-left": [
     "hyprland/workspaces",
+    "hyprland/window"
   ],
 
   "modules-center": [
-    "hyprland/window"
   ],
 
   "modules-right": [
@@ -24,7 +24,7 @@
     "mpris",                // media info
      "tray",
         // "custom/notif",
-    // "hyprland/language",
+    "hyprland/language",
 		"bluetooth",
     "pulseaudio",           // output device
     // "battery",              // battery
@@ -81,6 +81,11 @@
 
   // ─────────────────────────────────────────────────────────────┤ window ├───
 
+	"hyprland/language": {
+		"format": "{}",
+		"format-en": "US",
+		"format-fr": "CA",
+	},
   "hyprland/window": {
     "format": "{}",
     "tooltip": false,

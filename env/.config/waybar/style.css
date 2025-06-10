@@ -11,11 +11,8 @@ window {
 }
 
 window#waybar {
-	background: rgba(0, 0, 0, 0.5);
+	background: transparent;
 	margin: 0px;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	border-bottom-color: white;
 }
 
 #mpris {
@@ -33,6 +30,16 @@ window#waybar {
 #pulseaudio.muted {
 	color: #FF0000;
 	padding-top: 0;
+}
+
+.modules-left {
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 0px 0px 10px 0px;
+}
+.modules-right {
+	padding-left: 5px;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 0px 0px 0px 10px;
 }
 
 #workspaces {
@@ -67,9 +74,3 @@ window#waybar {
 #workspaces button.empty {
 	background-color: transparent;
 }
-
-/*
-#workspaces button.urgent {
-    background-color: #f38ba8;
-}
-*/
