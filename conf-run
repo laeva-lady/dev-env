@@ -73,5 +73,7 @@ copy $DEV_ENV/env/.tmux.conf $HOME/.tmux.conf
 echo "Reloading Hyprland"
 hyprctl reload
 sleep 1;
-pkill waybar; waybar & disown
-pkill swww; swww-daemon & disown
+echo "Reloading waybar"
+pkill waybar; hyprctl dispatch exec waybar
+echo "Reloading swww"
+pkill swww; hyprctl dispatch exec swww-daemon
