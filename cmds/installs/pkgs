@@ -38,8 +38,6 @@ packages=(
 	github-cli
 	glfw
 	gnome-keyring
-	go
-	gopls
 	htop
 	hyfetch
 	hypridle

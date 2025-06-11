@@ -30,6 +30,8 @@ set("n", "<C-o>", "<nop>")
 
 set("n", "<leader>\\", ":ToggleTerm<CR>")
 
+set("n", "<leader>mv", ":Markview<CR>")
+
 -- commands related to functions
 --
 local function removeRN()
