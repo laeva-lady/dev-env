@@ -38,6 +38,8 @@ packages=(
 	github-cli
 	glfw
 	gnome-keyring
+	go
+	gopls
 	htop
 	hyfetch
 	hypridle
@@ -86,6 +88,7 @@ packages=(
 	yazi
 	zsh
 )
+
 cargo_pkgs=(
 	kickoff
 )
