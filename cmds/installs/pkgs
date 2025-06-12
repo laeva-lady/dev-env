@@ -4,6 +4,7 @@ aur=(
 	ani-cli
 	brave-bin
 	ckb-next-git
+	cursor-bin
 	h-m-m-git
 	minecraft-launcher
 	mpvpaper
@@ -39,7 +40,7 @@ packages=(
 	glfw
 	gnome-keyring
 	go
-	gopls
+	gopls # doesn't work with nvim for some reason, but vscode works fine
 	htop
 	hyfetch
 	hypridle

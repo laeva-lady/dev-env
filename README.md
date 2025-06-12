@@ -4,7 +4,7 @@ dev env inspired by how [ThePrimeagen](https://github.com/thePrimeagen/) does it
 
 # to do
 - [x] configure dunst
-- [ ] get [this](Appearance.rounding.largeAppearance.rounding.largehttps://github.com/caelestia-dots/shell) working
+- [ ] get [this](https://github.com/caelestia-dots/shell) working
 
 
 # other things
