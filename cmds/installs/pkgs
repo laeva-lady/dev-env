@@ -35,6 +35,7 @@ packages=(
 	fish
 	fzf
 	geogebra
+	ghostty
 	gimp
 	github-cli
 	glfw
@@ -67,6 +68,8 @@ packages=(
 	rofi-emoji
 	rofi-wayland
 	rustup
+	elixir
+	erlang
 	spotify-launcher
 	steam
 	steam-native-runtime

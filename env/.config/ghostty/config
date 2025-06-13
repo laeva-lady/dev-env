@@ -8,3 +8,5 @@ background-blur = 20
 font-family = "Fira Code Retina"
 
 font-size = 16
+
+cursor-style = block

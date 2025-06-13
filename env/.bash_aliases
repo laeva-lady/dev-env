@@ -100,6 +100,16 @@ vfz() {
         done
     fi
 }
+rzf() {
+	local file
+    if [ -z "$1" ]; then
+            file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
+            [ -n "$file" ] && chmod +x "$file" && "$file"
+    else
+        file=$(find . -type f | grep -i "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
+        [ -n "$file" ] && chmod +x "$file" && "$file"
+    fi
+}
 battery() {
     upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage:/ { print $2 }'
 }

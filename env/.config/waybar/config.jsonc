@@ -32,26 +32,11 @@
     // "clock#date",
   ],
 
-    // "custom/notif": {
-    //     "format": "N",
-    //     "on-click": "swaync-client -t"
-    // },
   "custom/changewall": {
     "format": " W ",
     "on-click": "~/.config/hypr/scripts/set-wall.sh 'random'",
     "interval": 360,
     "max-length": 33,
-  },
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "icon-size": 18,
-    "spacing": 4,
-    "sort-by-app-id": true,
-    "markup": true,
-    "on-click-middle": "close",
-    "tooltip-format": "{title}",
-    "ignore-list": [],
-    "on-click": "minimize-raise"
   },
 
 	"bluetooth": {
@@ -60,24 +45,6 @@
 	  "tooltip-format": "Bluetooth Settings",
     "on-click": "blueman",
    },
-
-  // ─────────────────────────────────────────────────────────┤ workspaces ├───
-
-  // "hyprland/workspaces": {
-  //   "format": "{name}",
-  //     // "format-icons": {
-  //     //   "1": "🌐",
-  //     //   "2": ">_",
-  //     //   "3": "",
-  //     //   "4": "",
-  //     //   "5": "",
-  //     //   "6": "📺",
-  //     //   "7": "🎮",
-  //     //   "8": "🎵📧",
-  //     //   "9": "💻",
-  //     //   "10": "🔧"
-  //     // }
-  // },
 
   // ─────────────────────────────────────────────────────────────┤ window ├───
 
