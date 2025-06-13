@@ -1,6 +1,0 @@
-[default]
-path = "/home/alice/personal/wallpapers/"
-duration = "30m"
-group = 1
-
-[default.transition.window-blinds]

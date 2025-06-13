@@ -41,7 +41,7 @@ packages=(
 	glfw
 	gnome-keyring
 	go
-	gopls # doesn't work with nvim for some reason, but vscode works fine
+	gopls
 	htop
 	hyfetch
 	hypridle
@@ -97,7 +97,11 @@ cargo_pkgs=(
 	kickoff
 )
 
-sudo pacman -Syu --needed "${packages[@]}"
+if [[ " $* " == *" pac "* ]]
+then
+	echo "Checking pacman..."
+	sudo pacman -Syu --needed "${packages[@]}"
+fi
 
 if [[ " $* " == *" yay "* ]]
 then

@@ -1,7 +1,0 @@
-ctrl + shift + kpequal
-    wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+
-
-ctrl + shift + kpminus
-    wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
-
-
