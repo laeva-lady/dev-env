@@ -44,8 +44,21 @@ envs=(
 update_env_files "${envs[@]}"
 
 
-git status
-read -p "continue?"
-git add .
-git commit -m "chore: automated commit"
-git push
+
+# update the git repo
+{
+    cd $DEV_ENV
+    status=$(git status)
+
+    if [[ "$status" == *"nothing to commit, working tree clean"* ]]; then
+      echo "Nothing to commit. Exiting."
+      exit 0
+    fi
+
+    read -p "Continue? [y/N] " confirm
+    if [[ "$confirm" =~ ^[Yy]$ ]]; then
+      git add .
+      git commit -m "chore: automated commit"
+      git push
+    fi
+}
