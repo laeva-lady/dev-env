@@ -1,79 +1,45 @@
 #! /usr/bin/bash
-dry_run="0"
 
-if [ -z "$XDG_CONFIG_HOME" ]; then
-    echo "no xdg config hom"
-    echo "using ~/.config"
-    XDG_CONFIG_HOME=$HOME/.config
-fi
-
-if [ -z "$DEV_ENV" ]; then
-    echo "env var DEV_ENV needs to be present"
-    exit 1
-fi
-
-if [[ $1 == "--dry" ]]; then
-    dry_run="1"
-fi
-
-log() {
-    if [[ $dry_run == "1" ]]; then
-        echo "[DRY_RUN]: $1"
-    else
-        echo -e "\t $1"
-    fi
+update_configs_files() {
+    rm -rf "$DEV_ENV/env/.config"
+    mkdir -p "$DEV_ENV/env/.config"
+    for config in "$@"; do
+        echo -e "\t $config"
+        cp -r "$HOME/.config/$config" "$DEV_ENV/env/.config"
+    done
 }
 
-log "env: $DEV_ENV"
+# config files to keep track of in the repo
+confs=(
+    awesome
+    dunst
+    fastfetch
+    ghostty
+    hyfetch.json
+    hypr
+    kickoff
+    kitty
+    nvim
+    ranger
+    rofi
+    waybar
+)
+echo "Updating configs files"
+update_configs_files "${confs[@]}"
 
-update_files() {
-    log "copying over files from: $1"
-    pushd $1 &> /dev/null
-    (
-        configs=`find . -mindepth 1 -maxdepth 1 -type d`
-        for c in $configs; do
-            directory=${2%/}/${c#./}
-            log "    removing: rm -rf $directory"
-
-            if [[ $dry_run == "0" ]]; then
-                rm -rf $directory
-            fi
-
-            log "    copying env: cp $c $2"
-            if [[ $dry_run == "0" ]]; then
-                cp -r ./$c $2
-            fi
-        done
-
-    )
-    popd &> /dev/null
+update_env_files() {
+    for env_file in "$@"; do
+        echo -e "\t $env_file"
+        cp -r "$HOME/$env_file" "$DEV_ENV/env/"
+    done
 }
-
-copy() {
-    log "removing: $2"
-    if [[ $dry_run == "0" ]]; then
-        rm $2
-    fi
-    log "copying: $1 to $2"
-    if [[ $dry_run == "0" ]]; then
-        cp $1 $2
-    fi
-}
-
-echo "Copying .config files"
-update_files $DEV_ENV/env/.config $XDG_CONFIG_HOME
 
 echo "Copying envs files"
-copy $DEV_ENV/env/.bash_aliases $HOME/.bash_aliases
-copy $DEV_ENV/env/.bashrc $HOME/.bashrc
-copy $DEV_ENV/env/.zshrc $HOME/.zshrc
-copy $DEV_ENV/env/.tmux.conf $HOME/.tmux.conf
+envs=(
+    ".bash_aliases"
+    ".bashrc"
+    ".zshrc"
+    ".tmux.conf"
+)
+update_env_files "${envs[@]}"
 
-# add a check to see if this is running ?
-echo "Reloading Hyprland"
-hyprctl reload
-sleep 1;
-echo "Reloading waybar"
-pkill waybar; hyprctl dispatch exec waybar
-echo "Reloading swww"
-pkill swww; hyprctl dispatch exec swww-daemon

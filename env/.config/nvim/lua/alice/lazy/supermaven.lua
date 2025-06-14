@@ -8,7 +8,7 @@ return {
                     clear_suggestion = "<C-]>",
                     accept_word = "<C-j>",
                 },
-                disable_inline_completion = false,
+                disable_inline_completion = true,
             })
         end,
     }

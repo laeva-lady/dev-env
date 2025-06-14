@@ -7,6 +7,7 @@ alias ff="hyfetch"
 alias maple="~/personal/maple2024/bin/xmaple"
 
 alias denv="cd ~/personal/dev-env"
+alias conf="cd ~/.config"
 
 
 alias chat="nvim ~/chat.md"
