@@ -1,7 +1,0 @@
-#! /usr/bin/bash
-
-
-echo "Starting pac-run"
-./cmds/pac-run
-echo "Starting yay-run"
-./cmds/yay-run
