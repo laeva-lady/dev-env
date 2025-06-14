@@ -4,7 +4,6 @@ alias t="tmux"
 alias tt="tmux new-session -c"
 
 alias ff="hyfetch"
-alias maple="~/personal/maple2024/bin/xmaple"
 
 alias denv="cd ~/personal/dev-env"
 alias conf="cd ~/.config"
@@ -45,12 +44,14 @@ alias gpush="git push"
 alias gpull="git pull"
 
 # scripts
-alias wmake="$HOME/personal/dev-env/env/scripts/wmake.sh"
+alias wmake="$HOME/personal/dev-env/resources/scripts/wmake.sh"
+
 dfz() {
     cd "$(find . -mindepth 1 -maxdepth 5 -type d -print | fzf)"
 }
 tfz() {
-    tmux new-session -c "$(find $(pwd) -mindepth 1 -maxdepth 6 -type d -print | fzf)"
+    local selection=$(find $(pwd) -mindepth 1 -maxdepth 6 -type d -print | fzf)
+    [ -n "$selection" ] && tmux new-session -c "$selection"
 }
 vfz() {
     local file

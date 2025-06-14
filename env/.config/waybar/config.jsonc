@@ -47,13 +47,19 @@
    },
 
   // ─────────────────────────────────────────────────────────────┤ window ├───
-
-	"hyprland/language": {
-		"format": "{}",
-		"format-en": "US",
-		"format-fr": "CA",
-		"format-es": "ES",
-	},
+    "hyprland/workspaces": {
+        "format": "{name}: {icon}",
+        "format-icons": {
+          "active": "",
+          "default": ""
+        }
+      },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "US",
+        "format-fr": "CA",
+        "format-es": "ES",
+    },
   "hyprland/window": {
     "format": "{}",
     "tooltip": false,
