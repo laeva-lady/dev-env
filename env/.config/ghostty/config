@@ -10,3 +10,6 @@ font-family = "Fira Code Retina"
 font-size = 16
 
 cursor-style = block
+
+gtk-wide-tabs = false
+gtk-tabs-location= bottom

@@ -11,6 +11,7 @@
         "wm",
         "terminal",
         "gpu",
-        "localip"
+        "localip",
+		"disk"
     ]
 }

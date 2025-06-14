@@ -52,6 +52,7 @@
 		"format": "{}",
 		"format-en": "US",
 		"format-fr": "CA",
+		"format-es": "ES",
 	},
   "hyprland/window": {
     "format": "{}",

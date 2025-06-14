@@ -9,13 +9,10 @@ alias maple="~/personal/maple2024/bin/xmaple"
 alias denv="cd ~/personal/dev-env"
 
 
- alias fa="~/personal/dev-env/scripts/fzf-custom.sh"
-alias fal="~/personal/dev-env/scripts/fzf-custom-nonrecursive.sh"
-
-alias chat="nvim ~/chatprompt.md"
-alias zxcv="nvim ~/zxcv.md"
+alias chat="nvim ~/chat.md"
+alias zxcv="nvim ~/zxcv"
 alias fair="nvim ~/personal/todo.txt"
- alias out="nvim ~/out"
+alias pers="cd ~/personal/"
 
 # listing
 alias ls="eza -a1 -s type"
@@ -34,10 +31,6 @@ alias conrun="$HOME/personal/dev-env/run"
 
 
 
-# quick dir access
- alias note="cd ~/personal/notes/"
- alias mark="cd ~/personal/notes/mark"
-  alias dev="cd ~/personal/dev"
 
 # git stuff
 alias g="git"
