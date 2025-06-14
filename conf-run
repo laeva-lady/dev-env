@@ -48,14 +48,13 @@ update_env_files "${envs[@]}"
 # update the git repo
 {
     cd $DEV_ENV
-    status=$(git status)
 
-    if [[ "$status" == *"nothing to commit, working tree clean"* ]]; then
+    if [[ "$(git status)" == *"nothing to commit, working tree clean"* ]]; then
       echo "Nothing to commit. Exiting."
       exit 0
     fi
 
-    read -p "Continue? [y/N] " confirm
+    read -p "continue? [y/N] " confirm
     if [[ "$confirm" =~ ^[Yy]$ ]]; then
       git add .
       git commit -m "chore: automated commit"
