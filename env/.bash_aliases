@@ -13,6 +13,7 @@ alias chat="nvim ~/chat.md"
 alias zxcv="nvim ~/zxcv"
 alias fair="nvim ~/personal/todo.txt"
 alias pers="cd ~/personal/"
+alias dev="cd ~/personal/dev"
 
 # listing
 alias ls="eza -a1 -s type"
@@ -45,38 +46,10 @@ alias gpull="git pull"
 # scripts
 alias wmake="$HOME/personal/dev-env/env/scripts/wmake.sh"
 dfz() {
-    local selected
-    if [ -z $1 ]
-    then
-        selected=$(find . -mindepth 1 -maxdepth 5 -type d -print | fzf)
-    else
-        selected=$(find . -mindepth 1 -maxdepth 5 -type d -print | grep -i "$1"| fzf)
-    fi
-    [[ -z $selected ]] && return
-    cd "$selected"
-}
-# COdE Find -> COFE
-cofe() {
-    local selected
-    if [ -z $1 ]
-    then
-        selected=$(find . -mindepth 1 -maxdepth 5 -type d -print | fzf)
-    else
-        selected=$(find . -mindepth 1 -maxdepth 5 -type d -print | grep -i "$1"| fzf)
-    fi
-    [[ -z $selected ]] && return
-    code "$selected"
+    cd "$(find . -mindepth 1 -maxdepth 5 -type d -print | fzf)"
 }
 tfz() {
-    local selected
-    if [ -z $1 ]
-    then
-        selected=$(find . -mindepth 1 -maxdepth 5 -type d -print | fzf)
-    else
-        selected=$(find . -mindepth 1 -maxdepth 5 -type d -print | grep -i "$1"| fzf)
-    fi
-    [[ -z $selected ]] && return
-    tmux new-session -c "$selected"
+    tmux new-session -c "$(find $(pwd) -mindepth 1 -maxdepth 6 -type d -print | fzf)"
 }
 vfz() {
     local file
@@ -93,15 +66,10 @@ vfz() {
         done
     fi
 }
-rzf() {
-	local file
-    if [ -z "$1" ]; then
-            file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
-            [ -n "$file" ] && chmod +x "$file" && "$file"
-    else
-        file=$(find . -type f | grep -i "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
-        [ -n "$file" ] && chmod +x "$file" && "$file"
-    fi
+rfz() {
+    local file
+    file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
+    [ -n "$file" ] && chmod +x "$file" && "$file"
 }
 battery() {
     upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage:/ { print $2 }'
