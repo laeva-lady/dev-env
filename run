@@ -1,1 +1,10 @@
-DEV_ENV=$HOME/personal/dev-env/ $HOME/personal/dev-env/conf-run
+#!/usr/bin/bash
+
+case "$1" in
+    "install")
+        DEV_ENV=$HOME/personal/dev-env/ $HOME/personal/dev-env/install
+        ;;
+    *)
+        DEV_ENV=$HOME/personal/dev-env/ $HOME/personal/dev-env/conf-run
+        ;;
+esac

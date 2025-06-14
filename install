@@ -1,0 +1,8 @@
+#! /usr/bin/bash
+
+configs=$(find "$DEV_ENV/env/.config" -mindepth 1 -maxdepth 1 -type d)
+
+for c in $configs; do
+    echo -e "\tcopying: cp $c $2"
+    cp -r ./$c $2
+done
