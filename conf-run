@@ -43,3 +43,9 @@ envs=(
 )
 update_env_files "${envs[@]}"
 
+
+git status
+read -p "continue?"
+git add .
+git commit -m "chore: automated commit"
+git push
