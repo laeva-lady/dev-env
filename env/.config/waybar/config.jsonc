@@ -50,8 +50,8 @@
     "hyprland/workspaces": {
         "format": "{name}: {icon}",
         "format-icons": {
-          "active": "",
-          "default": ""
+          "active": "█",
+          "default": "_"
         }
       },
     "hyprland/language": {

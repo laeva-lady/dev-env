@@ -1,116 +1,118 @@
 #! /usr/bin/bash
 
 aur=(
-	ani-cli
-	brave-bin
-	ckb-next-git
-	cursor-bin
-	h-m-m-git
-	minecraft-launcher
-	mpvpaper
-	timg
-	unityhub
-	vencord-bin
-	vesktop
-	visual-studio-code-bin
-	wlrobs-hg
-	zen-browser-bin
+    ani-cli
+    brave-bin
+    ckb-next-git
+    cursor-bin
+    h-m-m-git
+    minecraft-launcher
+    mpvpaper
+    timg
+    unityhub
+    vencord-bin
+    vesktop
+    visual-studio-code-bin
+    wlrobs-hg
+    zen-browser-bin
+    # omnisharp-roslyn-bin # if .NET version 6.0, doesn't work with anything newer
 )
 
 packages=(
-	bat
-	brightnessctl
-	btop
-	cliphist
-	discord
-	dotnet-runtime
-	dotnet-sdk
-	dunst
-	eza
-	fastfetch
-	fcitx5-configtool
-	fcitx5-gtk
-	fcitx5-mozc
-	firefox
-	fish
-	fzf
-	geogebra
-	ghostty
-	gimp
-	github-cli
-	glfw
-	gnome-keyring
-	go
-	gopls
-	htop
-	hyfetch
-	hypridle
-	hyprland
-	hyprlock
-	hyprpaper
-	hyprpicker
-	hyprshot
-	jre-openjdk
-	keyd
-	kitty
-	libreoffice-still
-	love
-	lua
-	noto-fonts-cjk
-	npm
-	nvim
-	nvtop
-	obsidian
-	okular
-	pavucontrol
-	qbittorrent
-	ripgrep
-	rofi-emoji
-	rofi-wayland
-	rustup
-	elixir
-	erlang
-	spotify-launcher
-	steam
-	steam-native-runtime
-	swww
-	tesseract
-	tesseract-data-eng
-	thunderbird
-	tmux
-	torbrowser-launcher
-	tree
-	ttf-fira-code
-	ttf-nerd-fonts-symbols-mono
-	typst
-	waybar
-	wev
-	wl-clipboard
-	wlsunset
-	wtype
-	yarn
-	yazi
-	zsh
+    bat
+    brightnessctl
+    btop
+    clang
+    cliphist
+    discord
+    dotnet-runtime
+    dotnet-sdk
+    dunst
+    eza
+    fastfetch
+    fcitx5-configtool
+    fcitx5-gtk
+    fcitx5-mozc
+    firefox
+    fish
+    fzf
+    geogebra
+    ghostty
+    gimp
+    github-cli
+    glfw
+    gnome-keyring
+    go
+    gopls
+    htop
+    hyfetch
+    hypridle
+    hyprland
+    hyprlock
+    hyprpaper
+    hyprpicker
+    hyprshot
+    jre-openjdk
+    keyd
+    kitty
+    libreoffice-still
+    love
+    lua
+    noto-fonts-cjk
+    npm
+    nvim
+    nvtop
+    obsidian
+    okular
+    pavucontrol
+    qbittorrent
+    ripgrep
+    rofi-emoji
+    rofi-wayland
+    rustup
+    elixir
+    erlang
+    spotify-launcher
+    steam
+    steam-native-runtime
+    swww
+    tesseract
+    tesseract-data-eng
+    thunderbird
+    tmux
+    torbrowser-launcher
+    tree
+    ttf-fira-code
+    ttf-nerd-fonts-symbols-mono
+    typst
+    waybar
+    wev
+    wl-clipboard
+    wlsunset
+    wtype
+    yarn
+    yazi
+    zsh
 )
 
 cargo_pkgs=(
-	kickoff
+    kickoff
 )
 
 if [[ " $* " == *" pac "* ]]
 then
-	echo "Checking pacman..."
-	sudo pacman -Syu --needed "${packages[@]}"
+    echo "Checking pacman..."
+    sudo pacman -Syu --needed "${packages[@]}"
 fi
 
 if [[ " $* " == *" yay "* ]]
 then
-	echo "Checking AUR..."
-	yay -S --needed "${aur[@]}"
+    echo "Checking AUR..."
+    yay -S --needed "${aur[@]}"
 fi
 
 if [[ " $* " == *" cargo "* ]]
 then
-	echo "Checking Cargo"
-	cargo install "${cargo_pkgs[@]}"
+    echo "Checking Cargo"
+    cargo install "${cargo_pkgs[@]}"
 fi
