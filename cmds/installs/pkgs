@@ -6,6 +6,7 @@ aur=(
     ckb-next-git
     cursor-bin
     h-m-m-git
+    hypr-wellbeing-bin
     minecraft-launcher
     mpvpaper
     timg
@@ -99,20 +100,26 @@ cargo_pkgs=(
     kickoff
 )
 
-if [[ " $* " == *" pac "* ]]
+if [[ " $* " == *" nopac "* ]]
 then
+    echo "Skipping pacman..."
+else
     echo "Checking pacman..."
     sudo pacman -Syu --needed "${packages[@]}"
 fi
 
-if [[ " $* " == *" yay "* ]]
+if [[ " $* " == *" aur "* ]]
 then
     echo "Checking AUR..."
     yay -S --needed "${aur[@]}"
+else
+    echo "Skipping AUR..."
 fi
 
 if [[ " $* " == *" cargo "* ]]
 then
     echo "Checking Cargo"
     cargo install "${cargo_pkgs[@]}"
+else
+    echo "Skipping Cargo"
 fi

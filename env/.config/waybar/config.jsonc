@@ -48,11 +48,11 @@
 
   // ─────────────────────────────────────────────────────────────┤ window ├───
     "hyprland/workspaces": {
-        "format": "{name}: {icon}",
-        "format-icons": {
-          "active": "█",
-          "default": "_"
-        }
+        "format": "{name}",
+        // "format-icons": {
+        //   "active": "█",
+        //   "default": "_"
+        // }
       },
     "hyprland/language": {
         "format": "{}",
