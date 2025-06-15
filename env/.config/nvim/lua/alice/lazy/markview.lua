@@ -1,6 +1,6 @@
 return {
-	{
-		"OXY2DEV/markview.nvim",
-		lazy = false,
-	},
+	-- {
+	-- 	"OXY2DEV/markview.nvim",
+	-- 	lazy = false,
+	-- },
 }

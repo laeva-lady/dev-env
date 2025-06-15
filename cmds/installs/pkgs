@@ -5,8 +5,6 @@ aur=(
     brave-bin
     ckb-next-git
     cursor-bin
-    h-m-m-git
-    hypr-wellbeing-bin
     minecraft-launcher
     mpvpaper
     timg
@@ -16,7 +14,7 @@ aur=(
     visual-studio-code-bin
     wlrobs-hg
     zen-browser-bin
-    # omnisharp-roslyn-bin # if .NET version 6.0, doesn't work with anything newer
+    # omnisharp-roslyn-bin # only .NET version 6.0 (and below), doesn't work with anything newer
 )
 
 packages=(

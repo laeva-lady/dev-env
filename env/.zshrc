@@ -1,6 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 ZSH_THEME="robbyrussell"
 ENABLE_CORRECTION="true"

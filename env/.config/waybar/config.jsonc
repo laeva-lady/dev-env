@@ -2,7 +2,6 @@
   // ─────────────────────────────────────────────────────────────┤ header ├───
 
   "layer": "top",
-  // "output": "eDP-1",
   "position": "top",
   // "mode": "hide",
   "exclusive": true,
@@ -12,24 +11,21 @@
   // ──────────────────────────────────────────────────────────┤ positions ├───
 
   "modules-left": [
-    "hyprland/workspaces",
+    "tray",
+    "clock#time",
+    "mpris",
   ],
 
   "modules-center": [
-    "hyprland/window"
+    "hyprland/workspaces",
   ],
 
   "modules-right": [
-    // "custom/changewall",
-    "mpris",                // media info
-     "tray",
-        // "custom/notif",
     "hyprland/language",
-		"bluetooth",
-    "pulseaudio",           // output device
-    // "battery",              // battery
-    "clock#time"
-    // "clock#date",
+    "bluetooth",
+    "pulseaudio",
+    // "battery",
+    "clock#date",
   ],
 
   "custom/changewall": {
