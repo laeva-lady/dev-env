@@ -49,9 +49,13 @@ update_env_files "${envs[@]}"
 {
     cd $DEV_ENV
 
-    if [[ "$(git status)" == *"nothing to commit, working tree clean"* ]]; then
-      echo "Nothing to commit. Exiting."
-      exit 0
+    status="$(git status)"
+
+    if [[ "$status" == *"nothing to commit"* ]]; then
+        echo "Nothing to commit. Exiting."
+        exit 0
+    else
+        echo "$status"
     fi
 
     read -p "continue? [y/N] " confirm
