@@ -18,7 +18,7 @@ xkb_symbols "basic" {
     key <AD11>	{ [dead_grave, dead_circumflex, bracketleft, dead_abovering ] };
     key <AD12>	{ [      plus,   asterisk, bracketright,  dead_macron ]	};
 
-    key <AC10>	{ [    ntilde, Ntilde,   dead_tilde, dead_doubleacute ]	};
+    key <AD10>	{ [    ntilde, Ntilde,   dead_tilde, dead_doubleacute ]	};
     key <AC11>	{ [dead_acute, dead_diaeresis, braceleft,  dead_caron ]	};
     key <BKSL>	{ [  ccedilla,   Ccedilla,   braceright,   dead_breve ]	};
 

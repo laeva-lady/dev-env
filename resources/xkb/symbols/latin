@@ -18,28 +18,28 @@ xkb_symbols "basic" {
 
     key <AD01>	{ [         q,          Q,           at,  Greek_OMEGA ]	};
     key <AD02>	{ [         w,          W,        U017F,      section ]	};
-    key <AD03>	{ [         e,          E,            e,            E ]	};
-    key <AD04>	{ [         r,          R,    paragraph,   registered ]	};
-    key <AD05>	{ [         t,          T,       tslash,       Tslash ]	};
-    key <AD06>	{ [         y,          Y,    leftarrow,          yen ]	};
-    key <AD07>	{ [         u,          U,    downarrow,      uparrow ]	};
-    key <AD08>	{ [         i,          I,   rightarrow,     idotless ]	};
-    key <AD09>	{ [         o,          O,       oslash,       Oslash ]	};
-    key <AD10>	{ [         p,          P,        thorn,        THORN ]	};
+    key <AD03>	{ [         f,          F,            f,            F ]	};
+    key <AD04>	{ [         p,          P,    paragraph,   registered ]	};
+    key <AD05>	{ [         g,          G,       tslash,       Tslash ]	};
+    key <AD06>	{ [         j,          J,    leftarrow,          yen ]	};
+    key <AD07>	{ [         l,          L,    downarrow,      uparrow ]	};
+    key <AD08>	{ [         u,          U,   rightarrow,     idotless ]	};
+    key <AD09>	{ [         y,          Y,       oslash,       Oslash ]	};
+    key <AD10>	{ [ semicolon,      colon,        thorn,        THORN ]	};
     key <AD11>	{ [bracketleft,  braceleft, dead_diaeresis, dead_abovering ] };
     key <AD12>	{ [bracketright, braceright, dead_tilde,  dead_macron ]	};
 
     key <AC01>	{ [         a,          A,           ae,           AE ]	};
-    key <AC02>	{ [         s,          S,       ssharp,        U1E9E ]	};
-    key <AC03>	{ [         d,          D,          eth,          ETH ]	};
-    key <AC04>	{ [         f,          F,      dstroke,  ordfeminine ]	};
-    key <AC05>	{ [         g,          G,          eng,          ENG ]	};
+    key <AC02>	{ [         r,          R,       ssharp,        U1E9E ]	};
+    key <AC03>	{ [         s,          S,          eth,          ETH ]	};
+    key <AC04>	{ [         t,          T,      dstroke,  ordfeminine ]	};
+    key <AC05>	{ [         d,          D,          eng,          ENG ]	};
     key <AC06>	{ [         h,          H,      hstroke,      Hstroke ]	};
-    key <AC07>	{ [         j,          J,    dead_hook,    dead_horn ] };
-    key <AC08>	{ [         k,          K,          kra,    ampersand ]	};
-    key <AC09>	{ [         l,          L,      lstroke,      Lstroke ]	};
-    key <AC10>	{ [ semicolon,    colon, dead_acute, dead_doubleacute ]	};
-    key <AC11>	{ [apostrophe, quotedbl, dead_circumflex,  dead_caron ]	};
+    key <AC07>	{ [         n,          N,    dead_hook,    dead_horn ] };
+    key <AC08>	{ [         e,          E,          kra,    ampersand ]	};
+    key <AC09>	{ [         i,          I,      lstroke,      Lstroke ]	};
+    key <AC10>	{ [         o,          O, dead_acute, dead_doubleacute ]	};
+    key <AC11>	{ [apostrophe,   quotedbl, dead_circumflex,  dead_caron ]	};
     key <TLDE>	{ [     grave, asciitilde,      notsign,      notsign ]	};
 
     key <BKSL>	{ [ backslash,        bar,   dead_grave,   dead_breve ]	};
@@ -48,7 +48,7 @@ xkb_symbols "basic" {
     key <AB03>	{ [         c,          C,         cent,    copyright ]	};
     key <AB04>	{ [         v,          V,   doublelowquotemark, singlelowquotemark ]	};
     key <AB05>	{ [         b,          B,  leftdoublequotemark, leftsinglequotemark ] };
-    key <AB06>	{ [         n,          N, rightdoublequotemark, rightsinglequotemark ]	};
+    key <AB06>	{ [         k,          K, rightdoublequotemark, rightsinglequotemark ]	};
     key <AB07>	{ [         m,          M,           mu,    masculine ]	};
     key <AB08>	{ [     comma,       less,        U2022,     multiply ]	}; // bullet
     key <AB09>	{ [    period,    greater, periodcentered,   division ]	};
@@ -128,7 +128,7 @@ xkb_symbols "type4" {
     key <AE09>	{ [         9, parenright, bracketright,    plusminus ]	};
     key <AE10>	{ [         0,      equal,   braceright,       degree ]	};
 
-    key <AD03>	{ [         e,          E,     EuroSign,         cent ]	};
+    key <AD03>	{ [         f,          F,     EuroSign,         cent ]	};
 
     key <AB08>	{ [   comma,  semicolon,          U2022,     multiply ]	}; // bullet
     key <AB09>	{ [  period,      colon, periodcentered,     division ]	};
