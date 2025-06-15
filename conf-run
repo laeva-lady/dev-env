@@ -55,7 +55,6 @@ update_env_files "${envs[@]}"
     status=$(git -C "$DEV_ENV" status --porcelain)
 
     if [[ -z "$status" ]]; then
-        echo "Nothing to commit. Exiting."
         exit 0
     fi
 
