@@ -49,13 +49,14 @@ update_env_files "${envs[@]}"
 {
     cd $DEV_ENV
 
-    status="$(git status)"
+    git -C "$DEV_ENV" -c color.status=always status
 
-    if [[ "$status" == *"nothing to commit"* ]]; then
+    # Use plain text (no colors) to check for "nothing to commit"
+    status=$(git -C "$DEV_ENV" status --porcelain)
+
+    if [[ -z "$status" ]]; then
         echo "Nothing to commit. Exiting."
         exit 0
-    else
-        echo "$status"
     fi
 
     read -p "continue? [y/N] " confirm
