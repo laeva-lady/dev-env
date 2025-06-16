@@ -12,6 +12,7 @@ update_configs_files() {
 # config files to keep track of in the repo
 confs=(
     awesome
+    xkb
     dunst
     fastfetch
     ghostty
