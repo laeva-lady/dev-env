@@ -12,8 +12,8 @@ alias conf="cd ~/.config"
 alias chat="nvim ~/chat.md"
 alias zxcv="nvim ~/zxcv"
 alias fair="nvim ~/personal/todo.txt"
-alias pers="cd ~/personal/"
 alias dev="cd ~/personal/dev"
+alias note="cd ~/personal/notes"
 
 # listing
 alias ls="eza -a1 -s type"
