@@ -17,3 +17,4 @@ else
 	hyprshot -m "$selection" --silent --output-folder "$HOME/Downloads/"
 fi
 
+# maybe auto open the download folder with dolphin?
