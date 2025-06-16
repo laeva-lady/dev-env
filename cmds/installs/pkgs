@@ -27,6 +27,8 @@ packages=(
     dotnet-runtime
     dotnet-sdk
     dunst
+    elixir
+    erlang
     eza
     fastfetch
     fcitx5-configtool
@@ -64,13 +66,12 @@ packages=(
     obsidian
     okular
     pavucontrol
+    python-praw
     qbittorrent
     ripgrep
     rofi-emoji
     rofi-wayland
     rustup
-    elixir
-    erlang
     spotify-launcher
     steam
     steam-native-runtime

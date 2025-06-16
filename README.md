@@ -1,12 +1,13 @@
+# dev-env; my dev setup
+- env: keeps track of my dotfiles
+- Cmds: commands provided to configure/install stuff
+- resources: some misc stuff i need
+
+
 # to do
-- [x] configure dunst
-- [ ] get [this](https://github.com/caelestia-dots/shell) working
+ - [ ] style waybar i lil better
 
 
-# other things
-## IME
+# IME
 - configuring envs for Fcitx breaks the use of dead keys in some games in proton (e.g. Overwatch)
-- figure that out in the future
-
-## Zen theme
-- https://github.com/rose-pine/zen-browser.git
+- figure out if should keep using it or not
