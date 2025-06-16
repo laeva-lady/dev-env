@@ -1,124 +1,134 @@
 #! /usr/bin/bash
 
-aur=(
-    ani-cli
-    brave-bin
-    ckb-next-git
-    cursor-bin
-    minecraft-launcher
-    mpvpaper
-    timg
-    unityhub
-    vencord-bin
-    vesktop
-    visual-studio-code-bin
-    wlrobs-hg
-    zen-browser-bin
-    # omnisharp-roslyn-bin # only .NET version 6.0 (and below), doesn't work with anything newer
-)
-
-packages=(
-    bat
-    brightnessctl
-    btop
+langs=(
     clang
-    cliphist
-    discord
     dotnet-runtime
     dotnet-sdk
-    dunst
     elixir
     erlang
+    go
+    gopls
+    jre-openjdk
+    love
+    lua
+    npm
+    python-praw
+    rustup
+    texlive-basic
+    texlive-bibtexextra
+    texlive-binextra
+    texlive-fontsrecommended
+    texlive-lang
+    texlive-latex
+    texlive-latexextra
+    texlive-latexrecommended
+    texlive-luatex
+    texlive-mathscience
+    texlive-plaingeneric
+    texlive-xetex
+    typst
+    yarn
+)
+
+term_tools=(
+    bat
+    btop
     eza
     fastfetch
+    fzf
+    ghostty
+    github-cli
+    htop
+    hyfetch
+    kitty
+    nvim
+    nvtop
+    ripgrep
+    timg # display images in terminal
+    tmux
+    tree
+    yazi
+    zsh
+)
+
+ime=(
     fcitx5-configtool
     fcitx5-gtk
     fcitx5-mozc
-    firefox
-    fish
-    fzf
-    geogebra
-    ghostty
-    gimp
-    github-cli
+)
+
+system=(
+    brightnessctl
     glfw
     gnome-keyring
-    go
-    gopls
-    htop
-    hyfetch
+    keyd
+    pavucontrol
+)
+wm=(
+    ckb-next-git
+    cliphist
+    dunst
     hypridle
     hyprland
     hyprlock
     hyprpaper
     hyprpicker
     hyprshot
-    jre-openjdk
-    keyd
-    kitty
-    libreoffice-still
-    love
-    lua
-    noto-fonts-cjk
-    npm
-    nvim
-    nvtop
-    obsidian
-    okular
-    pavucontrol
-    python-praw
-    qbittorrent
-    ripgrep
+    mpvpaper
     rofi-emoji
     rofi-wayland
-    rustup
-    spotify-launcher
-    steam
-    steam-native-runtime
     swww
     tesseract
     tesseract-data-eng
-    thunderbird
-    tmux
-    torbrowser-launcher
-    tree
-    ttf-fira-code
-    ttf-nerd-fonts-symbols-mono
-    typst
     waybar
-    wev
     wl-clipboard
     wlsunset
-    wtype
-    yarn
-    yazi
-    zsh
+)
+browser=(
+    firefox
+    thunderbird
+    torbrowser-launcher
+    zen-browser-bin
+)
+codes=(
+    cursor-bin
+    unityhub
+    visual-studio-code-bin
+)
+extra=(
+    discord
+    geogebra
+    gimp
+    libreoffice-still
+    minecraft-launcher
+    obsidian
+    obs-studio
+    okular
+    qbittorrent
+    spotify-launcher
+    steam
+    steam-native-runtime
+    vencord-bin
+    vesktop
+    wev
+    wlrobs-hg # OBS plugin for screen capture on wayland
+)
+fonts=(
+    noto-fonts-cjk
+    ttf-fira-code
+    ttf-nerd-fonts-symbols-mono
 )
 
-cargo_pkgs=(
-    kickoff
+packages=(
+    "${browser[@]}"
+    "${codes[@]}"
+    "${extra[@]}"
+    "${fonts[@]}"
+    "${ime[@]}"
+    "${langs[@]}"
+    "${system[@]}"
+    "${term_tools[@]}"
+    "${wm[@]}"
 )
 
-if [[ " $* " == *" nopac "* ]]
-then
-    echo "Skipping pacman..."
-else
-    echo "Checking pacman..."
-    sudo pacman -Syu --needed "${packages[@]}"
-fi
-
-if [[ " $* " == *" aur "* ]]
-then
-    echo "Checking AUR..."
-    yay -S --needed "${aur[@]}"
-else
-    echo "Skipping AUR..."
-fi
-
-if [[ " $* " == *" cargo "* ]]
-then
-    echo "Checking Cargo"
-    cargo install "${cargo_pkgs[@]}"
-else
-    echo "Skipping Cargo"
-fi
+yay -S --needed "${packages[@]}"
