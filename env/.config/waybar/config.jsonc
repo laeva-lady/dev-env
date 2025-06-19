@@ -11,21 +11,20 @@
   // ──────────────────────────────────────────────────────────┤ positions ├───
 
   "modules-left": [
-    "tray",
-    "clock#time",
-    "mpris",
   ],
 
   "modules-center": [
     "hyprland/workspaces",
-  ],
-
-  "modules-right": [
+    "mpris",
     "hyprland/language",
-    "bluetooth",
     "pulseaudio",
     // "battery",
     "clock#date",
+    "clock#time",
+    "tray",
+  ],
+
+  "modules-right": [
   ],
 
   "custom/changewall": {

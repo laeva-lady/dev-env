@@ -1,22 +1,23 @@
 * {
-	border: none;
-	font-size: 12px;
-	font-family: "Fira Code Retina, Fira Code, JetBrainsMono Nerd Font,JetBrainsMono NF";
-	font-weight: bold;
-	color: white;
+    border: none;
+    font-size: 12px;
+    font-family: "Fira Code Retina, Fira Code, JetBrainsMono Nerd Font,JetBrainsMono NF";
+    font-weight: bold;
+    color: #8AA85F;
 }
 
 window {
-	background: transparent;
+    background: transparent;
 }
 
+/*
 window#waybar {
-	background: transparent;
-	margin: 0px;
 }
+*/
 
 #mpris {
-	padding-right: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
 }
 
 #battery,
@@ -24,56 +25,60 @@ window#waybar {
 #tray,
 #window,
 #clock {
-	padding: 0 5px;
+    padding: 0 5px;
 }
 
 #pulseaudio.muted {
-	color: #FF0000;
-	padding-top: 0;
+    color: #FF0000;
+    padding-top: 0;
 }
 
-.modules-left {
-	background-color: rgba(0, 0, 0, 0.5);
-}
-.modules-center {
-	background-color: rgba(0, 0, 0, 0.5);
-}
+.modules-left,
+.modules-center,
 .modules-right {
-	background-color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+}
+
+.modules-center {
+    background: #192C14;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #7BA276;
+    padding: 2px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 #workspaces {
-	/* margin-right: 5px; */
-	/* border-radius: 5px; */
-	background-color: transparent;
+    background-color: transparent;
+    margin-right: 50px;
 }
 
 #workspaces button {
-	all: initial;
-	min-width: 0;
-	box-shadow: inset 0 -3px transparent;
-	padding: 2px 4px;
-	padding-left: 10px;
-	padding-right: 10px;
-	min-height: 0;
-	border-radius: 0px;
-	/* border: 2px solid transparent; */
-	background-color: rgba(0, 0, 0, 0.5);
-	color: #cdd6f4;
+    all: initial;
+    border: 2px solid transparent;
+    border-radius: 0px;
+    box-shadow: inset 0 -3px transparent;
+    color: #8AA85F;
+    min-height: 0;
+    min-width: 0;
+    padding: 2px 4px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 #workspaces button:hover {
-	box-shadow: inherit;
-	text-shadow: inherit;
-	color: #1e1e2e;
-	background-color: #41444f;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background-color: #41444f;
 }
 
 #workspaces button.active {
-    border-top: 2px solid white;
-	/* border: 2px solid white; */
+    border: 2px solid #8AA85F;
 }
 
 #workspaces button.empty {
-	background-color: transparent;
+    background-color: transparent;
 }
