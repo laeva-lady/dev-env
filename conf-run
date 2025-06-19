@@ -24,6 +24,7 @@ confs=(
     rofi
     waybar
 )
+
 echo "Updating configs files"
 update_configs_files "${confs[@]}"
 

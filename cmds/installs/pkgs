@@ -1,5 +1,21 @@
 #! /usr/bin/bash
 
+aur=(
+    ckb-next-git
+    cursor-bin
+    minecraft-launcher
+    pandoc
+    mpvpaper
+    r2modman-bin
+    timg # display images in terminal
+    unityhub
+    vencord-bin
+    vesktop
+    visual-studio-code-bin
+    wlrobs-hg # OBS plugin for screen capture on wayland
+    zen-browser-bin
+)
+
 langs=(
     clang
     dotnet-runtime
@@ -8,6 +24,7 @@ langs=(
     erlang
     go
     gopls
+    r
     # jre-openjdk
     clojure
     leiningen
@@ -46,7 +63,6 @@ term_tools=(
     nvim
     nvtop
     ripgrep
-    timg # display images in terminal
     tmux
     tree
     yazi
@@ -67,7 +83,6 @@ system=(
     pavucontrol
 )
 wm=(
-    ckb-next-git
     cliphist
     dunst
     hypridle
@@ -76,7 +91,6 @@ wm=(
     hyprpaper
     hyprpicker
     hyprshot
-    mpvpaper
     rofi-emoji
     rofi-wayland
     swww
@@ -90,19 +104,14 @@ browser=(
     firefox
     thunderbird
     torbrowser-launcher
-    zen-browser-bin
 )
 codes=(
-    cursor-bin
-    unityhub
-    visual-studio-code-bin
 )
 extra=(
     discord
     geogebra
     gimp
     libreoffice-still
-    minecraft-launcher
     obsidian
     obs-studio
     okular
@@ -110,10 +119,7 @@ extra=(
     spotify-launcher
     steam
     steam-native-runtime
-    vencord-bin
-    vesktop
     wev
-    wlrobs-hg # OBS plugin for screen capture on wayland
 )
 fonts=(
     noto-fonts-cjk
@@ -133,4 +139,20 @@ packages=(
     "${wm[@]}"
 )
 
-yay -S --needed "${packages[@]}"
+
+
+if [[ " $* " == *" nopac "* ]]
+then
+    echo "skippint pacman..."
+else
+    echo "Checking official repos..."
+    sudo pacman -Syu --needed "${packages[@]}"
+fi
+
+if [[ " $* " == *" aur "* ]]
+then
+    echo "Checking AUR..."
+    yay -S --needed "${aur[@]}"
+else
+    echo "Skipping AUR..."
+fi

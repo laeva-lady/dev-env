@@ -10,20 +10,15 @@ window {
     background: transparent;
 }
 
-/*
-window#waybar {
-}
-*/
-
+#window,
 #mpris {
     padding-right: 10px;
-    margin-right: 10px;
+    margin-right: 50px;
 }
 
 #battery,
 #pulseaudio,
 #tray,
-#window,
 #clock {
     padding: 0 5px;
 }
