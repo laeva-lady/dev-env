@@ -9,6 +9,8 @@ langs=(
     go
     gopls
     jre-openjdk
+    clojure
+    leiningen
     love
     lua
     npm
