@@ -28,9 +28,10 @@ alias mkr="make r"
 alias ni="touch" # ni from New-Item's alias on PowerShell (don't ask why)
 alias clock="tty-clock"
 alias code="code --disable-gpu"
+
+
 alias conrun="$HOME/personal/dev-env/run"
-
-
+alias instpkg="$HOME/personal/dev-env/cmds/installs/pkgs"
 alias tmux-sessionizer="$HOME/personal/dev-env/resources/scripts/tmux-sessionizer.sh"
 
 

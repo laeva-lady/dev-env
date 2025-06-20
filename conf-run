@@ -8,6 +8,12 @@ update_configs_files() {
         cp -r "$HOME/.config/$config" "$DEV_ENV/env/.config"
     done
 }
+update_env_files() {
+    for env_file in "$@"; do
+        echo -e "\t\t$env_file"
+        cp -r "$HOME/$env_file" "$DEV_ENV/env/"
+    done
+}
 
 # config files to keep track of in the repo
 confs=(
@@ -27,26 +33,18 @@ confs=(
     waybar
 )
 
-echo "Updating configs files"
-update_configs_files "${confs[@]}"
-
-update_env_files() {
-    for env_file in "$@"; do
-        echo -e "\t\t$env_file"
-        cp -r "$HOME/$env_file" "$DEV_ENV/env/"
-    done
-}
-
-echo "Copying envs files"
 envs=(
     ".bash_aliases"
     ".bashrc"
     ".zshrc"
     ".tmux.conf"
 )
+
+echo "Updating configs files"
+update_configs_files "${confs[@]}"
+
+echo "Copying envs files"
 update_env_files "${envs[@]}"
-
-
 
 # update the git repo
 {
