@@ -3,9 +3,10 @@
 aur=(
     ckb-next-git
     cursor-bin
+    fcitx5-mozc-ut
     minecraft-launcher
-    pandoc
     mpvpaper
+    pandoc
     r2modman-bin
     timg # display images in terminal
     unityhub
@@ -14,25 +15,24 @@ aur=(
     visual-studio-code-bin
     wlrobs-hg # OBS plugin for screen capture on wayland
     zen-browser-bin
-    fcitx5-mozc-ut
 )
 
 langs=(
     clang
+    clojure
     dotnet-runtime
     dotnet-sdk
     elixir
     erlang
     go
     gopls
-    r
     # jre-openjdk
-    clojure
     leiningen
     love
     lua
     npm
     python-praw
+    r
     rustup
     texlive-basic
     texlive-bibtexextra
@@ -108,8 +108,6 @@ browser=(
     thunderbird
     torbrowser-launcher
 )
-codes=(
-)
 extra=(
     discord
     geogebra
@@ -123,6 +121,7 @@ extra=(
     steam
     steam-native-runtime
     wev
+    zed
 )
 fonts=(
     noto-fonts-cjk

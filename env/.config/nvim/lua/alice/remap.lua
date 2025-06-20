@@ -17,7 +17,7 @@ set("i", "<C-s>", "<ESC>:w<CR>")
 
 set("i", "<C-c>", "<Esc>")
 
-set("n", "<leader>o", ":Files<CR>", { desc = "Open fzf" })
+set("n", "<C-q>", ":Files<CR>", { desc = "Open fzf" })
 set("n", "<leader>f", vim.lsp.buf.format, { desc = "format" })
 
 set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "make it rain" });
