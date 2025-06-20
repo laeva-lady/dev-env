@@ -4,7 +4,7 @@ update_configs_files() {
     rm -rf "$DEV_ENV/env/.config"
     mkdir -p "$DEV_ENV/env/.config"
     for config in "$@"; do
-        echo -e "\t $config"
+        echo -e "\t\t$config"
         cp -r "$HOME/.config/$config" "$DEV_ENV/env/.config"
     done
 }
@@ -32,7 +32,7 @@ update_configs_files "${confs[@]}"
 
 update_env_files() {
     for env_file in "$@"; do
-        echo -e "\t $env_file"
+        echo -e "\t\t$env_file"
         cp -r "$HOME/$env_file" "$DEV_ENV/env/"
     done
 }
