@@ -67,7 +67,7 @@ window {
 #workspaces button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
-    background-color: #41444f;
+    background-color: #3E5C28;
 }
 
 #workspaces button.active {

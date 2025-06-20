@@ -7,7 +7,7 @@ window
 output
 screen"
 
-selection=$(echo "$opts" | rofi -dmenu -p "Screenshot Options")
+selection=$(echo "$opts" | rofi -dmenu -p "Screenshot Options" -theme ~/.config/rofi/aorstie.rasi)
 
 if [ "$selection" = "screen" ]
 then

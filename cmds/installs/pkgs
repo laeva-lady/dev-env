@@ -14,6 +14,7 @@ aur=(
     visual-studio-code-bin
     wlrobs-hg # OBS plugin for screen capture on wayland
     zen-browser-bin
+    fcitx5-mozc-ut
 )
 
 langs=(
@@ -72,7 +73,7 @@ term_tools=(
 ime=(
     fcitx5-configtool
     fcitx5-gtk
-    fcitx5-mozc
+    # fcitx5-mozc # use fcitx5-mozc-ut from AUR instead
 )
 
 system=(

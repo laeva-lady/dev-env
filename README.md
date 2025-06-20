@@ -1,11 +1,12 @@
 # dev-env; my dev setup
 - env: keeps track of my dotfiles
-- Cmds: commands provided to configure/install stuff
+- cmds: commands provided to configure/install some stuff
 - resources: some misc stuff i need
 
 
 # to do
- - [ ] style waybar i lil better
+ - [x] style waybar i lil better
+ - [ ] configure fcitx ?
 
 
 # IME
