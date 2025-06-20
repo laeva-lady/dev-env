@@ -15,7 +15,7 @@
 
   "modules-center": [
     "hyprland/workspaces",
-    "hyprland/window",
+    //"hyprland/window",
     "hyprland/language",
     "pulseaudio",
     // "battery",
