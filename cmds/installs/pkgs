@@ -73,6 +73,8 @@ term_tools=(
 ime=(
     fcitx5-configtool
     fcitx5-gtk
+    fcitx5-hangul
+    fcitx5-rime
     # fcitx5-mozc # use fcitx5-mozc-ut from AUR instead
 )
 
