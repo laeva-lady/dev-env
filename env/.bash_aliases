@@ -31,6 +31,7 @@ alias code="code --disable-gpu"
 alias conrun="$HOME/personal/dev-env/run"
 
 
+alias tmux-sessionizer="$HOME/personal/dev-env/resources/scripts/tmux-sessionizer.sh"
 
 
 # git stuff
@@ -57,15 +58,11 @@ vfz() {
     local file
     if [ -z $1 ]
     then
-        while true; do
-            file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
-            [ -n "$file" ] && nvim "$file"
-        done
+        file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
+        [ -n "$file" ] && nvim "$file"
     else
-        while true; do
-            file=$(find . -type f | grep -i "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
-            [ -n "$file" ] && nvim "$file"
-        done
+        file=$(find . -type f | grep -i "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
+        [ -n "$file" ] && nvim "$file"
     fi
 }
 rfz() {

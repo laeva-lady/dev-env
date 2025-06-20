@@ -29,3 +29,6 @@ RPROMPT='%F{8} %*%f'
 # opam configuration
 [[ ! -r '/home/alice/.opam/opam-init/init.zsh' ]] || source '/home/alice/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 
+
+bindkey -s ^f "tmux-sessionizer\n"
+

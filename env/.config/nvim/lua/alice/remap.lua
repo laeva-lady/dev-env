@@ -5,8 +5,10 @@ vim.g.mapleader = " "
 
 local set = vim.keymap.set
 
+set("n", "<C-f>", "<cmd>silent !tmux neww ~/personal/dev-env/resources/scripts/tmux-sessionizer.sh<CR>")
 set("n", "<leader>pv", vim.cmd.Ex)
 
+set("n", "<leader>hf", ":%!stylish-haskell<CR>")
 
 set("n", ";", ":")
 set("v", ";", ":")
@@ -14,7 +16,6 @@ set("v", ";", ":")
 set("n", "<C-s>", ":w<CR>")
 set("v", "<C-s>", "<ESC>:w<CR>")
 set("i", "<C-s>", "<ESC>:w<CR>")
-
 set("i", "<C-c>", "<Esc>")
 
 set("n", "<C-q>", ":Files<CR>", { desc = "Open fzf" })
@@ -24,7 +25,7 @@ set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "make
 
 set("n", "<C-n>", ":bnext<CR>")
 set("n", "<C-p>", ":bprev<CR>")
-set("n", "<C-f>", ":bdelete<CR>")
+set("n", "<C-c>", ":bdelete<CR>")
 
 set("n", "<C-o>", "<nop>")
 
