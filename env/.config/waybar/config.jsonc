@@ -1,182 +1,164 @@
 {
-  // ─────────────────────────────────────────────────────────────┤ header ├───
+    // ─────────────────────────────────────────────────────────────┤ header ├───
+    "layer": "top",
+    "position": "top",
+    // "mode": "hide",
+    "exclusive": true,
+    "reload_style_on_change": true,
+    "gtk-layer-shell": true,
+    // ──────────────────────────────────────────────────────────┤ positions ├───
+    "modules-left": [
+    ],
 
-  "layer": "top",
-  "position": "top",
-  // "mode": "hide",
-  "exclusive": true,
-  "reload_style_on_change": true,
-  "gtk-layer-shell": true,
+    "modules-center": [
+        "hyprland/workspaces",
+        //"hyprland/window",
+        "hyprland/language",
+        "pulseaudio",
+        // "battery",
+        "clock#date",
+        "clock#time",
+        "tray",
+    ],
 
-  // ──────────────────────────────────────────────────────────┤ positions ├───
+    "modules-right": [
+    ],
 
-  "modules-left": [
-  ],
-
-  "modules-center": [
-    "hyprland/workspaces",
-    //"hyprland/window",
-    "hyprland/language",
-    "pulseaudio",
-    // "battery",
-    "clock#date",
-    "clock#time",
-    "tray",
-  ],
-
-  "modules-right": [
-  ],
-
-  "custom/changewall": {
-    "format": " W ",
-    "on-click": "~/.config/hypr/scripts/set-wall.sh 'random'",
-    "interval": 360,
-    "max-length": 33,
-  },
-
-	"bluetooth": {
-    "format": " 󰂯 ",
-    "tooltip": true,
-	  "tooltip-format": "Bluetooth Settings",
-    "on-click": "blueman",
-   },
-
-  // ─────────────────────────────────────────────────────────────┤ window ├───
+    // ─────────────────────────────────────────────────────────────┤ window ├───
     "hyprland/workspaces": {
         "format": "{name}",
         // "format-icons": {
         //   "active": "█",
         //   "default": "_"
         // }
-      },
+    },
     "hyprland/language": {
         "format": "{}",
         "format-en": "US",
         "format-fr": "CA",
-        "format-es": "ES",
     },
-  "hyprland/window": {
-    "format": "{}",
-    "tooltip": false,
-    "min-length": 5,
-  },
-
-  // ───────────────────────────────────────────────────────────────┤ time ├───
-
-  "clock#time": {
-    "format": "{:%H:%M}",
-    "tooltip-format": "<tt>{calendar}</tt>",
-
-    "calendar": {
-      "mode": "month",
-      "mode-mon-col": 6,
-      "on-click-right": "mode",
-
-      "format": {
-        "months":
-          "<span color='#b4befe'><b>{}</b></span>",
-        "weekdays":
-          "<span color='#a6adc8' font='7'>{}</span>",
-        "today":
-          "<span color='#f38ba8'><b>{}</b></span>"
-      }
+    "hyprland/window": {
+        "format": "{}",
+        "tooltip": false,
+        "min-length": 5,
     },
 
-    "actions": {
-      "on-click": "mode",
-      "on-click-right": "mode"
-    },
-    "min-length": 5,
-    "max-length": 5,
-    "interval": 10,
-  },
+    // ───────────────────────────────────────────────────────────────┤ time ├───
 
-  // ───────────────────────────────────────────────────────────────┤ date ├───
+    "clock#time": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>",
 
-  "clock#date": {
-    "format": "󰨳 {:%d}",
-    "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 6,
+            "on-click-right": "mode",
 
-    "calendar": {
-      "mode": "month",
-      "mode-mon-col": 6,
-      "on-click-right": "mode",
+            "format": {
+                "months":
+                "<span color='#b4befe'><b>{}</b></span>",
+                "weekdays":
+                "<span color='#a6adc8' font='7'>{}</span>",
+                "today":
+                "<span color='#f38ba8'><b>{}</b></span>"
+                }
+            },
 
-      "format": {
-        "months":
-          "<span color='#b4befe'><b>{}</b></span>",
-        "weekdays":
-          "<span color='#a6adc8' font='7'>{}</span>",
-        "today":
-          "<span color='#f38ba8'><b>{}</b></span>"
-      }
-    },
-
-    "actions": {
-      "on-click": "mode",
-      "on-click-right": "mode"
+            "actions": {
+            "on-click": "mode",
+            "on-click-right": "mode"
+        },
+        "min-length": 5,
+        "max-length": 5,
+        "interval": 10,
     },
 
-    "min-length": 4,
-    "max-length": 4
-  },
+    // ───────────────────────────────────────────────────────────────┤ date ├───
 
-  // ─────────────────────────────────────────────────────────┤ media info ├───
+    "clock#date": {
+        "format": "󰨳 {:%d}",
+        "tooltip-format": "<tt>{calendar}</tt>",
 
-  "mpris": {
-    "format": "{player_icon} {title} - {artist} {player_icon}",
-    "format-paused": "{status_icon} {title} - {artist}",
+        "calendar": {
+        "mode": "month",
+        "mode-mon-col": 6,
+        "on-click-right": "mode",
 
-    "player-icons": {
-      "default": "󰝚 ",
-    },
-    "status-icons": {
-      "paused": "<span color='#b4befe'>\u200A\u200A󰏤\u2009\u2009</span>"
-    },
+        "format": {
+            "months":
+            "<span color='#b4befe'><b>{}</b></span>",
+            "weekdays":
+            "<span color='#a6adc8' font='7'>{}</span>",
+            "today":
+            "<span color='#f38ba8'><b>{}</b></span>"
+            }
+        },
 
-    "tooltip-format": "Playing: {title} - {artist}",
-    "tooltip-format-paused": "Paused: {title} - {artist}",
-    "min-length": 5,
-    "max-length": 50
-  },
+        "actions": {
+        "on-click": "mode",
+        "on-click-right": "mode"
+        },
 
-  // ──────────────────────────────────────────────────────┤ output device ├───
-
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟 {volume}%",
-
-    "format-icons": {
-      "default": ["󰕿", "󰖀", "󰕾"],
-      "headphone": "󰋋",
-      "headset": "󰋋"
+        "min-length": 4,
+        "max-length": 4
     },
 
-    "tooltip-format": "Device: {desc}",
-    // "on-click": "~/.config/waybar/scripts/volume-control.sh -o m",
-    "on-click": "pavucontrol",
-    "on-scroll-up": "~/.config/waybar/scripts/volume-control.sh -o i",
-    "on-scroll-down": "~/.config/waybar/scripts/volume-control.sh -o d",
-    "min-length": 6,
-    "max-length": 6
-  },
+    // ─────────────────────────────────────────────────────────┤ media info ├───
 
-  // ────────────────────────────────────────────────────────────┤ battery ├───
+    "mpris": {
+        "format": "{player_icon} {title} - {artist} {player_icon}",
+        "format-paused": "{status_icon} {title} - {artist}",
 
-  "battery": {
-    "states": {
-      "warning": 20,
-      "critical": 10
+        "player-icons": {
+        "default": "󰝚 ",
+        },
+        "status-icons": {
+        "paused": "<span color='#b4befe'>\u200A\u200A󰏤\u2009\u2009</span>"
+        },
+
+        "tooltip-format": "Playing: {title} - {artist}",
+        "tooltip-format-paused": "Paused: {title} - {artist}",
+        "min-length": 5,
+        "max-length": 50
     },
 
-    "format": "{icon} {capacity}%",
-    "format-icons": ["󰂎", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "format-charging": " {capacity}%",
+    // ──────────────────────────────────────────────────────┤ output device ├───
 
-    "tooltip-format": "Discharging: {time}",
-    "tooltip-format-charging": "Charging: {time}",
-    "interval": 1,
-    "min-length": 6,
-    "max-length": 6
-  },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 {volume}%",
+
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"],
+            "headphone": "󰋋",
+            "headset": "󰋋"
+        },
+
+        "tooltip-format": "Device: {desc}",
+        // "on-click": "~/.config/waybar/scripts/volume-control.sh -o m",
+        "on-click": "pavucontrol",
+        "on-scroll-up": "~/.config/waybar/scripts/volume-control.sh -o i",
+        "on-scroll-down": "~/.config/waybar/scripts/volume-control.sh -o d",
+        "min-length": 6,
+        "max-length": 6
+    },
+
+    // ────────────────────────────────────────────────────────────┤ battery ├───
+
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+
+        "format": "{icon} {capacity}%",
+        "format-icons": ["󰂎", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "format-charging": " {capacity}%",
+
+        "tooltip-format": "Discharging: {time}",
+        "tooltip-format-charging": "Charging: {time}",
+        "interval": 1,
+        "min-length": 6,
+        "max-length": 6
+    },
 }
