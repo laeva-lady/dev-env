@@ -16,6 +16,9 @@ window {
     margin-right: 50px;
 }
 
+#language {
+    padding-top: 2px;
+}
 #battery,
 #pulseaudio,
 #tray,

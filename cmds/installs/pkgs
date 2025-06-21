@@ -68,6 +68,8 @@ term_tools=(
     tree
     yazi
     zsh
+    emacs
+
 )
 
 ime=(

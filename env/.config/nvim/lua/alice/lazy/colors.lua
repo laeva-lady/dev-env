@@ -124,6 +124,9 @@ return {
                 },
             }
         end
+    },
+    {
+        "joshdick/onedark.vim"
     }
 
 

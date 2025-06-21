@@ -32,6 +32,8 @@ confs=(
     rofi
     waybar
     zed
+    doom
+    emacs
 )
 
 envs=(
