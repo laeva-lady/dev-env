@@ -33,7 +33,6 @@ confs=(
     waybar
     zed
     doom
-    emacs
 )
 
 envs=(
