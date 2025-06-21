@@ -31,6 +31,7 @@ confs=(
     ranger
     rofi
     waybar
+    zed
 )
 
 envs=(
