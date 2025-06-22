@@ -18,18 +18,6 @@ Name=mozc
 # Layout
 Layout=
 
-[Groups/0/Items/2]
-# Name
-Name=rime
-# Layout
-Layout=
-
-[Groups/0/Items/3]
-# Name
-Name=hangul
-# Layout
-Layout=
-
 [GroupOrder]
 0=Default
 
