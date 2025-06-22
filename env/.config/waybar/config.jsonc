@@ -6,22 +6,27 @@
     "exclusive": true,
     "reload_style_on_change": true,
     "gtk-layer-shell": true,
+
+    "margin-left": 350,
+    "margin-right": 350,
+    "margin-top": 0,
     // ──────────────────────────────────────────────────────────┤ positions ├───
     "modules-left": [
+        "hyprland/workspaces",
+        "mpris"
     ],
 
     "modules-center": [
-        "hyprland/workspaces",
-        //"hyprland/window",
+        "hyprland/window",
+    ],
+
+    "modules-right": [
         "hyprland/language",
         "pulseaudio",
         // "battery",
         "clock#date",
         "clock#time",
         "tray",
-    ],
-
-    "modules-right": [
     ],
 
     // ─────────────────────────────────────────────────────────────┤ window ├───
