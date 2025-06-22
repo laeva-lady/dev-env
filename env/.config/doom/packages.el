@@ -50,3 +50,4 @@
 
 (package! tldr)
 (package! org-bullets)
+(package! org-appear)
