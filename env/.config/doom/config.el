@@ -32,6 +32,8 @@
 (setq org-bullets-bullet-list '("•" "◉" "○" "✿" "◆"))
 (setq org-bullets-mode t)
 
+
+;; remove the preview at the cursor to be able to edit something without needing to toggle the preview
 (use-package! org-appear
         :hook (org-mode . org-appear-mode))
 (setq org-appear-autoemphasis t
