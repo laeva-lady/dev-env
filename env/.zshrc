@@ -32,4 +32,5 @@ RPROMPT='%F{8} %*%f'
 
 
 bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^v "vfz\n"
 

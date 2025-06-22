@@ -90,6 +90,7 @@ window#waybar {
     padding-left: 15px;
     padding-right: 15px;
     margin: 2px;
+    border-radius: 5px;
 }
 
 #workspaces button:hover {
@@ -100,7 +101,6 @@ window#waybar {
 
 #workspaces button.active {
     border: 2px solid @workspaceborder;
-    border-radius: 5px;
 }
 
 #workspaces button.empty {
