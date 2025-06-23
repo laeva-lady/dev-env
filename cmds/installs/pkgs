@@ -3,11 +3,11 @@
 aur=(
     ckb-next-git
     cursor-bin
-    fcitx5-mozc-ut
+    fcitx5-mozc-ut # Better dictionaries for Mozc
     minecraft-launcher
     mpvpaper
     pandoc
-    r2modman-bin
+    r2modman-bin # Thunderstore client
     timg # display images in terminal
     unityhub
     vencord-bin
@@ -15,6 +15,7 @@ aur=(
     visual-studio-code-bin
     wlrobs-hg # OBS plugin for screen capture on wayland
     zen-browser-bin
+    cnijfilter2 # driver for Canon printers
 )
 
 langs=(
@@ -27,12 +28,10 @@ langs=(
     go
     gopls
     jdk-openjdk
-    leiningen
+    leiningen # stack-like thing for clojure
     love
     lua
     npm
-    python-praw
-    r
     rustup
     texlive-basic
     texlive-bibtexextra
@@ -100,7 +99,9 @@ wm=(
     rofi-wayland
     swww
     tesseract
+    tesseract-data-chi_sim
     tesseract-data-eng
+    tesseract-data-jpn
     waybar
     wl-clipboard
     wlsunset

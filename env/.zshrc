@@ -31,7 +31,7 @@ RPROMPT='%F{8} %*%f'
 [[ ! -r '/home/alice/.opam/opam-init/init.zsh' ]] || source '/home/alice/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 
 
-bindkey -s ^f "tmux-sessionizer\n"
-bindkey -s ^v "vfz\n"
+bindkey -s ^t "tmux-sessionizer\n"
+bindkey -s ^f "vfz\n"
 # bindkey -s ^w "dfz\n" # what key should i use ???
 
