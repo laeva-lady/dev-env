@@ -1,3 +1,12 @@
+configuration {
+    modi:                       "drun,run,filebrowser";
+    show-icons:                 false;
+    display-drun:               " ";
+    display-run:                "# ";
+    drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    window-format:              "{w} · {c} · {t}";
+}
+
 * {
     bg-col:  rgba(0, 0, 0, 0.25);
     bg-col-light: #1e1e2e;
@@ -36,9 +45,9 @@ inputbar {
 }
 
 prompt {
-    background-color: @blue;
+    background-color: #1C1927;
     padding: 6px;
-    text-color: @bg-col;
+    text-color: white;
     border-radius: 3px;
     margin: 20px 0px 0px 20px;
 }

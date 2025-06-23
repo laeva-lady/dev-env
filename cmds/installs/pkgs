@@ -147,7 +147,7 @@ packages=(
 
 if [[ " $* " == *" nopac "* ]]
 then
-    echo "skippint pacman..."
+    echo "skipping pacman..."
 else
     echo "Checking official repos..."
     sudo pacman -Syu --needed "${packages[@]}"
