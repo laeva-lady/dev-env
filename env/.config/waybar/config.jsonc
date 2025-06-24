@@ -13,7 +13,7 @@
     // ──────────────────────────────────────────────────────────┤ positions ├───
     "modules-left": [
         "hyprland/workspaces",
-        "mpris"
+        "mpris",
     ],
 
     "modules-center": [
