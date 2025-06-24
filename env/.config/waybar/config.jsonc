@@ -32,10 +32,6 @@
     // ─────────────────────────────────────────────────────────────┤ window ├───
     "hyprland/workspaces": {
         "format": "{name}",
-        // "format-icons": {
-        //   "active": "█",
-        //   "default": "_"
-        // }
     },
     "hyprland/language": {
         "format": "{}",
@@ -43,8 +39,10 @@
         "format-fr": "CA",
     },
     "hyprland/window": {
-        "format": "{}",
+        "format": "{class}",
         "tooltip": false,
+        // "icon": true,
+        // "icon-size": 12,
         "min-length": 5,
         "max-length": 25,
     },
