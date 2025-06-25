@@ -41,6 +41,7 @@
     "hyprland/window": {
         "format": "{class}",
         "tooltip": false,
+        "separate-outputs": true,
         // "icon": true,
         // "icon-size": 12,
         "min-length": 5,
