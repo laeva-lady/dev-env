@@ -6,7 +6,7 @@
 
 # to do
  - [x] style waybar i lil better
- - [ ] configure fcitx ?
+ - [x] configure fcitx ?
 
 
 # IME
