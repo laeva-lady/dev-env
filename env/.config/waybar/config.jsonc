@@ -111,7 +111,7 @@
     // ─────────────────────────────────────────────────────────┤ media info ├───
 
     "mpris": {
-        "format": "{player_icon} {title} - {artist} {player_icon}",
+        "format": "{player_icon} {title} - {artist}",
         "format-paused": "{status_icon} {title} - {artist}",
 
         "player-icons": {

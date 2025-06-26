@@ -62,6 +62,7 @@ term_tools=(
     kitty
     nvim
     nvtop
+    micro
     ripgrep
     tmux
     tree
@@ -103,7 +104,9 @@ wm=(
     tesseract-data-eng
     tesseract-data-jpn
     waybar
+    foot # for alt-tab
     wl-clipboard
+    chafa # for alt-tab
     wlsunset
 )
 browser=(
