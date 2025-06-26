@@ -87,9 +87,11 @@ system=(
     keyd
     pavucontrol
 )
+
 wm=(
     cliphist
     dunst
+    grim
     hypridle
     hyprland
     hyprlock
@@ -104,16 +106,16 @@ wm=(
     tesseract-data-eng
     tesseract-data-jpn
     waybar
-    foot # for alt-tab
     wl-clipboard
-    chafa # for alt-tab
     wlsunset
 )
+
 browser=(
     firefox
     thunderbird
     torbrowser-launcher
 )
+
 extra=(
     discord
     geogebra
