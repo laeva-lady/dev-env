@@ -11,7 +11,7 @@ alias conf="cd ~/.config"
 
 alias chat="nvim ~/chat.md"
 alias zxcv="nvim ~/zxcv"
-alias fair="nvim ~/personal/todo.txt"
+alias fair="nvim ~/personal/notes/todo.md"
 alias dev="cd ~/personal/dev"
 alias note="cd ~/personal/notes"
 

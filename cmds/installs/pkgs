@@ -26,6 +26,8 @@ langs=(
     elixir
     erlang
     go
+    zig
+    zls
     gopls
     jdk-openjdk
     leiningen # stack-like thing for clojure
@@ -50,6 +52,7 @@ langs=(
 )
 
 term_tools=(
+    chafa
     bat
     btop
     eza
@@ -129,7 +132,6 @@ extra=(
     steam
     steam-native-runtime
     wev
-    zed
 )
 fonts=(
     noto-fonts-cjk

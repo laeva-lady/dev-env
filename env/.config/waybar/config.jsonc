@@ -13,11 +13,12 @@
     // ──────────────────────────────────────────────────────────┤ positions ├───
     "modules-left": [
         "hyprland/workspaces",
+        // "hyprland/window",
         "mpris",
     ],
 
     "modules-center": [
-        "hyprland/window",
+        "clock#time",
     ],
 
     "modules-right": [
@@ -25,7 +26,6 @@
         "pulseaudio",
         // "battery",
         "tray",
-        "clock#time",
         "clock#date",
     ],
 

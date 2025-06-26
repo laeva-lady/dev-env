@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-
 directory="$HOME/personal/wallpapers"
 
 wall=$(swww query | head -n 1 | sed -n 's|.*/\([^/.]*\)\..*|\1|p')
@@ -10,6 +9,8 @@ then
 fi
 
 tmpfile=$(mktemp)
+choice_tmp=$(mktemp)
+tmp_options=$(mktemp)
 
 # Gather files, ignoring .git
 mapfile -t files < <(find "$directory" -path "$directory/.git" -prune -o -type f -print | sort)
@@ -17,12 +18,21 @@ mapfile -t files < <(find "$directory" -path "$directory/.git" -prune -o -type f
 options=()
 for full_path in "${files[@]}"; do
     filename=$(basename "$full_path")
-    options+=("$filename")
+    echo "$filename" >> "$tmp_options"
     echo "$filename|$full_path" >> "$tmpfile"
 done
 
-# Prompt user to select
-selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p "Current : $current_wall" -matching glob -theme ~/.config/rofi/copy.rasi)
+kitty --class="kitty_walls" bash -c '
+    cat "'"$tmp_options"'" \
+    | fzf \
+        --preview="grep {} '$tmpfile' \
+            | cut -d \"|\" -f2 \
+            | xargs chafa --size=80x" \
+        --preview-window=right:70%:wrap \
+    > "'"$choice_tmp"'"
+'
+
+selected=$(cat "$choice_tmp")
 
 if [ -n "$selected" ]; then
     full_path=$(grep "^$selected|" "$tmpfile" | cut -d'|' -f2-)
@@ -52,3 +62,5 @@ if [ -n "$selected" ]; then
 fi
 
 rm -f "$tmpfile"
+rm -f "$choice_tmp"
+rm -f "$tmp_options"
