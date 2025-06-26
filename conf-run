@@ -18,6 +18,7 @@ update_env_files() {
 # config files to keep track of in the repo
 confs=(
     awesome
+    doom
     dunst
     fastfetch
     fcitx
@@ -32,7 +33,6 @@ confs=(
     rofi
     waybar
     zed
-    doom
 )
 
 envs=(
@@ -47,6 +47,9 @@ update_configs_files "${confs[@]}"
 
 echo "Copying envs files"
 update_env_files "${envs[@]}"
+
+cp ~/.config/Code/User/settings.json $DEV_ENV/resources/Code
+cp ~/.config/Code/User/keybindings.json $DEV_ENV/resources/Code
 
 # update the git repo
 {

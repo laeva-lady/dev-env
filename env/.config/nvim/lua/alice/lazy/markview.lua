@@ -6,6 +6,9 @@ return {
             require"markview".setup({
                 preview = {
                     enable = false
+                },
+                experimental = {
+                    check_rtp_message = false
                 }
             })
         end
