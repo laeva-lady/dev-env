@@ -101,6 +101,7 @@ wm=(
     hyprpaper
     hyprpicker
     hyprshot
+    pcmanfm
     rofi-emoji
     rofi-wayland
     swww

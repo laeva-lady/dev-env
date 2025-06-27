@@ -42,7 +42,6 @@ autocmd('BufEnter', {
     end
 })
 
-
 autocmd('LspAttach', {
     group = AliceGroup,
     callback = function(e)
