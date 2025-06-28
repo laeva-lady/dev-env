@@ -1,8 +1,9 @@
 #! /usr/bin/bash
-options="youtube.com
+options="start.duckduckgo.com
 reddit.com
+comick.io
 twitter.com
-comick.io"
+youtube.com"
 selection=$(echo "${options[@]}" | rofi -dmenu -theme ~/.config/rofi/aorstie.rasi)
 
 if [ -n "$selection" ]

@@ -6,7 +6,9 @@ vim.g.mapleader = " "
 local set = vim.keymap.set
 
 set("n", "<C-t>", "<cmd>silent !tmux neww ~/personal/dev-env/resources/scripts/tmux-sessionizer.sh<CR>")
+
 set("n", "<leader>pv", ":NvimTreeToggle<CR>")
+set("n", "<leader>e", ":NvimTreeFocus<CR>")
 
 set("n", "<leader>hf", ":%!stylish-haskell<CR>")
 
