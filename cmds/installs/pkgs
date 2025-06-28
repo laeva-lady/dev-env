@@ -72,7 +72,6 @@ term_tools=(
     yazi
     zsh
     emacs
-
 )
 
 ime=(
@@ -136,6 +135,7 @@ extra=(
     steam-native-runtime
     wev
 )
+
 fonts=(
     noto-fonts-cjk
     ttf-fira-code

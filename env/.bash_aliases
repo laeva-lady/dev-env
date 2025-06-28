@@ -31,7 +31,7 @@ alias code="code --disable-gpu"
 
 
 alias conrun="$HOME/personal/dev-env/run"
-alias instpkg="$HOME/personal/dev-env/cmds/installs/pkgs"
+alias insts="$HOME/personal/dev-env/cmds/installs/pkgs"
 alias tmux-sessionizer="$HOME/personal/dev-env/resources/scripts/tmux-sessionizer.sh"
 
 
