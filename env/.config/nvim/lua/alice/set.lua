@@ -10,6 +10,15 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "ocaml" }, -- or any filetype
+    callback = function()
+        vim.bo.shiftwidth = 2
+        vim.bo.tabstop = 2
+        vim.bo.softtabstop = 2
+    end,
+})
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
@@ -48,14 +57,3 @@ vim.opt.listchars:append("space:·")
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-
-
-
-
-
-
-
-
-
-
-

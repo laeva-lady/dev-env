@@ -5,5 +5,5 @@ echo "Installing opam"
 sudo pacman -S --needed opam
 echo "Initializing opam"
 opam init
-echo "Installing lsp/odoc/format/dune/utop"
-opam install ocaml-lsp-server odoc ocamlformat utop dune
+echo "Installing tools"
+opam install ocaml-lsp-server odoc ocamlformat utop dune csv
