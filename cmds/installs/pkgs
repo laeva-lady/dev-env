@@ -89,6 +89,8 @@ system=(
     gnome-keyring
     keyd
     pavucontrol
+    keepassxc
+    qt5-wayland
 )
 
 wm=(
