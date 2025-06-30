@@ -13,8 +13,6 @@
     // ──────────────────────────────────────────────────────────┤ positions ├───
     "modules-left": [
         "hyprland/workspaces",
-        // "hyprland/window",
-        "mpris",
     ],
 
     "modules-center": [
@@ -22,6 +20,7 @@
     ],
 
     "modules-right": [
+        "mpris",
         "hyprland/language",
         "pulseaudio",
         // "battery",
@@ -123,7 +122,7 @@
         "tooltip-format": "Playing: {title} - {artist}",
         "tooltip-format-paused": "Paused: {title} - {artist}",
         "min-length": 5,
-        "max-length": 25
+        "max-length": 50
     },
 
     // ──────────────────────────────────────────────────────┤ output device ├───
