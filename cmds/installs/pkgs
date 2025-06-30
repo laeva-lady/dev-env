@@ -55,6 +55,7 @@ term_tools=(
     chafa
     bat
     btop
+    bc
     eza
     fastfetch
     fzf
@@ -86,6 +87,7 @@ system=(
     brightnessctl
     glfw
     gnome-keyring
+    seahorse # gui to manage gnome-keyring
     keyd
     pavucontrol
     keepassxc
