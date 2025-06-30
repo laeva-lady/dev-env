@@ -122,7 +122,7 @@
         "tooltip-format": "Playing: {title} - {artist}",
         "tooltip-format-paused": "Paused: {title} - {artist}",
         "min-length": 5,
-        "max-length": 50
+        "max-length": 35
     },
 
     // ──────────────────────────────────────────────────────┤ output device ├───
