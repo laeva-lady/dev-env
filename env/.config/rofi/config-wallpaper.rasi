@@ -1,11 +1,11 @@
-/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
-/* Main Config (wallpaper) */
-
 @import "~/.config/rofi/config.rasi"
 
-/* ---- Configuration ---- */
 configuration {
   modi: "drun";
+}
+
+* {
+    background-color: transparent;
 }
 
 window {
@@ -13,7 +13,6 @@ window {
   height: inherit;
 }
 
-/* ---- Mainbox ---- */
 mainbox {
   children:
     [ "inputbar", "listview"];
@@ -22,25 +21,19 @@ mainbox {
 entry {
   expand: true;
   placeholder: " 🎞️ Search / Choose Wallpaper";
-  horizontal-align: 0.5;
-  horizontal-align: 0.5;
 }
 
-/* ---- Listview ---- */
 listview {
-  columns: 6;
-  lines: 2;
+  columns: 4;
+  lines: 3;
   spacing: 20px;
   padding: 10px;
-  columns: 6;
-  lines: 2;
   flow: horizontal;
   fixed-width: true;
   fixed-height: true;
   cycle: true;
 }
 
-/* ---- Element ---- */
 element {
   orientation: vertical;
   padding: 0px;
@@ -51,7 +44,7 @@ element {
 }
 
 element selected.normal {
-  background-color: transparent;
+  background-color: pink;
 }
 
 element-icon {
@@ -62,6 +55,7 @@ element-icon {
 }
 
 element-text {
+  background-color: black;
   vertical-align: 0.5;
   horizontal-align: 0.5;
   padding: 6px;

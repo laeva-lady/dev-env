@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */
 # This script for selecting wallpapers (SUPER W)
 
@@ -9,11 +9,10 @@ SCRIPTSDIR="$HOME/.config/hypr/scripts"
 wallpaper_current="$HOME/.config/hypr/wallpaper_effects/.wallpaper_current"
 
 # swww transition config
-FPS=60
-TYPE="any"
-DURATION=2
-BEZIER=".43,1.19,1,.4"
-SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION --transition-bezier $BEZIER"
+FPS=144
+TYPE="fade"
+DURATION=1
+SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
 
 # Check if package bc exists
 if ! command -v bc &>/dev/null; then

@@ -18,6 +18,7 @@
 @define-color workspaceborder #eb6f92;
 @define-color bordercolor #31748f;
 @define-color hover #403d52;
+@define-color active #403d52;
 
 /* Green */
 /* @define-color background #192C14; */
@@ -111,4 +112,7 @@ window#waybar {
 
 #workspaces button.empty {
     background-color: transparent;
+}
+#workspaces button {
+    background-color: @active;
 }
