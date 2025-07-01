@@ -7,21 +7,22 @@
     "reload_style_on_change": true,
     "gtk-layer-shell": true,
 
-    "margin-left": 350,
-    "margin-right": 350,
-    "margin-top": 0,
+    "margin-left": 200,
+    "margin-right": 200,
+    "margin-top": 5,
+
     // ──────────────────────────────────────────────────────────┤ positions ├───
     "modules-left": [
-        "tray",
-        "clock#time",
+        "hyprland/workspaces",
+        "mpris",
     ],
 
     "modules-center": [
-        "hyprland/workspaces",
+        "clock#time",
     ],
 
     "modules-right": [
-        // "mpris",
+        "tray",
         "hyprland/language",
         "pulseaudio",
         // "battery",
