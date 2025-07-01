@@ -12,19 +12,19 @@
     "margin-top": 0,
     // ──────────────────────────────────────────────────────────┤ positions ├───
     "modules-left": [
-        "hyprland/workspaces",
-    ],
-
-    "modules-center": [
+        "tray",
         "clock#time",
     ],
 
+    "modules-center": [
+        "hyprland/workspaces",
+    ],
+
     "modules-right": [
-        "mpris",
+        // "mpris",
         "hyprland/language",
         "pulseaudio",
         // "battery",
-        "tray",
         "clock#date",
     ],
 
