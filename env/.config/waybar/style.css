@@ -106,9 +106,9 @@ window#waybar {
 #workspaces button.empty {
     background-color: transparent;
 }
-#workspaces button {
-    background-color: @active;
-}
+/* #workspaces button { */
+/*     background-color: @active; */
+/* } */
 #workspaces button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
