@@ -30,6 +30,7 @@ langs=(
     zls
     gopls
     jdk-openjdk
+    maven
     leiningen # stack-like thing for clojure
     love
     lua
@@ -49,6 +50,10 @@ langs=(
     texlive-xetex
     typst
     yarn
+)
+
+ides=(
+    intellij-idea-community-edition
 )
 
 term_tools=(
@@ -154,6 +159,7 @@ packages=(
     "${codes[@]}"
     "${extra[@]}"
     "${fonts[@]}"
+    "${ides[@]}"
     "${ime[@]}"
     "${langs[@]}"
     "${system[@]}"

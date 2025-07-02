@@ -46,6 +46,11 @@ return {
                         cmd = { 'typescript-language-server', '--stdio' }
                     }
                 end,
+                ["java-language-server"] = function()
+                    require 'lspconfig'.java_language_server.setup {
+                        root_dir = require('lspconfig').util.root_pattern('.git', 'pom.xml', 'build.gradle', 'settings.gradle'),
+                    }
+                end,
 
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
