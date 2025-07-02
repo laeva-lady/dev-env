@@ -149,6 +149,7 @@ fonts=(
 )
 
 packages=(
+    "${aur[@]}"
     "${browser[@]}"
     "${codes[@]}"
     "${extra[@]}"
@@ -168,11 +169,8 @@ for pkg in "${packages[@]}"; do
     fi
 done
 
-read -p "continue? [y/N] " confirm
-if [[ "$confirm" =~ ^[Yy]$ ]]; then
-    echo "Checking official repos..."
-    sudo pacman -Syu --needed "$pkg"
+echo "Updating repos..."
+yay
 
-    echo "Checking AUR..."
-    yay -S --needed "${aur[@]}"
-fi
+echo "Checking AUR..."
+yay -S --needed "${packages[@]}"
