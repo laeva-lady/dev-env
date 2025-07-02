@@ -2,7 +2,9 @@ theme = rose-pine
 background = 000000
 foreground = ffffff
 
-background-opacity = 0.85
+confirm-close-surface = false
+
+background-opacity = 0.75
 background-blur = 20
 
 font-family = "Fira Code Retina"

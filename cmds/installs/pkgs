@@ -128,15 +128,18 @@ extra=(
     geogebra
     gimp
     libreoffice-still
-    prismlauncher
+    lutris
     obsidian
     obs-studio
     okular
+    prismlauncher
     qbittorrent
     spotify-launcher
     steam
     steam-native-runtime
     wev
+    wine
+    wine-mono
 )
 
 fonts=(
@@ -158,19 +161,18 @@ packages=(
 )
 
 
+echo "Checking missing packages"
+for pkg in "${packages[@]}"; do
+    if ! pacman -Q "$pkg" &> /dev/null; then
+        echo "$pkg"
+    fi
+done
 
-if [[ " $* " == *" nopac "* ]]
-then
-    echo "skipping pacman..."
-else
+read -p "continue? [y/N] " confirm
+if [[ "$confirm" =~ ^[Yy]$ ]]; then
     echo "Checking official repos..."
-    sudo pacman -Syu --needed "${packages[@]}"
-fi
+    sudo pacman -Syu --needed "$pkg"
 
-if [[ " $* " == *" aur "* ]]
-then
     echo "Checking AUR..."
     yay -S --needed "${aur[@]}"
-else
-    echo "Skipping AUR..."
 fi
