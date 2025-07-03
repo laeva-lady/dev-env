@@ -8,6 +8,7 @@ update_configs_files() {
         cp -r "$HOME/.config/$config" "$DEV_ENV/env/.config"
     done
 }
+
 update_env_files() {
     for env_file in "$@"; do
         echo -e "\t\t$env_file"
@@ -48,10 +49,11 @@ update_configs_files "${confs[@]}"
 echo "Copying envs files"
 update_env_files "${envs[@]}"
 
+echo "Copying vscode user settings"
 cp ~/.config/Code/User/settings.json $DEV_ENV/resources/Code
 cp ~/.config/Code/User/keybindings.json $DEV_ENV/resources/Code
 
-# update the git repo
+echo "Checking git repo"
 {
     cd $DEV_ENV
 
