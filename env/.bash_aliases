@@ -5,15 +5,9 @@ alias tt="tmux new-session -c"
 
 alias ff="fastfetch"
 
-alias denv="cd ~/personal/dev-env"
-alias conf="cd ~/.config"
-
-
 alias chat="nvim ~/chat.md"
 alias zxcv="nvim ~/zxcv.md"
 alias fair="nvim ~/personal/notes/todo.md"
-alias dev="cd ~/personal/dev"
-alias note="cd ~/personal/notes"
 
 # listing
 alias ls="eza -a1 -s type"
@@ -23,12 +17,8 @@ alias e="exit"
 alias s="cd"
 alias r="ranger"
 alias ..="cd .."
-alias mk="make"
-alias mkr="make r"
-alias ni="touch" # ni from New-Item's alias on PowerShell (don't ask why)
-alias clock="tty-clock"
-alias code="code --disable-gpu"
-
+# alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3"
+alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
 
 alias conrun="$HOME/personal/dev-env/run"
 alias ipkg="$HOME/personal/dev-env/cmds/installs/pkgs"
