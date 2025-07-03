@@ -20,7 +20,7 @@ alias ..="cd .."
 # alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3"
 alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
 
-alias conrun="$HOME/personal/dev-env/run"
+alias crun="$HOME/personal/dev-env/run"
 alias ipkg="$HOME/personal/dev-env/cmds/installs/pkgs"
 alias tmux-sessionizer="$HOME/personal/dev-env/resources/scripts/tmux-sessionizer.sh"
 
