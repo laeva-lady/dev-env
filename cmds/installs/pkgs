@@ -97,6 +97,7 @@ system=(
     pavucontrol
     keepassxc
     qt5-wayland
+    xdg-desktop-portal-hyprland
 )
 
 wm=(
@@ -168,15 +169,8 @@ packages=(
 )
 
 
-echo "Checking missing packages"
-for pkg in "${packages[@]}"; do
-    if ! pacman -Q "$pkg" &> /dev/null; then
-        echo "$pkg"
-    fi
-done
-
 echo "Updating repos..."
 yay
 
-echo "Checking AUR..."
+echo "Checking packages..."
 yay -S --needed "${packages[@]}"
