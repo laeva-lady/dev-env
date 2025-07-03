@@ -29,7 +29,7 @@
 
 * {
     border: none;
-    font-size: 12px;
+    font-size: 10px;
     font-family: "Fira Code Retina, Fira Code, JetBrainsMono Nerd Font,JetBrainsMono NF";
     font-weight: bold;
     color: @foreground;
@@ -41,10 +41,10 @@ window#waybar {
     border-width: 1px;
     border-style: solid;
     border-color: @bordercolor;
-    padding: 2px;
+    padding: 1px;
     /* border-bottom-left-radius: 10px; */
     /* border-bottom-right-radius: 10px; */
-    border-radius: 10px;
+    border-radius: 0px;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -63,7 +63,7 @@ window#waybar {
 }
 
 #language {
-    padding-top: 2px;
+    padding-top: 1px;
 }
 
 #battery,
@@ -74,7 +74,7 @@ window#waybar {
 }
 
 #clock.time {
-    padding-top: 2px
+    padding-top: 1px
 }
 
 #pulseaudio.muted {
@@ -95,14 +95,14 @@ window#waybar {
     color: @foreground;
     min-height: 0;
     min-width: 0;
-    padding: 2px 4px;
+    padding: 1px 2px;
     padding-left: 15px;
     padding-right: 15px;
-    margin: 2px;
+    margin: 1px;
 }
 
 #workspaces button.active {
-    border: 2px solid @workspaceborder;
+    border: 1px solid @workspaceborder;
 }
 #workspaces button.empty {
     background-color: transparent;

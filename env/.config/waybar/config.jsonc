@@ -7,10 +7,10 @@
     "reload_style_on_change": true,
     "gtk-layer-shell": true,
 
-    "margin-left": 200,
-    "margin-right": 200,
-    "margin-top": 5,
-    "margin-bottom": 5,
+    // "margin-left": 200,
+    // "margin-right": 200,
+    // "margin-top": 5,
+    // "margin-bottom": 5,
 
     // ──────────────────────────────────────────────────────────┤ positions ├───
     "modules-left": [
@@ -113,19 +113,20 @@
     // ─────────────────────────────────────────────────────────┤ media info ├───
 
     "mpris": {
-        "format": "{player_icon} {title} - {artist}",
-        "format-paused": "{status_icon} {title} - {artist}",
+        "format": "{player_icon} {title}   {artist}",
+        "format-paused": "{status_icon} {title}   {artist}",
 
         "player-icons": {
-            "default": "󰝚 ",
+            "default": " ",
         },
         "status-icons": {
-            "paused": "<span color='#b4befe'>\u200A\u200A󰏤\u2009\u2009</span>" },
+            "paused": "<span color='#b4befe'>\u200A\u200A󰏤\u2009\u2009</span>"
+        },
 
         "tooltip-format": "Playing: {title} - {artist}",
         "tooltip-format-paused": "Paused: {title} - {artist}",
         "min-length": 5,
-        "max-length": 35
+        "max-length": 50
     },
 
     // ──────────────────────────────────────────────────────┤ output device ├───
