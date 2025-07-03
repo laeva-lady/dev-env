@@ -10,6 +10,7 @@
     "margin-left": 200,
     "margin-right": 200,
     "margin-top": 5,
+    "margin-bottom": 5,
 
     // ──────────────────────────────────────────────────────────┤ positions ├───
     "modules-left": [
@@ -19,15 +20,15 @@
 
     "modules-center": [
         "hyprland/window",
-        "clock#time",
+        "clock#date",
+        "clock#time"
     ],
 
     "modules-right": [
         "tray",
         "hyprland/language",
-        "pulseaudio",
+        "pulseaudio"
         // "battery",
-        "clock#date",
     ],
 
     // ─────────────────────────────────────────────────────────────┤ window ├───
@@ -36,7 +37,7 @@
     },
     "hyprland/language": {
         "format": "{}",
-        "format-en": "US",
+        "format-en": "EN",
         "format-fr": "CA",
     },
     "hyprland/window": {
@@ -82,7 +83,7 @@
     // ───────────────────────────────────────────────────────────────┤ date ├───
 
     "clock#date": {
-        "format": "󰨳 {:%d•%m}",
+        "format": "{:%m}",
         "tooltip-format": "<tt>{calendar}</tt>",
 
         "calendar": {
