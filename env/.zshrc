@@ -31,8 +31,5 @@ RPROMPT='%F{8} %*%f'
 # opam configuration
 [[ ! -r '/home/alice/.opam/opam-init/init.zsh' ]] || source '/home/alice/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 
-
-bindkey -s ^t "tmux-sessionizer\n"
-bindkey -s ^f "vfz\n"
-# bindkey -s ^w "dfz\n" # what key should i use ???
-
+bindkey -s ^t "^utmux-sessionizer\n"
+bindkey -s ^f "^uvfz\n"

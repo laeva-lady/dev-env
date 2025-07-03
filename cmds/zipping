@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+
+zip personal.zip ~/personal/ -r
+zip zen-profile ~/.zen/...

@@ -18,6 +18,7 @@
     ],
 
     "modules-center": [
+        "hyprland/window",
         "clock#time",
     ],
 
