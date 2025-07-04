@@ -68,9 +68,12 @@ window#waybar {
 
 #battery,
 #pulseaudio,
-#tray,
-#clock {
+#tray {
     padding: 0 5px;
+}
+
+#clock.date {
+    padding-left: 10px;
 }
 
 #clock.time {
@@ -104,9 +107,11 @@ window#waybar {
 #workspaces button.active {
     border: 1px solid @workspaceborder;
 }
+
 #workspaces button.empty {
     background-color: transparent;
 }
+
 /* #workspaces button { */
 /*     background-color: @active; */
 /* } */
@@ -115,4 +120,3 @@ window#waybar {
     text-shadow: inherit;
     background-color: @hover;
 }
-

@@ -2,11 +2,13 @@
 
 aur=(
     ckb-next-git
+    cnijfilter2 # driver for Canon printers
     cursor-bin
     fcitx5-mozc-ut # Better dictionaries for Mozc
     minecraft-launcher
     mpvpaper
     pandoc
+    protontricks
     r2modman-bin # Thunderstore client
     timg # display images in terminal
     unityhub
@@ -15,7 +17,6 @@ aur=(
     visual-studio-code-bin
     wlrobs-hg # OBS plugin for screen capture on wayland
     zen-browser-bin
-    cnijfilter2 # driver for Canon printers
 )
 
 langs=(
