@@ -15,7 +15,7 @@ aur=(
     vencord-bin
     vesktop
     visual-studio-code-bin
-    wlrobs-hg # OBS plugin for screen capture on wayland
+    wlrobs # OBS plugin for screen capture on wayland
     zen-browser-bin
 )
 
@@ -92,6 +92,7 @@ ime=(
 system=(
     brightnessctl
     glfw
+    mercurial # require to install wlrobs-hg
     gnome-keyring
     seahorse # gui to manage gnome-keyring
     keyd
