@@ -5,57 +5,8 @@ CONFIG_FILE="$CONFIG_DIR/$CONFIG_FILE_NAME"
 PANE_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/tmux-sessionizer"
 PANE_CACHE_FILE="$PANE_CACHE_DIR/panes.cache"
 
-# config file example
-# ------------------------
-# # file: ~/.config/tmux-sessionizer/tmux-sessionizer.conf
-# # If set this override the default TS_SEARCH_PATHS (~/ ~/personal ~/personal/dev/env/.config)
 TS_SEARCH_PATHS=(/home/ ~/personal ~/.config)
-# # If set this add additional search paths to the default TS_SEARCH_PATHS
-# # The number prefix is the depth for the Path [OPTIONAL]
-# TS_EXTRA_SEARCH_PATHS=(~/ghq:3 ~/Git:3 ~/.config:2)
-# # if set this override the TS_MAX_DEPTH (1)
 TS_MAX_DEPTH=3
-# This is not meant to override .tmux-sessionizer.  At first i thought this
-# would be a good command, but i don't think its ackshually what i want.
-#
-# Instead, its a list of commands to run on windows who's index is way outside
-# of the first 10 windows.  This allows you to create as many windows in your
-# session as you would like without having your workflow interrupted by these
-# programatic windows
-#
-# how to use:
-# tmux-sessionizer -w 0 will execute the first command in window -t 69.
-# TS_SESSION_COMMANDS=(<cmd1> <cmd2>)
-#
-# TS_LOG=true # will write logs to ~/.local/share/tmux-sessionizer/tmux-sessionizer.logs
-# TS_LOG_FILE=<file> # will write logs to <file> Defaults to ~/.local/share/tmux-sessionizer/tmux-sessionizer.logs
-# ------------------------
-
-if [[ -f "$CONFIG_FILE" ]]; then
-    source "$CONFIG_FILE"
-fi
-
-if [[ -f "$CONFIG_FILE_NAME" ]]; then
-    source "$CONFIG_FILE_NAME"
-fi
-
-if [[ $TS_LOG != "true" ]]; then
-    if [[ -z $TS_LOG_FILE ]]; then
-        TS_LOG_FILE="$HOME/.local/share/tmux-sessionizer/tmux-sessionizer.logs"
-    fi
-
-    mkdir -p "$(dirname "$TS_LOG_FILE")"
-fi
-
-log() {
-    if [[ -z $TS_LOG ]]; then
-        return
-    elif [[ $TS_LOG == "echo" ]]; then
-        echo "$*"
-    elif [[ $TS_LOG == "file" ]]; then
-        echo "$*" >> "$TS_LOG_FILE"
-    fi
-}
 
 session_idx=""
 session_cmd=""
@@ -112,7 +63,6 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
-log "tmux-sessionizer($VERSION): idx=$session_idx cmd=$session_cmd user_selected=$user_selected split_type=$split_type log=$TS_LOG log_file=$TS_LOG_FILE"
 
 # Validate split options are only used with session commands
 if [[ -n "$split_type" && -z "$session_idx" ]]; then
@@ -134,10 +84,8 @@ sanity_check() {
 
 switch_to() {
     if [[ -z $TMUX ]]; then
-        log "attaching to session $1"
         tmux attach-session -t "$1"
     else
-        log "switching to session $1"
         tmux switch-client -t "$1"
     fi
 }
@@ -148,13 +96,10 @@ has_session() {
 
 hydrate() {
     if [[ ! -z $session_cmd ]]; then
-        log "skipping hydrate for $1 -- using \"$session_cmd\" instead"
         return
     elif [ -f "$2/.tmux-sessionizer" ]; then
-        log "sourcing(local) $2/.tmux-sessionizer"
         tmux send-keys -t "$1" "source $2/.tmux-sessionizer" c-M
     elif [ -f "$HOME/.tmux-sessionizer" ]; then
-        log "sourcing(global) $HOME/.tmux-sessionizer"
         tmux send-keys -t "$1" "source $HOME/.tmux-sessionizer" c-M
     fi
 }
@@ -251,19 +196,14 @@ find_dirs() {
 }
 
 handle_session_cmd() {
-    log "executing session command $session_cmd with index $session_idx split_type=$split_type"
     if ! is_tmux_running; then
         echo "Error: tmux is not running.  Please start tmux first before using session commands."
         exit 1
     fi
 
     current_session=$(tmux display-message -p '#S')
+    handle_window_session_cmd "$current_session"
 
-    if [[ -n "$split_type" ]]; then
-        handle_split_session_cmd "$current_session"
-    else
-        handle_window_session_cmd "$current_session"
-    fi
     exit 0
 }
 
@@ -272,48 +212,12 @@ handle_window_session_cmd() {
     start_index=$((69 + $session_idx))
     target="$current_session:$start_index"
 
-    log "target: $target command $session_cmd has-session=$(tmux has-session -t="$target" 2> /dev/null)"
     if tmux has-session -t="$target" 2> /dev/null; then
         switch_to "$target"
     else
-        log "executing session command: tmux neww -dt $target $session_cmd"
         tmux neww -dt $target "$session_cmd"
         hydrate "$target" "$selected"
         tmux select-window -t $target
-    fi
-}
-
-handle_split_session_cmd() {
-    local current_session="$1"
-    cleanup_dead_panes
-
-    # Check if pane already exists
-    local existing_pane_id=$(get_pane_id "$session_idx" "$split_type")
-
-    if [[ -n "$existing_pane_id" ]] && tmux list-panes -a -F "#{pane_id}" 2>/dev/null | grep -q "^${existing_pane_id}$"; then
-        log "switching to existing pane $existing_pane_id"
-        tmux select-pane -t "$existing_pane_id"
-        if [[ -z $TMUX ]]; then
-            tmux attach-session -t "$current_session"
-        else
-            tmux switch-client -t "$current_session"
-        fi
-    else
-        # Create new split
-        local split_flag=""
-        if [[ "$split_type" == "vsplit" ]]; then
-            split_flag="-h"  # horizontal layout (vertical split)
-        else
-            split_flag="-v"  # vertical layout (horizontal split)
-        fi
-
-        log "creating new split: tmux split-window $split_flag -c $(pwd) $session_cmd"
-        local new_pane_id=$(tmux split-window $split_flag -c "$(pwd)" -P -F "#{pane_id}" "$session_cmd")
-
-        if [[ -n "$new_pane_id" ]]; then
-            set_pane_id "$session_idx" "$split_type" "$new_pane_id"
-            log "created pane $new_pane_id for session_idx=$session_idx split_type=$split_type"
-        fi
     fi
 }
 
@@ -329,11 +233,20 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
+is_existing_session=false
+
 if [[ "$selected" =~ ^\[TMUX\]\ (.+)$ ]]; then
     selected="${BASH_REMATCH[1]}"
+    is_existing_session=true
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+if $is_existing_session; then
+    selected_name="$selected"
+else
+    parent=$(basename "$(dirname "$selected")" | tr . _)
+    child=$(basename "$selected" | tr . _)
+    selected_name="${parent}_${child}"
+fi
 
 if ! is_tmux_running; then
     tmux new-session -ds "$selected_name" -c "$selected"
