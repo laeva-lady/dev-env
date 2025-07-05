@@ -22,6 +22,7 @@ aur=(
 langs=(
     clang
     clojure
+    aspnet-runtime
     dotnet-runtime
     dotnet-sdk
     elixir
