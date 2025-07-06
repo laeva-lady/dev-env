@@ -120,13 +120,16 @@ return {
         config = function()
             require 'nightfox'.setup {
                 options = {
-                    transparent = true,               -- Disable setting background
+                    transparent = true, -- Disable setting background
                 },
             }
         end
     },
     {
         "joshdick/onedark.vim"
+    },
+    {
+        "craftzdog/solarized-osaka.nvim",
     }
 
 

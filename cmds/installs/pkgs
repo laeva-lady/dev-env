@@ -69,6 +69,7 @@ term_tools=(
     ghostty
     github-cli
     htop
+    ncdu # check disk info (kinda like WinDirStat)
     hyfetch
     kitty
     nvim

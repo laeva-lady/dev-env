@@ -39,7 +39,7 @@ autocmd('BufEnter', {
     group = AliceGroup,
     callback = function()
         -- vim.cmd.colorscheme("kanagawa-dragon")
-        vim.cmd.colorscheme("terafox")
+        vim.cmd.colorscheme("solarized-osaka")
     end
 })
 
