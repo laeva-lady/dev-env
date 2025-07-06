@@ -125,6 +125,7 @@ wm=(
     waybar
     wl-clipboard
     wlsunset
+    # nwg-drawer # gnome like app launcher
 )
 
 browser=(
@@ -159,7 +160,6 @@ fonts=(
 )
 
 packages=(
-    "${aur[@]}"
     "${browser[@]}"
     "${codes[@]}"
     "${extra[@]}"
@@ -176,5 +176,8 @@ packages=(
 echo "Updating repos..."
 yay
 
-echo "Checking packages..."
-yay -S --needed "${packages[@]}"
+echo "Checking repo..."
+sudo pacman -S --needed "${packages[@]}"
+
+echo "Checking AUR..."
+yay -S --needed "${aur[@]}"

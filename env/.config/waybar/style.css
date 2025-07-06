@@ -73,6 +73,7 @@ window#waybar {
 }
 
 #clock.date {
+    padding-top: 1px;
     padding-left: 10px;
 }
 
