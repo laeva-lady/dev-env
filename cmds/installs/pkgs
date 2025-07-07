@@ -80,6 +80,7 @@ term_tools=(
     nvim
     nvtop
     ripgrep
+    shfmt
     tmux
     tree
     yazi
