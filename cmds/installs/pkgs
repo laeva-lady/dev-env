@@ -17,6 +17,9 @@ aur=(
     visual-studio-code-bin
     wlrobs # OBS plugin for screen capture on wayland
     zen-browser-bin
+    clock-tui
+    gpu-screen-recorder-gtk
+    gpu-screen-recorder
 )
 
 langs=(
