@@ -96,6 +96,8 @@ ime=(
 )
 
 system=(
+    git
+    base-devel
     brightnessctl
     glfw
     gnome-keyring

@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+clone_install() {
+    git clone "https://aur.archlinux.org/$1.git"
+    cd "$1"
+    makepkg -si
+    cd ..
+    rm ./"$1" -rf
+}
+
+case "$1" in
+"paru" | "aura")
+    clone_install "$1"
+    ;;
+*)
+    clone_install "yay"
+    ;;
+esac
