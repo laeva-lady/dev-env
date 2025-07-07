@@ -51,4 +51,4 @@ set("n", "<leader>spq", "vapgq")
 set("n", "<leader>mk", ":make<CR>")
 
 
-vim.api.nvim_create_user_command("Chat", ":e ~/chatprompt.md", { desc = "open chatgpt file" })
+set("n", "<leader>ch", ":e ~/chat.md<CR>")
