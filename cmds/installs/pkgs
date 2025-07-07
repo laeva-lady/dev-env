@@ -2,9 +2,12 @@
 
 aur=(
     ckb-next-git
+    clock-tui
     cnijfilter2 # driver for Canon printers
     cursor-bin
     fcitx5-mozc-ut # Better dictionaries for Mozc
+    gpu-screen-recorder
+    gpu-screen-recorder-gtk
     minecraft-launcher
     mpvpaper
     pandoc
@@ -17,28 +20,23 @@ aur=(
     visual-studio-code-bin
     wlrobs # OBS plugin for screen capture on wayland
     zen-browser-bin
-    clock-tui
-    gpu-screen-recorder-gtk
-    gpu-screen-recorder
 )
 
 langs=(
+    aspnet-runtime
     clang
     clojure
-    aspnet-runtime
     dotnet-runtime
     dotnet-sdk
     elixir
     erlang
     go
-    zig
-    zls
     gopls
     jdk-openjdk
-    maven
     leiningen # stack-like thing for clojure
     love
     lua
+    maven
     npm
     rustup
     texlive-basic
@@ -55,6 +53,8 @@ langs=(
     texlive-xetex
     typst
     yarn
+    zig
+    zls
 )
 
 ides=(
@@ -62,28 +62,28 @@ ides=(
 )
 
 term_tools=(
-    chafa
     bat
-    btop
     bc
+    btop
+    chafa
+    emacs
     eza
     fastfetch
     fzf
     ghostty
     github-cli
     htop
-    ncdu # check disk info (kinda like WinDirStat)
     hyfetch
     kitty
+    micro
+    ncdu # check disk info (kinda like WinDirStat)
     nvim
     nvtop
-    micro
     ripgrep
     tmux
     tree
     yazi
     zsh
-    emacs
 )
 
 ime=(
@@ -97,13 +97,13 @@ ime=(
 system=(
     brightnessctl
     glfw
-    mercurial # require to install wlrobs-hg
     gnome-keyring
-    seahorse # gui to manage gnome-keyring
-    keyd
-    pavucontrol
     keepassxc
+    keyd
+    mercurial # require to install wlrobs-hg
+    pavucontrol
     qt5-wayland
+    seahorse # gui to manage gnome-keyring
     xdg-desktop-portal-hyprland
 )
 
@@ -117,6 +117,7 @@ wm=(
     hyprpaper
     hyprpicker
     hyprshot
+    # nwg-drawer # gnome like app launcher
     pcmanfm
     rofi-emoji
     rofi-wayland
@@ -128,17 +129,20 @@ wm=(
     waybar
     wl-clipboard
     wlsunset
-    # nwg-drawer # gnome like app launcher
 )
 
 browser=(
+    discord
     firefox
+    spotify-launcher
+    steam
+    steam-native-runtime
     thunderbird
     torbrowser-launcher
+    # vivaldi
 )
 
 extra=(
-    discord
     geogebra
     gimp
     libreoffice-still
@@ -148,9 +152,6 @@ extra=(
     okular
     prismlauncher
     qbittorrent
-    spotify-launcher
-    steam
-    steam-native-runtime
     wev
     wine
     wine-mono
