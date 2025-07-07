@@ -69,65 +69,6 @@ menu() {
     done
 }
 
-# Offer SDDM Simple Wallpaper Option (only for non-video wallpapers)
-set_sddm_wallpaper() {
-    sleep 1
-    sddm_simple="/usr/share/sddm/themes/simple_sddm_2"
-
-    if [ -d "$sddm_simple" ]; then
-
-        # Check if yad is running to avoid multiple notifications
-        if pidof yad >/dev/null; then
-            killall yad
-        fi
-
-        if yad --info --text="Set current wallpaper as SDDM background?\n\nNOTE: This only applies to SIMPLE SDDM v2 Theme" \
-            --text-align=left \
-            --title="SDDM Background" \
-            --timeout=5 \
-            --timeout-indicator=right \
-            --button="yes:0" \
-            --button="no:1"; then
-
-            # Check if terminal exists
-            if ! command -v "$terminal" &>/dev/null; then
-                notify-send -i "$iDIR/error.png" "Missing $terminal" "Install $terminal to enable setting of wallpaper background"
-                exit 1
-            fi
-
-            # Open terminal to enter password
-            $terminal -e bash -c "echo 'Enter your password to set wallpaper as SDDM Background'; \
-            sudo cp -r $wallpaper_current '$sddm_simple/Backgrounds/default' && \
-            notify-send -i '$iDIR/ja.png' 'SDDM' 'Background SET'"
-        fi
-    fi
-}
-
-modify_startup_config() {
-    local selected_file="$1"
-    local startup_config="$HOME/.config/hypr/UserConfigs/Startup_Apps.conf"
-
-    # Check if it's a live wallpaper (video)
-    if [[ "$selected_file" =~ \.(mp4|mkv|mov|webm)$ ]]; then
-        # For video wallpapers:
-        sed -i '/^\s*exec-once\s*=\s*swww-daemon\s*--format\s*xrgb\s*$/s/^/\#/' "$startup_config"
-        sed -i '/^\s*#\s*exec-once\s*=\s*mpvpaper\s*.*$/s/^#\s*//;' "$startup_config"
-
-        # Update the livewallpaper variable with the selected video path (using $HOME)
-        selected_file="${selected_file/#$HOME/\$HOME}" # Replace /home/user with $HOME
-        sed -i "s|^\$livewallpaper=.*|\$livewallpaper=\"$selected_file\"|" "$startup_config"
-
-        echo "Configured for live wallpaper (video)."
-    else
-        # For image wallpapers:
-        sed -i '/^\s*#\s*exec-once\s*=\s*swww-daemon\s*--format\s*xrgb\s*$/s/^\s*#\s*//;' "$startup_config"
-
-        sed -i '/^\s*exec-once\s*=\s*mpvpaper\s*.*$/s/^/\#/' "$startup_config"
-
-        echo "Configured for static wallpaper (image)."
-    fi
-}
-
 # Apply Image Wallpaper
 apply_image_wallpaper() {
     local image_path="$1"
@@ -140,27 +81,11 @@ apply_image_wallpaper() {
     fi
 
     swww img "$image_path" $SWWW_PARAMS
-
-    # Run additional scripts
-    "$SCRIPTSDIR/WallustSwww.sh"
-    sleep 2
-    "$SCRIPTSDIR/Refresh.sh"
-    sleep 1
-
-    set_sddm_wallpaper
 }
 
 apply_video_wallpaper() {
     local video_path="$1"
-
-    # Check if mpvpaper is installed
-    if ! command -v mpvpaper &>/dev/null; then
-        notify-send -i "$iDIR/error.png" "E-R-R-O-R" "mpvpaper not found"
-        return 1
-    fi
     kill_wallpaper_for_video
-
-    # Apply video wallpaper using mpvpaper
     mpvpaper '*' -o "--panscan=1.0 vf-add=fps=10:round=near no-audio --loop-file=inf" "$video_path" &
 }
 
@@ -168,16 +93,9 @@ apply_video_wallpaper() {
 main() {
     choice=$(menu | $rofi_command)
     choice=$(echo "$choice" | xargs)
-    RANDOM_PIC_NAME=$(echo "$RANDOM_PIC_NAME" | xargs)
 
     if [[ -z "$choice" ]]; then
-        echo "No choice selected. Exiting."
         exit 0
-    fi
-
-    # Handle random selection correctly
-    if [[ "$choice" == "$RANDOM_PIC_NAME" ]]; then
-        choice=$(basename "$RANDOM_PIC")
     fi
 
     choice_basename=$(basename "$choice" | sed 's/\(.*\)\.[^.]*$/\1/')
@@ -186,24 +104,14 @@ main() {
     selected_file=$(find "$wallDIR" -iname "$choice_basename.*" -print -quit)
 
     if [[ -z "$selected_file" ]]; then
-        echo "File not found. Selected choice: $choice"
         exit 1
     fi
 
-    # Modify the Startup_Apps.conf file based on wallpaper type
-    modify_startup_config "$selected_file"
-
-    # **CHECK FIRST** if it's a video or an image **before calling any function**
     if [[ "$selected_file" =~ \.(mp4|mkv|mov|webm|MP4|MKV|MOV|WEBM)$ ]]; then
         apply_video_wallpaper "$selected_file"
     else
         apply_image_wallpaper "$selected_file"
     fi
 }
-
-# Check if rofi is already running
-if pidof rofi >/dev/null; then
-    pkill rofi
-fi
 
 main
