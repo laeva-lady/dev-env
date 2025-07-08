@@ -4,10 +4,6 @@
 
 # packages added via command line
 to_organized=(
-    telegram-desktop
-    qt5ct
-    qt6-wayland
-    kvantum
 )
 
 aur=(
@@ -106,17 +102,21 @@ ime=(
 )
 
 system=(
-    opendoas
-    git
     base-devel
     brightnessctl
+    git
     glfw
     gnome-keyring
     keepassxc
     keyd
+    kvantum
     mercurial # require to install wlrobs-hg
+    nwg-look
+    opendoas
     pavucontrol
+    qt5ct
     qt5-wayland
+    qt6-wayland
     seahorse # gui to manage gnome-keyring
     xdg-desktop-portal-hyprland
 )
@@ -151,6 +151,7 @@ browser=(
     spotify-launcher
     steam
     steam-native-runtime
+    telegram-desktop
     thunderbird
     torbrowser-launcher
     # vivaldi
