@@ -196,6 +196,7 @@ packages=(
     "${system[@]}"
     "${term_tools[@]}"
     "${wm[@]}"
+    "${to_organized[@]}"
 )
 
 
