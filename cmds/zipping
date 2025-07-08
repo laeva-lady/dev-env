@@ -1,5 +1,13 @@
 #!/usr/bin/bash
 
+echo "$1 -> path to drive"
+echo "$2 -> path to zen profile"
 
-zip personal.zip ~/personal/ -r
-zip zen-profile ~/.zen/...
+if [ -n "$1" ] && [ -n "$2" ]; then
+    {
+        cd "$1"
+        tar -cJvf personal.tar.xz ~/personal/
+        tar -czvf minecraft.tar.gz ~/.minecraft
+        tar -czvf zen-profile.tar.gz "$2"
+    }
+fi
