@@ -17,7 +17,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-[ -f ~/.aliases ] && source ~/.aliases
+[ -f ~/.aliases.sh ] && source ~/.aliases.sh
 
 export EDITOR='nvim'
 export VISUAL="code"
