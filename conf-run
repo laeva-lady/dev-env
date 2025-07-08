@@ -37,7 +37,7 @@ confs=(
 )
 
 envs=(
-    ".bash_aliases"
+    ".aliases.sh"
     ".bashrc"
     ".zshrc"
     ".tmux.conf"
