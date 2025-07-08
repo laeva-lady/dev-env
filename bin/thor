@@ -7,6 +7,14 @@ shift
 ROOTCMD="sudo"
 command -v doas &>/dev/null && ROOTCMD="doas"
 
+if [ -z "$PKG_PATH_JSON" ]; then
+    PKG_PATH_JSON="$HOME/personal/dev-env/resources/pkg.json"
+fi
+
+sort_json() {
+    jq 'to_entries | map({key: .key, value: (.value | sort)}) | from_entries' "$PKG_PATH_JSON" >"$PKG_PATH_JSON.tmp" && mv "$PKG_PATH_JSON.tmp" "$PKG_PATH_JSON"
+}
+
 get_all_pkgs() {
     jq -r 'to_entries[] | select(.key != "aur") | .value[]' "$PKG_PATH_JSON"
 }
@@ -27,8 +35,24 @@ add_pkg() {
         return 0
     fi
 
-    jq --arg pkg "$pkg_to_add" '.to_organize += [$pkg]' "$PKG_PATH_JSON" >"$JSON_PATH.tmp" && mv "$JSON_PATH.tmp" "$JSON_PATH"
+    jq --arg pkg "$pkg_to_add" '.to_organize += [$pkg]' "$PKG_PATH_JSON" >"$PKG_PATH_JSON.tmp" && mv "$PKG_PATH_JSON.tmp" "$PKG_PATH_JSON"
     echo "📦 Added '$pkg_to_add' to 'to_organize'"
+}
+add_pkg_category() {
+    local pkg_category="$1"
+    local pkg_to_add="$2"
+    if [ -z "$pkg_to_add" ]; then
+        echo "Usage: add <pkg_name>"
+        return 1
+    fi
+
+    if jq -e --arg pkg "$pkg_to_add" 'any(to_entries[]; .value[] == $pkg)' "$PKG_PATH_JSON" &>/dev/null; then
+        echo "❗ Package '$pkg_to_add' already exists in the JSON file."
+        return 0
+    fi
+
+    jq --arg pkg "$pkg_to_add" --arg pkg_category "$pkg_category" '.[$pkg_category] += [$pkg]' "$PKG_PATH_JSON" >"$PKG_PATH_JSON.tmp" && mv "$PKG_PATH_JSON.tmp" "$PKG_PATH_JSON"
+    echo "📦 Added '$pkg_to_add' to $pkg_category"
 }
 
 list_pkgs() {
@@ -59,16 +83,62 @@ remove_pkg() {
 
     jq --arg pkg "$pkg_to_remove" '
         with_entries(.value |= map(select(. != $pkg)))
-    ' "$PKG_PATH_JSON" >"$JSON_PATH.tmp" && mv "$JSON_PATH.tmp" "$JSON_PATH"
+    ' "$PKG_PATH_JSON" >"$PKG_PATH_JSON.tmp" && mv "$PKG_PATH_JSON.tmp" "$PKG_PATH_JSON"
     yay -Rs "$pkg_to_remove"
     echo "📦 Removed '$pkg_to_remove'"
+}
+
+query() {
+    if [ -z "$1" ]; then
+        echo "Usage: query <pkg_name_pattern>"
+        exit 1
+    fi
+    thor_pkgs=$(jq -r 'to_entries[] | .value[]' "$PKG_PATH_JSON")
+    installed_pkgs=$(pacman -Qq | grep "$1" || true)
+    available_pkg=$(pacman -Ss "$1" | grep -Eo '^[^/]+/[^ ]+' | cut -d/ -f2 | grep "$1")
+    echo "$available_pkg" | while read -r p; do
+        if echo "$thor_pkgs" | grep -qx "$p"; then
+            printf "📦: %-30s     installed,         in pkg file\n" "$p"
+        else
+            if echo "$installed_pkgs" | grep -qx "$p"; then
+                printf "✅: %-30s     installed, but not in pkg file\n" "$p"
+            else
+                printf "❌: %-30s not installed\n" "$p"
+            fi
+        fi
+    done
+}
+
+query_aur() {
+    if [ -z "$1" ]; then
+        echo "Usage: query <pkg_name_pattern>"
+        exit 1
+    fi
+    thor_pkgs=$(jq -r 'to_entries[] | .value[]' "$PKG_PATH_JSON")
+    installed_pkgs=$(pacman -Qm | grep "$1" || true)
+    available_pkg=$(yay -Ss "$1" | grep -Eo '^[^/]+/[^ ]+' | cut -d/ -f2 | grep "$1")
+    echo "$available_pkg" | while read -r p; do
+        if echo "$thor_pkgs" | grep -qx "$p"; then
+            printf "📦: %-50s     installed,         in pkg file\n" "$p"
+        else
+            if echo "$installed_pkgs" | grep -qx "$p"; then
+                printf "✅: %-50s     installed, but not in pkg file\n" "$p"
+            else
+                printf "❌: %-50s not installed\n" "$p"
+            fi
+        fi
+    done
 }
 
 case "$CMD" in
 "add" | "a")
     add_pkg "$@"
+    sort_json
     ;;
-
+"addcategory" | "ac")
+    add_pkg_category "$@"
+    sort_json
+    ;;
 "remove" | "r")
     remove_pkg "$@"
     ;;
@@ -79,25 +149,25 @@ case "$CMD" in
     search_pkg "$1"
     ;;
 "query" | "q")
-    # list_pkgs | grep "$1" | awk '{print $2}'
-    pacman -Ss "$1" | grep "installed"
+    query "$@"
     ;;
 "qaur" | "qa")
-    yay -Ss "$1" | grep "Installed"
+    query_aur "$@"
     ;;
 "qi")
     pacman -Qi "$1"
     ;;
 "vim" | "v")
     nvim "$PKG_PATH_JSON"
+    sort_json
+    ;;
+"sort")
+    sort_json
     ;;
 "")
-    echo "Updating repos..."
-    yay
-
     echo "Checking repo..."
     mapfile -t all_pkgs < <(get_all_pkgs)
-    $ROOTCMD pacman -S --needed "${all_pkgs[@]}"
+    $ROOTCMD pacman -Syu --needed "${all_pkgs[@]}"
 
     echo "Checking AUR..."
     mapfile -t aur_pkgs < <(get_aur_pkgs)

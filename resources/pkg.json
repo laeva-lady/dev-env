@@ -102,11 +102,10 @@
     "nwg-look",
     "opendoas",
     "pavucontrol",
-    "qt5ct",
     "qt5-wayland",
+    "qt5ct",
     "qt6-wayland",
-    "seahorse",
-    "xdg-desktop-portal-hyprland"
+    "seahorse"
   ],
   "wm": [
     "cliphist",
@@ -118,6 +117,7 @@
     "hyprpaper",
     "hyprpicker",
     "hyprshot",
+    "hyprsunset",
     "pcmanfm",
     "rofi-emoji",
     "rofi-wayland",
@@ -128,7 +128,8 @@
     "tesseract-data-jpn",
     "waybar",
     "wl-clipboard",
-    "wlsunset"
+    "wlsunset",
+    "xdg-desktop-portal-hyprland"
   ],
   "browser": [
     "discord",
@@ -145,8 +146,8 @@
     "gimp",
     "libreoffice-still",
     "lutris",
-    "obsidian",
     "obs-studio",
+    "obsidian",
     "okular",
     "prismlauncher",
     "qbittorrent",
