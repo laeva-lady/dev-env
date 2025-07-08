@@ -1,328 +1,113 @@
-#! /usr/bin/bash
+#!/usr/bin/env bash
 
-# Thor is hot 🥵 in Thor: Ragnarok
-
-# packages added via command line
-to_organized=(
-)
-
-aur=(
-    ckb-next-git
-    clock-tui
-    cnijfilter2 # driver for Canon printers
-    cursor-bin
-    fcitx5-mozc-ut # Better dictionaries for Mozc
-    gpu-screen-recorder
-    gpu-screen-recorder-gtk
-    minecraft-launcher
-    mpvpaper
-    protontricks
-    r2modman-bin # Thunderstore client
-    timg         # display images in terminal
-    unityhub
-    vencord-bin
-    vesktop
-    visual-studio-code-bin
-    wlrobs # OBS plugin for screen capture on wayland
-    zen-browser-bin
-)
-
-langs=(
-    aspnet-runtime
-    clang
-    clojure
-    dotnet-runtime
-    dotnet-sdk
-    elixir
-    erlang
-    go
-    gopls
-    jdk-openjdk
-    leiningen # stack-like thing for clojure
-    love
-    lua
-    maven
-    npm
-    rustup
-    texlive-basic
-    texlive-bibtexextra
-    texlive-binextra
-    texlive-fontsrecommended
-    texlive-lang
-    texlive-latex
-    texlive-latexextra
-    texlive-latexrecommended
-    texlive-luatex
-    texlive-mathscience
-    texlive-plaingeneric
-    texlive-xetex
-    typst
-    yarn
-    zig
-    zls
-)
-
-ides=(
-    intellij-idea-community-edition
-)
-
-term_tools=(
-    bat
-    bc
-    btop
-    chafa
-    emacs
-    eza
-    fastfetch
-    fzf
-    ghostty
-    github-cli
-    htop
-    hyfetch
-    kitty
-    micro
-    ncdu # check disk info (kinda like WinDirStat)
-    nvim
-    nvtop
-    pandoc-cli
-    ripgrep
-    shfmt
-    tmux
-    tree
-    yazi
-    zsh
-)
-
-ime=(
-    fcitx5-configtool
-    fcitx5-gtk
-    fcitx5-hangul
-    fcitx5-rime
-    # fcitx5-mozc # use fcitx5-mozc-ut from AUR instead
-)
-
-system=(
-    base-devel
-    brightnessctl
-    git
-    glfw
-    gnome-keyring
-    keepassxc
-    keyd
-    kvantum
-    mercurial # require to install wlrobs-hg
-    nwg-look
-    opendoas
-    pavucontrol
-    qt5ct
-    qt5-wayland
-    qt6-wayland
-    seahorse # gui to manage gnome-keyring
-    xdg-desktop-portal-hyprland
-)
-
-wm=(
-    cliphist
-    dunst
-    grim
-    hypridle
-    hyprland
-    hyprlock
-    hyprpaper
-    hyprpicker
-    hyprshot
-    # nwg-drawer # gnome like app launcher
-    pcmanfm
-    rofi-emoji
-    rofi-wayland
-    swww
-    tesseract
-    tesseract-data-chi_sim
-    tesseract-data-eng
-    tesseract-data-jpn
-    waybar
-    wl-clipboard
-    wlsunset
-)
-
-browser=(
-    discord
-    firefox
-    spotify-launcher
-    steam
-    steam-native-runtime
-    telegram-desktop
-    thunderbird
-    torbrowser-launcher
-    # vivaldi
-)
-
-extra=(
-    geogebra
-    gimp
-    libreoffice-still
-    lutris
-    obsidian
-    obs-studio
-    okular
-    prismlauncher
-    qbittorrent
-    wev
-    wine
-    wine-mono
-)
-
-fonts=(
-    noto-fonts-cjk
-    ttf-fira-code
-    ttf-nerd-fonts-symbols-mono
-)
-
-packages=(
-    "${browser[@]}"
-    "${codes[@]}"
-    "${extra[@]}"
-    "${fonts[@]}"
-    "${ides[@]}"
-    "${ime[@]}"
-    "${langs[@]}"
-    "${system[@]}"
-    "${term_tools[@]}"
-    "${wm[@]}"
-)
-
+JSON_PATH="$HOME/personal/dev-env/resources/pkg.json"
 SCRIPT_PATH="$0"
 CMD="$1"
 shift
 
 ROOTCMD="sudo"
-if command -v doas >/dev/null 2>&1; then
-    ROOTCMD="doas"
-fi
+command -v doas &>/dev/null && ROOTCMD="doas"
+
+get_pkgs_by_category() {
+    jq -r --arg category "$1" '.[$category][]' "$JSON_PATH"
+}
+
+get_all_pkgs() {
+    jq -r 'to_entries[] | select(.key != "aur") | .value[]' "$JSON_PATH"
+}
+
+get_aur_pkgs() {
+    jq -r '.aur[]' "$JSON_PATH"
+}
 
 add_pkg() {
-    if [ "$#" -gt 0 ]; then
-        for pkg in "$@"; do
-            # Check if the package exists in repos or AUR
-            if yay -Si "$pkg" &>/dev/null; then
-                echo "✅ Found: $pkg"
-            else
-                echo "❌ Not found via yay: $pkg"
-                continue # Skip adding if it doesn't exist
-            fi
-
-            # Avoid duplicate insertions
-            if ! grep -q -F "    $pkg" "$0"; then
-                sed -i '/^to_organized=(/,/^[[:space:]]*)/ {
-                /^[[:space:]]*)/ i\
-    '"$pkg"'
-            }' "$0"
-                echo "➕ Added: $pkg"
-            else
-                echo "⚠️ Already exists: $pkg"
-            fi
-        done
-        exit 0
+    local pkg_to_add="$1"
+    if [ -z "$pkg_to_add" ]; then
+        echo "Usage: add <pkg_name>"
+        return 1
     fi
+
+    if jq -e --arg pkg "$pkg_to_add" 'any(to_entries[]; .value[] == $pkg)' "$JSON_PATH" &>/dev/null; then
+        echo "❗ Package '$pkg_to_add' already exists in the JSON file."
+        return 0
+    fi
+
+    jq --arg pkg "$pkg_to_add" '.to_organize += [$pkg]' "$JSON_PATH" >"$JSON_PATH.tmp" && mv "$JSON_PATH.tmp" "$JSON_PATH"
+    echo "📦 Added '$pkg_to_add' to 'to_organize'"
 }
 
 list_pkgs() {
     echo "📦 Packages by category:"
-    awk '
-        /^[a-zA-Z_][a-zA-Z0-9_]*[[:space:]]*=\s*\(/ {
-            split($1, parts, "=")
-            category = parts[1]
-            # Skip if category is "packages"
-            if (category == "packages") {
-                skip = 1
-                next
-            } else {
-                skip = 0
-                print "🗂️  " category ":"
-                in_array = 1
-                next
-            }
-        }
-        /^\)/ && in_array {
-            in_array = 0
-            if (!skip) print ""
-            next
-        }
-        in_array && !skip {
-            gsub(/^[[:space:]]+/, "", $0)
-            if ($0 ~ /^\$\{[a-zA-Z_]+@\}$/) next  # skip "${...[@]}"
-            if ($0 != "") print "  - " $0
-        }
-    ' "$SCRIPT_PATH"
+    jq -r '
+        to_entries[] |
+        "🗂️  \(.key):\n" + (
+            (.value | map("  - " + .)) | join("\n")
+        ) + "\n"
+    ' "$JSON_PATH"
 }
 
-search_pkg () {
+search_pkg() {
     yay -Ss "$1"
 }
 
 remove_pkg() {
-    if [ "$#" -gt 0 ]; then
-        for pkg in "$@"; do
-            # Check if the package exists in the script
-            if grep -q -F "    $pkg" "$0"; then
-                # Remove the package from the script
-                sed -i "/    $pkg/d" "$0"
-                echo "➖ Removed: $pkg from the list"
+    local pkg_to_remove="$1"
+    if [ -z "$pkg_to_remove" ]; then
+        echo "Usage: remove <pkg_name>"
+        return 1
+    fi
 
-                # Uninstall the package
-                if yay -Q "$pkg" &>/dev/null; then
-                    $ROOTCMD pacman -Rns "$pkg"
-                    echo "🗑️ Uninstalled: $pkg"
-                else
-                    echo "🤔 Not installed: $pkg"
-                fi
-            else
-                echo "⚠️ Not found in lists: $pkg"
-            fi
-        done
-        exit 0
+    if ! jq -e --arg pkg "$pkg_to_remove" 'any(to_entries[]; .value[] == $pkg)' "$JSON_PATH" &>/dev/null; then
+        echo "❗ Package '$pkg_to_remove' not found in any category."
+        return 0
+    fi
+
+    jq --arg pkg "$pkg_to_remove" '
+        with_entries(.value |= map(select(. != $pkg)))
+    ' "$JSON_PATH" >"$JSON_PATH.tmp" && mv "$JSON_PATH.tmp" "$JSON_PATH"
+    if yay -Rs "$pkg_to_remove"; then
+        echo "📦 Removed '$pkg_to_remove'"
+    else
+        echo "📦 Canceled removal of $pkg_to_remove"
     fi
 }
 
 case "$CMD" in
 "add" | "a")
-    if [ "$#" -eq 0 ]; then
-        echo "❗ Usage: $0 add <package1> [package2...]"
-        exit 1
-    fi
     add_pkg "$@"
-    exit 0
     ;;
+
 "remove" | "r")
-    if [ "$#" -eq 0 ]; then
-        echo "❗ Usage: $0 remove <package1> [package2...]"
-        exit 1
-    fi
     remove_pkg "$@"
-    exit 0
     ;;
 "list" | "l")
     list_pkgs
-    exit 0
     ;;
 "search" | "s")
     search_pkg "$1"
-    exit 0
+    ;;
+"query" | "q")
+    list_pkgs | grep "$1"
+    ;;
+"vim" | "v")
+    nvim "$JSON_PATH"
     ;;
 "" | install)
     echo "Updating repos..."
     yay
 
     echo "Checking repo..."
-    $ROOTCMD pacman -S --needed "${packages[@]}"
+    mapfile -t all_pkgs < <(get_all_pkgs)
+    $ROOTCMD pacman -S --needed "${all_pkgs[@]}"
 
     echo "Checking AUR..."
-    yay -S --needed "${aur[@]}"
+    mapfile -t aur_pkgs < <(get_aur_pkgs)
+    yay -S --needed "${aur_pkgs[@]}"
     yay -S --needed "${to_organized[@]}"
     ;;
 *)
     echo "❗ Unknown command: $CMD"
-    echo "Usage: $0 [add <pkg>] | [remove <pkg>] | [list] | [install] | [search <pkg>]"
+    echo "Usage: $0 [add <pkg>] | [remove <pkg>] | [list] | [vim] | [install] | [search <pkg>]"
     exit 1
     ;;
 esac
