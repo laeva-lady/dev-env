@@ -1,28 +1,63 @@
 #! /usr/bin/bash
+SCRIPT_PATH="$0"
+CMD="$1"
+shift
 
-if [ "$#" -gt 0 ]; then
-    for pkg in "$@"; do
-        # Check if the package exists in repos or AUR
-        if yay -Si "$pkg" &>/dev/null; then
-            echo "✅ Found: $pkg"
-        else
-            echo "❌ Not found via yay: $pkg"
-            continue  # Skip adding if it doesn't exist
-        fi
+add_pkg() {
+    if [ "$#" -gt 0 ]; then
+        for pkg in "$@"; do
+            # Check if the package exists in repos or AUR
+            if yay -Si "$pkg" &>/dev/null; then
+                echo "✅ Found: $pkg"
+            else
+                echo "❌ Not found via yay: $pkg"
+                continue # Skip adding if it doesn't exist
+            fi
 
-        # Avoid duplicate insertions
-        if ! grep -q -F "    $pkg" "$0"; then
-            sed -i '/^to_organized=(/,/^[[:space:]]*)/ {
+            # Avoid duplicate insertions
+            if ! grep -q -F "    $pkg" "$0"; then
+                sed -i '/^to_organized=(/,/^[[:space:]]*)/ {
                 /^[[:space:]]*)/ i\
     '"$pkg"'
             }' "$0"
-            echo "➕ Added: $pkg"
-        else
-            echo "⚠️ Already exists: $pkg"
-        fi
-    done
-    exit 0
-fi
+                echo "➕ Added: $pkg"
+            else
+                echo "⚠️ Already exists: $pkg"
+            fi
+        done
+        exit 0
+    fi
+}
+
+list_pkgs() {
+    echo "📦 Packages by category:"
+    awk '
+        /^[a-zA-Z_][a-zA-Z0-9_]*[[:space:]]*=\s*\(/ {
+            split($1, parts, "=")
+            category = parts[1]
+            # Skip if category is "packages"
+            if (category == "packages") {
+                skip = 1
+                next
+            } else {
+                skip = 0
+                print "🗂️  " category ":"
+                in_array = 1
+                next
+            }
+        }
+        /^\)/ && in_array {
+            in_array = 0
+            if (!skip) print ""
+            next
+        }
+        in_array && !skip {
+            gsub(/^[[:space:]]+/, "", $0)
+            if ($0 ~ /^\$\{[a-zA-Z_]+@\}$/) next  # skip "${...[@]}"
+            if ($0 != "") print "  - " $0
+        }
+    ' "$SCRIPT_PATH"
+}
 
 # packages added via command line
 to_organized=(
@@ -106,12 +141,12 @@ term_tools=(
     ncdu # check disk info (kinda like WinDirStat)
     nvim
     nvtop
+    pandoc-cli
     ripgrep
     shfmt
     tmux
     tree
     yazi
-    pandoc-cli
     zsh
 )
 
@@ -207,12 +242,34 @@ packages=(
     "${wm[@]}"
 )
 
-echo "Updating repos..."
-yay
+case "$CMD" in
+    add)
+        if [ "$#" -eq 0 ]; then
+            echo "❗ Usage: $0 add <package1> [package2...]"
+            exit 1
+        fi
+        add_pkg "$@"
+        exit 0
+        ;;
+    list)
+        list_pkgs
+        exit 0
+        ;;
+    ""|install)
+        echo "Updating repos..."
+        yay
 
-echo "Checking repo..."
-sudo pacman -S --needed "${packages[@]}"
+        echo "Checking repo..."
+        sudo pacman -S --needed "${packages[@]}"
 
-echo "Checking AUR..."
-yay -S --needed "${aur[@]}"
-yay -S --needed "${to_organized[@]}"
+        echo "Checking AUR..."
+        yay -S --needed "${aur[@]}"
+        yay -S --needed "${to_organized[@]}"
+        ;;
+    *)
+        echo "❗ Unknown command: $CMD"
+        echo "Usage: $0 [add <pkg>] | [list] | [install]"
+        exit 1
+        ;;
+esac
+
