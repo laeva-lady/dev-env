@@ -22,6 +22,7 @@
         "hyprland/window",
         "clock#date",
         "clock#time"
+        // "custom/cava"
     ],
 
     "modules-right": [
@@ -31,6 +32,11 @@
         // "battery",
     ],
 
+    "custom/cava": {
+        "format": "{text}",
+        "exec": "~/.config/waybar/scripts/cava_module.py",
+        "return-type": "json"
+    },
     // ─────────────────────────────────────────────────────────────┤ window ├───
     "hyprland/workspaces": {
         "format": "{name}",
