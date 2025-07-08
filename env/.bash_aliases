@@ -24,26 +24,11 @@ alias crun="$HOME/personal/dev-env/run"
 alias ipkg="$HOME/personal/dev-env/cmds/installs/pkgs"
 alias tmux-sessionizer="$HOME/personal/dev-env/resources/scripts/tmux-sessionizer.sh"
 
-
-# git stuff
-alias g="git"
-alias gs="git status"
-alias ga="git add ."
-alias gd="git diff"
-alias gac="git commit -a"
-alias gacm="git commit -am"
-alias gpush="git push"
-alias gpull="git pull"
-
 # scripts
 alias wmake="$HOME/personal/dev-env/resources/scripts/wmake.sh"
 
 dfz() {
     cd "$(find . -mindepth 1 -maxdepth 5 -type d -print | fzf)"
-}
-tfz() {
-    local selection=$(find $(pwd) -mindepth 1 -maxdepth 6 -type d -print | fzf)
-    [ -n "$selection" ] && tmux new-session -c "$selection"
 }
 vfz() {
     local file
