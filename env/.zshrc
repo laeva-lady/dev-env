@@ -5,7 +5,7 @@ export PATH="$HOME/.ghcup/bin:$PATH"
 export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
-export DEV_ENV="$HOME/personal/dev-env/"
+export DEV_ENV="$HOME/personal/dev-env"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$DEV_ENV/bin:$PATH"
 
