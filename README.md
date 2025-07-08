@@ -4,3 +4,4 @@
 - env: keeps track of my dotfiles
 - cmds: commands provided to configure/install some stuff
 - resources: some misc stuff i need
+- bin: some often used script

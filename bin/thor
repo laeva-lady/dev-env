@@ -4,6 +4,8 @@
 
 # packages added via command line
 to_organized=(
+    audacity
+    signal-desktop
 )
 
 aur=(
