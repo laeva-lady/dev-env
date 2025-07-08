@@ -97,14 +97,14 @@ query() {
     installed_pkgs=$(pacman -Qq | grep "$1" || true)
     available_pkg=$(pacman -Ss "$1" | grep -Eo '^[^/]+/[^ ]+' | cut -d/ -f2 | grep "$1")
     echo "$available_pkg" | while read -r p; do
-        if echo "$thor_pkgs" | grep -qx "$p"; then
-            printf "📦: %-30s     installed,         in pkg file\n" "$p"
-        else
-            if echo "$installed_pkgs" | grep -qx "$p"; then
-                printf "✅: %-30s     installed, but not in pkg file\n" "$p"
+        if echo "$installed_pkgs" | grep -qx "$p"; then
+            if echo "$thor_pkgs" | grep -qx "$p"; then
+                printf "✅: %-30s     installed,         in pkg file\n" "$p"
             else
-                printf "❌: %-30s not installed\n" "$p"
+                printf "☑️: %-30s     installed,     not in pkg file\n" "$p"
             fi
+        else
+            printf "❌: %-30s not installed\n" "$p"
         fi
     done
 }
@@ -119,10 +119,10 @@ query_aur() {
     available_pkg=$(yay -Ss "$1" | grep -Eo '^[^/]+/[^ ]+' | cut -d/ -f2 | grep "$1")
     echo "$available_pkg" | while read -r p; do
         if echo "$thor_pkgs" | grep -qx "$p"; then
-            printf "📦: %-50s     installed,         in pkg file\n" "$p"
+            printf "✅: %-50s     installed,         in pkg file\n" "$p"
         else
             if echo "$installed_pkgs" | grep -qx "$p"; then
-                printf "✅: %-50s     installed, but not in pkg file\n" "$p"
+                printf "☑️: %-50s     installed, but not in pkg file\n" "$p"
             else
                 printf "❌: %-50s not installed\n" "$p"
             fi
