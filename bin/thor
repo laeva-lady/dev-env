@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-JSON_PATH="$HOME/personal/dev-env/resources/pkg.json"
 SCRIPT_PATH="$0"
 CMD="$1"
 shift
@@ -8,16 +7,12 @@ shift
 ROOTCMD="sudo"
 command -v doas &>/dev/null && ROOTCMD="doas"
 
-get_pkgs_by_category() {
-    jq -r --arg category "$1" '.[$category][]' "$JSON_PATH"
-}
-
 get_all_pkgs() {
-    jq -r 'to_entries[] | select(.key != "aur") | .value[]' "$JSON_PATH"
+    jq -r 'to_entries[] | select(.key != "aur") | .value[]' "$PKG_PATH_JSON"
 }
 
 get_aur_pkgs() {
-    jq -r '.aur[]' "$JSON_PATH"
+    jq -r '.aur[]' "$PKG_PATH_JSON"
 }
 
 add_pkg() {
@@ -27,12 +22,12 @@ add_pkg() {
         return 1
     fi
 
-    if jq -e --arg pkg "$pkg_to_add" 'any(to_entries[]; .value[] == $pkg)' "$JSON_PATH" &>/dev/null; then
+    if jq -e --arg pkg "$pkg_to_add" 'any(to_entries[]; .value[] == $pkg)' "$PKG_PATH_JSON" &>/dev/null; then
         echo "❗ Package '$pkg_to_add' already exists in the JSON file."
         return 0
     fi
 
-    jq --arg pkg "$pkg_to_add" '.to_organize += [$pkg]' "$JSON_PATH" >"$JSON_PATH.tmp" && mv "$JSON_PATH.tmp" "$JSON_PATH"
+    jq --arg pkg "$pkg_to_add" '.to_organize += [$pkg]' "$PKG_PATH_JSON" >"$JSON_PATH.tmp" && mv "$JSON_PATH.tmp" "$JSON_PATH"
     echo "📦 Added '$pkg_to_add' to 'to_organize'"
 }
 
@@ -43,7 +38,7 @@ list_pkgs() {
         "🗂️  \(.key):\n" + (
             (.value | map("  - " + .)) | join("\n")
         ) + "\n"
-    ' "$JSON_PATH"
+    ' "$PKG_PATH_JSON"
 }
 
 search_pkg() {
@@ -57,14 +52,14 @@ remove_pkg() {
         return 1
     fi
 
-    if ! jq -e --arg pkg "$pkg_to_remove" 'any(to_entries[]; .value[] == $pkg)' "$JSON_PATH" &>/dev/null; then
+    if ! jq -e --arg pkg "$pkg_to_remove" 'any(to_entries[]; .value[] == $pkg)' "$PKG_PATH_JSON" &>/dev/null; then
         echo "❗ Package '$pkg_to_remove' not found in any category."
         return 0
     fi
 
     jq --arg pkg "$pkg_to_remove" '
         with_entries(.value |= map(select(. != $pkg)))
-    ' "$JSON_PATH" >"$JSON_PATH.tmp" && mv "$JSON_PATH.tmp" "$JSON_PATH"
+    ' "$PKG_PATH_JSON" >"$JSON_PATH.tmp" && mv "$JSON_PATH.tmp" "$JSON_PATH"
     yay -Rs "$pkg_to_remove"
     echo "📦 Removed '$pkg_to_remove'"
 }
@@ -84,13 +79,17 @@ case "$CMD" in
     search_pkg "$1"
     ;;
 "query" | "q")
-    list_pkgs | grep "$1" | awk '{print $2}'
+    # list_pkgs | grep "$1" | awk '{print $2}'
+    pacman -Ss "$1" | grep "installed"
+    ;;
+"qaur" | "qa")
+    yay -Ss "$1" | grep "Installed"
     ;;
 "qi")
     pacman -Qi "$1"
     ;;
 "vim" | "v")
-    nvim "$JSON_PATH"
+    nvim "$PKG_PATH_JSON"
     ;;
 "")
     echo "Updating repos..."

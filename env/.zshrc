@@ -1,13 +1,15 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
 export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
 export DEV_ENV="$HOME/personal/dev-env/"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$DEV_ENV/bin:$PATH"
+
+export PKG_PATH_JSON="$DEV_ENV/resources/pkg.json"
 
 ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
