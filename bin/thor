@@ -65,11 +65,8 @@ remove_pkg() {
     jq --arg pkg "$pkg_to_remove" '
         with_entries(.value |= map(select(. != $pkg)))
     ' "$JSON_PATH" >"$JSON_PATH.tmp" && mv "$JSON_PATH.tmp" "$JSON_PATH"
-    if yay -Rs "$pkg_to_remove"; then
-        echo "📦 Removed '$pkg_to_remove'"
-    else
-        echo "📦 Canceled removal of $pkg_to_remove"
-    fi
+    yay -Rs "$pkg_to_remove"
+    echo "📦 Removed '$pkg_to_remove'"
 }
 
 case "$CMD" in
@@ -87,12 +84,15 @@ case "$CMD" in
     search_pkg "$1"
     ;;
 "query" | "q")
-    list_pkgs | grep "$1"
+    list_pkgs | grep "$1" | awk '{print $2}'
+    ;;
+"qi")
+    pacman -Qi "$1"
     ;;
 "vim" | "v")
     nvim "$JSON_PATH"
     ;;
-"" | install)
+"")
     echo "Updating repos..."
     yay
 
