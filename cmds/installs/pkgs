@@ -6,7 +6,7 @@ if [ "$#" -gt 0 ]; then
         if ! grep -q -F "    $pkg" "$0"; then
             sed -i '/^to_organized=(/,/^[[:space:]]*)/ {
                 /^[[:space:]]*)/ i\
-    '"$pkg"'
+                '"$pkg"'
             }' "$0"
         fi
     done
@@ -17,7 +17,6 @@ fi
 # packages added via command line
 to_organized=(
 )
-
 
 aur=(
     ckb-next-git
@@ -32,7 +31,7 @@ aur=(
     pandoc
     protontricks
     r2modman-bin # Thunderstore client
-    timg # display images in terminal
+    timg         # display images in terminal
     unityhub
     vencord-bin
     vesktop
@@ -198,7 +197,6 @@ packages=(
     "${wm[@]}"
     "${to_organized[@]}"
 )
-
 
 echo "Updating repos..."
 yay
