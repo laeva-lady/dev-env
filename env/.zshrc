@@ -21,8 +21,8 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.aliases.sh ] && source ~/.aliases.sh
 
-export EDITOR='nvim'
-export VISUAL="code"
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
 
 autoload -Uz vcs_info
 precmd() { vcs_info }

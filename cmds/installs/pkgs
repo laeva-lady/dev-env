@@ -100,6 +100,7 @@ ime=(
 )
 
 system=(
+    opendoas
     git
     base-devel
     brightnessctl
@@ -183,10 +184,15 @@ packages=(
     "${wm[@]}"
 )
 
-
 SCRIPT_PATH="$0"
 CMD="$1"
 shift
+
+ROOTCMD="sudo"
+if command -v doas >/dev/null 2>&1; then
+    ROOTCMD="doas"
+fi
+
 
 add_pkg() {
     if [ "$#" -gt 0 ]; then
@@ -244,34 +250,41 @@ list_pkgs() {
     ' "$SCRIPT_PATH"
 }
 
+search_pkg () {
+    yay -Ss "$1"
+}
+
 case "$CMD" in
-    "add")
-        if [ "$#" -eq 0 ]; then
-            echo "❗ Usage: $0 add <package1> [package2...]"
-            exit 1
-        fi
-        add_pkg "$@"
-        exit 0
-        ;;
-    "list")
-        list_pkgs
-        exit 0
-        ;;
-    ""|install)
-        echo "Updating repos..."
-        yay
-
-        echo "Checking repo..."
-        sudo pacman -S --needed "${packages[@]}"
-
-        echo "Checking AUR..."
-        yay -S --needed "${aur[@]}"
-        yay -S --needed "${to_organized[@]}"
-        ;;
-    *)
-        echo "❗ Unknown command: $CMD"
-        echo "Usage: $0 [add <pkg>] | [list] | [install]"
+"add" | "a")
+    if [ "$#" -eq 0 ]; then
+        echo "❗ Usage: $0 add <package1> [package2...]"
         exit 1
-        ;;
-esac
+    fi
+    add_pkg "$@"
+    exit 0
+    ;;
+"list" | "l")
+    list_pkgs
+    exit 0
+    ;;
+"search" | "s")
+    search_pkg "$1"
+    exit 0
+    ;;
+"" | install)
+    echo "Updating repos..."
+    yay
 
+    echo "Checking repo..."
+    sudo pacman -S --needed "${packages[@]}"
+
+    echo "Checking AUR..."
+    yay -S --needed "${aur[@]}"
+    yay -S --needed "${to_organized[@]}"
+    ;;
+*)
+    echo "❗ Unknown command: $CMD"
+    echo "Usage: $0 [add <pkg>] | [list] | [install]"
+    exit 1
+    ;;
+esac
