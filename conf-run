@@ -1,5 +1,8 @@
 #! /usr/bin/bash
 
+# Copies dotfiles to this repo, then update if the user wants
+
+
 update_configs_files() {
     rm -rf "$DEV_ENV/env/.config"
     mkdir -p "$DEV_ENV/env/.config"

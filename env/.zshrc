@@ -6,6 +6,8 @@ export PATH="$HOME/.ghcup/bin:$PATH"
 export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
+export DEV_ENV="$HOME/personal/dev-env/"
+
 ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 

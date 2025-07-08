@@ -1,1 +1,0 @@
-compgen -c | sort -u
