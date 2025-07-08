@@ -130,14 +130,27 @@ query_aur() {
     done
 }
 
+update() {
+    echo "Checking repo..."
+    mapfile -t all_pkgs < <(get_all_pkgs)
+    $ROOTCMD pacman -Syu --needed "${all_pkgs[@]}"
+
+    echo "Checking AUR..."
+    mapfile -t aur_pkgs < <(get_aur_pkgs)
+    yay -S --needed "${aur_pkgs[@]}"
+    yay -S --needed "${to_organized[@]}"
+}
+
 case "$CMD" in
 "add" | "a")
     add_pkg "$@"
     sort_json
+    update
     ;;
 "addcategory" | "ac")
     add_pkg_category "$@"
     sort_json
+    update
     ;;
 "remove" | "r")
     remove_pkg "$@"
@@ -165,14 +178,7 @@ case "$CMD" in
     sort_json
     ;;
 "")
-    echo "Checking repo..."
-    mapfile -t all_pkgs < <(get_all_pkgs)
-    $ROOTCMD pacman -Syu --needed "${all_pkgs[@]}"
-
-    echo "Checking AUR..."
-    mapfile -t aur_pkgs < <(get_aur_pkgs)
-    yay -S --needed "${aur_pkgs[@]}"
-    yay -S --needed "${to_organized[@]}"
+    update
     ;;
 *)
     echo "❗ Unknown command: $CMD"

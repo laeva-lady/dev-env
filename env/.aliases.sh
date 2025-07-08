@@ -20,23 +20,6 @@ alias ..="cd .."
 # alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3"
 alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
 
-# scripts
-alias wmake="$HOME/personal/dev-env/resources/scripts/wmake.sh"
-
-dfz() {
-    cd "$(find . -mindepth 1 -maxdepth 5 -type d -print | fzf)"
-}
-vfz() {
-    local file
-    if [ -z $1 ]
-    then
-        file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
-        [ -n "$file" ] && nvim "$file"
-    else
-        file=$(find . -type f | grep -i "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
-        [ -n "$file" ] && nvim "$file"
-    fi
-}
 rfz() {
     local file
     file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
