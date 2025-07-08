@@ -4,8 +4,7 @@
 
 # packages added via command line
 to_organized=(
-    audacity
-    signal-desktop
+    telegram-desktop
 )
 
 aur=(
@@ -197,7 +196,6 @@ if command -v doas >/dev/null 2>&1; then
     ROOTCMD="doas"
 fi
 
-
 add_pkg() {
     if [ "$#" -gt 0 ]; then
         for pkg in "$@"; do
@@ -258,6 +256,30 @@ search_pkg () {
     yay -Ss "$1"
 }
 
+remove_pkg() {
+    if [ "$#" -gt 0 ]; then
+        for pkg in "$@"; do
+            # Check if the package exists in the script
+            if grep -q -F "    $pkg" "$0"; then
+                # Remove the package from the script
+                sed -i "/    $pkg/d" "$0"
+                echo "➖ Removed: $pkg from the list"
+
+                # Uninstall the package
+                if yay -Q "$pkg" &>/dev/null; then
+                    $ROOTCMD pacman -Rns "$pkg"
+                    echo "🗑️ Uninstalled: $pkg"
+                else
+                    echo "🤔 Not installed: $pkg"
+                fi
+            else
+                echo "⚠️ Not found in lists: $pkg"
+            fi
+        done
+        exit 0
+    fi
+}
+
 case "$CMD" in
 "add" | "a")
     if [ "$#" -eq 0 ]; then
@@ -265,6 +287,14 @@ case "$CMD" in
         exit 1
     fi
     add_pkg "$@"
+    exit 0
+    ;;
+"remove" | "r")
+    if [ "$#" -eq 0 ]; then
+        echo "❗ Usage: $0 remove <package1> [package2...]"
+        exit 1
+    fi
+    remove_pkg "$@"
     exit 0
     ;;
 "list" | "l")
@@ -280,7 +310,7 @@ case "$CMD" in
     yay
 
     echo "Checking repo..."
-    sudo pacman -S --needed "${packages[@]}"
+    $ROOTCMD pacman -S --needed "${packages[@]}"
 
     echo "Checking AUR..."
     yay -S --needed "${aur[@]}"
@@ -288,7 +318,7 @@ case "$CMD" in
     ;;
 *)
     echo "❗ Unknown command: $CMD"
-    echo "Usage: $0 [add <pkg>] | [list] | [install]"
+    echo "Usage: $0 [add <pkg>] | [remove <pkg>] | [list] | [install] | [search <pkg>]"
     exit 1
     ;;
 esac
