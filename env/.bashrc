@@ -104,8 +104,8 @@ export XKB_DEFAULT_LAYOUT="us,ca"
 export XKB_DEFAULT_VARIANT=",fr-colemak"
 export XKB_DEFAULT_OPTIONS="grp:win_space_toggle,caps:escape"
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
 fi
 
 # export STARSHIP_CONFIG=~/.config/starship/starship.toml
