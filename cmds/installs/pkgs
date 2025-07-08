@@ -1,5 +1,24 @@
 #! /usr/bin/bash
 
+if [ "$#" -gt 0 ]; then
+    for pkg in "$@"; do
+        # Avoid duplicate insertions
+        if ! grep -q -F "    $pkg" "$0"; then
+            sed -i '/^to_organized=(/,/^[[:space:]]*)/ {
+                /^[[:space:]]*)/ i\
+    '"$pkg"'
+            }' "$0"
+        fi
+    done
+    echo "Added '$*' to the to_organized list in $0"
+    exit 0
+fi
+
+# packages added via command line
+to_organized=(
+)
+
+
 aur=(
     ckb-next-git
     clock-tui
