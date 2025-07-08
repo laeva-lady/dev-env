@@ -20,10 +20,6 @@ alias ..="cd .."
 # alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3"
 alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
 
-alias outlast="$HOME/personal/dev-env/conf-run"
-alias thor="$HOME/personal/dev-env/cmds/installs/pkgs"
-alias tmux-sessionizer="$HOME/personal/dev-env/resources/scripts/tmux-sessionizer.sh"
-
 # scripts
 alias wmake="$HOME/personal/dev-env/resources/scripts/wmake.sh"
 

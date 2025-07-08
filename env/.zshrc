@@ -7,6 +7,7 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
 export DEV_ENV="$HOME/personal/dev-env/"
+export PATH="$DEV_ENV/bin:$PATH"
 
 ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
