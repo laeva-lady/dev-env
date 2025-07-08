@@ -9,7 +9,7 @@ export DEV_ENV="$HOME/personal/dev-env"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$DEV_ENV/bin:$PATH"
 
-export PKG_PATH_JSON="$DEV_ENV/resources/pkg.json"
+export PKG_PATH_JSON="$DEV_ENV/resources/pkg.jsonc"
 
 ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"

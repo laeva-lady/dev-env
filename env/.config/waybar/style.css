@@ -13,7 +13,7 @@
 /* @define-color hover #BF455A; */
 
 /* Rose Pine */
-@define-color background #191724;
+@define-color background rgba(25, 23, 36, 0.9);
 @define-color foreground #9ccfd8;
 @define-color workspaceborder #eb6f92;
 @define-color bordercolor #31748f;
