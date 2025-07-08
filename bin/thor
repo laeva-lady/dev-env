@@ -5,6 +5,9 @@
 # packages added via command line
 to_organized=(
     telegram-desktop
+    qt5ct
+    qt6-wayland
+    kvantum
 )
 
 aur=(
