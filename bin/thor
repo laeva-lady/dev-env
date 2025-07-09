@@ -182,7 +182,18 @@ case "$CMD" in
     ;;
 *)
     echo "❗ Unknown command: $CMD"
-    echo "Usage: $0 [add <pkg>] | [remove <pkg>] | [list] | [vim] | [install] | [search <pkg>]"
+    echo "Usage:"
+    echo -e "\t[add|a <pkg>]"
+    echo -e "\t[addcategory|ac <category> <pkg>]"
+    echo -e "\t[remove|r <pkg>]"
+    echo -e "\t[list|l]"
+    echo -e "\t[search|s <pkg> ]"
+    echo -e "\t[query|q <pkg>]"
+    echo -e "\t[qaur|qa <pkg>]"
+    echo -e "\t[qi <pkg>]"
+    echo -e "\t[vim|v]"
+    echo -e "\t[sort]"
+    echo -e "\t[]"
     exit 1
     ;;
 esac
