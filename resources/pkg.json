@@ -16,6 +16,7 @@
     "protontricks",
     "r2modman-bin",
     "timg",
+    "ttf-comic-sans",
     "unityhub",
     "vencord-bin",
     "vesktop",
@@ -142,7 +143,8 @@
     "steam-native-runtime",
     "telegram-desktop",
     "thunderbird",
-    "torbrowser-launcher"
+    "torbrowser-launcher",
+    "vivaldi"
   ],
   "extra": [
     "geogebra",

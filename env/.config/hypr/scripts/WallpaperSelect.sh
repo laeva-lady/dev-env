@@ -91,6 +91,7 @@ main() {
     choice=$(menu | $rofi_command)
     choice=$(echo "$choice" | xargs)
 
+
     if [[ -z "$choice" ]]; then
         exit 0
     fi
@@ -99,6 +100,7 @@ main() {
 
     # Search for the selected file in the wallpapers directory, including subdirectories
     selected_file=$(find "$wallDIR" -iname "$choice_basename.*" -print -quit)
+    echo "$selected_file" > $HOME/personal/dev-env/wall-env
 
     if [[ -z "$selected_file" ]]; then
         exit 1
