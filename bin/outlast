@@ -21,7 +21,6 @@ update_env_files() {
 
 # config files to keep track of in the repo
 confs=(
-    doom
     dunst
     fastfetch
     fcitx

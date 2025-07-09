@@ -1,5 +1,7 @@
 {
-  "to_organize": [],
+  "to_organize": [
+    "thunar"
+  ],
   "aur": [
     "ckb-next",
     "clock-tui",
@@ -66,7 +68,6 @@
     "bc",
     "btop",
     "chafa",
-    "emacs",
     "eza",
     "fastfetch",
     "fzf",

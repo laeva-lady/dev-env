@@ -11,7 +11,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "ocaml" }, -- or any filetype
+    pattern = { "ocaml", "cpp", "cc" }, -- or any filetype
     callback = function()
         vim.bo.shiftwidth = 2
         vim.bo.tabstop = 2
