@@ -13,5 +13,6 @@
             "before": [";"],
             "after": [":"],
         }
-    ]
+    ],
+    "qt-qml.qmlls.useQmlImportPathEnvVar": true
 }

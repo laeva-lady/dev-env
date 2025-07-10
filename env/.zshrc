@@ -10,6 +10,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$DEV_ENV/bin:$PATH"
 
 export PKG_PATH_JSON="$DEV_ENV/resources/pkg.json"
+export WAYBAR_STYLE="$HOME/.config/waybar/kitter"
 
 ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"

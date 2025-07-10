@@ -4,5 +4,5 @@ if pgrep waybar > /dev/null
 then
     pkill waybar
 else
-    waybar &
+    ~/.config/waybar/waybar.sh kitter &
 fi
