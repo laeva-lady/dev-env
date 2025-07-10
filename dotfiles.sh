@@ -19,10 +19,10 @@ confs=(
 )
 
 envs=(
-    ".aliases.sh"
-    ".bashrc"
-    ".zshrc"
-    ".tmux.conf"
-    ".Xresources"
+    .aliases.sh
+    .bashrc
+    .zshrc
+    .tmux.conf
+    .Xresources
 )
 

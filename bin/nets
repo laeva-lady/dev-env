@@ -2,7 +2,6 @@
 
 # Copies dotfiles to this repo, then update if the user wants
 
-
 update_configs_files() {
     rm -rf "$DEV_ENV/env/.config"
     mkdir -p "$DEV_ENV/env/.config"
@@ -19,36 +18,43 @@ update_env_files() {
     done
 }
 
-# config files to keep track of in the repo
-source $DEV_ENV/dotfiles.sh
+DOTFILES="$DEV_ENV/dotfiles.sh"
 
-echo "Updating configs files"
-update_configs_files "${confs[@]}"
+case "$1" in
+"vim")
+    nvim "$DOTFILES"
+    ;;
+*)
+    source "$DOTFILES"
+    echo "Updating configs files"
+    update_configs_files "${confs[@]}"
 
-echo "Copying envs files"
-update_env_files "${envs[@]}"
+    echo "Copying envs files"
+    update_env_files "${envs[@]}"
 
-echo "Copying vscode user settings"
-cp ~/.config/Code/User/settings.json $DEV_ENV/resources/Code
-cp ~/.config/Code/User/keybindings.json $DEV_ENV/resources/Code
+    echo "Copying vscode user settings"
+    cp ~/.config/Code/User/settings.json $DEV_ENV/resources/Code
+    cp ~/.config/Code/User/keybindings.json $DEV_ENV/resources/Code
 
-echo "Checking git repo"
-{
-    cd $DEV_ENV
+    echo "Checking git repo"
+    {
+        cd $DEV_ENV
 
-    git -C "$DEV_ENV" -c color.status=always status
+        git -C "$DEV_ENV" -c color.status=always status
 
-    # Use plain text (no colors) to check for "nothing to commit"
-    status=$(git -C "$DEV_ENV" status --porcelain)
+        # Use plain text (no colors) to check for "nothing to commit"
+        status=$(git -C "$DEV_ENV" status --porcelain)
 
-    if [[ -z "$status" ]]; then
-        exit 0
-    fi
+        if [[ -z "$status" ]]; then
+            exit 0
+        fi
 
-    read -p "continue? [y/N] " confirm
-    if [[ "$confirm" =~ ^[Yy]$ ]]; then
-      git add .
-      git commit -m "chore: automated commit"
-      git push
-    fi
-}
+        read -p "continue? [y/N] " confirm
+        if [[ "$confirm" =~ ^[Yy]$ ]]; then
+            git add .
+            git commit -m "chore: automated commit"
+            git push
+        fi
+    }
+    ;;
+esac
