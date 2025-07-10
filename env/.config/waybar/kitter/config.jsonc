@@ -13,10 +13,7 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
-    "custom/sep",
     "mpris",
-    "custom/sep",
-    "temperature",
     "custom/sep",
     "pulseaudio",
     "custom/sep",
