@@ -8,7 +8,8 @@ ROOTCMD="sudo"
 command -v doas &>/dev/null && ROOTCMD="doas"
 
 if [ -z "$PKG_PATH_JSON" ]; then
-    PKG_PATH_JSON="$HOME/personal/dev-env/resources/pkg.json"
+    echo "Please set the environment variable PKG_PATH_JSON"
+    exit 1
 fi
 
 sort_json() {

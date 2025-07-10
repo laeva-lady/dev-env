@@ -1,12 +1,9 @@
 {
-  "to_organize": [
-    "qmlls"
-  ],
+  "to_organize": [],
   "aur": [
     "ckb-next",
     "clock-tui",
     "cnijfilter2",
-    "cursor-bin",
     "fcitx5-mozc-ut",
     "ftxui",
     "gpu-screen-recorder",
@@ -152,6 +149,7 @@
     "vivaldi"
   ],
   "extra": [
+    "gedit",
     "geogebra",
     "gimp",
     "libreoffice-still",
