@@ -20,18 +20,9 @@ alias ..="cd .."
 # alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3"
 alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
 
-rfz() {
-    local file
-    file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}") || return 0
-    [ -n "$file" ] && chmod +x "$file" && "$file"
+xway() {
+    hyprctl clients -j | jq -r '.[] | "\(.class) : \(.xwayland)"'
 }
 battery() {
     upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage:/ { print $2 }'
-}
-y() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    yazi "$@" --cwd-file="$tmp"
-    IFS= read -r -d '' cwd < "$tmp"
-    [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-    rm -f -- "$tmp"
 }
