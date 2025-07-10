@@ -20,30 +20,7 @@ update_env_files() {
 }
 
 # config files to keep track of in the repo
-confs=(
-    dunst
-    fastfetch
-    fcitx
-    fcitx5
-    ghostty
-    hyfetch.json
-    hypr
-    i3
-    kickoff
-    kitty
-    nvim
-    ranger
-    rofi
-    waybar
-    zed
-)
-
-envs=(
-    ".aliases.sh"
-    ".bashrc"
-    ".zshrc"
-    ".tmux.conf"
-)
+source $DEV_ENV/dotfiles.sh
 
 echo "Updating configs files"
 update_configs_files "${confs[@]}"
