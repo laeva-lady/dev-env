@@ -10,9 +10,11 @@
     "tray"
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "hyprland/workspaces",
   ],
   "modules-right": [
+    "hyprland/window",
+    "custom/sep",
     "mpris",
     "custom/sep",
     "pulseaudio",
@@ -33,6 +35,11 @@
     "on-scroll-up": "hyprctl dispatch workspace e-1",
     "on-scroll-down": "hyprctl dispatch workspace e+1",
   },
+  "hyprland/window": {
+    "rotate": 90,
+        "format": "{} "
+    , "max-length": 30
+    },
     "hyprland/language": {
         "format": "{}",
         "format-en": "EN",
@@ -59,8 +66,8 @@
     ]
   },
   "pulseaudio": {
-    "rotate": 90,
-    "format": "{icon} {volume}%",
+    //"rotate": 90,
+    "format": " {icon}\n{volume}%",
     "format-bluetooth": "{icon} {volume}%",
     "format-muted": "MUTE ",
     "format-icons": {

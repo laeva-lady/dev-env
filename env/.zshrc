@@ -35,7 +35,6 @@ zstyle ':vcs_info:git:*' formats '%b '
 
 setopt PROMPT_SUBST
 PROMPT='%(?.%F{green}>.%F{red}>) %F{blue}%~%f %F$f%F{red}${vcs_info_msg_0_}%f%F{yellow}x%f '
-
 RPROMPT='%F{8} %* $(battery)%% %f'
 
 

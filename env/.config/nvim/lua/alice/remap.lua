@@ -12,12 +12,10 @@ set("n", "<leader>e", ":NvimTreeFocus<CR>")
 
 set("n", "<leader>hf", ":%!stylish-haskell<CR>")
 
-set("n", ";", ":")
-set("v", ";", ":")
+set({ "n", "v" }, ";", ":")
 
-set("n", "<C-s>", ":w<CR>")
-set("v", "<C-s>", "<ESC>:w<CR>")
-set("i", "<C-s>", "<ESC>:w<CR>")
+set({ "n", "v", "i" }, "<C-s>", ":w<CR>")
+
 set("i", "<C-u>", "<Esc>")
 
 set("n", "<C-f>", ":Files<CR>", { desc = "Open fzf" })
@@ -25,9 +23,9 @@ set("n", "<leader>f", vim.lsp.buf.format, { desc = "format" })
 
 set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "make it rain" });
 
-set("n", "<C-n>", ":bnext<CR>")
-set("n", "<C-p>", ":bprev<CR>")
-set("n", "<C-c>", ":bdelete<CR>")
+-- set("n", "<C-n>", ":bnext<CR>")
+-- set("n", "<C-p>", ":bprev<CR>")
+-- set("n", "<C-c>", ":bdelete<CR>")
 
 set("n", "<C-o>", "<nop>")
 
