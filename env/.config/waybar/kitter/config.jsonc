@@ -13,8 +13,6 @@
     "hyprland/workspaces",
   ],
   "modules-right": [
-    "hyprland/window",
-    "custom/sep",
     "mpris",
     "custom/sep",
     "pulseaudio",
@@ -23,8 +21,10 @@
     "custom/sep",
   ],
     "mpris": {
+        //"rotate": 90,
         "format": "|>",
-        "format-paused": "||"
+        "format-paused": "||",
+        // "max-length": 50
     },
   "custom/sep": {
     "format": "愛"
