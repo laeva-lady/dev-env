@@ -1,0 +1,5 @@
+[Unit]
+Description=Stop swww
+
+[Service]
+ExecStart=/usr/bin/pkill swww-daemon

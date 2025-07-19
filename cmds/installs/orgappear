@@ -1,0 +1,4 @@
+#! /usr/bin/bash
+
+
+git clone https://github.com/awth13/org-appear.git ~/personal/dev/orgappear

@@ -1,0 +1,13 @@
+[Unit]
+Description=Log and display your app usage
+After=network.target
+
+[Service]
+ExecStart=/home/alice/.local/bin/cameldream server
+Restart=on-failure
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
+

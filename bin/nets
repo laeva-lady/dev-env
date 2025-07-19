@@ -1,0 +1,87 @@
+#! /usr/bin/bash
+
+# Copies dotfiles to this repo, then update remote if the user wants
+
+update_configs_files() {
+    rm -rf "$DEV_ENV/env/.config"
+    mkdir -p "$DEV_ENV/env/.config"
+    for config_item in "$@"; do
+        SOURCE_PATH="$HOME/.config/$config_item"
+        DEST_PATH="$DEV_ENV/env/.config/$config_item"
+
+        echo -e "\t\t$config_item"
+
+        if [[ -d "$SOURCE_PATH" ]]; then
+            mkdir -p "$DEST_PATH"
+            find "$SOURCE_PATH" \( -type f -o -type d \) ! -type l -print0 | \
+                while IFS= read -r -d $'\0' item; do
+                    RELATIVE_PATH="${item#$SOURCE_PATH/}"
+                    DEST_ITEM="$DEST_PATH/$RELATIVE_PATH"
+
+                    if [[ -d "$item" ]]; then
+                        mkdir -p "$DEST_ITEM"
+                    elif [[ -f "$item" ]]; then
+                        cp "$item" "$DEST_ITEM"
+                    fi
+                done
+        elif [[ -f "$SOURCE_PATH" && ! -L "$SOURCE_PATH" ]]; then
+            cp "$SOURCE_PATH" "$DEST_PATH"
+        elif [[ -L "$SOURCE_PATH" ]]; then
+            echo -e "\t\tSkipping top-level symlink: $config_item"
+        fi
+
+        rm -rf "$DEST_PATH/.git"
+    done
+}
+
+
+update_env_files() {
+    for env_file in "$@"; do
+        echo -e "\t\t$env_file"
+        cp -r "$HOME/$env_file" "$DEV_ENV/env/"
+    done
+}
+
+DOTFILES="$DEV_ENV/dotfiles.sh"
+
+case "$1" in
+"vim")
+    nvim "$DOTFILES"
+    ;;
+"zen")
+    zen-browser --new-tab "https://github.com/laeva-lady/dev-env"
+    ;;
+*)
+    source "$DOTFILES"
+    echo "Updating configs files"
+    update_configs_files "${confs[@]}"
+
+    echo "Copying envs files"
+    update_env_files "${envs[@]}"
+
+    echo "Copying vscode user settings"
+    cp ~/.config/Code/User/settings.json $DEV_ENV/resources/Code
+    cp ~/.config/Code/User/keybindings.json $DEV_ENV/resources/Code
+
+    echo "Checking git repo"
+    {
+        cd $DEV_ENV
+
+        git -C "$DEV_ENV" -c color.status=always status
+
+        # Use plain text (no colors) to check for "nothing to commit"
+        status=$(git -C "$DEV_ENV" status --porcelain)
+
+        if [[ -z "$status" ]]; then
+            exit 0
+        fi
+
+        read -p "continue? [y/N] " confirm
+        if [[ "$confirm" =~ ^[Yy]$ ]]; then
+            git add .
+            git commit -m "chore: automated commit"
+            git push
+        fi
+    }
+    ;;
+esac

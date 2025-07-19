@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+sudo pacman -S --needed \
+	cups \
+	cups-pdf
+
+sudo systemctl enable cups.service
+sudo systemctl start cups.service
+
