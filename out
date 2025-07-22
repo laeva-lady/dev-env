@@ -1,0 +1,318 @@
+#!/usr/bin/python
+
+import argparse
+import rui
+import nate
+
+def main():
+    parser = argparse.ArgumentParser(description="Unified CLI for rui and nate")
+
+    subparsers = parser.add_subparsers(dest='tool', required=True)
+
+    # --- rui parser ---
+    rui_parser = subparsers.add_parser('rui', help='Package manager operations')
+    rui_subparsers = rui_parser.add_subparsers(dest='command')
+
+    # rui list
+    rui_list = rui_subparsers.add_parser('list', help='List packages or categories')
+    list_group = rui_list.add_mutually_exclusive_group()
+    list_group.add_argument('-c', metavar='category_name', help='List packages in a category')
+    list_group.add_argument('--categories', action='store_true', help='List all categories')
+
+    # rui add
+    rui_add = rui_subparsers.add_parser('add', help='Add a package')
+    rui_add.add_argument('pkg_name', help='Package name to add')
+    rui_add.add_argument('--aur', action='store_true', help='Install from AUR')
+    rui_add.add_argument('-c', metavar='category_name', help='Add package to category')
+
+    # rui remove
+    rui_remove = rui_subparsers.add_parser('remove', help='Remove a package')
+    rui_remove.add_argument('pkg_name', help='Package name to remove')
+
+    # rui query
+    rui_query = rui_subparsers.add_parser('query', help='Query a package')
+    rui_query.add_argument('pkg_name', help='Package name to query')
+    rui_query.add_argument('--aur', action='store_true', help='Query AUR instead of repo')
+
+    # rui vim
+    rui_subparsers.add_parser('vim', help='Open vim to edit package config')
+
+    # --- nate parser ---
+    nate_parser = subparsers.add_parser('nate', help='Dev environment sync operations')
+    nate_subparsers = nate_parser.add_subparsers(dest='command')
+
+    nate_subparsers.add_parser('sync', help='Sync development environment')
+    nate_subparsers.add_parser('remote', help='Remote development management')
+    nate_subparsers.add_parser('vim', help='Open vim to edit dev config')
+
+    # Parse args
+    args = parser.parse_args()
+
+    # --- Dispatch logic ---
+    if args.tool == 'rui':
+        if args.command == 'list':
+            if args.categories:
+                print("Call: rui_list_categories()")
+            elif args.c:
+                print(f"Call: rui_list_by_category('{args.c}')")
+            else:
+                print("Call: rui_list_all()")
+        elif args.command == 'add':
+            print(f"Call: rui_add(pkg_name='{args.pkg_name}', aur={args.aur}, category='{args.c}')")
+        elif args.command == 'remove':
+            print(f"Call: rui_remove(pkg_name='{args.pkg_name}')")
+        elif args.command == 'query':
+            print(f"Call: rui_query(pkg_name='{args.pkg_name}', aur={args.aur})")
+        elif args.command == 'vim':
+            print("Call: rui_vim_edit()")
+
+    elif args.tool == 'nate':
+        if args.command == 'sync':
+            print("Call: nate_sync()")
+        elif args.command == 'remote':
+            print("Call: nate_remote()")
+        elif args.command == 'vim':
+            print("Call: nate_vim_edit()")
+
+if __name__ == "__main__":
+    main()
+#!/usr/bin/python
+
+import argparse
+import rui
+import nate
+
+def main():
+    parser = argparse.ArgumentParser(description="Unified CLI for rui and nate")
+
+    subparsers = parser.add_subparsers(dest='tool', required=True)
+
+    # --- rui parser ---
+    rui_parser = subparsers.add_parser('rui', help='Package manager operations')
+    rui_subparsers = rui_parser.add_subparsers(dest='command')
+
+    # rui list
+    rui_list = rui_subparsers.add_parser('list', help='List packages or categories')
+    list_group = rui_list.add_mutually_exclusive_group()
+    list_group.add_argument('-c', metavar='category_name', help='List packages in a category')
+    list_group.add_argument('--categories', action='store_true', help='List all categories')
+
+    # rui add
+    rui_add = rui_subparsers.add_parser('add', help='Add a package')
+    rui_add.add_argument('pkg_name', help='Package name to add')
+    rui_add.add_argument('--aur', action='store_true', help='Install from AUR')
+    rui_add.add_argument('-c', metavar='category_name', help='Add package to category')
+
+    # rui remove
+    rui_remove = rui_subparsers.add_parser('remove', help='Remove a package')
+    rui_remove.add_argument('pkg_name', help='Package name to remove')
+
+    # rui query
+    rui_query = rui_subparsers.add_parser('query', help='Query a package')
+    rui_query.add_argument('pkg_name', help='Package name to query')
+    rui_query.add_argument('--aur', action='store_true', help='Query AUR instead of repo')
+
+    # rui vim
+    rui_subparsers.add_parser('vim', help='Open vim to edit package config')
+
+    # --- nate parser ---
+    nate_parser = subparsers.add_parser('nate', help='Dev environment sync operations')
+    nate_subparsers = nate_parser.add_subparsers(dest='command')
+
+    nate_subparsers.add_parser('sync', help='Sync development environment')
+    nate_subparsers.add_parser('remote', help='Remote development management')
+    nate_subparsers.add_parser('vim', help='Open vim to edit dev config')
+
+    # Parse args
+    args = parser.parse_args()
+
+    # --- Dispatch logic ---
+    if args.tool == 'rui':
+        if args.command == 'list':
+            if args.categories:
+                print("Call: rui_list_categories()")
+            elif args.c:
+                print(f"Call: rui_list_by_category('{args.c}')")
+            else:
+                print("Call: rui_list_all()")
+        elif args.command == 'add':
+            print(f"Call: rui_add(pkg_name='{args.pkg_name}', aur={args.aur}, category='{args.c}')")
+        elif args.command == 'remove':
+            print(f"Call: rui_remove(pkg_name='{args.pkg_name}')")
+        elif args.command == 'query':
+            print(f"Call: rui_query(pkg_name='{args.pkg_name}', aur={args.aur})")
+        elif args.command == 'vim':
+            print("Call: rui_vim_edit()")
+
+    elif args.tool == 'nate':
+        if args.command == 'sync':
+            print("Call: nate_sync()")
+        elif args.command == 'remote':
+            print("Call: nate_remote()")
+        elif args.command == 'vim':
+            print("Call: nate_vim_edit()")
+
+if __name__ == "__main__":
+    main()
+#!/usr/bin/python
+
+import argparse
+import rui
+import nate
+
+def main():
+    parser = argparse.ArgumentParser(description="Unified CLI for rui and nate")
+
+    subparsers = parser.add_subparsers(dest='tool', required=True)
+
+    # --- rui parser ---
+    rui_parser = subparsers.add_parser('rui', help='Package manager operations')
+    rui_subparsers = rui_parser.add_subparsers(dest='command')
+
+    # rui list
+    rui_list = rui_subparsers.add_parser('list', help='List packages or categories')
+    list_group = rui_list.add_mutually_exclusive_group()
+    list_group.add_argument('-c', metavar='category_name', help='List packages in a category')
+    list_group.add_argument('--categories', action='store_true', help='List all categories')
+
+    # rui add
+    rui_add = rui_subparsers.add_parser('add', help='Add a package')
+    rui_add.add_argument('pkg_name', help='Package name to add')
+    rui_add.add_argument('--aur', action='store_true', help='Install from AUR')
+    rui_add.add_argument('-c', metavar='category_name', help='Add package to category')
+
+    # rui remove
+    rui_remove = rui_subparsers.add_parser('remove', help='Remove a package')
+    rui_remove.add_argument('pkg_name', help='Package name to remove')
+
+    # rui query
+    rui_query = rui_subparsers.add_parser('query', help='Query a package')
+    rui_query.add_argument('pkg_name', help='Package name to query')
+    rui_query.add_argument('--aur', action='store_true', help='Query AUR instead of repo')
+
+    # rui vim
+    rui_subparsers.add_parser('vim', help='Open vim to edit package config')
+
+    # --- nate parser ---
+    nate_parser = subparsers.add_parser('nate', help='Dev environment sync operations')
+    nate_subparsers = nate_parser.add_subparsers(dest='command')
+
+    nate_subparsers.add_parser('sync', help='Sync development environment')
+    nate_subparsers.add_parser('remote', help='Remote development management')
+    nate_subparsers.add_parser('vim', help='Open vim to edit dev config')
+
+    # Parse args
+    args = parser.parse_args()
+
+    # --- Dispatch logic ---
+    if args.tool == 'rui':
+        if args.command == 'list':
+            if args.categories:
+                print("Call: rui_list_categories()")
+            elif args.c:
+                print(f"Call: rui_list_by_category('{args.c}')")
+            else:
+                print("Call: rui_list_all()")
+        elif args.command == 'add':
+            print(f"Call: rui_add(pkg_name='{args.pkg_name}', aur={args.aur}, category='{args.c}')")
+        elif args.command == 'remove':
+            print(f"Call: rui_remove(pkg_name='{args.pkg_name}')")
+        elif args.command == 'query':
+            print(f"Call: rui_query(pkg_name='{args.pkg_name}', aur={args.aur})")
+        elif args.command == 'vim':
+            print("Call: rui_vim_edit()")
+
+    elif args.tool == 'nate':
+        if args.command == 'sync':
+            print("Call: nate_sync()")
+        elif args.command == 'remote':
+            print("Call: nate_remote()")
+        elif args.command == 'vim':
+            print("Call: nate_vim_edit()")
+
+if __name__ == "__main__":
+    main()
+#!/usr/bin/python
+
+import argparse
+import rui
+import nate
+
+def main():
+    parser = argparse.ArgumentParser(description="Unified CLI for rui and nate")
+
+    subparsers = parser.add_subparsers(dest='tool', required=True)
+
+    # --- rui parser ---
+    rui_parser = subparsers.add_parser('rui', help='Package manager operations')
+    rui_subparsers = rui_parser.add_subparsers(dest='command')
+
+    # rui list
+    rui_list = rui_subparsers.add_parser('list', help='List packages or categories')
+    list_group = rui_list.add_mutually_exclusive_group()
+    list_group.add_argument('-c', metavar='category_name', help='List packages in a category')
+    list_group.add_argument('--categories', action='store_true', help='List all categories')
+
+    # rui add
+    rui_add = rui_subparsers.add_parser('add', help='Add a package')
+    rui_add.add_argument('pkg_name', help='Package name to add')
+    rui_add.add_argument('--aur', action='store_true', help='Install from AUR')
+    rui_add.add_argument('-c', metavar='category_name', help='Add package to category')
+
+    # rui remove
+    rui_remove = rui_subparsers.add_parser('remove', help='Remove a package')
+    rui_remove.add_argument('pkg_name', help='Package name to remove')
+
+    # rui query
+    rui_query = rui_subparsers.add_parser('query', help='Query a package')
+    rui_query.add_argument('pkg_name', help='Package name to query')
+    rui_query.add_argument('--aur', action='store_true', help='Query AUR instead of repo')
+
+    # rui vim
+    rui_subparsers.add_parser('vim', help='Open vim to edit package config')
+
+    # --- nate parser ---
+    nate_parser = subparsers.add_parser('nate', help='Dev environment sync operations')
+    nate_subparsers = nate_parser.add_subparsers(dest='command')
+
+    nate_subparsers.add_parser('sync', help='Sync development environment')
+    nate_subparsers.add_parser('remote', help='Remote development management')
+    nate_subparsers.add_parser('vim', help='Open vim to edit dev config')
+
+    # Parse args
+    args = parser.parse_args()
+
+    # --- Dispatch logic ---
+    if args.tool == 'rui':
+        if args.command == 'list':
+            if args.categories:
+                print("Call: rui_list_categories()")
+            elif args.c:
+                print(f"Call: rui_list_by_category('{args.c}')")
+            else:
+                print("Call: rui_list_all()")
+        elif args.command == 'add':
+            print(f"Call: rui_add(pkg_name='{args.pkg_name}', aur={args.aur}, category='{args.c}')")
+        elif args.command == 'remove':
+            print(f"Call: rui_remove(pkg_name='{args.pkg_name}')")
+        elif args.command == 'query':
+            print(f"Call: rui_query(pkg_name='{args.pkg_name}', aur={args.aur})")
+        elif args.command == 'vim':
+            print("Call: rui_vim_edit()")
+
+    elif args.tool == 'nate':
+        if args.command == 'sync':
+            print("Call: nate_sync()")
+        elif args.command == 'remote':
+            print("Call: nate_remote()")
+        elif args.command == 'vim':
+            print("Call: nate_vim_edit()")
+
+if __name__ == "__main__":
+    main()
+#!/usr/bin/python
+
+#!/usr/bin/python
+
+#!/usr/bin/python
+

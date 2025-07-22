@@ -1,10 +1,10 @@
-#!/usr/bin/python
-
 import os
 import shutil
 import subprocess
-from pathlib import Path
 import sys
+import rui
+
+from pathlib import Path
 
 DEV_ENV = Path(os.environ.get("DEV_ENV", ""))
 
@@ -102,20 +102,5 @@ def sync_remote():
     subprocess.run(["git", "-C", str(DEV_ENV), "commit", "-m", "chore: automated commit"], check=True)
     subprocess.run(["git", "-C", str(DEV_ENV), "push"], check=True)
 
-def main():
-    if len(sys.argv) > 1:
-        arg = sys.argv[1]
-        if arg == "vim":
-            subprocess.run(["nvim", str(DOTFILES)])
-        elif arg == "zen":
-            subprocess.run(["zen-browser", "--new-tab", "https://github.com/laeva-lady/dev-env"])
-        elif arg in ("-s", "--sync"):
-            sync_files()
-            sync_remote()
-        else:
-            sync_files()
-    else:
-        sync_files()
-
-if __name__ == "__main__":
-    main()
+def vim():
+    subprocess.run(["nvim", str(DOTFILES)])
