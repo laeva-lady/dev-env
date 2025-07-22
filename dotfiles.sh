@@ -9,13 +9,10 @@ confs=(
     hyfetch.json
     hypr
     i3
-    kickoff
     kitty
     nvim
-    ranger
     rofi
     waybar
-    zed
 )
 
 envs=(

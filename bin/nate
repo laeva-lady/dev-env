@@ -81,10 +81,10 @@ sync_remote() {
 }
 
 case "$1" in
-"vim")
+"v" | "vim")
     nvim "$DOTFILES"
     ;;
-"zen")
+"z" | "zen")
     zen-browser --new-tab "https://github.com/laeva-lady/dev-env"
     ;;
 "s" | "sync")
