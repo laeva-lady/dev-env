@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+msg=$(dunstctl history)
+
+
+title=$(echo   "$msg" | jq -r '.data[0][0] | .body.data')
+message=$(echo "$msg" | jq -r '.data[0][0] | .message.data')
+appname=$(echo "$msg" | jq -r '.data[0][0] | .appname.data')
+
+notify-send "$title - $appname" "$message"

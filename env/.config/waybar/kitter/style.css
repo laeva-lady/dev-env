@@ -1,0 +1,121 @@
+/* -------------------------------
+   Original Theme Variables
+-------------------------------- */
+@define-color --old-fg #a5adcb;
+@define-color --old-bg #181926;
+@define-color --old-gray-dark #494d64;
+@define-color --old-gray #5b6078;
+@define-color --old-gray-light #6e738d;
+@define-color --old-green #a6da95;
+@define-color --old-magenta #f5bde6;
+@define-color --old-yellow #eed49f;
+@define-color --old-cyan #8bd5ca;
+@define-color --old-blue #8aadf4;
+@define-color --old-red #ed8796;
+
+/* -------------------------------
+   Gruvbox Theme Variables (Active)
+-------------------------------- */
+@define-color fg #d4be98;
+@define-color bg #282828;
+@define-color bg-alt #1d2021;
+@define-color red #ea6962;
+@define-color green #a9b665;
+@define-color yellow #d8a657;
+@define-color blue #7daea3;
+@define-color magenta #d3869b;
+@define-color gray #928374;
+@define-color gray-dark #504945;
+@define-color highlight #fabd2f;
+
+/* -------------------------------
+   Waybar Styling
+-------------------------------- */
+* {
+    border: none;
+    font-family: "Fira Code";
+    font-size: 14px;
+    font-weight: 600;
+    background: none;
+}
+
+window#waybar {
+    color: @fg;
+}
+
+.modules-left,
+.modules-right,
+.modules-center {
+    border-radius: 6px;
+    background: @bg;
+    padding: 12px 0;
+}
+
+tooltip {
+    color: @fg;
+    background-color: @bg;
+    text-shadow: none;
+}
+
+tooltip * {
+    color: @fg;
+    text-shadow: none;
+}
+
+.modules-center {}
+
+#custom-sep {
+    color: @gray-dark;
+    margin: 4px 0;
+}
+
+#workspaces,
+#clock,
+#custom-bluetooth_devices,
+#custom-powermenu,
+#pulseaudio,
+#tray {}
+
+#workspaces {
+    border-radius: 4px;
+}
+
+#workspaces button {
+    color: @gray;
+    background: none;
+    padding: 0;
+}
+
+#workspaces button:hover {
+    color: @green;
+}
+
+#workspaces button.active {
+    color: @magenta;
+}
+
+#temperature {
+    color: @yellow;
+}
+
+#clock {
+    font-weight: 600;
+    color: @blue;
+}
+
+#custom-bluetooth_devices {
+    color: @blue;
+}
+
+#pulseaudio {
+    color: @green;
+}
+
+#pulseaudio.muted {
+    color: @red;
+}
+
+#custom-powermenu {
+    margin: 12px 0 0 0;
+    color: @gray;
+}
