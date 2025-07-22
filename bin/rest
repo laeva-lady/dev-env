@@ -167,7 +167,7 @@ def update(aur):
 parser = argparse.ArgumentParser()
 subparsers = parser.add_subparsers(dest="command")
 
-parser.add_argument('--aur', action='store_true')
+parser_aur = subparsers.add_parser('aur')
 
 parser_list = subparsers.add_parser('list')
 parser_list.add_argument('-c', '--category', type=str)
@@ -217,9 +217,8 @@ def main():
 
     elif args.command == "vim":
         subprocess.run(['nvim', pkg_path_yaml])
-
     else:
-        update(args.aur)
+        update(args.command == "aur")
 
 
 def signal_handler(sig, frame):

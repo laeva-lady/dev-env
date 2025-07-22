@@ -13,9 +13,7 @@ aur:
 - rose-pine-cursor
 - timg # view img in terminal
 - ttf-comic-sans
-- unityhub
 - vesktop-bin
-- visual-studio-code-bin
 - wlrobs # plugin for OBS to record in wayland
 - zen-browser-bin
 browser:
@@ -47,6 +45,7 @@ fonts:
 - ttf-fira-code
 - ttf-nerd-fonts-symbols-mono
 ides:
+- code
 - intellij-idea-community-edition
 ime:
 - fcitx5-configtool
