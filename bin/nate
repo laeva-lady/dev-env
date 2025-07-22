@@ -60,12 +60,17 @@ sync_files() {
     echo "Copying themes"
     rsync -a ~/.themes/ $DEV_ENV/resources/themes
 }
+sync_status() {
+    echo "Checking status"
+    git -C "$DEV_ENV" -c color.status=always status
+}
+
 sync_remote() {
     echo "Checking git repo"
     {
         cd $DEV_ENV
 
-        git -C "$DEV_ENV" -c color.status=always status
+        sync_status
 
         # Use plain text (no colors) to check for "nothing to commit"
         status=$(git -C "$DEV_ENV" status --porcelain)
@@ -79,7 +84,6 @@ sync_remote() {
         git push
     }
 }
-
 case "$1" in
 "v" | "vim")
     nvim "$DOTFILES"
@@ -90,6 +94,9 @@ case "$1" in
 "s" | "sync")
     sync_files
     sync_remote
+    ;;
+"st" | "status")
+    sync_status
     ;;
 *)
     sync_files
