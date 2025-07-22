@@ -87,7 +87,7 @@ case "$1" in
 "zen")
     zen-browser --new-tab "https://github.com/laeva-lady/dev-env"
     ;;
-"-s" | "--sync")
+"s" | "sync")
     sync_files
     sync_remote
     ;;
