@@ -55,6 +55,10 @@ sync_files() {
     cp ~/.config/Code/User/settings.json $DEV_ENV/resources/Code
     cp ~/.config/Code/User/keybindings.json $DEV_ENV/resources/Code
 
+    echo "Copying vscode-oss user settings"
+    cp ~/.config/Code\ -\ OSS/User/settings.json $DEV_ENV/resources/Code\ -\ OSS
+    cp ~/.config/Code\ -\ OSS/User/keybindings.json $DEV_ENV/resources/Code\ -\ OSS
+
     echo "Copying icons"
     rsync -a ~/.local/share/icons/ $DEV_ENV/resources/icons
     echo "Copying themes"
@@ -95,10 +99,8 @@ case "$1" in
     sync_files
     sync_remote
     ;;
-"st" | "status")
-    sync_status
-    ;;
 *)
     sync_files
+    sync_status
     ;;
 esac
