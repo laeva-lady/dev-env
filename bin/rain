@@ -148,9 +148,9 @@ def query(name, display_aur):
         location = "    " if repo not in ['aur'] else 'AUR '
         if pkg in installed_pkgs:
             if pkg in thor_pkgs:
-                print(f"{location}✅: {pkg:<30} installed, in pkg file")
+                print(f"{location}✅: {pkg:<30}     installed 📦")
             else:
-                print(f"{location}☑️: {pkg:<30} installed, not in pkg file")
+                print(f"{location}☑️: {pkg:<30}     installed")
         else:
             print(f"{location}❌: {pkg:<30} not installed")
         time.sleep(0.04)
