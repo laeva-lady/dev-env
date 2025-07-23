@@ -6,6 +6,7 @@
     // "margin": "2 2 2 2",
     "spacing": 2,
     "modules-left": [
+        "custom/sep",
         "clock",
         "custom/sep",
         "tray"
@@ -16,7 +17,8 @@
     "modules-right": [
         "pulseaudio",
         "custom/sep",
-        "hyprland/language"
+        "hyprland/language",
+        "custom/sep"
     ],
     "mpris": {
         //"rotate": 90,
