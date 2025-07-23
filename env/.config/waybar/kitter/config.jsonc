@@ -6,18 +6,16 @@
     // "margin": "2 2 2 2",
     "spacing": 2,
     "modules-left": [
-        "custom/sep",
-        "clock",
-        "custom/sep",
-        "tray"
-    ],
-    "modules-center": [
         "hyprland/workspaces"
     ],
+    "modules-center": [
+    ],
     "modules-right": [
-        "pulseaudio",
+        "tray",
         "custom/sep",
+        "pulseaudio",
         "hyprland/language",
+        "clock",
         "custom/sep"
     ],
     "mpris": {
