@@ -16,5 +16,6 @@
     ],
     "python.analysis.typeCheckingMode": "standard",
     "git.openRepositoryInParentFolders": "never",
-    "FSharp.codeLenses.signature.enabled": false
+    "FSharp.codeLenses.signature.enabled": false,
+    "editor.inlayHints.enabled": "off"
 }
