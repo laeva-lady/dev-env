@@ -1,16 +1,14 @@
 {
-    // based on https://github.com/Pipshag/dotfiles_kitties/
     "layer": "top",
     "position": "left",
-    "width": 28,
+    "width": 20,
     // "margin": "2 2 2 2",
     "spacing": 2,
     "modules-left": [
         "custom/sep",
-        "pulseaudio",
-        "custom/sep",
         "clock",
         "custom/sep",
+        "pulseaudio",
         "mpris"
     ],
     "modules-center": [

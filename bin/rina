@@ -155,6 +155,15 @@ def query(name, display_aur):
             print(f"{location}❌: {pkg:<30} not installed")
         time.sleep(0.04)
 
+def count_pacman_updates():
+    result = subprocess.run(
+        ["sudo", "pacman", "-Qu"],
+        capture_output=True,
+        text=True
+    )
+    updates = result.stdout.strip().splitlines()
+    print(f"📦 packages to update: {len(updates)}")
+
 def update(aur):
     command = ["sudo", "pacman", "-Syu", "--needed"] + get_pkgs()
     subprocess.run(command)
@@ -187,6 +196,8 @@ parser_query = subparsers.add_parser('query')
 parser_query.add_argument('--aur', action='store_true')
 parser_query.add_argument('name')
 
+count_updates_parser = subparsers.add_parser('count')
+
 args = parser.parse_args()
 
 def main():
@@ -217,6 +228,8 @@ def main():
 
     elif args.command == "vim":
         subprocess.run(['nvim', pkg_path_yaml])
+    elif args.command == "count":
+        count_pacman_updates()
     else:
         update(args.command == "aur")
 
