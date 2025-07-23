@@ -3,7 +3,7 @@
     "layer": "top",
     "position": "left",
     "width": 28,
-    "margin": "2 2 2 2",
+    // "margin": "2 2 2 2",
     "spacing": 2,
     "modules-left": [
         "clock",

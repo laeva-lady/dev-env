@@ -41,14 +41,15 @@
 
 window#waybar {
     color: @fg;
+    background: @bg;
 }
 
 .modules-left,
 .modules-right,
 .modules-center {
-    border-radius: 6px;
+    /* border-radius: 6px; */
     background: @bg;
-    padding: 12px 0;
+    /* padding: 12px 0; */
 }
 
 tooltip {
