@@ -7,11 +7,36 @@
     "haskell.manageHLS": "GHCup",
     "debug.inlineValues": "off",
     "editor.renderWhitespace": "all",
-
+    "vim.leader": "space",
+    "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": [";"],
-            "after": [":"]
+            "before": [
+                ";"
+            ],
+            "after": [
+                ":"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "s",
+                "a"
+            ],
+            "commands": [
+                {
+                    "command": "vim.remap",
+                    "args": {
+                        "after": [
+                            "g",
+                            "g",
+                            "V",
+                            "G"
+                        ]
+                    }
+                }
+            ]
         }
     ],
     "python.analysis.typeCheckingMode": "standard",
