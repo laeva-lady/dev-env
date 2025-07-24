@@ -1,12 +1,13 @@
 {
     "workbench.colorTheme": "Gruvbox Dark Medium",
-    "C_Cpp.default.compilerPath": "/usr/bin/g++",
     "keyboard.dispatch": "keyCode",
     "editor.mouseWheelZoom": true,
     "editor.fontFamily": "'Fira Code Retina', 'Droid Sans Mono', 'monospace', monospace",
     "haskell.manageHLS": "GHCup",
     "debug.inlineValues": "off",
     "editor.renderWhitespace": "all",
+    "editor.cursorSurroundingLines": 999,
+    "editor.formatOnSave": true,
     "vim.leader": "space",
     "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -18,7 +19,7 @@
                 ":"
             ]
         },
-        {
+                {
             "before": [
                 "<leader>",
                 "s",
@@ -38,9 +39,11 @@
                 }
             ]
         }
+
     ],
     "python.analysis.typeCheckingMode": "standard",
     "git.openRepositoryInParentFolders": "never",
     "FSharp.codeLenses.signature.enabled": false,
-    "editor.inlayHints.enabled": "off"
+    "editor.inlayHints.enabled": "off",
+    "explorer.confirmDelete": false
 }

@@ -21,10 +21,14 @@
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
+    // {
+    //     "key": "space f",
+    //     "command": "editor.action.format",
+    //     "when": "editorTextFocus"
+    // },
     {
         "key": "ctrl+`",
         "command": "-workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     }
 ]
-
