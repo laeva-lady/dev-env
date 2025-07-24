@@ -107,7 +107,6 @@ system:
 - thunar
 - thunar-volman # dependency for Thunar's volume management
 term_tools:
-- alacritty
 - bat
 - bc
 - btop
