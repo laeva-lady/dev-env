@@ -9,7 +9,7 @@
         "clock",
         "custom/sep",
         "pulseaudio",
-        "mpris"
+        "custom/music"
     ],
     "modules-center": [
         "hyprland/workspaces"
@@ -25,6 +25,14 @@
         "format": "|>",
         "format-paused": "||"
         // "max-length": 50
+    },
+    "custom/music": {
+        "rotate": 270,
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/caway",
+        "return-type": "text",
+        "on-click": "playerctl play-pause",
+        "max-length": 35
     },
     "custom/animations": {
         "exec": "~/.config/waybar/scripts/animations-state.sh",
