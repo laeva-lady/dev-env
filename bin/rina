@@ -38,13 +38,13 @@ def save_data(data):
 
 def add_entry(category, entry):
     data = load_data()
-    if category not in data:
-        data[category] = []
-    for category, items in data.items():
+    for existing_category, items in data.items():
         if entry in items:
-            print(f"📦 '{entry}' already in 🗂️: '{category}'")
+            print(f"📦 '{entry}' already in 🗂️: '{existing_category}'")
             save_data(data)
             return
+    if category not in data:
+        data[category] = []
     if entry not in data[category]:
         data[category].append(entry)
         print(f"📦 Added '{entry}' to 🗂️: '{category}'")

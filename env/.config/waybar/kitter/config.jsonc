@@ -18,13 +18,19 @@
         "tray",
         "custom/sep",
         "hyprland/language",
-        "custom/sep"
+        "custom/sep",
+        "custom/power"
     ],
     "mpris": {
         //"rotate": 90,
         "format": "|>",
         "format-paused": "||"
         // "max-length": 50
+    },
+    "custom/power": {
+        "rotate": 90,
+        "format": "パワー",
+        "on-click": "wlogout"
     },
     "custom/music": {
         "rotate": 270,
