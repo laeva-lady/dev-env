@@ -9,7 +9,7 @@ update_env_files() {
     rm -r "$DEV_ENV/env/"
     mkdir -p "$DEV_ENV/env/"
     for env_file in "${envs[@]}"; do
-        echo -e "- \t\t$env_file"
+        echo -e "\t\t- $env_file"
         cp "$HOME/$env_file" "$DEV_ENV/env/"
     done
 

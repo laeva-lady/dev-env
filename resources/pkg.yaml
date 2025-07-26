@@ -64,6 +64,7 @@ langs:
 - maven
 - ncurses
 - npm
+- raylib
 - rustup
 - texlive-basic
 - texlive-bibtexextra
