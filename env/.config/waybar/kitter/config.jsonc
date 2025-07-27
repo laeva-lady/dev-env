@@ -9,9 +9,9 @@
         "custom/sep",
         "clock",
         "custom/sep",
-        "pulseaudio",
-        "custom/sep",
-        "custom/music"
+        "pulseaudio"
+        // "custom/sep",
+        // "custom/music"
     ],
     // "modules-center": [
     //     // "hyprland/workspaces"
