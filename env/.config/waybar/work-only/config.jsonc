@@ -1,0 +1,15 @@
+{
+    // ─────────────────────────────────────────────────────────────┤ header ├───
+    "layer": "bottom",
+    "position": "bottom",
+    "exclusive": false,
+    "reload_style_on_change": true,
+    "gtk-layer-shell": true,
+    // ──────────────────────────────────────────────────────────┤ positions ├───
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "hyprland/workspaces": {
+        "format": "{name}"
+    }
+}
