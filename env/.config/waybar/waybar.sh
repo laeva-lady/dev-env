@@ -18,10 +18,9 @@ spawn_workspaces() {
 }
 
 case "$1" in
-"toggle")
+"regular")
     REGULAR_CONFIG="$HOME/.config/waybar/$style/config.jsonc"
     pid=$(pgrep -a waybar | grep "$REGULAR_CONFIG" | awk '{print $1}')
-
     if [ -n "$pid" ]; then
         echo "Killing regular bar (PID $pid)"
         kill "$pid"
@@ -30,7 +29,19 @@ case "$1" in
         spawn_regular_bar
     fi
     ;;
+"work")
+    WORK_CONF="$HOME/.config/waybar/work-only/config.jsonc"
+    pid=$(pgrep -a waybar | grep "$WORK_CONF" | awk '{print $1}')
+    if [ -n "$pid" ]; then
+        echo "Killing work bar (PID $pid)"
+        kill "$pid"
+    else
+        echo "Spawning work bar"
+        spawn_workspaces
+    fi
+    ;;
 *)
+    pkill waybar
     spawn_regular_bar
     spawn_workspaces
     ;;

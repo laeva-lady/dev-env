@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "left",
     "width": 20,
-    "output": "eDP-1",
+    // "output": "eDP-1",
     // "margin": "2 2 2 2",
     "spacing": 2,
     "modules-left": [
@@ -13,9 +13,9 @@
         // "custom/sep",
         // "custom/music"
     ],
-    // "modules-center": [
-    //     // "hyprland/workspaces"
-    // ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
     "modules-right": [
         "tray",
         "custom/sep",
