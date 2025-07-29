@@ -10,5 +10,9 @@
 
 ---
 
+# Installation
+
+---
+
 ### credits
 - ThePrimeagen for tmux-sessionizer
