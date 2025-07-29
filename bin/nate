@@ -69,10 +69,15 @@ sync_files() {
 }
 sync_status() {
     echo "Checking status"
+    git -C "$DEV_ENV" -c color.status=always status
+}
+
+sync_remote() {
+    echo "Updating remote repo"
     {
         cd $DEV_ENV
 
-        git -C "$DEV_ENV" -c color.status=always status
+        sync_status
 
         # Use plain text (no colors) to check for "nothing to commit"
         status=$(git -C "$DEV_ENV" status --porcelain)
@@ -82,15 +87,11 @@ sync_status() {
         fi
 
         git add .
-        git commit -m "chore: automated commit"
-    }
-}
-
-sync_remote() {
-    echo "Updating remote repo"
-    {
-        cd $DEV_ENV
-        sync_status
+        if [ -z "$2" ]; then
+            git commit -m "chore: automated commit"
+        else
+            git commit -m "$2"
+        fi
         git push
     }
 }
@@ -102,7 +103,7 @@ case "$1" in
     xdg-open "https://github.com/laeva-lady/dev-env"
     ;;
 "s" | "sync")
-    sync_remote
+    sync_remote $2
     ;;
 *)
     sync_files
