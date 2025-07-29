@@ -2,7 +2,8 @@
 # ---- taken and adapted from :  https://github.com/JaKooLit 💫
 
 # WALLPAPERS PATH
-wallDIR="$HOME/personal/wallpapers"
+# wallDIR="$HOME/personal/wallpapers"
+wallDIR="$HOME/personal/anime"
 
 # swww transition config
 FPS=144
