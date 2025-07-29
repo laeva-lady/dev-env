@@ -17,6 +17,8 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
+        "custom/pron",
+        "custom/sep",
         "tray",
         "custom/sep",
         "hyprland/language",
@@ -33,6 +35,11 @@
         "rotate": 90,
         "format": "パワー",
         "on-click": "wlogout"
+    },
+    "custom/pron": {
+        "rotate": 90,
+        "format": "Pr0n : {}",
+        "exec": "~/.config/waybar/scripts/pron-size.sh"
     },
     "custom/music": {
         "rotate": 270,
