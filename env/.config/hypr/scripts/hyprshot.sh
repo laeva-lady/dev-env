@@ -6,13 +6,15 @@ mkdir -p "$output_dir"
 open_dir_image() {
     thunar "$output_dir/" &
 
-    latest_file=$(ls -t "$output_dir"/*.png | head -n1)
+    latest_file=$(eza -snew "$output_dir"/* | tail -n1)
     loupe "$latest_file" &
 }
 
 screen() {
     sleep 0.2
-    if grim "$output_dir/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"; then
+    filename="$output_dir/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"
+    if grim "$filename"; then
+        wl-copy < "$filename"  # 📋 Copy image to clipboard
         open_dir_image
     fi
 }
@@ -37,10 +39,10 @@ screen"
     if [ "$selection" = "screen" ]; then
         screen
     else
+        echo "$selection"
         if hyprshot --freeze -m "$selection" -o "$output_dir"; then
             open_dir_image
         fi
-
     fi
     ;;
 esac
