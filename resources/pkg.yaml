@@ -67,6 +67,7 @@ langs:
 - maven
 - ncurses
 - npm
+- odin
 - raylib
 - rustup
 - texlive-basic

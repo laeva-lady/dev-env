@@ -39,7 +39,8 @@
     "custom/pron": {
         "rotate": 90,
         "format": "Pr0n : {}",
-        "exec": "~/.config/waybar/scripts/pron-size.sh"
+        "exec": "~/.config/waybar/scripts/pron-size.sh",
+        "interval": 1000
     },
     "custom/music": {
         "rotate": 270,
