@@ -69,7 +69,7 @@ sync_status() {
 }
 
 sync_remote() {
-    echo "Checking git repo"
+    echo "Updating remote repo"
     {
         cd $DEV_ENV
 
@@ -91,11 +91,10 @@ case "$1" in
 "v" | "vim")
     nvim "$DOTFILES"
     ;;
-"z" | "zen")
-    zen-browser --new-tab "https://github.com/laeva-lady/dev-env"
+"n" | "net")
+    xdg-open "https://github.com/laeva-lady/dev-env"
     ;;
 "s" | "sync")
-    sync_files
     sync_remote
     ;;
 *)

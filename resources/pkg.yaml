@@ -33,6 +33,7 @@ extra:
 - gimp
 - libreoffice-still
 - loupe # gnome's image viewer
+- lutris
 - obs-studio
 - obsidian
 - okular

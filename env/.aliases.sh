@@ -32,9 +32,6 @@ alias gpush="git push"
 alias gpull="git pull"
 
 
-xway() {
-    hyprctl clients -j | jq -r '.[] | "\(.class) : \(.xwayland)"'
-}
 battery() {
     upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage:/ { print $2 }'
 }
