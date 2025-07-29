@@ -90,6 +90,7 @@ sync_remote() {
     echo "Updating remote repo"
     {
         cd $DEV_ENV
+        sync_status
         git push
     }
 }
