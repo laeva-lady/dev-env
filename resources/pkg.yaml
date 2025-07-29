@@ -17,6 +17,7 @@ aur:
 - wlogout
 - wlrobs # plugin for OBS to record in wayland
 - zen-browser-bin
+- cursor-bin
 browser:
 - discord
 - firefox

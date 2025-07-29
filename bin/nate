@@ -58,6 +58,10 @@ sync_files() {
     cp ~/.config/Code\ -\ OSS/User/settings.json $DEV_ENV/resources/Code\ -\ OSS
     cp ~/.config/Code\ -\ OSS/User/keybindings.json $DEV_ENV/resources/Code\ -\ OSS
 
+    echo "Copying Cursor user settings"
+    cp ~/.config/Cursor/User/settings.json $DEV_ENV/resources/Cursor
+    cp ~/.config/Cursor/User/keybindings.json $DEV_ENV/resources/Cursor
+
     echo "Copying icons"
     rsync -a ~/.local/share/icons/ $DEV_ENV/resources/icons
     echo "Copying themes"

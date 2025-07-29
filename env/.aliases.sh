@@ -19,6 +19,7 @@ alias e="exit"
 alias s="cd"
 alias r="ranger"
 alias ..="cd .."
+alias rel="omz reload"
 
 alias g="git"
 alias gs="git status"
@@ -30,6 +31,10 @@ alias gac="git commit -a"
 alias gacm="git commit -am"
 alias gpush="git push"
 alias gpull="git pull"
+
+cursor () {
+    command cursor --enable-features=UseOzonePlatform --ozone-platform=wayland "$@" >/dev/null 2>&1 &
+}
 
 
 battery() {
