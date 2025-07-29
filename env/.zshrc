@@ -46,6 +46,6 @@ PROMPT='%(?.%F{green}>.%F{red}>) %F{blue}%~%f %F$f%F{red}${vcs_info_msg_0_}%f%F{
 bindkey -s ^t "^utmux-sessionizer\n"
 bindkey -s ^f "^uvfz\n"
 
-# if [[ -z "$(ps aux | pgrep tmux)" ]]; then
-#     tmux-sessionizer "$HOME"
-# fi
+if [[ -z "$(ps aux | pgrep tmux)" ]]; then
+    tmux-sessionizer "$HOME"
+fi

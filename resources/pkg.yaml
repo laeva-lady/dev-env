@@ -1,6 +1,7 @@
 aur:
 - clock-tui
 - cnijfilter2 # canon printer drivers
+- cursor-bin
 - fcitx5-mozc-ut
 - gpu-screen-recorder
 - gpu-screen-recorder-gtk
@@ -17,7 +18,6 @@ aur:
 - wlogout
 - wlrobs # plugin for OBS to record in wayland
 - zen-browser-bin
-- cursor-bin
 browser:
 - discord
 - firefox
