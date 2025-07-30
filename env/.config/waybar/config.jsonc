@@ -76,7 +76,8 @@
         "format": "{}",
         "format-en": "EN",
         "format-fr": "CA",
-        "format-de": "DE"
+        "format-de": "DE",
+        "format-pl": "PL"
     },
     "clock": {
         "tooltip": true,
