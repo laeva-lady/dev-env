@@ -1,2 +1,6 @@
-sudo cp ~/personal/dev-env/resources/xkb/symbols/us /usr/share/X11/xkb/symbols/us
-sudo cp ~/personal/dev-env/resources/xkb/symbols/ca /usr/share/X11/xkb/symbols/ca
+sudo cp -v ~/personal/dev-env/resources/xkb/symbols/ca /usr/share/X11/xkb/symbols/ca
+sudo cp -v ~/personal/dev-env/resources/xkb/symbols/de /usr/share/X11/xkb/symbols/de
+sudo cp -v ~/personal/dev-env/resources/xkb/symbols/es /usr/share/X11/xkb/symbols/es
+sudo cp -v ~/personal/dev-env/resources/xkb/symbols/pl /usr/share/X11/xkb/symbols/pl
+sudo cp -v ~/personal/dev-env/resources/xkb/symbols/us /usr/share/X11/xkb/symbols/us
+sudo cp -v ~/personal/dev-env/resources/xkb/symbols/latin /usr/share/X11/xkb/symbols/latin

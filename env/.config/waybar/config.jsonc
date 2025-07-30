@@ -65,7 +65,7 @@
         "format": " \n{name}\n ",
         "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e-1",
-        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1"
     },
     "hyprland/window": {
         "rotate": 90,
@@ -76,11 +76,12 @@
         "format": "{}",
         "format-en": "EN",
         "format-fr": "CA",
+        "format-de": "DE"
     },
     "clock": {
         "tooltip": true,
         "format": "{:%H\n%M}",
-        "tooltip-format": "{:%Y-%m-%d}",
+        "tooltip-format": "{:%Y-%m-%d}"
     },
     "tray": {
         "icon-size": 18,
