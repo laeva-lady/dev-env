@@ -105,12 +105,17 @@ case "$1" in
 "s" | "sync")
     sync_remote $2
     ;;
-"u")
+"u" | "w" | "t" | "thor") # can't decide what should be used 😭😭😭
     shift
     thor $@
+    ;;
+"f")
+    sync_files
+    sync_status
     ;;
 *)
     sync_files
     sync_status
+    thor
     ;;
 esac
