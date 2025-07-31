@@ -1,0 +1,49 @@
+{
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "keyboard.dispatch": "keyCode",
+    "editor.mouseWheelZoom": true,
+    "editor.fontFamily": "'Fira Code Retina', 'Droid Sans Mono', 'monospace', monospace",
+    "haskell.manageHLS": "GHCup",
+    "debug.inlineValues": "off",
+    "editor.renderWhitespace": "all",
+    "editor.cursorSurroundingLines": 999,
+    "editor.formatOnSave": true,
+    "vim.leader": "space",
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                ";"
+            ],
+            "after": [
+                ":"
+            ]
+        },
+                {
+            "before": [
+                "<leader>",
+                "s",
+                "a"
+            ],
+            "commands": [
+                {
+                    "command": "vim.remap",
+                    "args": {
+                        "after": [
+                            "g",
+                            "g",
+                            "V",
+                            "G"
+                        ]
+                    }
+                }
+            ]
+        }
+
+    ],
+    "python.analysis.typeCheckingMode": "standard",
+    "git.openRepositoryInParentFolders": "never",
+    "FSharp.codeLenses.signature.enabled": false,
+    "editor.inlayHints.enabled": "off",
+    "explorer.confirmDelete": false
+}
