@@ -5,7 +5,7 @@ aur:
 - fcitx5-mozc-ut
 - gpu-screen-recorder
 - gpu-screen-recorder-gtk
-- gromit-mpx
+- gromit-mpx # drawing on top of windows
 - minecraft-launcher
 - mpvpaper
 - protontricks
@@ -38,7 +38,6 @@ extra:
 - obs-studio
 - obsidian
 - okular
-- openrgb
 - qbittorrent
 - wev
 - wine
@@ -48,7 +47,7 @@ fonts:
 - ttf-fira-code
 - ttf-nerd-fonts-symbols-mono
 ides:
-- code
+- code # the OSS version of vscode
 - intellij-idea-community-edition
 ime:
 - fcitx5-configtool
@@ -103,7 +102,6 @@ system:
 - network-manager-applet
 - networkmanager
 - nwg-look
-- opendoas
 - pavucontrol
 - qt5-wayland
 - qt5ct
@@ -114,7 +112,6 @@ system:
 - tumbler # needed to display thumbnails in Thunar
 term_tools:
 - bat
-- bc
 - btop
 - chafa
 - eza
@@ -127,7 +124,7 @@ term_tools:
 - hyfetch
 - kitty
 - ncdu # WinDirStat like tool
-- ncspot
+- ncspot # TUI for spotify
 - neovim
 - nvtop
 - pandoc-cli
@@ -148,9 +145,7 @@ wm:
 - hyprpaper
 - hyprpicker
 - hyprshot
-- hyprsunset
 - i3-wm
-- nitrogen
 - rofi-emoji
 - rofi-wayland
 - swww
@@ -160,5 +155,4 @@ wm:
 - tesseract-data-jpn
 - waybar
 - wl-clipboard
-- wlsunset
 - xdg-desktop-portal-hyprland
