@@ -105,6 +105,10 @@ case "$1" in
 "s" | "sync")
     sync_remote $2
     ;;
+"u")
+    shift
+    thor $@
+    ;;
 *)
     sync_files
     sync_status
