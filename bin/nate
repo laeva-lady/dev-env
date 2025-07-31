@@ -109,13 +109,13 @@ case "$1" in
     shift
     thor $@
     ;;
-"f")
+"a" | "any")
     sync_files
     sync_status
+    thor
     ;;
 *)
     sync_files
     sync_status
-    thor
     ;;
 esac
