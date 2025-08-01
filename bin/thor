@@ -2,12 +2,13 @@
 
 import argparse
 import os
+import re
 import signal
 import subprocess
 import sys
 import time
-import re
 
+from collections import OrderedDict
 from pathlib import Path
 from ruamel.yaml.comments import CommentedSeq
 from ruamel.yaml import YAML
@@ -53,13 +54,17 @@ def add_entry(category, entry):
     else:
         save_data(data)
 
-
 def sort_category():
     data = load_data()
-    for _, items in data.items():
+    sorted_data = OrderedDict()
+
+    for category in sorted(data.keys()):
+        items = data[category]
         if isinstance(items, CommentedSeq):
             items.sort()
-    save_data(data)
+        sorted_data[category] = items
+
+    save_data(sorted_data)
 
 def remove_entry(entry):
     data = load_data()
