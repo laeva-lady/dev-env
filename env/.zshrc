@@ -49,3 +49,5 @@ bindkey -s ^f "^uvfz\n"
 # if [[ -z "$(ps aux | pgrep tmux)" ]]; then
 #     tmux-sessionizer "$HOME"
 # fi
+
+# eval "$(starship init zsh)"
