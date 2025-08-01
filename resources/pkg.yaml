@@ -33,6 +33,7 @@
   - ckb-next
   - gedit
   - gimp
+  - kdenlive
   - libreoffice-still
   - loupe # gnome's image viewer
   - lutris
@@ -141,9 +142,6 @@
   - tree
   - yazi
   - zsh
-- to_organize:
-  - kdenlive
-  - starship
 - wm:
   - cliphist
   - dunst
