@@ -21,6 +21,8 @@ alias r="ranger"
 alias ..="cd .."
 alias rel="omz reload"
 
+alias sagem="sage -n jupyter"
+
 alias g="git"
 alias gs="git status"
 alias ga="git add ."

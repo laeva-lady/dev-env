@@ -27,10 +27,13 @@ browser:
 - thunderbird
 - torbrowser-launcher
 - vivaldi
+math:
+- cantor
+- geogebra
+- sagemath
 extra:
 - ckb-next
 - gedit
-- geogebra
 - gimp
 - libreoffice-still
 - loupe # gnome's image viewer

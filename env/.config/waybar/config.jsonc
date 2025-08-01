@@ -17,8 +17,8 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
-        "custom/pron",
-        "custom/sep",
+        // "custom/pron",
+        // "custom/sep",
         "tray",
         "custom/sep",
         "hyprland/language",
