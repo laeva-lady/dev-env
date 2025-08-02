@@ -1,15 +1,23 @@
-#! /usr/bin/bash
+#!/usr/bin/env bash
 
-# Copies dotfiles, look at ./cmds/ for more specific commands
+#   This script copies dotfiles and configuration directories from the development environment
+#   into the home directory and ~/.config.
 
-configs=$(find "$DEV_ENV/env/.config" -mindepth 1 -maxdepth 1 -type d)
-for c in $configs; do
-    echo -e "\tcopying to .config: $c "
-    cp -r ./$c $HOME/.config
+set -euo pipefail
+
+SOURCE_CONFIG_DIR="$DEV_ENV/env/.config"
+SOURCE_HOME_FILES="$DEV_ENV/env"
+
+# Copy each config directory into ~/.config
+echo "Copying config directories to ~/.config..."
+find "$SOURCE_CONFIG_DIR" -mindepth 1 -maxdepth 1 -type d | while read -r config_dir; do
+    echo "  -> $config_dir"
+    cp -r "$config_dir" "$HOME/.config/"
 done
 
-files=$(find "$DEV_ENV/env/" -mindepth 1 -maxdepth 1 -type f)
-for f in $files; do
-    echo -e "\tcopying to ~: $f"
-    cp ./$f $HOME/
+# Copy each regular file in $DEV_ENV/env into ~
+echo "Copying top-level dotfiles to ~..."
+find "$SOURCE_HOME_FILES" -mindepth 1 -maxdepth 1 -type f | while read -r file; do
+    echo "  -> $file"
+    cp "$file" "$HOME/"
 done
