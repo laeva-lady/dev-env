@@ -95,6 +95,20 @@ sync_remote() {
         git push
     }
 }
+
+sync_diff() {
+    echo "Checking Diff"
+    sleep 1
+    {
+        cd $DEV_ENV
+
+        sync_status
+
+        git diff
+    }
+}
+
+
 case "$1" in
 "v" | "vim")
     nvim "$DOTFILES"
@@ -104,6 +118,9 @@ case "$1" in
     ;;
 "s" | "sync")
     sync_remote $2
+    ;;
+"d" | "diff")
+    sync_diff
     ;;
 "u" | "w" | "t" | "thor") # can't decide what should be used 😭😭😭
     shift
