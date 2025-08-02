@@ -81,7 +81,7 @@
     },
     "clock": {
         "tooltip": true,
-        "format": "{:%H\n%M}",
+        "format": "{:%m\n%d\n--\n%H\n%M}",
         "tooltip-format": "{:%Y-%m-%d}"
     },
     "tray": {

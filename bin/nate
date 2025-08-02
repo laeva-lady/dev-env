@@ -98,7 +98,7 @@ sync_remote() {
 
 sync_diff() {
     echo "Checking Diff"
-    sleep 1
+    sleep 0.5
     {
         cd $DEV_ENV
 
@@ -107,7 +107,6 @@ sync_diff() {
         git diff
     }
 }
-
 
 case "$1" in
 "v" | "vim")
