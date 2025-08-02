@@ -87,6 +87,7 @@ sync_remote() {
         fi
 
         git add .
+        echo "$1"
         if [ -z "$1" ]; then
             git commit -m "chore: automated commit"
         else
