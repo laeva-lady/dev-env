@@ -117,7 +117,7 @@ case "$1" in
     xdg-open "https://github.com/laeva-lady/dev-env"
     ;;
 "s" | "sync")
-    sync_remote $2
+    sync_remote "$2"
     ;;
 "d" | "diff")
     sync_diff
