@@ -137,19 +137,6 @@ echo "
 
 "
 
-print_usage() {
-    echo "Usage: nate <flags> <git commit message>"
-    echo -e "  Flags:"
-    echo -e "\td  SYNC_CHECK_DIFF   (default: false)    changes the value to true"
-    echo -e "\te  SYNC_EDITOR       (default: false)    changes the value to true"
-    echo -e "\tn  OPEN_ZEN          (default: false)    changes the value to true"
-    echo -e "\ts  SYNC_REMOTE       (default: false)    changes the value to true"
-    echo -e "\tv  VERBOSE           (default: false)    changes the value to true"
-    echo -e "\tx  SYNC_FILES        (default: true)     changes the value to false"
-    echo -e "\tx  PRINT_USAGE       (default: false)    changes the value to true"
-    exit 0
-}
-
 VERBOSE=false
 SYNC_REMOTE=false
 SYNC_EDITOR=false
@@ -158,6 +145,18 @@ SYNC_FILES=true
 OPEN_ZEN=false
 PRINT_USAGE=false
 
+print_usage() {
+    echo "Usage: nate <flags> <git commit message>"
+    echo -e "  Flags:"
+    echo -e "\td  SYNC_CHECK_DIFF   flip the value to true  (default: false)"
+    echo -e "\te  SYNC_EDITOR       flip the value to true  (default: false)"
+    echo -e "\tn  OPEN_ZEN          flip the value to true  (default: false)"
+    echo -e "\ts  SYNC_REMOTE       flip the value to true  (default: false)"
+    echo -e "\tv  VERBOSE           flip the value to true  (default: false)"
+    echo -e "\tx  SYNC_FILES        flip the value to fals  (default: true) e"
+    echo -e "\tx  PRINT_USAGE       flip the value to true  (default: false)"
+    exit 0
+}
 
 arg="$1" # Assign first script argument to 'arg'
 for ((i = 0; i < ${#arg}; i++)); do
