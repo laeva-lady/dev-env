@@ -27,6 +27,7 @@ alias notes="tmux-sessionizer $HOME/personal/notes/"
 alias denver="tmux-sessionizer $DEV_ENV"
 alias ian="tmux-sessionizer $HOME"
 
+alias erp="code ."
 
 # ok you lazy as fuck mf
 alias g="git"
