@@ -105,7 +105,7 @@ sync_remote() {
 
         git add .
         git -C "$DEV_ENV" status
-        if [ "$SYNC_EDITOR" ]; then
+        if [ "$SYNC_EDITOR" = true ]; then
             if [ -z "$1" ]; then
                 git commit -m "chore: automated commit"
             else
