@@ -96,8 +96,6 @@ sync_remote() {
     {
         cd $DEV_ENV
 
-        sync_status
-
         # Use plain text (no colors) to check for "nothing to commit"
         status=$(git -C "$DEV_ENV" status --porcelain)
 
@@ -157,10 +155,10 @@ for ((i = 0; i < ${#arg}; i++)); do
     esac
 done
 
-echo "VERBOSE           $VERBOSE"
-echo "SYNC_REMOTE       $SYNC_REMOTE"
-echo "SYNC_EDITOR       $SYNC_EDITOR"
-echo "SYNC_CHECK_DIFF   $SYNC_CHECK_DIFF"
+log "VERBOSE           $VERBOSE"
+log "SYNC_REMOTE       $SYNC_REMOTE"
+log "SYNC_EDITOR       $SYNC_EDITOR"
+log "SYNC_CHECK_DIFF   $SYNC_CHECK_DIFF"
 
 
 sync_files
