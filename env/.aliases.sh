@@ -24,7 +24,7 @@ alias rel="omz reload"
 alias sagem="sage -n jupyter"
 
 alias notes="tmux-sessionizer $HOME/personal/notes/"
-alias denver="tmux-sessionizer $DEV_ENV"
+alias denver="tmux-sessionizer $WORKSTATION"
 alias ian="tmux-sessionizer $HOME"
 
 alias erp="code ."
