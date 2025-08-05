@@ -1,7 +1,7 @@
 # dev-env; my dev setup
 <sub>(I use Arch BTW)</sub>
 
-![Current desktop](assets/2025-08-05-103255_hyprshot.png)
+![Current desktop](assets/2025-08-05.png)
 
 - env: keeps track of my dotfiles
 - cmds: commands provided to configure/install some stuff

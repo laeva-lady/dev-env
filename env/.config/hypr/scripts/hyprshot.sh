@@ -48,7 +48,7 @@ screen"
         if [ "$new_latest" != "$old_latest" ]; then
             open_dir_image
         else
-            echo "No new screenshot detected"
+            dunstify "No new screenshot detected"
         fi
     fi
     ;;
