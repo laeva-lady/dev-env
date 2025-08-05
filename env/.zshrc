@@ -6,10 +6,10 @@ export PATH="$HOME/.ghcup/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-export DEV_ENV="$HOME/personal/dev-env"
-export PATH="$DEV_ENV/bin:$PATH"
+export WORKSTATION="$HOME/personal/workstation"
+export PATH="$WORKSTATION/bin:$PATH"
 
-export PKG_PATH_YAML="$DEV_ENV/resources/pkg.yaml"
+export PKG_PATH_YAML="$WORKSTATION/resources/pkg.yaml"
 export BROWSER_CONFIG_PATH="$HOME/.zen/crjkc5yv.Default (release)"
 
 

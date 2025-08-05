@@ -13,7 +13,7 @@
 # Installation
 
 > [!IMPORTANT]
-> the `DEV_ENV` environment variable need to be set to the path where the git repo is/will be
+> the `WORKSTATION` environment variable need to be set to the path where the git repo is/will be
 
 ## First option
 run

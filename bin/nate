@@ -11,19 +11,19 @@ update_env_files() {
     source "$DOTFILES"
 
     echo "Updating envs files 📁:"
-    rm -r "$DEV_ENV/env/"
-    mkdir -p "$DEV_ENV/env/"
+    rm -r "$WORKSTATION/env/"
+    mkdir -p "$WORKSTATION/env/"
     for env_file in "${envs[@]}"; do
         log "\t\t- $env_file"
-        cp "$HOME/$env_file" "$DEV_ENV/env/"
+        cp "$HOME/$env_file" "$WORKSTATION/env/"
     done
 
     echo "Updating configs files 🗃️:"
-    rm -rf "$DEV_ENV/env/.config"
-    mkdir -p "$DEV_ENV/env/.config"
+    rm -rf "$WORKSTATION/env/.config"
+    mkdir -p "$WORKSTATION/env/.config"
     for config_item in "${confs[@]}"; do
         SOURCE_PATH="$HOME/.config/$config_item"
-        DEST_PATH="$DEV_ENV/env/.config/$config_item"
+        DEST_PATH="$WORKSTATION/env/.config/$config_item"
 
         log "\t\t- $config_item"
 
@@ -50,55 +50,55 @@ update_env_files() {
     done
 }
 
-DOTFILES="$DEV_ENV/dotfiles.sh"
+DOTFILES="$WORKSTATION/dotfiles.sh"
 
 sync_files() {
     update_env_files
 
     echo "Copying vscode user settings"
-    cp ~/.config/Code/User/settings.json $DEV_ENV/resources/Code
-    cp ~/.config/Code/User/keybindings.json $DEV_ENV/resources/Code
+    cp ~/.config/Code/User/settings.json $WORKSTATION/resources/Code
+    cp ~/.config/Code/User/keybindings.json $WORKSTATION/resources/Code
 
     echo "Copying vscode-oss user settings"
-    cp ~/.config/Code\ -\ OSS/User/settings.json $DEV_ENV/resources/Code\ -\ OSS
-    cp ~/.config/Code\ -\ OSS/User/keybindings.json $DEV_ENV/resources/Code\ -\ OSS
+    cp ~/.config/Code\ -\ OSS/User/settings.json $WORKSTATION/resources/Code\ -\ OSS
+    cp ~/.config/Code\ -\ OSS/User/keybindings.json $WORKSTATION/resources/Code\ -\ OSS
 
     echo "Copying Cursor user settings"
-    cp ~/.config/Cursor/User/settings.json $DEV_ENV/resources/Cursor
-    cp ~/.config/Cursor/User/keybindings.json $DEV_ENV/resources/Cursor
+    cp ~/.config/Cursor/User/settings.json $WORKSTATION/resources/Cursor
+    cp ~/.config/Cursor/User/keybindings.json $WORKSTATION/resources/Cursor
 
     echo "Copying icons"
-    rsync -a ~/.local/share/icons/ $DEV_ENV/resources/icons
+    rsync -a ~/.local/share/icons/ $WORKSTATION/resources/icons
     echo "Copying themes"
-    rsync -a ~/.themes/ $DEV_ENV/resources/themes
+    rsync -a ~/.themes/ $WORKSTATION/resources/themes
 
     echo "Copying root files"
-    sudo cp /etc/sudoers $DEV_ENV/root/etc/sudoers
-    sudo chown $USER:$USER $DEV_ENV/root/etc/sudoers
-    sudo cp -r /usr/share/sddm $DEV_ENV/root/usr/share/
+    sudo cp /etc/sudoers $WORKSTATION/root/etc/sudoers
+    sudo chown $USER:$USER $WORKSTATION/root/etc/sudoers
+    sudo cp -r /usr/share/sddm $WORKSTATION/root/usr/share/
 
     cp $HOME/.gitconfig $HOME/personal
 
 }
 sync_status() {
     echo "Checking status"
-    git -C "$DEV_ENV" -c color.status=always status
+    git -C "$WORKSTATION" -c color.status=always status
 }
 
 sync_remote() {
     echo "Updating remote repo"
     {
-        cd $DEV_ENV
+        cd $WORKSTATION
 
         # Use plain text (no colors) to check for "nothing to commit"
-        status=$(git -C "$DEV_ENV" status --porcelain)
+        status=$(git -C "$WORKSTATION" status --porcelain)
 
         if [[ -z "$status" ]]; then
             exit 0
         fi
 
         git add .
-        git -C "$DEV_ENV" status
+        git -C "$WORKSTATION" status
         if [ "$SYNC_EDITOR" = false ]; then
             if [ -z "$1" ]; then
                 git commit -m "chore: automated commit"
@@ -116,7 +116,7 @@ sync_diff() {
     echo "Checking Diff"
     sleep 0.5
     {
-        cd $DEV_ENV
+        cd $WORKSTATION
 
         sync_status
 

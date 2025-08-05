@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-echo "Using '$DEV_ENV' as the install directory;"
-echo "change the DEV_ENV environment variable to change install directory."
+echo "Using '$WORKSTATION' as the install directory;"
+echo "change the WORKSTATION environment variable to change install directory."
 
 read -p "Continue? (y/n) " -n 1 -r
 echo
@@ -23,10 +23,10 @@ set -o pipefail
 REPO_URL="https://github.com/laeva-lady/dev-env.git"
 
 # The local directory to clone into.
-if [ -z "$DEV_ENV" ]; then
-    DEV_ENV="$HOME/personal/dev-env"
+if [ -z "$WORKSTATION" ]; then
+    WORKSTATION="$HOME/personal/dev-env"
 fi
-DEST_DIR="$DEV_ENV"
+DEST_DIR="$WORKSTATION"
 
 # --- Helper Functions ---
 msg() {

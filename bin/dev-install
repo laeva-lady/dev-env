@@ -2,12 +2,12 @@
 
 set -euo pipefail
 
-# Ensure DEV_ENV is set
-: "${DEV_ENV:?DEV_ENV must be set}"
+# Ensure WORKSTATION is set
+: "${WORKSTATION:?WORKSTATION must be set}"
 
-SOURCE_CONFIG_DIR="$DEV_ENV/env/.config"
-SOURCE_HOME_FILES="$DEV_ENV/env"
-SOURCE_ROOT_DIR="$DEV_ENV/root"
+SOURCE_CONFIG_DIR="$WORKSTATION/env/.config"
+SOURCE_HOME_FILES="$WORKSTATION/env"
+SOURCE_ROOT_DIR="$WORKSTATION/root"
 
 DRY_RUN=false
 
@@ -68,13 +68,13 @@ find "$SOURCE_CONFIG_DIR" -mindepth 1 -maxdepth 1 -type d | while read -r config
     copy "$config_dir" "$HOME/.config/"
 done
 
-# Copy each regular file in $DEV_ENV/env into ~
+# Copy each regular file in $WORKSTATION/env into ~
 echo "Copying top-level dotfiles to ~..."
 find "$SOURCE_HOME_FILES" -mindepth 1 -maxdepth 1 -type f | while read -r file; do
     copy_file "$file" "$HOME/"
 done
 
-# Copy system files from $DEV_ENV/root into /
+# Copy system files from $WORKSTATION/root into /
 echo "Copying system files to /"
 copy_sudo "$SOURCE_ROOT_DIR/etc" /etc
 copy_sudo "$SOURCE_ROOT_DIR/usr" /usr
