@@ -1,14 +1,6 @@
 #! /usr/bin/bash
 
 # Copies dotfiles to this repo, then update remote if the user wants
-
-VERBOSE=false
-SYNC_REMOTE=false
-SYNC_EDITOR=false
-SYNC_CHECK_DIFF=false
-SYNC_FILES=true
-OPEN_ZEN=false
-
 log() {
     if [ "$VERBOSE" = true ]; then
         echo -e "$1"
@@ -145,19 +137,27 @@ echo "
 
 "
 
-for arg in "$@"; do
-    if [[ "$arg" == "-h" ]]; then
-        echo "Usage: nate <flags> <git commit message>"
-        echo -e "  Flags:"
-        echo -e "\td  SYNC_CHECK_DIFF (default: false)"
-        echo -e "\te  SYNC_EDITOR (default: false)"
-        echo -e "\tn  OPEN_ZEN (default: false)"
-        echo -e "\ts  SYNC_REMOTE (default: false)"
-        echo -e "\tv  VERBOSE (default: false)"
-        echo -e "\tx  SYNC_FILES (default: true)"
-        exit 0
-    fi
-done
+print_usage() {
+    echo "Usage: nate <flags> <git commit message>"
+    echo -e "  Flags:"
+    echo -e "\td  SYNC_CHECK_DIFF   (default: false)    changes the value to true"
+    echo -e "\te  SYNC_EDITOR       (default: false)    changes the value to true"
+    echo -e "\tn  OPEN_ZEN          (default: false)    changes the value to true"
+    echo -e "\ts  SYNC_REMOTE       (default: false)    changes the value to true"
+    echo -e "\tv  VERBOSE           (default: false)    changes the value to true"
+    echo -e "\tx  SYNC_FILES        (default: true)     changes the value to false"
+    echo -e "\tx  PRINT_USAGE       (default: false)    changes the value to true"
+    exit 0
+}
+
+VERBOSE=false
+SYNC_REMOTE=false
+SYNC_EDITOR=false
+SYNC_CHECK_DIFF=false
+SYNC_FILES=true
+OPEN_ZEN=false
+PRINT_USAGE=false
+
 
 arg="$1" # Assign first script argument to 'arg'
 for ((i = 0; i < ${#arg}; i++)); do
@@ -169,16 +169,24 @@ for ((i = 0; i < ${#arg}; i++)); do
     "s") SYNC_REMOTE=true ;;
     "v") VERBOSE=true ;;
     "x") SYNC_FILES=false ;;
+    "h") PRINT_USAGE=true ;;
     *) new_args+=("-$ch") ;;
     esac
 done
 
 log "VERBOSE           $VERBOSE"
-log "sync_files        $SYNC_FILES"
+log "SYNC_FILES        $SYNC_FILES"
 log "SYNC_REMOTE       $SYNC_REMOTE"
 log "SYNC_EDITOR       $SYNC_EDITOR"
 log "SYNC_CHECK_DIFF   $SYNC_CHECK_DIFF"
 log "OPEN_ZEN          $OPEN_ZEN"
+log "PRINT_USAGE       $PRINT_USAGE"
+log ""
+
+if [ "$PRINT_USAGE" = true ]; then
+    print_usage
+    exit 0
+fi
 
 if [ "$SYNC_FILES" = true ]; then
     sync_files
