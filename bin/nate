@@ -166,10 +166,10 @@ echo "SYNC_CHECK_DIFF   $SYNC_CHECK_DIFF"
 sync_files
 sync_status
 
-if [ "$SYNC_CHECK_DIFF" ]; then
+if [ "$SYNC_CHECK_DIFF" = true ]; then
     sync_diff
 fi
-if [ "$SYNC_REMOTE" ]; then
+if [ "$SYNC_REMOTE" = true ]; then
     sync_remote "$1"
 fi
 
