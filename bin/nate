@@ -143,6 +143,18 @@ echo "
 
 "
 
+for arg in "$@"; do
+    if [[ "$arg" == "-h" ]]; then
+        echo "Usage: nate <flags> <git commit message>"
+        echo -e "  Flags:"
+        echo -e "\tv  VERBOSE"
+        echo -e "\ts  SYNC_REMOTE"
+        echo -e "\te  SYNC_EDITOR"
+        echo -e "\td  SYNC_CHECK_DIFF"
+        exit 0
+    fi
+done
+
 arg="$1" # Assign first script argument to 'arg'
 for ((i = 0; i < ${#arg}; i++)); do
     ch="${arg:$i:1}"
@@ -170,34 +182,3 @@ fi
 if [ "$SYNC_REMOTE" = true ]; then
     sync_remote "$2"
 fi
-
-# case "$1" in
-# "v" | "vim")
-#     nvim "$DOTFILES"
-#     ;;
-# "n" | "net")
-#     xdg-open "https://github.com/laeva-lady/dev-env"
-#     ;;
-# "s" | "sync")
-#     sync_remote true "$2"
-#     ;;
-# "se" | "sync-editor")
-#     sync_remote false "$2"
-#     ;;
-# "d" | "diff")
-#     sync_diff
-#     ;;
-# "u" | "w" | "t" | "thor") # can't decide what should be used 😭😭😭
-#     shift
-#     thor $@
-#     ;;
-# "a" | "any")
-#     sync_files
-#     sync_status
-#     thor
-#     ;;
-# *)
-#     sync_files
-#     sync_status
-#     ;;
-# esac
