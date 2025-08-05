@@ -85,11 +85,9 @@ sync_status() {
     git -C "$DEV_ENV" -c color.status=always status
 }
 
-sync_remote() {
-    echo "Updating remote repo"
+sync_commit() {
     {
-        cd $DEV_ENV
-
+        cd "$DEV_ENV"
         # Use plain text (no colors) to check for "nothing to commit"
         status=$(git -C "$DEV_ENV" status --porcelain)
 
@@ -108,8 +106,12 @@ sync_remote() {
         else
             git commit
         fi
-        git push
     }
+}
+
+sync_remote() {
+    echo "Updating remote repo"
+    git -C "$DEV_ENV" push
 }
 
 sync_diff() {
@@ -142,6 +144,7 @@ SYNC_REMOTE=false
 SYNC_EDITOR=false
 SYNC_CHECK_DIFF=false
 SYNC_FILES=true
+SYNC_COMMIT=false
 OPEN_ZEN=false
 PRINT_USAGE=false
 
@@ -150,6 +153,7 @@ print_usage() {
     echo -e "  Flags:"
     echo -e "\td  SYNC_CHECK_DIFF   flip the value to true  (default: false)"
     echo -e "\te  SYNC_EDITOR       flip the value to true  (default: false)"
+    echo -e "\te  SYNC_COMMIT       flip the value to true  (default: false)"
     echo -e "\tn  OPEN_ZEN          flip the value to true  (default: false)"
     echo -e "\ts  SYNC_REMOTE       flip the value to true  (default: false)"
     echo -e "\tv  VERBOSE           flip the value to true  (default: false)"
@@ -166,6 +170,7 @@ for ((i = 0; i < ${#arg}; i++)); do
     "e") SYNC_EDITOR=true ;;
     "n") OPEN_ZEN=true ;;
     "s") SYNC_REMOTE=true ;;
+    "c") SYNC_COMMIT=true ;;
     "v") VERBOSE=true ;;
     "x") SYNC_FILES=false ;;
     "h") PRINT_USAGE=true ;;
@@ -175,6 +180,7 @@ done
 
 log "VERBOSE           $VERBOSE"
 log "SYNC_FILES        $SYNC_FILES"
+log "SYNC_COMMIT       $SYNC_COMMIT"
 log "SYNC_REMOTE       $SYNC_REMOTE"
 log "SYNC_EDITOR       $SYNC_EDITOR"
 log "SYNC_CHECK_DIFF   $SYNC_CHECK_DIFF"
@@ -192,12 +198,18 @@ if [ "$SYNC_FILES" = true ]; then
     sync_status
 fi
 
+if [ "$SYNC_COMMIT" = true ]; then
+    sync_commit
+fi
+
 if [ "$SYNC_CHECK_DIFF" = true ]; then
     sync_diff
 fi
+
 if [ "$SYNC_REMOTE" = true ]; then
     sync_remote "$2"
 fi
+
 if [ "$OPEN_ZEN" = true ]; then
     zen-browser --new-tab "https://github.com/laeva-lady/dev-env"
 fi

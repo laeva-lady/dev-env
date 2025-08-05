@@ -5,8 +5,8 @@ confirm-close-surface = false
 
 background-opacity = 0.80
 
-# font-family = "Fira Code Retina"
-font-family = "IosevkaTerm"
+font-family = "Fira Code Retina"
+# font-family = "IosevkaTerm" # can't really decide if this font is better...
 
 font-size = 16
 
