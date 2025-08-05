@@ -80,6 +80,8 @@ sync_files() {
     sudo chown $USER:$USER $DEV_ENV/root/etc/sudoers
     sudo cp -r /usr/share/sddm $DEV_ENV/root/usr/share/
 
+    cp $HOME/.gitconfig $HOME/personal
+
 }
 sync_status() {
     echo "Checking status"
