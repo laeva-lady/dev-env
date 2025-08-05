@@ -2,7 +2,7 @@
 
 # Copies dotfiles to this repo, then update remote if the user wants
 
-VERBOSE=true
+VERBOSE=false
 
 log() {
     if [ "$VERBOSE" = true ]; then
