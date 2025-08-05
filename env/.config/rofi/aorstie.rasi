@@ -8,17 +8,17 @@ configuration {
 }
 
 * {
-    // Gruvbox Dark Palette
-    bg-col: #282828;
-    bg-col-light: #3c3836;
-    border-col: #504945;
-    selected-col: #458588;
-    blue: #83a598;
-    fg-col: #ebdbb2;
-    fg-col2: #fabd2f;
-    grey: #a89984;
+    // Kanagawa Waves Palette
+    bg-col:        #1F1F28;   // WaveBlue1
+    bg-col-light:  #2A2A37;   // SumiInk2
+    border-col:    #223249;   // SumiInk4
+    selected-col:  #223249;   // WaveAqua1
+    blue:          #7E9CD8;   // CrystalBlue
+    fg-col:        #DCD7BA;   // OldWhite
+    fg-col2:       #E6C384;   // WaveYellow1
+    grey:          #9CABCA;   // FujisawaGray
     width: 1000;
-    font: "JetBrainsMono Nerd Font 18";
+    font: "Fira Code Retina 18";
 }
 
 element-text, element-icon, mode-switcher {
@@ -30,7 +30,7 @@ window {
     height: 600px;
     border: 2px;
     border-radius: 5px;
-    border-color: #d79921;
+    border-color: @border-col;
     background-color: @bg-col;
 }
 
