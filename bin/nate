@@ -3,6 +3,9 @@
 # Copies dotfiles to this repo, then update remote if the user wants
 
 VERBOSE=false
+SYNC_REMOTE=false
+SYNC_EDITOR=false
+SYNC_CHECK_DIFF=false
 
 log() {
     if [ "$VERBOSE" = true ]; then
@@ -104,11 +107,11 @@ sync_remote() {
 
         git add .
         git -C "$DEV_ENV" status
-        if [ "$1" ]; then
-            if [ -z "$2" ]; then
+        if [ "$SYNC_EDITOR" ]; then
+            if [ -z "$1" ]; then
                 git commit -m "chore: automated commit"
             else
-                git commit -m "$2"
+                git commit -m "$1"
             fi
         else
             git commit
@@ -141,42 +144,62 @@ echo "
     |_____________________________________|
 
 "
-for arg in "$@"; do
-  if [[ "$arg" == "-v" ]]; then
-    VERBOSE=true
-  else
-    new_args+=("$arg")
-  fi
-done
-set -- "${new_args[@]}"
 
-case "$1" in
-"v" | "vim")
-    nvim "$DOTFILES"
-    ;;
-"n" | "net")
-    xdg-open "https://github.com/laeva-lady/dev-env"
-    ;;
-"s" | "sync")
-    sync_remote true "$2"
-    ;;
-"se" | "sync-editor")
-    sync_remote false "$2"
-    ;;
-"d" | "diff")
+arg="$1" # Assign first script argument to 'arg'
+for ((i = 0; i < ${#arg}; i++)); do
+    ch="${arg:$i:1}"
+    case "$ch" in
+    "v") VERBOSE=true ;;
+    "s") SYNC_REMOTE=true ;;
+    "e") SYNC_EDITOR=true ;;
+    "d") SYNC_CHECK_DIFF=true ;;
+    *) new_args+=("-$ch") ;;
+    esac
+done
+
+echo "VERBOSE           $VERBOSE"
+echo "SYNC_REMOTE       $SYNC_REMOTE"
+echo "SYNC_EDITOR       $SYNC_EDITOR"
+echo "SYNC_CHECK_DIFF   $SYNC_CHECK_DIFF"
+
+
+sync_files
+sync_status
+
+if [ "$SYNC_CHECK_DIFF" ]; then
     sync_diff
-    ;;
-"u" | "w" | "t" | "thor") # can't decide what should be used 😭😭😭
-    shift
-    thor $@
-    ;;
-"a" | "any")
-    sync_files
-    sync_status
-    thor
-    ;;
-*)
-    sync_files
-    sync_status
-    ;;
-esac
+fi
+if [ "$SYNC_REMOTE" ]; then
+    sync_remote "$1"
+fi
+
+# case "$1" in
+# "v" | "vim")
+#     nvim "$DOTFILES"
+#     ;;
+# "n" | "net")
+#     xdg-open "https://github.com/laeva-lady/dev-env"
+#     ;;
+# "s" | "sync")
+#     sync_remote true "$2"
+#     ;;
+# "se" | "sync-editor")
+#     sync_remote false "$2"
+#     ;;
+# "d" | "diff")
+#     sync_diff
+#     ;;
+# "u" | "w" | "t" | "thor") # can't decide what should be used 😭😭😭
+#     shift
+#     thor $@
+#     ;;
+# "a" | "any")
+#     sync_files
+#     sync_status
+#     thor
+#     ;;
+# *)
+#     sync_files
+#     sync_status
+#     ;;
+# esac
