@@ -104,7 +104,7 @@ main() {
     rm $HOME/.current.wall
     ln -s "$selected_file" $HOME/.current.wall
 
-    # copies in root to allow sddm to use the current wallpapep
+    # copies in root to allow sddm to use the current wallpaper
     sudo mkdir -p /usr/share/wallpapers/Customs/
     sudo cp "$selected_file" /usr/share/wallpapers/Customs/current.wall
 
