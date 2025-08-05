@@ -1,173 +1,173 @@
-!!omap
-- aur:
-  - clock-tui
-  - cnijfilter2 # canon printer drivers
-  - cursor-bin
-  - fcitx5-mozc-ut
-  - gpu-screen-recorder
-  - gpu-screen-recorder-gtk
-  - gromit-mpx # drawing on top of windows
-  - localsend-bin
-  - minecraft-launcher
-  - mpvpaper
-  - protontricks
-  - quickshell-git
-  - r2modman-bin
-  - rose-pine-cursor
-  - timg # view img in terminal
-  - ttf-comic-sans
-  - vesktop-bin
-  - wlogout
-  - wlrobs # plugin for OBS to record in wayland
-  - zen-browser-bin
-- browser:
-  - discord
-  - firefox
-  - spotify-launcher
-  - steam
-  - steam-native-runtime
-  - thunderbird
-  - torbrowser-launcher
-  - vivaldi
-- extra:
-  - ckb-next
-  - gedit
-  - gimp
-  - kdenlive
-  - libreoffice-still
-  - loupe # gnome's image viewer
-  - lutris
-  - obs-studio
-  - obsidian
-  - okular
-  - qbittorrent
-  - vlc
-  - vlc-plugin-x264
-  - vlc-plugins-all
-  - wev
-  - wine
-  - wine-mono
-- fonts:
-  - noto-fonts-cjk
-  - ttf-fira-code
-  - ttf-nerd-fonts-symbols-mono
-- ides:
-  - code # the OSS version of vscode
-  - intellij-idea-community-edition
-- ime:
-  - fcitx5-configtool
-  - fcitx5-gtk
-  - fcitx5-rime
-- langs:
-  - aspnet-runtime
-  - clang
-  - dotnet-runtime
-  - dotnet-sdk
-  - elixir
-  - erlang
-  - go
-  - gopls
-  - jdk-openjdk
-  - lua
-  - maven
-  - ncurses
-  - npm
-  - odin
-  - raylib
-  - rustup
-  - texlive-basic
-  - texlive-bibtexextra
-  - texlive-binextra
-  - texlive-fontsrecommended
-  - texlive-lang
-  - texlive-latex
-  - texlive-latexextra
-  - texlive-latexrecommended
-  - texlive-luatex
-  - texlive-mathscience
-  - texlive-plaingeneric
-  - texlive-xetex
-  - typst
-  - yarn
-  - zig
-  - zls
-- math:
-  - cantor
-  - geogebra
-  - qalculate-gtk
-  - sagemath
-- system:
-  - base-devel
-  - breeze
-  - breeze5
-  - brightnessctl
-  - git
-  - glfw
-  - gnome-keyring
-  - gtk-engine-murrine
-  - gvfs # dependency for Thunar's volume management
-  - keepassxc
-  - keyd
-  - kvantum
-  - mercurial
-  - network-manager-applet
-  - networkmanager
-  - nwg-look
-  - pavucontrol
-  - qt5-wayland
-  - qt5ct
-  - qt6-wayland
-  - seahorse
-  - thunar
-  - thunar-volman # dependency for Thunar's volume management
-  - tumbler # needed to display thumbnails in Thunar
-- term_tools:
-  - bat
-  - btop
-  - chafa
-  - eza
-  - fastfetch
-  - fzf
-  - ghostty
-  - github-cli
-  - gitui
-  - htop
-  - hyfetch
-  - kitty
-  - ncdu # WinDirStat like tool
-  - ncspot # TUI for spotify
-  - neovim
-  - nushell
-  - nvtop
-  - pandoc-cli
-  - ranger
-  - ripgrep
-  - rsync
-  - shfmt
-  - tmux
-  - tree
-  - yazi
-  - zsh
-- to_organize:
-  - gnome-weather
-- wm:
-  - cliphist
-  - dunst
-  - grim
-  - hypridle
-  - hyprland
-  - hyprlock
-  - hyprpaper
-  - hyprpicker
-  - hyprshot
-  - i3-wm
-  - rofi-emoji
-  - rofi-wayland
-  - swww
-  - tesseract
-  - tesseract-data-chi_sim
-  - tesseract-data-eng
-  - tesseract-data-jpn
-  - waybar
-  - wl-clipboard
-  - xdg-desktop-portal-hyprland
+aur:
+- clock-tui
+- cnijfilter2   # canon printer drivers
+- cursor-bin
+- fcitx5-mozc-ut
+- gpu-screen-recorder
+- gpu-screen-recorder-gtk
+- gromit-mpx   # drawing on top of windows
+- localsend-bin
+- minecraft-launcher
+- mpvpaper
+- protontricks
+- quickshell-git
+- r2modman-bin
+- rose-pine-cursor
+- timg   # view img in terminal
+- ttf-comic-sans
+- vesktop-bin
+- wlogout
+- wlrobs   # plugin for OBS to record in wayland
+- zen-browser-bin
+- wshowkeys-mao-git
+browser:
+- discord
+- firefox
+- spotify-launcher
+- steam
+- steam-native-runtime
+- thunderbird
+- torbrowser-launcher
+- vivaldi
+extra:
+- ckb-next
+- gedit
+- gimp
+- kdenlive
+- libreoffice-still
+- loupe   # gnome's image viewer
+- lutris
+- obs-studio
+- obsidian
+- okular
+- qbittorrent
+- vlc
+- vlc-plugin-x264
+- vlc-plugins-all
+- wev
+- wine
+- wine-mono
+fonts:
+- noto-fonts-cjk
+- ttf-fira-code
+- ttf-nerd-fonts-symbols-mono
+ides:
+- code   # the OSS version of vscode
+- intellij-idea-community-edition
+ime:
+- fcitx5-configtool
+- fcitx5-gtk
+- fcitx5-rime
+langs:
+- aspnet-runtime
+- clang
+- dotnet-runtime
+- dotnet-sdk
+- elixir
+- erlang
+- go
+- gopls
+- jdk-openjdk
+- lua
+- maven
+- ncurses
+- npm
+- odin
+- raylib
+- rustup
+- texlive-basic
+- texlive-bibtexextra
+- texlive-binextra
+- texlive-fontsrecommended
+- texlive-lang
+- texlive-latex
+- texlive-latexextra
+- texlive-latexrecommended
+- texlive-luatex
+- texlive-mathscience
+- texlive-plaingeneric
+- texlive-xetex
+- typst
+- yarn
+- zig
+- zls
+math:
+- cantor
+- geogebra
+- qalculate-gtk
+- sagemath
+system:
+- base-devel
+- breeze
+- breeze5
+- brightnessctl
+- git
+- glfw
+- gnome-keyring
+- gtk-engine-murrine
+- gvfs   # dependency for Thunar's volume management
+- keepassxc
+- keyd
+- kvantum
+- mercurial
+- network-manager-applet
+- networkmanager
+- nwg-look
+- pavucontrol
+- qt5-wayland
+- qt5ct
+- qt6-wayland
+- seahorse
+- thunar
+- thunar-volman   # dependency for Thunar's volume management
+- tumbler   # needed to display thumbnails in Thunar
+term_tools:
+- bat
+- btop
+- chafa
+- eza
+- fastfetch
+- fzf
+- ghostty
+- github-cli
+- gitui
+- htop
+- hyfetch
+- kitty
+- ncdu   # WinDirStat like tool
+- ncspot   # TUI for spotify
+- neovim
+- nushell
+- nvtop
+- pandoc-cli
+- ranger
+- ripgrep
+- rsync
+- shfmt
+- tmux
+- tree
+- yazi
+- zsh
+to_organize:
+- gnome-weather
+wm:
+- cliphist
+- dunst
+- grim
+- hypridle
+- hyprland
+- hyprlock
+- hyprpaper
+- hyprpicker
+- hyprshot
+- i3-wm
+- rofi-emoji
+- rofi-wayland
+- swww
+- tesseract
+- tesseract-data-chi_sim
+- tesseract-data-eng
+- tesseract-data-jpn
+- waybar
+- wl-clipboard
+- xdg-desktop-portal-hyprland

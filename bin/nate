@@ -141,6 +141,14 @@ echo "
     |_____________________________________|
 
 "
+for arg in "$@"; do
+  if [[ "$arg" == "-v" ]]; then
+    VERBOSE=true
+  else
+    new_args+=("$arg")
+  fi
+done
+set -- "${new_args[@]}"
 
 case "$1" in
 "v" | "vim")
