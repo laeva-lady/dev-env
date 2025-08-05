@@ -139,26 +139,26 @@ echo "
 
 "
 
-VERBOSE=false
-SYNC_REMOTE=false
-SYNC_EDITOR=false
-SYNC_CHECK_DIFF=false
-SYNC_FILES=true
-SYNC_COMMIT=false
 OPEN_ZEN=false
 PRINT_USAGE=false
+SYNC_CHECK_DIFF=false
+SYNC_COMMIT=false
+SYNC_EDITOR=false
+SYNC_FILES=true
+SYNC_REMOTE=false
+VERBOSE=false
 
 print_usage() {
     echo "Usage: nate <flags> <git commit message>"
     echo -e "  Flags:"
     echo -e "\td  SYNC_CHECK_DIFF   flip the value to true  (default: false)"
     echo -e "\te  SYNC_EDITOR       flip the value to true  (default: false)"
-    echo -e "\te  SYNC_COMMIT       flip the value to true  (default: false)"
     echo -e "\tn  OPEN_ZEN          flip the value to true  (default: false)"
-    echo -e "\ts  SYNC_REMOTE       flip the value to true  (default: false)"
+    echo -e "\tr  SYNC_REMOTE       flip the value to true  (default: false)"
+    echo -e "\ts  SYNC_COMMIT       flip the value to true  (default: false)"
     echo -e "\tv  VERBOSE           flip the value to true  (default: false)"
-    echo -e "\tx  SYNC_FILES        flip the value to fals  (default: true) e"
     echo -e "\tx  PRINT_USAGE       flip the value to true  (default: false)"
+    echo -e "\tx  SYNC_FILES        flip the value to fals  (default: true) e"
     exit 0
 }
 
@@ -168,12 +168,12 @@ for ((i = 0; i < ${#arg}; i++)); do
     case "$ch" in
     "d") SYNC_CHECK_DIFF=true ;;
     "e") SYNC_EDITOR=true ;;
+    "h") PRINT_USAGE=true ;;
     "n") OPEN_ZEN=true ;;
     "r") SYNC_REMOTE=true ;;
     "s") SYNC_COMMIT=true ;;
     "v") VERBOSE=true ;;
     "x") SYNC_FILES=false ;;
-    "h") PRINT_USAGE=true ;;
     *) new_args+=("-$ch") ;;
     esac
 done
