@@ -4,6 +4,7 @@ output_dir="$HOME/Pictures/screenshots"
 mkdir -p "$output_dir"
 
 open_dir_image() {
+    echo "Opening dir"
     thunar "$output_dir/" &
 
     latest_file=$(eza -snew "$output_dir"/* | tail -n1)
@@ -14,7 +15,7 @@ screen() {
     sleep 0.2
     filename="$output_dir/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"
     if grim "$filename"; then
-        wl-copy < "$filename"  # 📋 Copy image to clipboard
+        wl-copy <"$filename" # 📋 Copy image to clipboard
         open_dir_image
     fi
 }
@@ -40,8 +41,14 @@ screen"
         screen
     else
         echo "$selection"
-        if hyprshot --freeze -m "$selection" -o "$output_dir"; then
+        old_latest=$(ls -t "$output_dir" | head -n1)
+        hyprshot -m "$selection" -o "$output_dir"
+        new_latest=$(ls -t "$output_dir" | head -n1)
+
+        if [ "$new_latest" != "$old_latest" ]; then
             open_dir_image
+        else
+            echo "No new screenshot detected"
         fi
     fi
     ;;
