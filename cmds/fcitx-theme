@@ -1,0 +1,30 @@
+#!/usr/bin/bash
+
+case $1 in
+    "gruvbox")
+        git clone https://github.com/ayamir/fcitx5-gruvbox
+        mkdir -p ~/.local/share/fcitx5/themes/
+        cd fcitx5-gruvbox
+        cp -r Gruvbox-Light/ Gruvbox-Dark ~/.local/share/fcitx5/themes/
+        cd ..
+        rm -rf fcitx5-gruvbox
+        ;;
+    "catppuccin")
+        git clone https://github.com/catppuccin/fcitx5.git
+        mkdir -p ~/.local/share/fcitx5/themes/
+        cp -r ./fcitx5/src/* ~/.local/share/fcitx5/themes
+        cd ..
+        rm -rf fcitx5
+        ;;
+    "nord")
+        git clone https://github.com/tonyfettes/fcitx5-nord.git
+        mkdir -p ~/.local/share/fcitx5/themes/
+        cd fcitx5-nord
+        cp -r Nord-Dark/ Nord-Light/ ~/.local/share/fcitx5/themes/
+        cd ..
+        rm -rf fcitx5-nord
+        ;;
+    *)
+        echo "No theme selected"
+        ;;
+esac

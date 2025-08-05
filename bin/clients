@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+hyprctl clients -j | jq -r '.[] | [.class, .address, (.pid|tostring), (.xwayland|tostring)] | @tsv' | \
+    awk -F'\t'\
+    '{printf "class: %-25s address: %-18s pid: %-8s xwayland: %s\n", $1, $2, $3, $4}'

@@ -1,0 +1,41 @@
+{
+    // ─────────────────────────────────────────────────────────────┤ header ├───
+    "layer": "bottom",
+    "position": "top",
+    "exclusive": false,
+    "reload_style_on_change": true,
+    "gtk-layer-shell": true,
+    // ──────────────────────────────────────────────────────────┤ positions ├───
+    "modules-left": [
+        "clock"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "tray",
+        "custom/sep",
+        "hyprland/language"
+    ],
+    "custom/sep": {
+        "format": " | "
+    },
+    "hyprland/workspaces": {
+        "format": "{name}"
+    },
+    "tray": {
+        "show-passive-items": "true"
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-fr": "CA",
+        "format-de": "DE",
+        "format-pl": "PL"
+    },
+    "clock": {
+        "tooltip": true,
+        "format": "{:%m-%d | %H:%M}",
+        "tooltip-format": "{:%Y-%m-%d}"
+    }
+}

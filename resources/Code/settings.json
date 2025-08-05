@@ -1,0 +1,20 @@
+{
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
+    "keyboard.dispatch": "keyCode",
+    "editor.mouseWheelZoom": true,
+    "editor.fontFamily": "'Fira Code Retina', 'Droid Sans Mono', 'monospace', monospace",
+    "haskell.manageHLS": "GHCup",
+    "debug.inlineValues": "off",
+    "editor.renderWhitespace": "all",
+
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [";"],
+            "after": [":"]
+        }
+    ],
+    "qt-qml.qmlls.useQmlImportPathEnvVar": true,
+    "python.analysis.typeCheckingMode": "standard",
+    "git.openRepositoryInParentFolders": "never"
+}

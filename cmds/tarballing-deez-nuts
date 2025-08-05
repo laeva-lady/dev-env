@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+if [ -z "$@" ]; then
+    echo "You need to provide those arguments:"
+    echo -e "\t1st arg: drive path"
+    echo -e "\t2nd arg: zen profile path"
+fi
+
+if [ -n "$1" ] && [ -n "$2" ]; then
+    {
+        cd "$1"
+        echo "Compressiong personal"
+        tar -cJvf personal.tar.xz ~/personal/
+        echo "Compressiong .minecraft"
+        tar -czvf minecraft.tar.gz ~/.minecraft
+        echo "Compressiong zen profile"
+        tar -czvf zen-profile.tar.gz "$2"
+    }
+fi

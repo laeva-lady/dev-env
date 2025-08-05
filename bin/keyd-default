@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+sudo cp ~/personal/dev-env/root/etc/keyd/default.conf /etc/keyd/default.conf
+sudo keyd reload

@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+git clone https://github.com/tkashkin/Adwaita-for-Steam
+cd Adwaita-for-Steam
+./install.py -c rose-pine
+cd ..
+rm Adwaita-for-Steam -rf

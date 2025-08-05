@@ -1,0 +1,117 @@
+{
+    "layer": "top",
+    "position": "left",
+    "width": 20,
+    // "output": "eDP-1",
+    // "margin": "2 2 2 2",
+    "spacing": 2,
+    "modules-left": [
+        "custom/sep",
+        "clock",
+        "custom/sep",
+        "pulseaudio"
+        // "custom/sep",
+        // "custom/music"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        // "custom/pron",
+        // "custom/sep",
+        "tray",
+        "custom/sep",
+        "hyprland/language",
+        "custom/sep",
+        "custom/power"
+    ],
+    "mpris": {
+        //"rotate": 90,
+        "format": "|>",
+        "format-paused": "||"
+        // "max-length": 50
+    },
+    "custom/power": {
+        "rotate": 90,
+        "format": "パワー",
+        "on-click": "wlogout"
+    },
+    "custom/pron": {
+        "rotate": 90,
+        "format": "Pr0n : {}",
+        "exec": "~/.config/waybar/scripts/pron-size.sh",
+        "interval": 1000
+    },
+    "custom/music": {
+        "rotate": 270,
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/caway",
+        "return-type": "text",
+        "on-click": "playerctl play-pause",
+        "max-length": 35
+    },
+    "custom/animations": {
+        "exec": "~/.config/waybar/scripts/animations-state.sh",
+        "interval": 1,
+        "tooltip": true,
+        "return-type": "json",
+        "format": "{}",
+        "on-click": "~/.config/hypr/gamemode.sh"
+    },
+    "custom/sep": {
+        "format": "愛"
+    },
+    "hyprland/workspaces": {
+        "format": " \n{name}\n ",
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1"
+    },
+    "hyprland/window": {
+        "rotate": 90,
+        "format": "{} ",
+        "max-length": 30
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-fr": "CA",
+        "format-de": "DE",
+        "format-pl": "PL"
+    },
+    "clock": {
+        "tooltip": true,
+        "format": "{:%m\n%d\n--\n%H\n%M}",
+        "tooltip-format": "{:%Y-%m-%d}"
+    },
+    "tray": {
+        "icon-size": 18,
+        "show-passive-items": "true"
+    },
+    "temperature": {
+        "rotate": 90,
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
+    },
+    "pulseaudio": {
+        // "rotate": 90,
+        "format": "{volume}%",
+        "format-bluetooth": "{volume}%",
+        "format-muted": "{volume}%",
+        "format-icons": {
+            "default": [
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 2,
+        "on-click": "hyprctl dispatch exec pavucontrol",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    }
+}

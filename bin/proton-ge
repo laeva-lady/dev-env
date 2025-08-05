@@ -1,0 +1,38 @@
+#!/usr/bin/bash
+set -euo pipefail
+
+# make temp working directory
+echo "Creating temporary working directory..."
+rm -rf /tmp/proton-ge-custom
+mkdir /tmp/proton-ge-custom
+cd /tmp/proton-ge-custom
+
+echo "Fetching tarball URL..."
+tarball_url=$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep browser_download_url | cut -d\" -f4 | grep .tar.gz)
+tarball_name=$(basename $tarball_url)
+clean_name=$(echo "$tarball_name" | awk -F "." '{print $1}')
+
+if find ~/.steam/steam/compatibilitytools.d -maxdepth 1 -type d | awk -F "/" '{print $NF}' | grep "$clean_name" &>/dev/null; then
+    echo "$clean_name already installed, exiting"
+    rm -rf /tmp/proton-ge-custom
+    exit 0
+fi
+
+echo "Downloading tarball: $tarball_name..."
+curl -# -L $tarball_url -o $tarball_name --no-progress-meter
+
+echo "Fetching checksum URL..."
+checksum_url=$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep browser_download_url | cut -d\" -f4 | grep .sha512sum)
+checksum_name=$(basename $checksum_url)
+echo "Downloading checksum: $checksum_name..."
+curl -# -L $checksum_url -o $checksum_name --no-progress-meter
+
+echo "Verifying tarball $tarball_name with checksum $checksum_name..."
+sha512sum -c $checksum_name
+
+echo "Creating Steam directory if it does not exist..."
+mkdir -p ~/.steam/steam/compatibilitytools.d
+
+echo "Extracting $tarball_name to Steam directory..."
+tar -xf $tarball_name -C ~/.steam/steam/compatibilitytools.d/
+echo "Done 💤"

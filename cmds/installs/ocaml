@@ -1,0 +1,9 @@
+#!/usr/bin/zsh
+
+
+echo "Installing opam"
+sudo pacman -S --needed opam
+echo "Initializing opam"
+opam init
+echo "Installing tools"
+opam install ocaml-lsp-server odoc ocamlformat utop dune csv

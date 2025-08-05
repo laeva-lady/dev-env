@@ -1,0 +1,62 @@
+// Keyboard layouts for Canada.
+
+default partial
+xkb_symbols "fr" {
+    name[Group1] = "French (Canada)";
+
+    key <TLDE>	{[ numbersign,       bar,     backslash ]};
+    key <AE01>	{[         1,     exclam,     plusminus ]};
+    key <AE02>	{[         2,   quotedbl,            at ]};
+    key <AE03>	{[         3,      slash,      sterling ]};
+    key <AE04>	{[         4,     dollar,          cent ]};
+    key <AE05>	{[         5,    percent,      currency ]};
+    key <AE06>	{[         6,   question,       notsign ]};
+    key <AE07>	{[         7,  ampersand,     brokenbar ]};
+    key <AE08>	{[         8,   asterisk,   twosuperior ]};
+    key <AE09>	{[         9,  parenleft, threesuperior ]};
+    key <AE10>	{[         0, parenright,    onequarter ]};
+    key <AE11>	{[     minus, underscore,       onehalf ]};
+    key <AE12>	{[     equal,       plus, threequarters ]};
+
+    key <AD01>	{[         q,          Q ]};
+    key <AD02>	{[         w,          W ]};
+    key <AD03>	{[         f,          F,      EuroSign ]};
+    key <AD04>	{[         p,          P ]};
+    key <AD05>	{[         g,          G ]};
+    key <AD06>	{[         j,          J,           yen ]};
+    key <AD07>	{[         l,          L ]};
+    key <AD08>	{[         u,          U ]};
+    key <AD09>	{[         y,          Y,       section ]};
+    key <AD10>	{[         semicolon,          colon,     paragraph ]};
+    key <AD11>	{[dead_circumflex, dead_circumflex, bracketleft  ]};
+    key <AD12>	{[   dead_cedilla,  dead_diaeresis, bracketright ]};
+
+    key <AC01>	{[         a,          A ]};
+    key <AC02>	{[         r,          R ]};
+    key <AC03>	{[         s,          S ]};
+    key <AC04>	{[         t,          T ]};
+    key <AC05>	{[         d,          D ]};
+    key <AC06>	{[         h,          H ]};
+    key <AC07>	{[         n,          N ]};
+    key <AC08>	{[         e,          E ]};
+    key <AC09>	{[         i,          I ]};
+    key <AC10>	{[         o,          O,    asciitilde ]};
+    key <AC11>	{[dead_grave, dead_grave,     braceleft ]};
+    key <BKSL>	{[      less,    greater,    braceright ]};
+
+    key <LSGT>	{[guillemotleft, guillemotright,  degree]};
+    key <AB01>	{[         z,          Z ]};
+    key <AB02>	{[         x,          X ]};
+    key <AB03>	{[         c,          C ]};
+    key <AB04>	{[         v,          V ]};
+    key <AB05>	{[         b,          B ]};
+    key <AB06>	{[         k,          K ]};
+    key <AB07>	{[         m,          M,            mu ]};
+    key <AB08>	{[     comma, apostrophe,        macron ]};
+    key <AB09>	{[    period,     period,        hyphen ]};
+    key <AB10>	{[    eacute,     Eacute,    dead_acute ]};
+
+    key <SPCE>	{[     space,      space,  nobreakspace ]};
+
+    include "level3(ralt_switch)"
+};

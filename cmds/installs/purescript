@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+sudo npm install -g purescript
+sudo npm install -g spago

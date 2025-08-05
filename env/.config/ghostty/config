@@ -1,0 +1,19 @@
+background = 000000
+# foreground = ffffff
+
+confirm-close-surface = false
+
+background-opacity = 0.80
+
+font-family = "Fira Code Retina"
+
+font-size = 16
+
+gtk-wide-tabs = false
+gtk-tabs-location= bottom
+
+shell-integration-features = no-cursor
+gtk-single-instance = true
+# theme = rose-pine
+# theme = GruvboxDark
+theme = Kanagawa Wave

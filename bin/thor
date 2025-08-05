@@ -1,0 +1,248 @@
+#!/usr/bin/python
+
+import argparse
+import os
+import re
+import signal
+import subprocess
+import sys
+import time
+
+from collections import OrderedDict
+from pathlib import Path
+from ruamel.yaml.comments import CommentedSeq
+from ruamel.yaml import YAML
+
+pkg_path_yaml = os.environ['PKG_PATH_YAML']
+if not pkg_path_yaml:
+    print("PKG_PATH_YAML not set")
+    exit(0)
+
+yaml_path = Path(pkg_path_yaml)
+yaml = YAML()
+yaml.preserve_quotes = True  # Optional: keeps quotes as-is
+
+def load_data():
+    with yaml_path.open("r") as f:
+        raw_data = yaml.load(f)
+        cleaned_data = {}
+        for k, v in raw_data.items():
+            if v:
+                cleaned_data[k] = v
+            else:
+                print(f"⚠️ Skipping empty key: {k}")
+        return cleaned_data
+
+def save_data(data):
+    with yaml_path.open("w") as f:
+        yaml.dump(data, f)
+
+def add_entry(category, entry):
+    data = load_data()
+    for existing_category, items in data.items():
+        if entry in items:
+            print(f"📦 '{entry}' already in 🗂️: '{existing_category}'")
+            save_data(data)
+            return
+    if category not in data:
+        data[category] = []
+    if entry not in data[category]:
+        data[category].append(entry)
+        print(f"📦 Added '{entry}' to 🗂️: '{category}'")
+        save_data(data)
+        update(category == "aur")
+    else:
+        save_data(data)
+
+def sort_category():
+    data = load_data()
+    sorted_data = OrderedDict()
+
+    for category in sorted(data.keys()):
+        items = data[category]
+        if isinstance(items, CommentedSeq):
+            items.sort()
+        sorted_data[category] = items
+
+    save_data(sorted_data)
+
+def remove_entry(entry):
+    data = load_data()
+    found = False
+    for category, items in data.items():
+        if entry in items:
+            items.remove(entry)
+            found = True
+            subprocess.run(['yay', '-Rs', entry])
+            print(f"Removed '{entry}' from '{category}'")
+    if found:
+        save_data(data)
+    else:
+        print(f"'{entry}' not found")
+
+def list_entries():
+    data = load_data()
+    for cat, items in data.items():
+        print(f"\n🗂️ {cat} (count: {len(items)}):")
+        for item in items:
+            print(f"\t- {item}")
+
+def list_category(category):
+    data = load_data()
+    for cat, items in data.items():
+        if cat == category:
+            print(f"\n🗂️ {cat} (count: {len(items)}):")
+            for item in items:
+                print(f"\t- {item}")
+            return
+
+def list_categories():
+    data = load_data()
+    for cat, items in data.items():
+        print(f"\t🗂️ {cat} (count: {len(items)})")
+
+def get_pkgs():
+    ps = []
+    data = load_data()
+    for category, items in data.items():
+        if category != "aur":
+            for item in items:
+                ps.append(item)
+    return ps
+
+def get_aur():
+    ps = []
+    data = load_data()
+    for category, items in data.items():
+        if category == "aur":
+            for item in items:
+                ps.append(item)
+    return ps
+
+
+
+def query(name, display_aur):
+    thor_pkgs = get_pkgs() + get_aur()
+    pkg_manager_command_installed = ["pacman", "-Qq"] if not display_aur else ["yay", "-Qq"]
+    pkg_manager_command_search = ["pacman", "-Ss", name] if not display_aur else ["yay", "-Ss", name]
+
+    try:
+        installed_pkgs_output = subprocess.check_output(pkg_manager_command_installed, text=True)
+        installed_pkgs = {line for line in installed_pkgs_output.splitlines() if re.search(name, line)}
+    except subprocess.CalledProcessError:
+        installed_pkgs = set()
+
+    try:
+        available_output = subprocess.check_output(pkg_manager_command_search, text=True)
+        available_lines = available_output.splitlines()
+        available_pkgs_info = []
+        for line in available_lines:
+            if '/' in line and re.search(name, line):
+                match = re.match(r'(\S+)/(\S+)', line)
+                if match:
+                    repo, pkgname = match.groups()
+                    available_pkgs_info.append((pkgname, repo))
+    except subprocess.CalledProcessError:
+        available_pkgs_info = []
+
+    seen = set()
+    for pkg, repo in sorted(available_pkgs_info):
+        if pkg in seen:
+            continue
+        seen.add(pkg)
+        location = "    " if repo not in ['aur'] else 'AUR '
+        if pkg in installed_pkgs:
+            if pkg in thor_pkgs:
+                print(f"{location}✅: {pkg:<30}     installed 📦")
+            else:
+                print(f"{location}☑️: {pkg:<30}     installed")
+        else:
+            print(f"{location}❌: {pkg:<30} not installed")
+        time.sleep(0.04)
+
+def update(aur):
+    command = ["sudo", "pacman", "-Syu", "--needed"] + get_pkgs()
+    subprocess.run(command)
+
+    if aur:
+        command = ["yay", "-Syu", "--needed"] + get_aur()
+        subprocess.run(command)
+
+
+parser = argparse.ArgumentParser()
+subparsers = parser.add_subparsers(dest="command")
+
+parser_aur = subparsers.add_parser('aur')
+
+parser_list = subparsers.add_parser('list')
+parser_list.add_argument('-c', '--category', type=str)
+parser_list.add_argument('--categories', action='store_true')
+
+parser_add = subparsers.add_parser('add')
+parser_add.add_argument('--aur', action='store_true')
+parser_add.add_argument('-c', '--category', type=str)
+parser_add.add_argument('names', nargs="+", type=str)
+
+parser_remove = subparsers.add_parser('remove')
+parser_remove.add_argument('name')
+
+parser_nvim = subparsers.add_parser('vim')
+
+parser_query = subparsers.add_parser('query')
+parser_query.add_argument('--aur', action='store_true')
+parser_query.add_argument('name')
+
+args = parser.parse_args()
+
+
+def print_thor():
+    print("""_____ _
+|_   _| |__   ___  _ __
+  | | | '_ \\ / _ \\| '__|
+  | | | | | | (_) | |
+  |_| |_| |_|\\___/|_|
+"""
+)
+
+def main():
+    print_thor()
+    time.sleep(0.25)
+    sort_category()
+
+    if args.command == "list":
+        if args.category:
+            list_category(args.category)
+        elif args.categories:
+            list_categories()
+        else:
+            list_entries()
+
+    elif args.command == "remove":
+        remove_entry(args.name)
+
+    elif args.command == "query":
+        query(args.name, args.aur)
+
+    elif args.command == "add":
+        for pkg_name in args.names:
+            if args.aur:
+                add_entry('aur', pkg_name)
+            elif args.category:
+                add_entry(args.category, pkg_name)
+            else:
+                add_entry("to_organize", pkg_name)
+
+    elif args.command == "vim":
+        subprocess.run(['nvim', pkg_path_yaml])
+    else:
+        update(args.command == "aur")
+
+
+def signal_handler(sig, frame):
+    _ = sig
+    _ = frame
+    sys.exit(0)
+
+if __name__ == "__main__":
+    signal.signal(signal.SIGINT, signal_handler)
+    main()

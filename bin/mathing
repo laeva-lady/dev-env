@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+SESSION="mething-hard"
+
+tmux new-session -d -s "$SESSION" -n "python"
+tmux send-keys -t "$SESSION:python" 'python' C-m
+
+tmux new-window -t "$SESSION:" -n "haskell"
+tmux send-keys -t "$SESSION:haskell" 'ghci' C-m
+
+tmux new-window -t "$SESSION:" -n "qalc"
+tmux send-keys -t "$SESSION:qalc" 'qalc' C-m
+
+if [ -z "$TMUX" ]; then
+    tmux attach-session -t "$SESSION"
+else
+    tmux switch-client -t "$SESSION"
+fi

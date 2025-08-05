@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+if [ -z $1 ]
+then
+    file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}")
+    [ -n "$file" ] && nvim "$file"
+else
+    file=$(find . -type f | grep -i "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {}")
+    [ -n "$file" ] && nvim "$file"
+fi

@@ -1,0 +1,181 @@
+#! /usr/bin/bash
+
+# Copies dotfiles to this repo, then update remote if the user wants
+
+VERBOSE=false
+
+log() {
+    if [ "$VERBOSE" = true ]; then
+        echo -e "$1"
+    fi
+}
+
+update_env_files() {
+    source "$DOTFILES"
+
+    echo "Updating envs files 📁:"
+    rm -r "$DEV_ENV/env/"
+    mkdir -p "$DEV_ENV/env/"
+    for env_file in "${envs[@]}"; do
+        log "\t\t- $env_file"
+        cp "$HOME/$env_file" "$DEV_ENV/env/"
+    done
+
+    echo "Updating configs files 🗃️:"
+    rm -rf "$DEV_ENV/env/.config"
+    mkdir -p "$DEV_ENV/env/.config"
+    for config_item in "${confs[@]}"; do
+        SOURCE_PATH="$HOME/.config/$config_item"
+        DEST_PATH="$DEV_ENV/env/.config/$config_item"
+
+        log "\t\t- $config_item"
+
+        if [[ -d "$SOURCE_PATH" ]]; then
+            mkdir -p "$DEST_PATH"
+            find "$SOURCE_PATH" \( -type f -o -type d \) ! -type l -print0 |
+                while IFS= read -r -d $'\0' item; do
+                    RELATIVE_PATH="${item#$SOURCE_PATH/}"
+                    DEST_ITEM="$DEST_PATH/$RELATIVE_PATH"
+
+                    if [[ -d "$item" ]]; then
+                        mkdir -p "$DEST_ITEM"
+                    elif [[ -f "$item" ]]; then
+                        cp "$item" "$DEST_ITEM"
+                    fi
+                done
+        elif [[ -f "$SOURCE_PATH" && ! -L "$SOURCE_PATH" ]]; then
+            cp "$SOURCE_PATH" "$DEST_PATH"
+        elif [[ -L "$SOURCE_PATH" ]]; then
+            echo -e "\t\tSkipping top-level symlink: $config_item"
+        fi
+
+        rm -rf "$DEST_PATH/.git"
+    done
+}
+
+DOTFILES="$DEV_ENV/dotfiles.sh"
+
+sync_files() {
+    update_env_files
+
+    echo "Copying vscode user settings"
+    cp ~/.config/Code/User/settings.json $DEV_ENV/resources/Code
+    cp ~/.config/Code/User/keybindings.json $DEV_ENV/resources/Code
+
+    echo "Copying vscode-oss user settings"
+    cp ~/.config/Code\ -\ OSS/User/settings.json $DEV_ENV/resources/Code\ -\ OSS
+    cp ~/.config/Code\ -\ OSS/User/keybindings.json $DEV_ENV/resources/Code\ -\ OSS
+
+    echo "Copying Cursor user settings"
+    cp ~/.config/Cursor/User/settings.json $DEV_ENV/resources/Cursor
+    cp ~/.config/Cursor/User/keybindings.json $DEV_ENV/resources/Cursor
+
+    echo "Copying icons"
+    rsync -a ~/.local/share/icons/ $DEV_ENV/resources/icons
+    echo "Copying themes"
+    rsync -a ~/.themes/ $DEV_ENV/resources/themes
+
+    echo "Copying root files"
+    sudo cp /etc/sudoers $DEV_ENV/root/etc/sudoers
+    sudo chown $USER:$USER $DEV_ENV/root/etc/sudoers
+    sudo cp -r /usr/share/sddm $DEV_ENV/root/usr/share/
+
+}
+sync_status() {
+    echo "Checking status"
+    git -C "$DEV_ENV" -c color.status=always status
+}
+
+sync_remote() {
+    echo "Updating remote repo"
+    {
+        cd $DEV_ENV
+
+        sync_status
+
+        # Use plain text (no colors) to check for "nothing to commit"
+        status=$(git -C "$DEV_ENV" status --porcelain)
+
+        if [[ -z "$status" ]]; then
+            exit 0
+        fi
+
+        git add .
+        git -C "$DEV_ENV" status
+        if [ "$1" ]; then
+            if [ -z "$2" ]; then
+                git commit -m "chore: automated commit"
+            else
+                git commit -m "$2"
+            fi
+        else
+            git commit
+        fi
+        git push
+    }
+}
+
+sync_diff() {
+    echo "Checking Diff"
+    sleep 0.5
+    {
+        cd $DEV_ENV
+
+        sync_status
+
+        git diff
+    }
+}
+
+for arg in "$@"; do
+    if [[ "$arg" == "-v" ]]; then
+        VERBOSE=true
+    else
+        new_args+=("$arg")
+    fi
+done
+set -- "${new_args[@]}"
+
+echo "
+     _____________________________________
+    |                                     |
+    | ███╗   ██╗ █████╗ ████████╗███████╗ |
+    | ████╗  ██║██╔══██╗╚══██╔══╝██╔════╝ |
+    | ██╔██╗ ██║███████║   ██║   █████╗   |
+    | ██║╚██╗██║██╔══██║   ██║   ██╔══╝   |
+    | ██║ ╚████║██║  ██║   ██║   ███████╗ |
+    | ╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   ╚══════╝ |
+    |_____________________________________|
+
+"
+
+case "$1" in
+"v" | "vim")
+    nvim "$DOTFILES"
+    ;;
+"n" | "net")
+    xdg-open "https://github.com/laeva-lady/dev-env"
+    ;;
+"s" | "sync")
+    sync_remote true "$2"
+    ;;
+"se" | "sync-editor")
+    sync_remote false "$2"
+    ;;
+"d" | "diff")
+    sync_diff
+    ;;
+"u" | "w" | "t" | "thor") # can't decide what should be used 😭😭😭
+    shift
+    thor $@
+    ;;
+"a" | "any")
+    sync_files
+    sync_status
+    thor
+    ;;
+*)
+    sync_files
+    sync_status
+    ;;
+esac

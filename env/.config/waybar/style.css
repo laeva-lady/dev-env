@@ -1,0 +1,121 @@
+/* -------------------------------
+   Gruvbox Theme Variables
+-------------------------------- */
+/* @define-color fg #d4be98; */
+/* @define-color bg #282828; */
+/* @define-color bg-alt #1d2021; */
+/* @define-color red #ea6962; */
+/* @define-color green #a9b665; */
+/* @define-color yellow #d8a657; */
+/* @define-color blue #7daea3; */
+/* @define-color magenta #d3869b; */
+/* @define-color gray #928374; */
+/* @define-color gray-dark #504945; */
+/* @define-color highlight #fabd2f; */
+/* -------------------------------
+   Kanagawa Theme Variables
+-------------------------------- */
+@define-color fg #dcd7ba;
+@define-color bg #1f1f28;
+@define-color bg-alt #2a2a37;
+@define-color red #c34043;
+@define-color green #76946a;
+@define-color yellow #c0a36e;
+@define-color blue #7e9cd8;
+@define-color magenta #957fb8;
+@define-color gray #9cabca;
+@define-color gray-dark #727169;
+@define-color highlight #ff9e3b;
+
+/* -------------------------------
+   Waybar Styling
+-------------------------------- */
+* {
+    border: none;
+    font-family: "Fira Code";
+    font-size: 14px;
+    font-weight: 600;
+    background: none;
+}
+
+window#waybar {
+    color: @fg;
+    background: @bg;
+}
+
+.modules-left,
+.modules-right,
+.modules-center {
+    /* border-radius: 6px; */
+    background: @bg;
+    /* padding: 12px 0; */
+}
+
+tooltip {
+    color: @fg;
+    background-color: @bg;
+    text-shadow: none;
+}
+
+tooltip * {
+    color: @fg;
+    text-shadow: none;
+}
+
+.modules-center {}
+
+#custom-sep {
+    color: @gray-dark;
+    margin: 4px 0;
+}
+
+#workspaces,
+#clock,
+#custom-bluetooth_devices,
+#custom-powermenu,
+#pulseaudio,
+#tray {}
+
+#workspaces {
+    border-radius: 4px;
+}
+
+#workspaces button {
+    color: @gray;
+    background: none;
+    padding: 0;
+}
+
+#workspaces button:hover {
+    color: @green;
+}
+
+#workspaces button.active {
+    color: @magenta;
+}
+
+#temperature {
+    color: @yellow;
+}
+
+#clock {
+    font-weight: 600;
+    color: @blue;
+}
+
+#custom-bluetooth_devices {
+    color: @blue;
+}
+
+#pulseaudio {
+    color: @green;
+}
+
+#pulseaudio.muted {
+    color: @red;
+}
+
+#custom-powermenu {
+    margin: 12px 0 0 0;
+    color: @gray;
+}

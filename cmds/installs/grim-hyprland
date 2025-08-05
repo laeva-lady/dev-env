@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+git clone https://github.com/eriedaberrie/grim-hyprland
+cd grim-hyprland
+meson build
+ninja -C build install
+cd ..
+rm grim-hyprland -rf

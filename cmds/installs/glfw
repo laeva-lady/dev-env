@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+# script that compiles glfw with wayland support
+
+sudo pacman -S mesa libglvnd glfw
+
+git clone https://github.com/glfw/glfw.git
+cd glfw
+mkdir build && cd build
+
+cmake .. -DGLFW_BUILD_WAYLAND=ON -DGLFW_BUILD_X11=OFF
+make
+sudo make install
+
+cd ../..
+
+rm ./glfw -rf
+

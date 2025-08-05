@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+get_usage() {
+    mem=$(ps -e -o cmd,%mem,rss | grep -i "$1" | awk '{sum += $3} END {printf "%f GB\n", sum / 1024 / 1024}')
+
+    printf "%-15s %10s MB\n" "$1" "$mem"
+}
+
+get_usage zen
+get_usage electron
+get_usage Z:
+get_usage ghostty
+get_usage nvim
+
+
+

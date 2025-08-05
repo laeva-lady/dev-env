@@ -1,0 +1,14 @@
+Defaults        env_reset
+Defaults        mail_badpass
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+root    ALL=(ALL:ALL) ALL
+
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+%wheel   ALL=(ALL:ALL) NOPASSWD: ALL
+# %wheel   ALL=(ALL:ALL) ALL
+
+# Includedir directive allows extra config files
+@includedir /etc/sudoers.d
+

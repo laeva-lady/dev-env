@@ -1,0 +1,42 @@
+* {
+    border: none;
+    font-size: 10px;
+    font-family: "Fira Code Retina, Fira Code, JetBrainsMono Nerd Font,JetBrainsMono NF";
+    font-weight: bold;
+    color: white;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    margin-left: 5px;
+    margin-top:  2px;
+    margin-right: 5px;
+}
+
+#workspaces button {
+    all: initial;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: black;
+    padding: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    /* margin: 1px; */
+}
+
+#workspaces button.empty {
+    background-color: transparent;
+}
+
+/* #workspaces button { */
+/*     background-color: @active; */
+/* } */
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background-color: rosybrown;
+}
