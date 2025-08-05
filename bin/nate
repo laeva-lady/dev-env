@@ -6,6 +6,8 @@ VERBOSE=false
 SYNC_REMOTE=false
 SYNC_EDITOR=false
 SYNC_CHECK_DIFF=false
+SYNC_FILES=true
+OPEN_ZEN=false
 
 log() {
     if [ "$VERBOSE" = true ]; then
@@ -147,10 +149,12 @@ for arg in "$@"; do
     if [[ "$arg" == "-h" ]]; then
         echo "Usage: nate <flags> <git commit message>"
         echo -e "  Flags:"
-        echo -e "\tv  VERBOSE"
-        echo -e "\ts  SYNC_REMOTE"
-        echo -e "\te  SYNC_EDITOR"
-        echo -e "\td  SYNC_CHECK_DIFF"
+        echo -e "\td  SYNC_CHECK_DIFF (default: false)"
+        echo -e "\te  SYNC_EDITOR (default: false)"
+        echo -e "\tn  OPEN_ZEN (default: false)"
+        echo -e "\ts  SYNC_REMOTE (default: false)"
+        echo -e "\tv  VERBOSE (default: false)"
+        echo -e "\tx  SYNC_FILES (default: true)"
         exit 0
     fi
 done
@@ -159,26 +163,34 @@ arg="$1" # Assign first script argument to 'arg'
 for ((i = 0; i < ${#arg}; i++)); do
     ch="${arg:$i:1}"
     case "$ch" in
-    "v") VERBOSE=true ;;
-    "s") SYNC_REMOTE=true ;;
-    "e") SYNC_EDITOR=true ;;
     "d") SYNC_CHECK_DIFF=true ;;
+    "e") SYNC_EDITOR=true ;;
+    "n") OPEN_ZEN=true ;;
+    "s") SYNC_REMOTE=true ;;
+    "v") VERBOSE=true ;;
+    "x") SYNC_FILES=false ;;
     *) new_args+=("-$ch") ;;
     esac
 done
 
 log "VERBOSE           $VERBOSE"
+log "sync_files        $SYNC_FILES"
 log "SYNC_REMOTE       $SYNC_REMOTE"
 log "SYNC_EDITOR       $SYNC_EDITOR"
 log "SYNC_CHECK_DIFF   $SYNC_CHECK_DIFF"
+log "OPEN_ZEN          $OPEN_ZEN"
 
-
-sync_files
-sync_status
+if [ "$SYNC_FILES" = true ]; then
+    sync_files
+    sync_status
+fi
 
 if [ "$SYNC_CHECK_DIFF" = true ]; then
     sync_diff
 fi
 if [ "$SYNC_REMOTE" = true ]; then
     sync_remote "$2"
+fi
+if [ "$OPEN_ZEN" = true ]; then
+    zen-browser --new-tab "https://github.com/laeva-lady/dev-env"
 fi
