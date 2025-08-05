@@ -99,8 +99,12 @@ main() {
     # Search for the selected file in the wallpapers directory, including subdirectories
     selected_file=$(find "$wallDIR" -iname "$choice_basename.*" -print -quit)
 
+
+    # Symlink the file so Hyprlock can read the current wallpaper at ~/.current.wall
     rm $HOME/.current.wall
     ln -s "$selected_file" $HOME/.current.wall
+
+    # copies in root to allow sddm to use the current wallpapep
     sudo mkdir -p /usr/share/wallpapers/Customs/
     sudo cp "$selected_file" /usr/share/wallpapers/Customs/current.wall
 
