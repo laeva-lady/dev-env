@@ -34,6 +34,7 @@
   - ckb-next
   - gedit
   - gimp
+  - gnome-weather
   - kdenlive
   - libreoffice-still
   - loupe # gnome's image viewer
@@ -41,6 +42,7 @@
   - obs-studio
   - obsidian
   - okular
+  - proton-vpn-gtk-app
   - qbittorrent
   - vlc
   - vlc-plugin-x264
@@ -51,6 +53,7 @@
 - fonts:
   - noto-fonts-cjk
   - ttf-fira-code
+  - ttf-iosevkaterm-nerd
   - ttf-nerd-fonts-symbols-mono
 - ides:
   - code # the OSS version of vscode
@@ -149,9 +152,6 @@
   - tree
   - yazi
   - zsh
-- to_organize:
-  - gnome-weather
-  - ttf-iosevkaterm-nerd
 - wm:
   - cliphist
   - dunst
