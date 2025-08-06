@@ -6,7 +6,7 @@ export PATH="$HOME/.ghcup/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-export WORKSTATION="$HOME/personal/workstation"
+export WORKSTATION="$HOME/personal/denver"
 export PATH="$WORKSTATION/bin:$PATH"
 
 export PKG_PATH_YAML="$WORKSTATION/resources/pkg.yaml"

@@ -1,4 +1,4 @@
-# dev-env; my dev setup
+# denver; my dev setup
 <sub>(I use Arch BTW)</sub>
 
 ![Current desktop](assets/2025-08-05.png)

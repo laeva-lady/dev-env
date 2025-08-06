@@ -153,8 +153,8 @@ print_usage() {
     echo -e "\tn  OPEN_ZEN          flip the value to true  (default: false)"
     echo -e "\ts  SYNC_REMOTE       flip the value to true  (default: false)"
     echo -e "\tv  VERBOSE           flip the value to true  (default: false)"
-    echo -e "\tx  PRINT_USAGE       flip the value to true  (default: false)"
-    echo -e "\tx  SYNC_FILES        flip the value to fals  (default: true) e"
+    echo -e "\th  PRINT_USAGE       flip the value to true  (default: false)"
+    echo -e "\tx  SYNC_FILES        flip the value to fals  (default: true)"
     exit 0
 }
 
@@ -187,6 +187,11 @@ if [ "$PRINT_USAGE" = true ]; then
     exit 0
 fi
 
+if [ "$OPEN_ZEN" = true ]; then
+    zen-browser --new-tab "https://github.com/laeva-lady/dev-env"
+    exit 0
+fi
+
 if [ "$SYNC_FILES" = true ]; then
     sync_files
     sync_status
@@ -200,6 +205,3 @@ if [ "$SYNC_REMOTE" = true ]; then
     sync_remote "$2"
 fi
 
-if [ "$OPEN_ZEN" = true ]; then
-    zen-browser --new-tab "https://github.com/laeva-lady/dev-env"
-fi
