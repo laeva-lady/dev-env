@@ -21,13 +21,9 @@ alias r="ranger"
 alias ..="cd .."
 alias rel="omz reload"
 
-alias sagem="sage -n jupyter"
-
-alias notes="tmux-sessionizer $HOME/personal/notes/"
 alias denver="tmux-sessionizer $WORKSTATION"
-alias ian="tmux-sessionizer $HOME"
-
-alias erp="code ."
+alias contry="tmux-sessionizer $HOME"
+alias road="tmux-sessionizer $HOME/personal/notes/"
 
 # ok you lazy as fuck mf
 alias g="git"
@@ -41,10 +37,9 @@ alias gacm="git commit -am"
 alias gpush="git push"
 alias gpull="git pull"
 
-cursor () {
+cursor() {
     command cursor --enable-features=UseOzonePlatform --ozone-platform=wayland "$@" >/dev/null 2>&1 &
 }
-
 
 battery() {
     upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage:/ { print $2 }'
