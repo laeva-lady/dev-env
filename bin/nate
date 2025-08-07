@@ -1,11 +1,8 @@
 #! /usr/bin/bash
 
 # Copies dotfiles to this repo, then update remote if the user wants
-log() {
-    if [ "$VERBOSE" = true ]; then
-        echo -e "$1"
-    fi
-}
+#
+DOTFILES="$WORKSTATION/dotfiles.sh"
 
 update_env_files() {
     source "$DOTFILES"
@@ -14,7 +11,7 @@ update_env_files() {
     rm -r "$WORKSTATION/env/"
     mkdir -p "$WORKSTATION/env/"
     for env_file in "${envs[@]}"; do
-        log "\t\t- $env_file"
+        echo -e "\t\t- $env_file"
         cp "$HOME/$env_file" "$WORKSTATION/env/"
     done
 
@@ -25,7 +22,7 @@ update_env_files() {
         SOURCE_PATH="$HOME/.config/$config_item"
         DEST_PATH="$WORKSTATION/env/.config/$config_item"
 
-        log "\t\t- $config_item"
+        echo -e "\t\t- $config_item"
 
         if [[ -d "$SOURCE_PATH" ]]; then
             mkdir -p "$DEST_PATH"
@@ -49,8 +46,6 @@ update_env_files() {
         rm -rf "$DEST_PATH/.git"
     done
 }
-
-DOTFILES="$WORKSTATION/dotfiles.sh"
 
 sync_files() {
     update_env_files
@@ -80,16 +75,13 @@ sync_files() {
     cp $HOME/.gitconfig $HOME/personal
 
 }
-sync_status() {
-    echo "Checking status"
-    git -C "$WORKSTATION" -c color.status=always status
-}
 
 sync_remote() {
     echo "Updating remote repo"
     {
         cd $WORKSTATION
 
+        git -C "$WORKSTATION" -c color.status=always status
         # Use plain text (no colors) to check for "nothing to commit"
         status=$(git -C "$WORKSTATION" status --porcelain)
 
@@ -99,14 +91,10 @@ sync_remote() {
 
         git add .
         git -C "$WORKSTATION" status
-        if [ "$SYNC_EDITOR" = false ]; then
-            if [ -z "$1" ]; then
-                git commit -m "chore: automated commit"
-            else
-                git commit -m "$1"
-            fi
+        if [ -z "$1" ]; then
+            git commit -m "chore: automated commit"
         else
-            git commit
+            git commit -m "$1"
         fi
         git push
     }
@@ -124,84 +112,18 @@ sync_diff() {
     }
 }
 
-echo "
-     _____________________________________
-    |                                     |
-    | ███╗   ██╗ █████╗ ████████╗███████╗ |
-    | ████╗  ██║██╔══██╗╚══██╔══╝██╔════╝ |
-    | ██╔██╗ ██║███████║   ██║   █████╗   |
-    | ██║╚██╗██║██╔══██║   ██║   ██╔══╝   |
-    | ██║ ╚████║██║  ██║   ██║   ███████╗ |
-    | ╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   ╚══════╝ |
-    |_____________________________________|
-
-"
-
-OPEN_ZEN=false
-PRINT_USAGE=false
-SYNC_CHECK_DIFF=false
-SYNC_EDITOR=false
-SYNC_FILES=true
-SYNC_REMOTE=false
-VERBOSE=false
-
-print_usage() {
-    echo "Usage: nate <flags> <git commit message>"
-    echo -e "  Flags:"
-    echo -e "\td  SYNC_CHECK_DIFF   flip the value to true  (default: false)"
-    echo -e "\te  SYNC_EDITOR       flip the value to true  (default: false)"
-    echo -e "\tn  OPEN_ZEN          flip the value to true  (default: false)"
-    echo -e "\ts  SYNC_REMOTE       flip the value to true  (default: false)"
-    echo -e "\tv  VERBOSE           flip the value to true  (default: false)"
-    echo -e "\th  PRINT_USAGE       flip the value to true  (default: false)"
-    echo -e "\tx  SYNC_FILES        flip the value to fals  (default: true)"
-    exit 0
-}
-
-arg="$1" # Assign first script argument to 'arg'
-for ((i = 0; i < ${#arg}; i++)); do
-    ch="${arg:$i:1}"
-    case "$ch" in
-    "d") SYNC_CHECK_DIFF=true ;;
-    "e") SYNC_EDITOR=true ;;
-    "h") PRINT_USAGE=true ;;
-    "n") OPEN_ZEN=true ;;
-    "s") SYNC_REMOTE=true ;;
-    "v") VERBOSE=true ;;
-    "x") SYNC_FILES=false ;;
-    *) new_args+=("-$ch") ;;
-    esac
-done
-
-log "OPEN_ZEN          $OPEN_ZEN"
-log "PRINT_USAGE       $PRINT_USAGE"
-log "SYNC_CHECK_DIFF   $SYNC_CHECK_DIFF"
-log "SYNC_EDITOR       $SYNC_EDITOR"
-log "SYNC_FILES        $SYNC_FILES"
-log "SYNC_REMOTE       $SYNC_REMOTE"
-log "VERBOSE           $VERBOSE"
-log ""
-
-if [ "$PRINT_USAGE" = true ]; then
-    print_usage
-    exit 0
-fi
-
-if [ "$OPEN_ZEN" = true ]; then
-    zen-browser --new-tab "https://github.com/laeva-lady/denver"
-    exit 0
-fi
-
-if [ "$SYNC_FILES" = true ]; then
+case "$1" in
+"s" | "sync")
     sync_files
-    sync_status
-fi
-
-if [ "$SYNC_CHECK_DIFF" = true ]; then
-    sync_diff
-fi
-
-if [ "$SYNC_REMOTE" = true ]; then
     sync_remote "$2"
-fi
-
+    ;;
+"d" | "diff")
+    sync_diff
+    ;;
+"z" | "zen")
+    zen-browser --new-tab "https://github.com/laeva-lady/denver"
+    ;;
+*)
+    sync_files
+    ;;
+esac
