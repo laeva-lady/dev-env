@@ -5,6 +5,9 @@
     // "output": "eDP-1",
     // "margin": "2 2 2 2",
     "spacing": 2,
+    "margin-left": 5,
+    "margin-top": 5,
+    "margin-bottom": 5,
     "modules-left": [
         "custom/sep",
         "clock",
@@ -23,7 +26,6 @@
         "custom/sep",
         "hyprland/language",
         "custom/sep",
-        "custom/power"
     ],
     "mpris": {
         //"rotate": 90,
@@ -59,7 +61,8 @@
         "on-click": "~/.config/hypr/gamemode.sh"
     },
     "custom/sep": {
-        "format": "愛"
+        "rotate": 90,
+        "format": "｜"
     },
     "hyprland/workspaces": {
         "format": " \n{name}\n ",

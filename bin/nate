@@ -74,6 +74,7 @@ sync_files() {
 
     cp $HOME/.gitconfig $HOME/personal
 
+    git -C "$WORKSTATION" -c color.status=always status
 }
 
 sync_remote() {

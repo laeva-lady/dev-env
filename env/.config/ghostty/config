@@ -1,9 +1,9 @@
-background = 000000
+# background = 000000
 # foreground = ffffff
 
 confirm-close-surface = false
 
-background-opacity = 0.80
+# background-opacity = 0.80
 
 font-family = "Fira Code Retina"
 # font-family = "IosevkaTerm" # can't really decide if this font is better...
