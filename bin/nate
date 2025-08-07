@@ -188,7 +188,7 @@ if [ "$PRINT_USAGE" = true ]; then
 fi
 
 if [ "$OPEN_ZEN" = true ]; then
-    zen-browser --new-tab "https://github.com/laeva-lady/dev-env"
+    zen-browser --new-tab "https://github.com/laeva-lady/denver"
     exit 0
 fi
 

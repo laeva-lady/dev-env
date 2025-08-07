@@ -8,7 +8,7 @@ oarsiten() {
 
 case "$1" in
 "simple")
-    oarsiten area
+    grimblast --notify --freeze copy area
     ;;
 "screen")
     oarsiten "screen"
