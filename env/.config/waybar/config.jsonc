@@ -61,8 +61,7 @@
         "on-click": "~/.config/hypr/gamemode.sh"
     },
     "custom/sep": {
-        "rotate": 90,
-        "format": "｜"
+        "format": "--"
     },
     "hyprland/workspaces": {
         "format": " \n{name}\n ",
@@ -104,7 +103,7 @@
     },
     "pulseaudio": {
         // "rotate": 90,
-        "format": "{volume}%",
+        "format": "{volume}",
         "format-bluetooth": "{volume}%",
         "format-muted": "{volume}%",
         "format-icons": {

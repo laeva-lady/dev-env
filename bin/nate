@@ -115,7 +115,6 @@ sync_diff() {
 
 case "$1" in
 "s" | "sync")
-    sync_files
     sync_remote "$2"
     ;;
 "d" | "diff")
