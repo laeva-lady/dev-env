@@ -22,8 +22,8 @@ alias ..="cd .."
 alias rel="omz reload"
 
 alias denver="tmux-sessionizer $WORKSTATION"
-alias contry="tmux-sessionizer $HOME"
-alias road="tmux-sessionizer $HOME/personal/notes/"
+alias whore="tmux-sessionizer $HOME"
+alias notes="tmux-sessionizer $HOME/personal/notes/"
 
 # ok you lazy as fuck mf
 alias g="git"

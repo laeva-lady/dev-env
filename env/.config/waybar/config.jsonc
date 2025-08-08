@@ -5,9 +5,9 @@
     // "output": "eDP-1",
     // "margin": "2 2 2 2",
     "spacing": 2,
-    "margin-left": 5,
-    "margin-top": 5,
-    "margin-bottom": 5,
+    // "margin-left": 5,
+    // "margin-top": 5,
+    // "margin-bottom": 5,
     "modules-left": [
         "custom/sep",
         "clock",

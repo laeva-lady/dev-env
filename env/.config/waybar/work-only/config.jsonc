@@ -5,6 +5,9 @@
     "exclusive": false,
     "reload_style_on_change": true,
     "gtk-layer-shell": true,
+    "margin-left": 5,
+    "margin-top":  5,
+    "margin-right": 5,
     // ──────────────────────────────────────────────────────────┤ positions ├───
     "modules-left": [
         "clock"
