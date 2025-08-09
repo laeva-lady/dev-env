@@ -19,7 +19,7 @@
                 ":"
             ]
         },
-                {
+        {
             "before": [
                 "<leader>",
                 "s",
@@ -39,11 +39,11 @@
                 }
             ]
         }
-
     ],
     "python.analysis.typeCheckingMode": "standard",
     "git.openRepositoryInParentFolders": "never",
     "FSharp.codeLenses.signature.enabled": false,
     "editor.inlayHints.enabled": "off",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "editor.codeLens": false
 }

@@ -13,7 +13,7 @@ window#waybar {
 #workspaces button {
     all: initial;
     background-color: rgba(0, 0, 0, 0.3);
-    color: black;
+    color: transparent;
     padding: 2px;
     padding-left: 15px;
     padding-right: 15px;
@@ -22,6 +22,9 @@ window#waybar {
 
 #workspaces button.empty {
     background-color: transparent;
+}
+#workspaces button.active {
+    background-color: black;
 }
 
 /* #workspaces button { */
